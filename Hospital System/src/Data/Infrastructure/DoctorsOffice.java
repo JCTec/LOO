@@ -10,5 +10,5 @@ package Data.Infrastructure;
  * @author Juan
  */
 public class DoctorsOffice {
-    
+    //Hola
 }
