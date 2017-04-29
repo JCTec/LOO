@@ -36,15 +36,15 @@ public class Doctor extends Person {
 	private ArrayList<String> patientSet;
 
 	/**
-	 *	id : "undefined id";
-	 *	department : "undefined department";
-	 *	licence : "undefined licence";
+	 *	id : "NOT DEFINED";
+	 *	department : "UNDEFINED DEPARTMENT";
+	 *	licence : "UNDEFINED LICENCE";
 	 */
 	public Doctor() {
 		super();
-		this.id = "undefined id";
-		this.department = "undefined department";
-		this.licence = "undefined licence";
+		this.id = "NOT DEFINED";
+		this.department = "UNDEFINED DEPARTMENT";
+		this.licence = "UNDEFINED LICENCE";
 		this.patientSet = new ArrayList<>();
 	}
 	
