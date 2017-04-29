@@ -9,7 +9,7 @@ package Exceptions;
  *
  * @author alanp
  */
-public class OverSize {
+public class OverSize extends Exception {
     private String strErr;
     
     public OverSize(){

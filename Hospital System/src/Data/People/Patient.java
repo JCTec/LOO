@@ -6,6 +6,7 @@
 package Data.People;
 import javax.swing.JOptionPane;
 import Exceptions.NotValidNumber;
+import Exceptions.OverSize;
 import java.util.ArrayList;
 /**
  *
@@ -48,7 +49,14 @@ public class Patient extends Person {
      * @param paciente
      */
     public Patient(Patient paciente){
-        
+        super(paciente.firstName, paciente.address, paciente.e_mail, paciente.lastName, paciente.telephone, paciente.age);
+        this.securityNumber = paciente.securityNumber;
+        this.weigth= paciente.weigth;
+        this.size = paciente.size;
+        this.disease= paciente.disease;
+        this.roomID= paciente.roomID;
+        this.doctorID = paciente.doctorID;
+        this.status = paciente.status;
     }
     
     /**
@@ -69,7 +77,34 @@ public class Patient extends Person {
      */
     public Patient(String firstName, String lastName, int age, String address, String telephone, String e_mail, String secutiryNumber, float weigth, float size, String disease, int roomID, String[] doctorID, String status){
         super(firstName, address, e_mail, lastName, telephone, age);
+        try{
+            this.setsecurityNumber(securityNumber);
+        }catch(NotValidNumber error){
+            JOptionPane.showMessageDialog(null, error.toString(), "ERROR.", JOptionPane.ERROR_MESSAGE);
+        }
         
+        try{
+           this.setweigth(weigth);
+        }catch(NotValidNumber error){
+            JOptionPane.showMessageDialog(null, error.toString(), "ERROR.", JOptionPane.ERROR_MESSAGE);
+        }
+        
+        try{
+           this.setsize(size);
+        }catch(NotValidNumber error){
+            JOptionPane.showMessageDialog(null, error.toString(), "ERROR.", JOptionPane.ERROR_MESSAGE);
+        }
+        
+        this.setdisease(disease);
+        
+        try{
+           this.setroomID(roomID);
+        }catch(NotValidNumber error){
+            JOptionPane.showMessageDialog(null, error.toString(), "ERROR.", JOptionPane.ERROR_MESSAGE);
+        }
+        
+        //Falta IDdoctor
+       
     }
     
     /**
@@ -144,10 +179,12 @@ public class Patient extends Person {
      * @param doctorID
      */
     public void setdoctorID(String doctorID) throws NotValidNumber{
-        if(doctorID.length()==4)
+        if(doctorID.length()==4){
             this.doctorID.add(doctorID);
+            JOptionPane.showConfirmDialog(null, "El doctor "+doctorID+" ha sido agregado satisfactoriamente.", "OPERACION EXITOSA", JOptionPane.OK_OPTION);
+        }
         else
-            throw new NotValidNumber("El ID del doctor introducido es erróneo.\nSe ha asignado 'Not Defined' por omisión.\nPara modificar esto acceda al menú 'Editar'");
+            throw new NotValidNumber("El ID de un doctor introducido es erróneo.\nSe ha asignado 'Not Defined' por omisión.\nPara modificar esto acceda al menú 'Editar'");
             
     }
     
@@ -219,8 +256,12 @@ public class Patient extends Person {
      *Método set para agregar a un Doctor a la lista de doctores que atienden a un Paciente
      * @param idDoctor
      */
-    public void setNewDoc(String idDoctor){
-        
+    public void setNewDoc(String idDoctor) throws OverSize, NotValidNumber{
+        if(this.doctorID.size()<6){
+            this.setdoctorID(idDoctor); 
+        }
+        else
+            throw new OverSize();
     }
     
     /**
@@ -228,7 +269,17 @@ public class Patient extends Person {
      * @param idDoctor
      */
     public void freeDoc(String idDoctor){
-        
+        boolean doctorRemoved = false;
+        for(int i=0;i<this.doctorID.size();i++){
+            if(this.doctorID.get(i).equals(idDoctor))
+                i=this.doctorID.size();
+                this.doctorID.remove(i);
+                doctorRemoved=true;
+        }
+        if(doctorRemoved==false)
+            JOptionPane.showMessageDialog(null, "El ID introducido no ha podido ser encontrado", "NOT FOUND", JOptionPane.ERROR_MESSAGE);
+        else
+            JOptionPane.showConfirmDialog(null, "El doctor" + idDoctor + " ha sido satisfactoriamente eliminado.", "OPERACION EXITOSA", JOptionPane.OK_OPTION);
     }
     /**
      * Método toString para obtener todos los datos de un Paciente
