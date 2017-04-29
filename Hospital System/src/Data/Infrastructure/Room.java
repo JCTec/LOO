@@ -16,8 +16,8 @@ public class Room {
 	 * van del 1 al número máximo de habitaciones definida por el hospital
 	 */
 	public int roomID;
-	
-	/**
+
+        /**
 	 *	número de seguridad social del paciente asignado al cuarto
 	 */
 	public String patientID;
