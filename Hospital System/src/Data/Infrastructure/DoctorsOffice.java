@@ -5,7 +5,7 @@
  */
 package Data.Infrastructure;
 import javax.swing.JOptionPane;
-
+import Exceptions.NotValidNumber;
 /**
  *
  * @author Juan
@@ -42,11 +42,35 @@ public class DoctorsOffice {
      * @param lastPayment
      */
     public DoctorsOffice(int id, int floor, float monthlyRent, String doctorID, float lastPayment){
-        this.setid(id);
-        this.setfloor(floor);
-        this.setmonthlyRent(monthlyRent);
-        this.setdoctorID(doctorID);
-        this.setlastPayment(lastPayment);
+        try {
+            this.setid(id);
+        }catch(NotValidNumber error){
+            JOptionPane.showMessageDialog(null, error.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+        
+        try {
+            this.setfloor(floor);
+        }catch(NotValidNumber error){
+            JOptionPane.showMessageDialog(null, error.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+        
+        try {
+            this.setmonthlyRent(monthlyRent);
+        }catch(NotValidNumber error){
+            JOptionPane.showMessageDialog(null, error.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+        
+        try {
+            this.setdoctorID(doctorID);
+        }catch(NotValidNumber error){
+            JOptionPane.showMessageDialog(null, error.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+        
+        try {
+            this.setlastPayment(lastPayment);
+        }catch(NotValidNumber error){
+            JOptionPane.showMessageDialog(null, error.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
     }
     
     /**
@@ -56,9 +80,24 @@ public class DoctorsOffice {
      * @param monthlyRent
      */
     public DoctorsOffice(int id, int floor, float monthlyRent){
-        this.setid(id);
-        this.setfloor(floor);
-        this.setmonthlyRent(monthlyRent);
+        try {
+            this.setid(id);
+        }catch(NotValidNumber error){
+            JOptionPane.showMessageDialog(null, error.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+        
+        try {
+            this.setfloor(floor);
+        }catch(NotValidNumber error){
+            JOptionPane.showMessageDialog(null, error.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+        
+        try {
+            this.setmonthlyRent(monthlyRent);
+        }catch(NotValidNumber error){
+            JOptionPane.showMessageDialog(null, error.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+        
         this.doctorID = "NOT DEFINED";
         this.lastPayment = 0.0f;
     }
@@ -67,18 +106,46 @@ public class DoctorsOffice {
      * @param office
      */
     public DoctorsOffice(DoctorsOffice office){
+        try {
+            this.setid(office.id);
+        }catch(NotValidNumber error){
+            JOptionPane.showMessageDialog(null, error.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
         
+        try {
+            this.setfloor(office.floor);
+        }catch(NotValidNumber error){
+            JOptionPane.showMessageDialog(null, error.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+        
+        try {
+            this.setmonthlyRent(office.monthlyRent);
+        }catch(NotValidNumber error){
+            JOptionPane.showMessageDialog(null, error.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+        
+        try {
+            this.setdoctorID(office.doctorID);
+        }catch(NotValidNumber error){
+            JOptionPane.showMessageDialog(null, error.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+        
+        try {
+            this.setlastPayment(office.lastPayment);
+        }catch(NotValidNumber error){
+            JOptionPane.showMessageDialog(null, error.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
     }
     
     /**
      * Método set para asignar un identificador al consultorio
      * @param id
      */
-    public void setid(int id){
+    public void setid (int id) throws NotValidNumber{
         if (id>0)
             this.id = id;
         else
-            JOptionPane.showMessageDialog(null, "Ha introducido un valor negativo.", "ERROR", JOptionPane.ERROR_MESSAGE);
+            throw new NotValidNumber();
                
     }
    
@@ -87,44 +154,44 @@ public class DoctorsOffice {
      *  Método set para asignar un piso a un consultorio
      * @param floor
      */
-    public void setfloor(int floor){
+    public void setfloor(int floor) throws NotValidNumber{
         if (id>0)
             this.floor = floor;
         else
-            JOptionPane.showMessageDialog(null, "Ha introducido un valor negativo.", "ERROR", JOptionPane.ERROR_MESSAGE);
+            throw new NotValidNumber();
     }
     
     /**
      *  Método set para asignar un costo mensual de renta de un consultorio
      * @param monthlyRent
      */
-    public void setmonthlyRent(float monthlyRent){
+    public void setmonthlyRent(float monthlyRent) throws NotValidNumber{
         if (monthlyRent>0)
             this.monthlyRent = monthlyRent;
         else
-            JOptionPane.showMessageDialog(null, "Ha introducido un valor negativo.", "ERROR", JOptionPane.ERROR_MESSAGE);
+            throw new NotValidNumber();
     }
     
     /**
      * Método set para asignar un doctor a un consultorio
      * @param doctorID
      */
-    public void setdoctorID(String doctorID){
+    public void setdoctorID(String doctorID) throws NotValidNumber{
         if (!doctorID.isEmpty() && doctorID.length()==11)
             this.doctorID = doctorID;
         else
-            JOptionPane.showMessageDialog(null, "El ID del doctor introducido es erróneo.", "ERROR", JOptionPane.ERROR_MESSAGE);
+            throw new NotValidNumber("El ID del doctor introducido es erróneo.");
     }
     
     /**
      * Método set para asignar el ultimo pago de un médico de un consultorio
      * @param lastPayment
      */
-    public void setlastPayment(float lastPayment){
+    public void setlastPayment(float lastPayment) throws NotValidNumber{
         if (lastPayment>0)
             this.lastPayment = lastPayment;
         else
-            JOptionPane.showMessageDialog(null, "Ha introducido un valor negativo.", "ERROR", JOptionPane.ERROR_MESSAGE);
+            throw new NotValidNumber();
     }
     
     /**
