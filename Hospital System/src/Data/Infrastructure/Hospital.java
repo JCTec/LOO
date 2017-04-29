@@ -180,8 +180,38 @@ public class Hospital {
     }
     
     // Alan ------------------------------
+    public void assignOfficeToDoctor(int id, String idDoctor){      
+        if(this.validateDoctor(idDoctor)==true && this.validateRoom(id) == true)    
+           
+        
+        }
     
-    //TODO
+    
+    
+    public boolean validateDoctor(String idDoctor){
+        boolean validacion = false;
+
+        for(int i=0; i<this.doctors.size();i++){
+            if(idDoctor.equals(this.doctors.get(i))){
+                validacion = true;
+                i = this.doctors.size(); 
+            }
+        }
+        return validacion;
+    }
+    
+     public boolean validateRoom(int id){
+        boolean validacion = false;
+
+        for(int i=0; i<this.offices.size();i++){
+                    if(id == this.offices.get(i).getid()){
+                        validacion= true;
+                        i= this.offices.size();
+                    }
+        }
+        return validacion;
+    }
+
     
     //Termina Alan ----------------------- 
 }
