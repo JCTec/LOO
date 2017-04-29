@@ -190,7 +190,7 @@ public class DoctorsOffice {
      * @param doctorID
      */
     public void setdoctorID(String doctorID) throws NotValidNumber{
-        if (!doctorID.isEmpty() && doctorID.length()==11)
+        if (doctorID.length()==11)
             this.doctorID = doctorID;
         else
             throw new NotValidNumber("El ID del doctor introducido es erróneo.\nSe ha asignado 'Not Defined' por omisión.\nPara modificar esto acceda al menú 'Editar'");

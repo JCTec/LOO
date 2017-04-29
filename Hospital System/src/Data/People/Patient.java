@@ -6,6 +6,7 @@
 package Data.People;
 import javax.swing.JOptionPane;
 import Exceptions.NotValidNumber;
+import java.util.Arrays;
 /**
  *
  * @author Juan
@@ -88,16 +89,22 @@ public class Patient extends Person {
      *Método set para asignar un peso al Paciente
      * @param weigth
      */
-    public void setweigth(float weigth){
-        
+    public void setweigth(float weigth) throws NotValidNumber{
+        if(weigth >0.0f)
+            this.weigth = weigth;
+        else
+            throw new NotValidNumber();
     }
     
     /**
      * Método set para asignar una altura al Paciente
      * @param size
      */
-    public void setsize(float size){
-        
+    public void setsize(float size) throws NotValidNumber{
+        if(size>0.0f)
+            this.size=size;
+        else
+            throw new NotValidNumber();
     }
     
     /**
@@ -105,7 +112,7 @@ public class Patient extends Person {
      * @param disease
      */
     public void setdisease(String disease){
-        
+        this.disease = disease;
     }
     
     /**
@@ -129,63 +136,63 @@ public class Patient extends Person {
      * @param status
      */
     public void setstatus(String status){
-        
+        this.status=status;
     }
     
     /**
      * Método get para obtener el numero de seguridad de un paciente
-     * @return
+     * @return securityNumber
      */
     public String getsecurityNumber(){
-        
+        return this.securityNumber;
     }
     
     /**
      *Método get para obtener el peso de un paciente
-     * @return
+     * @return weigth
      */
     public float getweigth(){
-        
+        return this.weigth;
     }
     
     /**
      *Método get para obtener la altura de un paciente
-     * @return
+     * @return size
      */
     public float getsize(){
-        
+        return this.size;
     }
     
     /**
      *Método get para obtener la enfermedad que padece un Paciente
-     * @return
+     * @return disease
      */
     public String getdisease(){
-        
+        return this.disease;
     }
     
     /**
      *Método get para obtener el numero de habitacion en la que esta un paciente
-     * @return
+     * @return roomID
      */
     public int getroomID(){
-        
+        return this.roomID;
     }
     
     /**
      *Método get para obtener el conjunto que doctores que atienden a un Paciente
-     * @return
+     * @return doctorID
      */
     public String[] getdoctorID(){
-        
+        return this.doctorID;
     }
     
     /**
      *Método get para obtener el status de un Paciente
-     * @return
+     * @return status
      */
     public String getstatus(){
-        
+        return this.status;
     }
     
     /**
@@ -205,11 +212,11 @@ public class Patient extends Person {
     }
     /**
      * Método toString para obtener todos los datos de un Paciente
-     * @return 
+     * @return toString
      */
     @Override
     public String toString(){
-        
+        return "NOMBRE: " + this.firstName + "\nAPELLIDO: " + this.lastName + "\nEDAD: " + this.age + "\nEMAIL: " + this.e_mail + "\nTELEFONO: " + this.telephone + "\nDIRECCION: " + this.address +"\nNUMERO DE SEGURIDAD: "+this.securityNumber+"\nPESO: "+this.weigth+"\nALTURA"+this.size+"\nPADECIMIENTO: "+this.disease+"\nHABITACION:"+this.roomID+"\nDOCTORES: "+Arrays.toString(this.doctorID)+"\nSTATUS:"+this.status;                                                                                                                                 
     }
     
     

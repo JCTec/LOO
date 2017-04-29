@@ -140,6 +140,56 @@ public class Person {
         this.age = age;
     }
     
+    /**
+     * Mètodo get para obtener el nombre de una Persona
+     * @return firstName
+     */
+    public String getfirstName(){
+        return this.firstName;
+    }
+    
+    /**
+     *Mètodo get para obtener la direcciòn de una Persona
+     * @return address
+     */
+    public String getaddress(){
+        return this.address;
+    }
+    
+    /**
+     *Mètodo get para obtener el email de una Persona
+     * @return e_mail
+     */
+    public String gete_mail(){
+        return this.e_mail;
+    }
+    
+    /**
+     *Mètodo para obtener el apellido de una Persona
+     * @return lastName
+     */
+    public String getlastName(){
+        return this.lastName;
+    }
+    
+    /**
+     *Mètodo para obtener el telèfono de una Persona
+     * @return telephone
+     */
+    public String gettelephone(){
+        return this.telephone;
+    }
+    
+    /**
+     *Mètodo para obtener la edad de una Persona
+     * @return age
+     */
+    public int getage(){
+        return this.age;
+    }
+    
+    
+    
     
     /**
      * método que regresa una cadena de texto donde se tienen los datos de una
@@ -149,7 +199,7 @@ persona.
      */
     @Override
     public String toString(){
-        return "First Name: " + this.firstName + "\nLast Name: " + this.lastName + "\nAge: " + this.age + "\ne-mail: " + this.e_mail + "\nTelephone: " + this.telephone + "\nAddress: " + this.address ;
+        return "NOMBRE: " + this.firstName + "\nAPELLIDO: " + this.lastName + "\nEDAD: " + this.age + "\nEMAIL: " + this.e_mail + "\nTELEFONO: " + this.telephone + "\nDIRECCION: " + this.address ;
     }
     
     
