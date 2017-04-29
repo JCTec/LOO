@@ -75,7 +75,7 @@ public class Patient extends Person {
      * @param doctorID
      * @param status
      */
-    public Patient(String firstName, String lastName, int age, String address, String telephone, String e_mail, String secutiryNumber, float weigth, float size, String disease, int roomID, String[] doctorID, String status){
+    public Patient(String firstName, String lastName, int age, String address, String telephone, String e_mail, String secutiryNumber, float weigth, float size, String disease, int roomID, ArrayList<String> doctorID, String status){
         super(firstName, address, e_mail, lastName, telephone, age);
         try{
             this.setsecurityNumber(securityNumber);
@@ -103,7 +103,8 @@ public class Patient extends Person {
             JOptionPane.showMessageDialog(null, error.toString(), "ERROR.", JOptionPane.ERROR_MESSAGE);
         }
         
-        //Falta IDdoctor
+        if(doctorID != null)
+            this.doctorID = doctorID;
        
     }
     
@@ -166,10 +167,23 @@ public class Patient extends Person {
     /**
      * Método set para que en caso de estar hospitalizado el Paciente se le asigne una habitacion
      * @param roomID
+     * @throws NotValidNumber
      */
     public void setroomID(int roomID) throws NotValidNumber{
         if(roomID>0)
             this.roomID = roomID;
+        else
+            throw new NotValidNumber();
+    }
+    
+    /**
+     * Método set para que en caso de estar hospitalizado el Paciente se le asigne una habitacion
+     * @param roomID
+     * @throws NotValidNumber
+     */
+    public void setroomID(String roomID) throws NotValidNumber{
+        if(Integer.valueOf(roomID) > 0)
+            this.roomID = Integer.valueOf(roomID);
         else
             throw new NotValidNumber();
     }
@@ -258,7 +272,10 @@ public class Patient extends Person {
      */
     public void setNewDoc(String idDoctor) throws OverSize, NotValidNumber{
         if(this.doctorID.size()<6){
-            this.setdoctorID(idDoctor); 
+            if(idDoctor.length() > 3)
+                this.setdoctorID(idDoctor); 
+            else
+                throw new NotValidNumber("Id de doctor no valido (El ID de un doctor tiene un minimo de 4 digitos)");
         }
         else
             throw new OverSize();

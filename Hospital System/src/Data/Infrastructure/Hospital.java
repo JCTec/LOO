@@ -7,6 +7,7 @@ package Data.Infrastructure;
 
 import Data.People.*;
 import Exceptions.NotValidNumber;
+import Exceptions.OverSize;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -21,7 +22,7 @@ public class Hospital {
      * de la clase Hospital se va a crear un XML donde se va almacenar toda la informacion.
      */
     private int doctorsIds;
-    private int doctorsOfficeIds;
+
     private String name;
     private String address;
     private String telephone;
@@ -34,7 +35,7 @@ public class Hospital {
     
     public Hospital(){
         this.doctorsIds = 1000;
-        this.doctorsOfficeIds = 1;
+        
 
         this.name = "NOT DEFINED";
         this.address = "NOT DEFINED";
@@ -49,7 +50,7 @@ public class Hospital {
     
     public Hospital(Hospital H){
         this.doctorsIds = 1000;
-        this.doctorsOfficeIds = 0;
+
 
         this.name = H.name;
         this.address = H.address;
@@ -64,7 +65,7 @@ public class Hospital {
     
     public Hospital(String name, String address, String telephone, int numOfDoctorsOffices, int numOfRooms){
         this.doctorsIds = 1000;
-        this.doctorsOfficeIds = 1;
+
 
         if(name != null){
             this.name = name;
@@ -102,16 +103,28 @@ public class Hospital {
         this.doctors = new ArrayList<>();
         this.patients = new ArrayList<>();
         
+        this.fillRoomsAndOffice();
+        
+    }
+    
+    private void fillRoomsAndOffice(){
+        
         for(int x = 0; x < this.numOfRooms; x++){
             Room newRoom = new Room(x + 1);
             this.rooms.add(newRoom);
         }
         
         for(int x = 0; x < this.numOfDoctorsOffices; x++){
-            Doc newRoom = new Room(x + 1);
-            this.rooms.add(newRoom);
+            DoctorsOffice newDoctorsOffice = new DoctorsOffice();
+            
+            try {
+                newDoctorsOffice.setid(x + 1);
+            } catch (NotValidNumber error) {
+                JOptionPane.showMessageDialog(null, error.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+            
+            this.offices.add(newDoctorsOffice);
         }
-        
     }
     
     public void setname(String name){
@@ -188,22 +201,104 @@ public class Hospital {
         return this.patients;
     }
     
-    /*
-        private int id; // número entero que sirve de identificador de un consultorio dentro del hospital.
-    private int floor; //número entero que indica el piso en el que se encuentra el consultorio.
-    private float monthlyRent; // número real que indica cuánto cuesta mensualmente la renta del consultorio. 
-    private String doctorID; //identificador del médico al que está asignado el consultorio. 
-    private float lastPayment;
-    */
+    /**
+     * Funcion para buscar un paciente por su Numero de Seguridad Social.
+     * Si lo encuetra regresa su posicion en el arreglo de pacientes, en caso de no encontrarlo regresa un String vacio.
+     * 
+     * Se recomienda usar if (!securityNumberFounded.isEmpty()){ //TODO }
+     * 
+     * @param securityNumber
+     * @return
+     */
+    public String findPatientBySecurityNumber(String securityNumber){
+        String securityNumberFounded = "";
+        
+        
+        for(int i=0; i<this.patients.size();i++){
+            if(securityNumber.equals(this.patients.get(i).getsecurityNumber())){
+                securityNumberFounded = this.patients.get(i).getsecurityNumber();
+                i = this.patients.size(); 
+            }
+        }
+        if(securityNumberFounded.isEmpty()){
+         JOptionPane.showMessageDialog(null, "Paciente no encontrado, revise el Numero de Seguridad Social", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+        
+        return securityNumberFounded;
+    }
     
     public void addDoctorOffice(int floor, float monthlyRent, String doctorID, float lastPayment){
         if(this.validateDoctor(doctorID) ==  true){
-            this.doctorsOfficeIds ++;
-            int id = this.doctorsOfficeIds;
+            this.numOfDoctorsOffices ++;
+            int id = this.numOfDoctorsOffices;
             DoctorsOffice newOffice = new DoctorsOffice(id, floor, monthlyRent, doctorID, lastPayment);
             this.offices.add(newOffice);
         }
     }
+    
+    public void addDoctorOffice(int floor, float monthlyRent){
+            this.numOfDoctorsOffices ++;
+            int id = this.numOfDoctorsOffices;
+            DoctorsOffice newOffice = new DoctorsOffice();
+            
+            try {
+                newOffice.setid(id);
+            } catch (NotValidNumber error) {
+                JOptionPane.showMessageDialog(null, error.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+            
+            try {
+                newOffice.setfloor(floor);
+            } catch (NotValidNumber error) {
+                JOptionPane.showMessageDialog(null, error.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+            
+            try {
+                newOffice.setmonthlyRent(monthlyRent);
+            } catch (NotValidNumber error) {
+                JOptionPane.showMessageDialog(null, error.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+            
+            this.offices.add(newOffice);
+        
+    }
+    
+    public void addDoctorOffice(int floor){
+            this.numOfDoctorsOffices ++;
+            int id = this.numOfDoctorsOffices;
+            DoctorsOffice newOffice = new DoctorsOffice();
+            
+            try {
+                newOffice.setid(id);
+            } catch (NotValidNumber error) {
+                JOptionPane.showMessageDialog(null, error.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+            
+            try {
+                newOffice.setfloor(floor);
+            } catch (NotValidNumber error) {
+                JOptionPane.showMessageDialog(null, error.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+            
+            this.offices.add(newOffice);
+        
+    }
+    
+    public void addDoctorOffice(){
+            this.numOfDoctorsOffices ++;
+            int id = this.numOfDoctorsOffices;
+            DoctorsOffice newOffice = new DoctorsOffice();
+            
+        try {
+            newOffice.setid(id);
+        } catch (NotValidNumber error) {
+            JOptionPane.showMessageDialog(null, error.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+            
+            this.offices.add(newOffice);
+    }
+    
+    //addDoctorOffice -------------------------------------------------
     
     public void addRoom(){
         this.numOfRooms ++;
@@ -212,30 +307,124 @@ public class Hospital {
         this.rooms.add(newRoom);
     }
     
-    // Alan ------------------------------
-    public void assignOfficeToDoctor(int id, String idDoctor){  
-        int roomFounded = 0;
+    public void addRoom(String patientID){
+        this.numOfRooms ++;
+        Room newRoom = new Room(this.numOfRooms);
+        
+        newRoom.setPatientID(patientID);
+        
+        this.rooms.add(newRoom);
+    }
+    
+    public void showDoctorsOfficeInfo(String doctorsOfficeId){
+        
+        DoctorsOffice officeFound = this.offices.get(Integer.valueOf(doctorsOfficeId) - 1);
+
+        //officeFound.
+    }
+    
+    public void showDoctorInfo(String doctorId){
         String idFounded = "";
-        if(this.validateDoctor(idDoctor)==true && this.validateRoom(id) == true){
-            for(int i=0; i<this.offices.size();i++){
-                if(id == this.offices.get(i).getid()){
-                    roomFounded = i;
-                    i= this.offices.size();
-                }
+        
+        
+        for(int i=0; i<this.doctors.size();i++){
+            if(doctorId.equals(this.doctors.get(i).getId())){
+                idFounded = this.doctors.get(i).getId();
+                i = this.doctors.size(); 
+            }
+        }
+        
+        if (!idFounded.isEmpty()){
+            //Display info
+        }
+        
+    }
+    
+    public void showPatientInfo(String securityNumber){
+        String securityNumberFounded = this.findPatientBySecurityNumber(securityNumber);
+        
+        if (!securityNumberFounded.isEmpty()){
+            //Display info
+        }
+        
+    }
+    
+    public void assignDoctorToPatient(String doctorId, String securityNumber){
+        String securityNumberFounded = this.findPatientBySecurityNumber(securityNumber);
+        
+        if (!securityNumberFounded.isEmpty()){
+            try {
+                this.patients.get(Integer.valueOf(securityNumberFounded)).setNewDoc(doctorId);
+            } catch (OverSize error) {
+                JOptionPane.showMessageDialog(null, error.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
+            } catch (NotValidNumber ex) {
+                JOptionPane.showMessageDialog(null, ex.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }
+    
+    public void assignRoomToPatient(String securityNumber, String roomId){
+        String securityNumberFounded = this.findPatientBySecurityNumber(securityNumber);
+        
+        if (!securityNumberFounded.isEmpty()){
+            try {
+                this.patients.get(Integer.valueOf(securityNumberFounded)).setroomID(roomId);
+            } catch (NotValidNumber error) {
+                JOptionPane.showMessageDialog(null, error.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }
+
+    public void assignOfficeToDoctor(String idDoctor, String doctorsOfficeId){
+        
+        try {
+            this.offices.get(doctorsIds - 1).setdoctorID(idDoctor);
+        } catch (NotValidNumber error) {
+            JOptionPane.showMessageDialog(null, error.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+        
+    }
+    
+    public void changeStatusOfPatient(String securityNumber, String Status){
+        String securityNumberFounded = this.findPatientBySecurityNumber(securityNumber);
+        
+        if (!securityNumberFounded.isEmpty()){
+            this.patients.get(Integer.valueOf(securityNumberFounded)).setstatus(Status);
+        }
+    }
+    
+    public ArrayList<Patient> showPatientsReadyToGoHome(){
+        
+        ArrayList<Patient> patientsReady = new ArrayList<>();
+        
+        for(int i=0; i<this.patients.size();i++){
+            if(this.patients.get(i).getstatus().equals("Alta")){
+                patientsReady.add(this.patients.get(i));
+            }
+        }
+        return patientsReady;
+    }
+    
+    public void dischargePatient(String securityNumber){
+        String securityNumberFounded = this.findPatientBySecurityNumber(securityNumber);
+        
+        for(int x = 0; x < this.numOfRooms; x++){
+            if(this.rooms.get(x).getPatientID().equals(securityNumber)){
+                this.rooms.get(x).setPatientID("Vacío");
+                
+                x = this.numOfRooms;
             }
             
-            for(int i=0; i<this.doctors.size();i++){
-                if(idDoctor.equals(this.doctors.get(i).getId())){
-                    idFounded = this.doctors.get(i).getId();
-                    i = this.doctors.size(); 
-            }
         }
-             this.offices.get(roomFounded).setdoctorID(idFounded);
-        }    
-           
         
+        for(int x = 0; x < this.doctors.size(); x++){
+            this.doctors.get(x).erasePatient(securityNumber);
         }
-    
+        
+        if (!securityNumberFounded.isEmpty()){
+            this.patients.remove(securityNumberFounded);
+        }
+    }
     
     
     public boolean validateDoctor(String idDoctor){
@@ -262,6 +451,4 @@ public class Hospital {
         return validacion;
     }
 
-    
-    //Termina Alan ----------------------- 
 }
