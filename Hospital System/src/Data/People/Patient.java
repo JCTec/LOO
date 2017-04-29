@@ -6,7 +6,7 @@
 package Data.People;
 import javax.swing.JOptionPane;
 import Exceptions.NotValidNumber;
-import java.util.Arrays;
+import java.util.ArrayList;
 /**
  *
  * @author Juan
@@ -23,7 +23,7 @@ public class Patient extends Person {
     //número entero que guarda el número de habitación donde está un paciente 
     private int roomID;
     //arreglo de cadenas de texto que guarda un identificador por cada médico que atiende al paciente. 
-    private String[] doctorID;
+    private ArrayList<String> doctorID;
     //indica si el paciente está en espera de ser tratado, si ya está en tratamiento o si está listo para ser dado de alta. 
     private String status;
     
@@ -31,7 +31,16 @@ public class Patient extends Person {
      *Constructor con datos de omisión
      */
     public Patient(){
-        
+        super();
+        this.securityNumber = "NOT DEFINED";
+        this.weigth=0.0f;
+        this.size = 0.0f;
+        this.disease="UNKNOWN";
+        this.roomID=0;
+        this.doctorID = new ArrayList<String>();
+        this.doctorID.add("NOT DEFINED");
+        this.status = "UNKNOWN";
+                
     }
     
     /**
@@ -59,6 +68,7 @@ public class Patient extends Person {
      * @param status
      */
     public Patient(String firstName, String lastName, int age, String address, String telephone, String e_mail, String secutiryNumber, float weigth, float size, String disease, int roomID, String[] doctorID, String status){
+        super(firstName, address, e_mail, lastName, telephone, age);
         
     }
     
@@ -81,8 +91,11 @@ public class Patient extends Person {
      * Método set para asignar un número de seguridad a un Paciente
      * @param securityNumber
      */
-    public void setsecurityNumber(String securityNumber){
-        
+    public void setsecurityNumber(String securityNumber) throws NotValidNumber{
+        if(securityNumber.length() == 11)
+            this.securityNumber = securityNumber;
+        else
+            throw new NotValidNumber("El número de seguridad es incorrecto.\nSe ha asignado 'Not Defined' por omisión.\nPara modificar esto acceda al menú 'Editar'");
     }
     
     /**
@@ -119,16 +132,23 @@ public class Patient extends Person {
      * Método set para que en caso de estar hospitalizado el Paciente se le asigne una habitacion
      * @param roomID
      */
-    public void setroomID(int roomID){
-        
+    public void setroomID(int roomID) throws NotValidNumber{
+        if(roomID>0)
+            this.roomID = roomID;
+        else
+            throw new NotValidNumber();
     }
     
     /**
      *Método set para asignarle un nuevo doctor a un Paciente
      * @param doctorID
      */
-    public void setdoctorID(String[] doctorID){
-        
+    public void setdoctorID(String doctorID) throws NotValidNumber{
+        if(doctorID.length()==4)
+            this.doctorID.add(doctorID);
+        else
+            throw new NotValidNumber("El ID del doctor introducido es erróneo.\nSe ha asignado 'Not Defined' por omisión.\nPara modificar esto acceda al menú 'Editar'");
+            
     }
     
     /**
@@ -183,7 +203,7 @@ public class Patient extends Person {
      *Método get para obtener el conjunto que doctores que atienden a un Paciente
      * @return doctorID
      */
-    public String[] getdoctorID(){
+    public ArrayList<String> getdoctorID(){
         return this.doctorID;
     }
     
@@ -216,7 +236,7 @@ public class Patient extends Person {
      */
     @Override
     public String toString(){
-        return "NOMBRE: " + this.firstName + "\nAPELLIDO: " + this.lastName + "\nEDAD: " + this.age + "\nEMAIL: " + this.e_mail + "\nTELEFONO: " + this.telephone + "\nDIRECCION: " + this.address +"\nNUMERO DE SEGURIDAD: "+this.securityNumber+"\nPESO: "+this.weigth+"\nALTURA"+this.size+"\nPADECIMIENTO: "+this.disease+"\nHABITACION:"+this.roomID+"\nDOCTORES: "+Arrays.toString(this.doctorID)+"\nSTATUS:"+this.status;                                                                                                                                 
+        return "NOMBRE: " + this.firstName + "\nAPELLIDO: " + this.lastName + "\nEDAD: " + this.age + "\nEMAIL: " + this.e_mail + "\nTELEFONO: " + this.telephone + "\nDIRECCION: " + this.address +"\nNUMERO DE SEGURIDAD: "+this.securityNumber+"\nPESO: "+this.weigth+"\nALTURA"+this.size+"\nPADECIMIENTO: "+this.disease+"\nHABITACION:"+this.roomID+"\nDOCTORES: "+this.doctorID+"\nSTATUS:"+this.status;
     }
     
     
