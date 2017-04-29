@@ -13,7 +13,7 @@ public class NotValidNumber extends Exception {
     private String strErr;
     
     public NotValidNumber(){
-        this.strErr = "No ha introducido un valor numérico";
+        this.strErr = "Ha introducido un valor negativo.";
     }
     
     public NotValidNumber(String error){
