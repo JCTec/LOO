@@ -89,7 +89,7 @@ public class DoctorsOffice {
      */
     public void setfloor(int floor){
         if (id>0)
-            this.id = id;
+            this.floor = floor;
         else
             JOptionPane.showMessageDialog(null, "Ha introducido un valor negativo.", "ERROR", JOptionPane.ERROR_MESSAGE);
     }
