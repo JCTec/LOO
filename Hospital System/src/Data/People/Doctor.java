@@ -6,6 +6,8 @@
 package Data.People;
 
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  *
@@ -77,13 +79,21 @@ public class Doctor extends Person {
 		this.patientSet = new ArrayList<>();
 	}
 
-	//TODO : check if setters need validations
 	public String getId() {
 		return id;
 	}
 
 	public void setId(String id) {
-		this.id = id;
+		String pattern = "^[1-9][0-9]{3}$";
+		Pattern r = Pattern.compile(pattern);
+		Matcher m = r.matcher(id);
+		
+		if(m.find()){
+			this.id = id;			
+		}
+		else{
+			this.id = "undefined id";
+		}
 	}
 
 	public String getDepartment() {
