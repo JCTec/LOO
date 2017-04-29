@@ -400,8 +400,9 @@ public class Hospital {
     /**
      *Método para crear una Habitación con un Paciente
      * @param patientID
+     * @throws Exceptions.NotValidNumber
      */
-    public void addRoom(String patientID){
+    public void addRoom(String patientID) throws NotValidNumber{
         this.numOfRooms ++;
         Room newRoom = new Room(this.numOfRooms);
         
@@ -538,13 +539,14 @@ public class Hospital {
     /**
      *Método para dar de baja a un Paciente
      * @param securityNumber
+     * @throws Exceptions.NotValidNumber
      */
-    public void dischargePatient(String securityNumber){
+    public void dischargePatient(String securityNumber) throws NotValidNumber{
         String securityNumberFounded = this.findPatientBySecurityNumber(securityNumber);
         
         for(int x = 0; x < this.numOfRooms; x++){
             if(this.rooms.get(x).getPatientID().equals(securityNumber)){
-                this.rooms.get(x).setPatientID("Vacío");
+                this.rooms.get(x).setPatientID("NOT DEFINED");
                 
                 x = this.numOfRooms;
             }
