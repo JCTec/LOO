@@ -67,7 +67,7 @@ public class Patient extends Person {
      * @param address
      * @param telephone
      * @param e_mail
-     * @param secutiryNumber
+     * @param securityNumber
      * @param weigth
      * @param size
      * @param disease
@@ -75,7 +75,7 @@ public class Patient extends Person {
      * @param doctorID
      * @param status
      */
-    public Patient(String firstName, String lastName, int age, String address, String telephone, String e_mail, String secutiryNumber, float weigth, float size, String disease, int roomID, ArrayList<String> doctorID, String status){
+    public Patient(String firstName, String lastName, int age, String address, String telephone, String e_mail, String securityNumber, float weigth, float size, String disease, int roomID, ArrayList<String> doctorID, String status){
         super(firstName, address, e_mail, lastName, telephone, age);
         try{
             this.setsecurityNumber(securityNumber);
@@ -318,9 +318,11 @@ public class Patient extends Person {
      *Método set para agregar a un Doctor a la lista de doctores que atienden a un Paciente
      * @param idDoctor
      * @throws Exceptions.OverSize
+     * @throws Exceptions.NotValidNumber
      */
-    public void setNewDoc(String idDoctor) throws OverSize{
+    public void setNewDoc(String idDoctor) throws OverSize, NotValidNumber{
         if(this.doctorID.size()<6){
+            this.setdoctorID(idDoctor);
         }
         else
             throw new OverSize();
