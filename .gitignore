@@ -1,3 +1,4 @@
 /Hospital System/build/
 /Hospital System/dist/
 **/.DS_Store
+**/private.xml
