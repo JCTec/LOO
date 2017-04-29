@@ -20,7 +20,8 @@ public class Hospital {
      * Declarando todas las variables necesarias para la aplicacion,
      * de la clase Hospital se va a crear un XML donde se va almacenar toda la informacion.
      */
-    
+    private int doctorsIds;
+    private int doctorsOfficeIds;
     private String name;
     private String address;
     private String telephone;
@@ -32,6 +33,9 @@ public class Hospital {
     private ArrayList<Patient> patients;
     
     public Hospital(){
+        this.doctorsIds = 1000;
+        this.doctorsOfficeIds = 1;
+
         this.name = "NOT DEFINED";
         this.address = "NOT DEFINED";
         this.telephone = "NOT DEFINED";
@@ -44,6 +48,9 @@ public class Hospital {
     }
     
     public Hospital(Hospital H){
+        this.doctorsIds = 1000;
+        this.doctorsOfficeIds = 0;
+
         this.name = H.name;
         this.address = H.address;
         this.telephone = H.telephone;
@@ -56,6 +63,9 @@ public class Hospital {
     }
     
     public Hospital(String name, String address, String telephone, int numOfDoctorsOffices, int numOfRooms){
+        this.doctorsIds = 1000;
+        this.doctorsOfficeIds = 1;
+
         if(name != null){
             this.name = name;
         }
@@ -91,6 +101,17 @@ public class Hospital {
         this.rooms = new ArrayList<>();
         this.doctors = new ArrayList<>();
         this.patients = new ArrayList<>();
+        
+        for(int x = 0; x < this.numOfRooms; x++){
+            Room newRoom = new Room(x + 1);
+            this.rooms.add(newRoom);
+        }
+        
+        for(int x = 0; x < this.numOfDoctorsOffices; x++){
+            Doc newRoom = new Room(x + 1);
+            this.rooms.add(newRoom);
+        }
+        
     }
     
     public void setname(String name){
@@ -175,8 +196,20 @@ public class Hospital {
     private float lastPayment;
     */
     
-    public void addDoctorOffice(String id, ){
+    public void addDoctorOffice(int floor, float monthlyRent, String doctorID, float lastPayment){
+        if(this.validateDoctor(doctorID) ==  true){
+            this.doctorsOfficeIds ++;
+            int id = this.doctorsOfficeIds;
+            DoctorsOffice newOffice = new DoctorsOffice(id, floor, monthlyRent, doctorID, lastPayment);
+            this.offices.add(newOffice);
+        }
+    }
+    
+    public void addRoom(){
+        this.numOfRooms ++;
+        Room newRoom = new Room(this.numOfRooms);
         
+        this.rooms.add(newRoom);
     }
     
     // Alan ------------------------------
@@ -200,7 +233,7 @@ public class Hospital {
         return validacion;
     }
     
-     public boolean validateRoom(int id){
+     public boolean validateDoctorOffice(int id){
         boolean validacion = false;
 
         for(int i=0; i<this.offices.size();i++){
