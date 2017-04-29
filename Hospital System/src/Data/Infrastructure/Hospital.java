@@ -33,6 +33,9 @@ public class Hospital {
     private ArrayList<Doctor> doctors;
     private ArrayList<Patient> patients;
     
+    /**
+     *Constructor con valores por omisión
+     */
     public Hospital(){
         this.doctorsIds = 1000;
         
@@ -48,6 +51,10 @@ public class Hospital {
         this.patients = new ArrayList<>();
     }
     
+    /**
+     *Constructor de copia
+     * @param H
+     */
     public Hospital(Hospital H){
         this.doctorsIds = 1000;
 
@@ -63,6 +70,14 @@ public class Hospital {
         this.patients = H.patients;
     }
     
+    /**
+     * Constructor con valores aislados
+     * @param name
+     * @param address
+     * @param telephone
+     * @param numOfDoctorsOffices
+     * @param numOfRooms
+     */
     public Hospital(String name, String address, String telephone, int numOfDoctorsOffices, int numOfRooms){
         this.doctorsIds = 1000;
 
@@ -127,18 +142,31 @@ public class Hospital {
         }
     }
     
+    /**
+     *Método set para asignar un nombre a un Hospital
+     * @param name
+     */
     public void setname(String name){
         if(name != null){
             this.name = name;
         }
     }
     
+    /**
+     *Método set para asignar una dirección a un Hospital
+     * @param address
+     */
     public void setaddress(String address){
         if(address != null){
             this.address = address;
         }
     }
     
+    /**
+     *Método set para asginar un teléfono a un Hospital
+     * @param telephone
+     * @throws NotValidNumber
+     */
     public void settelephone(String telephone) throws NotValidNumber{
        
         if(telephone != null && telephone.length() == 10){ 
@@ -149,6 +177,11 @@ public class Hospital {
         }
     }
     
+    /**
+     *Método set para asignar un número de oficinas a un Hospital
+     * @param numOfDoctorsOffices
+     * @throws NotValidNumber
+     */
     public void setnumOfDoctorsOffices(int numOfDoctorsOffices) throws NotValidNumber{
        
         if(numOfDoctorsOffices >= 0){ 
@@ -159,6 +192,11 @@ public class Hospital {
         }
     }
     
+    /**
+     *Método set para asignar un número de habitaciones a un Hospital
+     * @param numOfRooms
+     * @throws NotValidNumber
+     */
     public void setnumOfRooms(int numOfRooms) throws NotValidNumber{
        
         if(numOfRooms >= 0){ 
@@ -169,34 +207,66 @@ public class Hospital {
         }
     }
     
+    /**
+     *Método get para obtener el nombre de un Hospital
+     * @return name
+     */
     public String getname(){
         return this.name;
     }
     
+    /**
+     *Método get para obtener la dirección de un Hospital
+     * @return address
+     */
     public String getaddress(){
         return this.address;
     }
     
+    /**
+     *Método get para obtener el número de consultorios
+     * @return numOfDoctorsOffice
+     */
     public int getnumOfDoctorsOffices(){
         return this.numOfDoctorsOffices;
     }
     
+    /**
+     *Método get para obtener el número de habitaciones
+     * @return numOfRooms
+     */
     public int getnumOfRooms(){
         return this.numOfRooms;
     }
     
+    /**
+     *Mpetodo get para obtener los datos de los consultorios
+     * @return offices
+     */
     public ArrayList<DoctorsOffice> getoffices(){
         return this.offices;
     }
     
+    /**
+     *Método get para obtener los datos de las habitaciones
+     * @return rooms
+     */
     public ArrayList<Room> getrooms(){
         return this.rooms;
     }
     
+    /**
+     *Método get para obtener los datos de los doctores de un Hospital
+     * @return doctos
+     */
     public ArrayList<Doctor> getdoctors(){
         return this.doctors;
     }
     
+    /**
+     *Método get para obtener los datos de los pacientes de un Hospital
+     * @return patients
+     */
     public ArrayList<Patient> getpatients(){
         return this.patients;
     }
@@ -208,7 +278,7 @@ public class Hospital {
      * Se recomienda usar if (!securityNumberFounded.isEmpty()){ //TODO }
      * 
      * @param securityNumber
-     * @return
+     * @return securityNumberFounded
      */
     public String findPatientBySecurityNumber(String securityNumber){
         String securityNumberFounded = "";
@@ -227,6 +297,13 @@ public class Hospital {
         return securityNumberFounded;
     }
     
+    /**
+     * Método para agregar un consultorio a un Hospital con un doctor
+     * @param floor
+     * @param monthlyRent
+     * @param doctorID
+     * @param lastPayment
+     */
     public void addDoctorOffice(int floor, float monthlyRent, String doctorID, float lastPayment){
         if(this.validateDoctor(doctorID) ==  true){
             this.numOfDoctorsOffices ++;
@@ -236,6 +313,11 @@ public class Hospital {
         }
     }
     
+    /**
+     *Segundo método para agregar un consultorio vacío
+     * @param floor
+     * @param monthlyRent
+     */
     public void addDoctorOffice(int floor, float monthlyRent){
             this.numOfDoctorsOffices ++;
             int id = this.numOfDoctorsOffices;
@@ -263,6 +345,10 @@ public class Hospital {
         
     }
     
+    /**
+     *Tercer método para agregar un consultorio pero en este caso sin un costo asignado por mes
+     * @param floor
+     */
     public void addDoctorOffice(int floor){
             this.numOfDoctorsOffices ++;
             int id = this.numOfDoctorsOffices;
@@ -299,6 +385,10 @@ public class Hospital {
     }
     
     //addDoctorOffice -------------------------------------------------
+
+    /**
+     *Método para crear una Habitación sin un Paciente
+     */
     
     public void addRoom(){
         this.numOfRooms ++;
@@ -307,6 +397,10 @@ public class Hospital {
         this.rooms.add(newRoom);
     }
     
+    /**
+     *Método para crear una Habitación con un Paciente
+     * @param patientID
+     */
     public void addRoom(String patientID){
         this.numOfRooms ++;
         Room newRoom = new Room(this.numOfRooms);
@@ -316,6 +410,10 @@ public class Hospital {
         this.rooms.add(newRoom);
     }
     
+    /**
+     *Método para hacer búsquedas de consultorio
+     * @param doctorsOfficeId
+     */
     public void showDoctorsOfficeInfo(String doctorsOfficeId){
         
         DoctorsOffice officeFound = this.offices.get(Integer.valueOf(doctorsOfficeId) - 1);
@@ -323,6 +421,10 @@ public class Hospital {
         //officeFound.
     }
     
+    /**
+     *Mpetodo para hacer búsquedas de Doctores
+     * @param doctorId
+     */
     public void showDoctorInfo(String doctorId){
         String idFounded = "";
         
@@ -340,6 +442,10 @@ public class Hospital {
         
     }
     
+    /**
+     *Método para hacer búsquedas de Pacientes
+     * @param securityNumber
+     */
     public void showPatientInfo(String securityNumber){
         String securityNumberFounded = this.findPatientBySecurityNumber(securityNumber);
         
@@ -349,6 +455,11 @@ public class Hospital {
         
     }
     
+    /**
+     *Método para asignarle un Doctor a un Paciente
+     * @param doctorId
+     * @param securityNumber
+     */
     public void assignDoctorToPatient(String doctorId, String securityNumber){
         String securityNumberFounded = this.findPatientBySecurityNumber(securityNumber);
         
@@ -363,6 +474,11 @@ public class Hospital {
         }
     }
     
+    /**
+     *Método para asignarle un cuarto a un Paciente
+     * @param securityNumber
+     * @param roomId
+     */
     public void assignRoomToPatient(String securityNumber, String roomId){
         String securityNumberFounded = this.findPatientBySecurityNumber(securityNumber);
         
@@ -375,6 +491,11 @@ public class Hospital {
         }
     }
 
+    /**
+     *Método para asignarle un consultorio a un Doctor
+     * @param idDoctor
+     * @param doctorsOfficeId
+     */
     public void assignOfficeToDoctor(String idDoctor, String doctorsOfficeId){
         
         try {
@@ -385,6 +506,11 @@ public class Hospital {
         
     }
     
+    /**
+     *Método para modificiar el status de un Paciente
+     * @param securityNumber
+     * @param Status
+     */
     public void changeStatusOfPatient(String securityNumber, String Status){
         String securityNumberFounded = this.findPatientBySecurityNumber(securityNumber);
         
@@ -393,6 +519,10 @@ public class Hospital {
         }
     }
     
+    /**
+     *Método para modificar el status de un Paciente a "Alta"
+     * @return patientsReady
+     */
     public ArrayList<Patient> showPatientsReadyToGoHome(){
         
         ArrayList<Patient> patientsReady = new ArrayList<>();
@@ -405,6 +535,10 @@ public class Hospital {
         return patientsReady;
     }
     
+    /**
+     *Método para dar de baja a un Paciente
+     * @param securityNumber
+     */
     public void dischargePatient(String securityNumber){
         String securityNumberFounded = this.findPatientBySecurityNumber(securityNumber);
         
@@ -426,7 +560,11 @@ public class Hospital {
         }
     }
     
-    
+    /**
+     *Método para validar la existencia de un Doctor
+     * @param idDoctor
+     * @return validacion
+     */
     public boolean validateDoctor(String idDoctor){
         boolean validacion = false;
 
@@ -439,7 +577,12 @@ public class Hospital {
         return validacion;
     }
     
-     public boolean validateDoctorOffice(int id){
+    /**
+     * Método para validar la existencia de un consultorio
+     * @param id
+     * @return validacion
+     */
+    public boolean validateDoctorOffice(int id){
         boolean validacion = false;
 
         for(int i=0; i<this.offices.size();i++){
