@@ -76,6 +76,15 @@ public class Room {
 		}
 	}
 	
+	/**
+	 *
+	 * @return una cadena de texto que contiene el roomID y el patientID
+	 */
+	@Override
+	public String toString(){
+		return "roomID: " + this.roomID + "\npatientID: " + this.patientID;
+	}
+	
 	
 	
 }
