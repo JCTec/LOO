@@ -3,10 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/Users/Juan/Desktop/LOO/Hospital%20System/src/Data/Infrastructure/Hospital.java</file>
             <file>file:/Users/Juan/Desktop/LOO/Hospital%20System/src/Data/People/Person.java</file>
             <file>file:/Users/Juan/Desktop/LOO/Hospital%20System/src/Data/People/Doctor.java</file>
             <file>file:/Users/Juan/Desktop/LOO/Hospital%20System/src/Data/People/Patient.java</file>
             <file>file:/Users/Juan/Desktop/LOO/Hospital%20System/src/Data/Infrastructure/Room.java</file>
+            <file>file:/Users/Juan/Desktop/LOO/Hospital%20System/src/Exceptions/NotValidNumber.java</file>
         </group>
     </open-files>
 </project-private>
