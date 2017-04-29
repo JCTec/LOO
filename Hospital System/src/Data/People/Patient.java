@@ -38,7 +38,7 @@ public class Patient extends Person {
         this.size = 0.0f;
         this.disease="UNKNOWN";
         this.roomID=0;
-        this.doctorID = new ArrayList<String>();
+        this.doctorID = new ArrayList<>();
         this.doctorID.add("NOT DEFINED");
         this.status = "UNKNOWN";
                 
@@ -103,15 +103,23 @@ public class Patient extends Person {
             JOptionPane.showMessageDialog(null, error.toString(), "ERROR.", JOptionPane.ERROR_MESSAGE);
         }
         
-        if(doctorID != null)
-            this.doctorID = doctorID;
+        try{
+            this.doctorID = new ArrayList<>();
+            for(int i=0;i<doctorID.size();i++){
+                this.setdoctorID(doctorID.get(i));
+            }
+        }catch(NotValidNumber error){
+            JOptionPane.showMessageDialog(null, error.toString(), "ERROR,", JOptionPane.ERROR_MESSAGE);
+        }
+        
+        this.setstatus(status);
        
     }
     
     /**
      * Constructor que recibe un objeto Persona y el restro de los atributos aislados
      * @param persona
-     * @param secutiryNumber
+     * @param securityNumber
      * @param weigth
      * @param size
      * @param disease
@@ -119,13 +127,50 @@ public class Patient extends Person {
      * @param doctorID
      * @param status
      */
-    public Patient(Person persona, String secutiryNumber, float weigth, float size, String disease, int roomID, String[] doctorID, String status){
+    public Patient(Person persona, String securityNumber, float weigth, float size, String disease, int roomID, ArrayList<String> doctorID, String status){
+        super(persona);
+        try{
+            this.setsecurityNumber(securityNumber);
+        }catch(NotValidNumber error){
+            JOptionPane.showMessageDialog(null, error.toString(), "ERROR.", JOptionPane.ERROR_MESSAGE);
+        }
         
+        try{
+           this.setweigth(weigth);
+        }catch(NotValidNumber error){
+            JOptionPane.showMessageDialog(null, error.toString(), "ERROR.", JOptionPane.ERROR_MESSAGE);
+        }
+        
+        try{
+           this.setsize(size);
+        }catch(NotValidNumber error){
+            JOptionPane.showMessageDialog(null, error.toString(), "ERROR.", JOptionPane.ERROR_MESSAGE);
+        }
+        
+        this.setdisease(disease);
+        
+        try{
+           this.setroomID(roomID);
+        }catch(NotValidNumber error){
+            JOptionPane.showMessageDialog(null, error.toString(), "ERROR.", JOptionPane.ERROR_MESSAGE);
+        }
+        
+        try{
+            this.doctorID = new ArrayList<>();
+            for(int i=0;i<doctorID.size();i++){
+                this.setdoctorID(doctorID.get(i));
+            }
+        }catch(NotValidNumber error){
+            JOptionPane.showMessageDialog(null, error.toString(), "ERROR,", JOptionPane.ERROR_MESSAGE);
+        }
+        
+        this.setstatus(status);
     }
     
     /**
      * Método set para asignar un número de seguridad a un Paciente
      * @param securityNumber
+     * @throws Exceptions.NotValidNumber
      */
     public void setsecurityNumber(String securityNumber) throws NotValidNumber{
         if(securityNumber.length() == 11)
@@ -137,6 +182,7 @@ public class Patient extends Person {
     /**
      *Método set para asignar un peso al Paciente
      * @param weigth
+     * @throws Exceptions.NotValidNumber
      */
     public void setweigth(float weigth) throws NotValidNumber{
         if(weigth >0.0f)
@@ -148,6 +194,7 @@ public class Patient extends Person {
     /**
      * Método set para asignar una altura al Paciente
      * @param size
+     * @throws Exceptions.NotValidNumber
      */
     public void setsize(float size) throws NotValidNumber{
         if(size>0.0f)
@@ -191,6 +238,7 @@ public class Patient extends Person {
     /**
      *Método set para asignarle un nuevo doctor a un Paciente
      * @param doctorID
+     * @throws Exceptions.NotValidNumber
      */
     public void setdoctorID(String doctorID) throws NotValidNumber{
         if(doctorID.length()==4){
@@ -269,13 +317,10 @@ public class Patient extends Person {
     /**
      *Método set para agregar a un Doctor a la lista de doctores que atienden a un Paciente
      * @param idDoctor
+     * @throws Exceptions.OverSize
      */
-    public void setNewDoc(String idDoctor) throws OverSize, NotValidNumber{
+    public void setNewDoc(String idDoctor) throws OverSize{
         if(this.doctorID.size()<6){
-            if(idDoctor.length() > 3)
-                this.setdoctorID(idDoctor); 
-            else
-                throw new NotValidNumber("Id de doctor no valido (El ID de un doctor tiene un minimo de 4 digitos)");
         }
         else
             throw new OverSize();
