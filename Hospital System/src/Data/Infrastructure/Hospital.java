@@ -213,8 +213,25 @@ public class Hospital {
     }
     
     // Alan ------------------------------
-    public void assignOfficeToDoctor(int id, String idDoctor){      
-        if(this.validateDoctor(idDoctor)==true && this.validateRoom(id) == true)    
+    public void assignOfficeToDoctor(int id, String idDoctor){  
+        int roomFounded = 0;
+        String idFounded = "";
+        if(this.validateDoctor(idDoctor)==true && this.validateRoom(id) == true){
+            for(int i=0; i<this.offices.size();i++){
+                if(id == this.offices.get(i).getid()){
+                    roomFounded = i;
+                    i= this.offices.size();
+                }
+            }
+            
+            for(int i=0; i<this.doctors.size();i++){
+                if(idDoctor.equals(this.doctors.get(i).getId())){
+                    idFounded = this.doctors.get(i).getId();
+                    i = this.doctors.size(); 
+            }
+        }
+             this.offices.get(roomFounded).setdoctorID(idFounded);
+        }    
            
         
         }
@@ -225,7 +242,7 @@ public class Hospital {
         boolean validacion = false;
 
         for(int i=0; i<this.doctors.size();i++){
-            if(idDoctor.equals(this.doctors.get(i))){
+            if(idDoctor.equals(this.doctors.get(i).getId())){
                 validacion = true;
                 i = this.doctors.size(); 
             }
@@ -237,10 +254,10 @@ public class Hospital {
         boolean validacion = false;
 
         for(int i=0; i<this.offices.size();i++){
-                    if(id == this.offices.get(i).getid()){
-                        validacion= true;
-                        i= this.offices.size();
-                    }
+            if(id == this.offices.get(i).getid()){
+                validacion= true;
+                i= this.offices.size();
+            }
         }
         return validacion;
     }
