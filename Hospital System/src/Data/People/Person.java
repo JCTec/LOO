@@ -9,6 +9,6 @@ package Data.People;
  *
  * @author Juan
  */
-public class Persona {
+public class Person {
     
 }

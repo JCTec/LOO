@@ -9,6 +9,6 @@ package Data.People;
  *
  * @author Juan
  */
-public class Patient extends Persona {
+public class Patient extends Person {
     
 }
