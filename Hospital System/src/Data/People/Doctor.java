@@ -13,17 +13,24 @@ import java.util.ArrayList;
  */
 public class Doctor extends Person {
     
-	el identificador de un médico del hospital
-	
+	/**
+	 * el identificador de un médico del hospital
+	 */
 	private String id;
 	
-	//el departamento del hospital al que pertenece el médico
+	/**
+	 * el departamento del hospital al que pertenece el médico
+	 */
 	private String department;
 	
-	//indica la cédula profesional del médico
+	/**
+	 * 	indica la cédula profesional del médico
+	 */
 	private String licence;
 	
-	//los números de seguridad social de los pacientes que están asignados al médico
+	/**
+	 * los números de seguridad social de los pacientes que están asignados al médico
+	 */
 	private ArrayList<String> patientSet;
 
 	/**
@@ -49,14 +56,26 @@ public class Doctor extends Person {
 		this.setDepartment(doctor.department);
 		this.setId(doctor.id);
 		this.setLicence(doctor.licence);
+		this.patientSet = doctor.patientSet;
 	}
 	
-	//TODO : finish this constructor
-	/*
-	public Doctor() {
-		
+	/**
+	 *
+	 * @see Person
+	 * @param id
+	 * el identificador de un médico del hospital
+	 * @param departamento
+	 * el departamento del hospital al que pertenece el médico
+	 * @param licence
+	 * el departamento del hospital al que pertenece el médico
+	 */
+	public Doctor(String firstName, String lastName, String address, String e_mail, String telephone, int age, String id, String departamento, String licence) {
+		super(firstName, address, e_mail, lastName, telephone, age);
+		this.setDepartment(department);
+		this.setId(id);
+		this.setLicence(licence);
+		this.patientSet = new ArrayList<>();
 	}
-	*/
 
 	//TODO : check if setters need validations
 	public String getId() {
