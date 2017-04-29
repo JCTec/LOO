@@ -46,30 +46,35 @@ public class DoctorsOffice {
             this.setid(id);
         }catch(NotValidNumber error){
             JOptionPane.showMessageDialog(null, error.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
+            this.id=0;
         }
         
         try {
             this.setfloor(floor);
         }catch(NotValidNumber error){
             JOptionPane.showMessageDialog(null, error.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
+            this.floor=0;
         }
         
         try {
             this.setmonthlyRent(monthlyRent);
         }catch(NotValidNumber error){
             JOptionPane.showMessageDialog(null, error.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
+            this.monthlyRent = 0.0f;
         }
         
         try {
             this.setdoctorID(doctorID);
         }catch(NotValidNumber error){
             JOptionPane.showMessageDialog(null, error.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
+            this.doctorID = "NOT DEFINED";
         }
         
         try {
             this.setlastPayment(lastPayment);
         }catch(NotValidNumber error){
             JOptionPane.showMessageDialog(null, error.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
+            this.lastPayment = 0.0f;
         }
     }
     
@@ -84,18 +89,21 @@ public class DoctorsOffice {
             this.setid(id);
         }catch(NotValidNumber error){
             JOptionPane.showMessageDialog(null, error.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
+            this.id = 0;
         }
         
         try {
             this.setfloor(floor);
         }catch(NotValidNumber error){
             JOptionPane.showMessageDialog(null, error.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
+            this.floor = 0;
         }
         
         try {
             this.setmonthlyRent(monthlyRent);
         }catch(NotValidNumber error){
             JOptionPane.showMessageDialog(null, error.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
+            this.monthlyRent = 0.0f;
         }
         
         this.doctorID = "NOT DEFINED";
@@ -110,30 +118,35 @@ public class DoctorsOffice {
             this.setid(office.id);
         }catch(NotValidNumber error){
             JOptionPane.showMessageDialog(null, error.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
+            this.id = 0;
         }
         
         try {
             this.setfloor(office.floor);
         }catch(NotValidNumber error){
             JOptionPane.showMessageDialog(null, error.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
+            this.floor = 0;
         }
         
         try {
             this.setmonthlyRent(office.monthlyRent);
         }catch(NotValidNumber error){
             JOptionPane.showMessageDialog(null, error.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
+            this.monthlyRent = 0.0f;
         }
         
         try {
             this.setdoctorID(office.doctorID);
         }catch(NotValidNumber error){
             JOptionPane.showMessageDialog(null, error.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
+            this.doctorID = "NOT DEFINED";
         }
         
         try {
             this.setlastPayment(office.lastPayment);
         }catch(NotValidNumber error){
             JOptionPane.showMessageDialog(null, error.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
+            this.lastPayment = 0.0f;
         }
     }
     
