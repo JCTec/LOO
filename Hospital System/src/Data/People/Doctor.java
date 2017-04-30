@@ -127,12 +127,18 @@ public class Doctor extends Person {
 		}
 	}
 	
+	/**
+	 * elimina un paciente del conjunto de pacientes que el médico atiende
+	 * 
+	 * @param patientID
+	 * número de seguro social del paciente que debe anadir
+	 */
 	public void erasePatient(String patientID){
 		if(this.patientSet.contains(patientID)){
 			this.patientSet.remove(patientID);
 		}
 		else{
-			System.out.println("error using removePatientID : patientID already in list");			
+			System.out.println("error using removePatientID : patientID not in list");			
 		}
 	}
 	
