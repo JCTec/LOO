@@ -42,7 +42,7 @@ public class Doctor extends Person {
 	 */
 	public Doctor() {
 		super();
-		this.id = "NOT DEFINED";
+		this.id = "UNDEFINED ID";
 		this.department = "UNDEFINED DEPARTMENT";
 		this.licence = "UNDEFINED LICENCE";
 		this.patientSet = new ArrayList<>();
@@ -92,7 +92,7 @@ public class Doctor extends Person {
 			this.id = id;			
 		}
 		else{
-			this.id = "undefined id";
+			this.id = "UNDEFINED ID";
 		}
 	}
 
@@ -109,7 +109,16 @@ public class Doctor extends Person {
 	}
 
 	public void setLicence(String licence) {
-		this.licence = licence;
+		String pattern = "^[1-9]{11}$";
+		Pattern r = Pattern.compile(pattern);
+		Matcher m = r.matcher(licence);
+		
+		if(m.find()){
+			this.licence = licence;
+		}
+		else{
+			this.licence = "UNDEFINED LICENCE";
+		}
 	}
 	
 	/**
