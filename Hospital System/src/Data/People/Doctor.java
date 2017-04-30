@@ -151,5 +151,22 @@ public class Doctor extends Person {
 		}
 	}
 	
+	@Override
+	public String toString(){
+		String result = super.toString();
+		result += ("\nDOCTOR ID: " + this.id);
+		result += ("\nDEPARTMENT: " + this.department);
+		result += ("\nLICENCE: " + this.licence);
+		result += "\nPATIENTS:";
+		if(this.patientSet.isEmpty()){
+			result += " NONE";
+		}
+		else{
+			for(int i = 0 ; i < this.patientSet.size() ; i++){
+				result += (" " + this.patientSet.get(i)); 
+			}
+		}
+		return result;
+	}
 	
 }
