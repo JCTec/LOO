@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -290,7 +291,7 @@ public class Hospital {
         
         for(int i=0; i<this.patients.size();i++){
             if(securityNumber.equals(this.patients.get(i).getsecurityNumber())){
-                securityNumberFounded = this.patients.get(i).getsecurityNumber();
+                securityNumberFounded = String.valueOf(i);
                 i = this.patients.size(); 
             }
         }
@@ -468,10 +469,15 @@ public class Hospital {
             
             ShowPerson Patient = new ShowPerson();
             
-            Patient.setVisible(false);
-            
             Patient.setFields(this.patients.get(indice).getfirstName(), this.patients.get(indice).getlastName(), this.patients.get(indice).getsecurityNumber(), Float.toString(this.patients.get(indice).getweigth()), this.patients.get(indice).gettelephone(), Float.toString(this.patients.get(indice).getsize()), this.patients.get(indice).getaddress(), this.patients.get(indice).gete_mail(), Integer.toString(this.patients.get(indice).getage()), this.patients.get(indice).getdisease(), this.patients.get(indice).getstatus(), Integer.toString(this.patients.get(indice).getroomID()), model);
             
+            Patient.setVisible(true);
+            
+            JFrame f = new JFrame();
+            
+            f.getContentPane().add(Patient);
+            f.pack();
+            f.setVisible(true);
             
         }
         
