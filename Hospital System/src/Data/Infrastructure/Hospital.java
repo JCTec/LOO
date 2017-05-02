@@ -8,7 +8,9 @@ package Data.Infrastructure;
 import Data.People.*;
 import Exceptions.NotValidNumber;
 import Exceptions.OverSize;
+import Interfaz.Paneles.ShowPerson;
 import java.util.ArrayList;
+import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
 /**
@@ -444,14 +446,31 @@ public class Hospital {
     }
     
     /**
-     *Método para hacer búsquedas de Pacientes
+     *Método mostrar la informacion del paciente con su NSS.
      * @param securityNumber
      */
     public void showPatientInfo(String securityNumber){
         String securityNumberFounded = this.findPatientBySecurityNumber(securityNumber);
         
+        //Donde se encuentra el paciente en el arreglo;
+        int indice = Integer.valueOf(securityNumberFounded);
+        
         if (!securityNumberFounded.isEmpty()){
-            //Display info
+            ArrayList<String> IDDoctors = this.patients.get(indice).getdoctorID();
+            
+            DefaultListModel<String> model = new DefaultListModel<String>();
+            
+            for(int x = 0; x < IDDoctors.size(); x++){
+              model.addElement(IDDoctors.get(x));
+            }
+            
+            ShowPerson Patient = new ShowPerson();
+            
+            Patient.setVisible(false);
+            
+            Patient.setFields(this.patients.get(indice).getfirstName(), this.patients.get(indice).getlastName(), this.patients.get(indice).getsecurityNumber(), Float.toString(this.patients.get(indice).getweigth()), this.patients.get(indice).gettelephone(), Float.toString(this.patients.get(indice).getsize()), this.patients.get(indice).getaddress(), this.patients.get(indice).gete_mail(), Integer.toString(this.patients.get(indice).getage()), this.patients.get(indice).getdisease(), this.patients.get(indice).getstatus(), Integer.toString(this.patients.get(indice).getroomID()), model);
+            
+            
         }
         
     }
