@@ -10,6 +10,8 @@ import Exceptions.NotValidNumber;
 import Exceptions.OverSize;
 import Interfaz.Paneles.ShowPerson;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
@@ -472,6 +474,38 @@ public class Hospital {
             
             
         }
+        
+    }
+    
+    public void addPatient(String name, String lastName, String nSS, int age, String e_mail, String address, String telephone, String disease, float size, float weigth){
+        Patient newPatient = new Patient();
+        newPatient.setfirstName(name);
+        newPatient.setlastName(lastName);
+        newPatient.setage(age);
+        newPatient.setdisease(disease);
+        newPatient.sete_mail(e_mail);
+        newPatient.setstatus("Ingreso");
+        newPatient.settelephone(telephone);
+        newPatient.setaddress(address);
+        
+        try {
+            newPatient.setsecurityNumber(nSS);
+        } catch (NotValidNumber ex) {
+            JOptionPane.showMessageDialog(null, ex.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+        
+        try {
+            newPatient.setsize(size);
+        } catch (NotValidNumber ex) {
+            JOptionPane.showMessageDialog(null, ex.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+        try {
+            newPatient.setweigth(weigth);
+        } catch (NotValidNumber ex) {
+            JOptionPane.showMessageDialog(null, ex.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+        
+        this.patients.add(newPatient);
         
     }
     
