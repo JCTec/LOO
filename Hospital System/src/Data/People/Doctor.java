@@ -134,7 +134,8 @@ public class Doctor extends Person {
      * @param licence
      */
     public void setLicence(String licence) {
-		String pattern = "^[1-9]{11}$";
+		licence = licence.toUpperCase();
+		String pattern = "^[0-9A-Z]{11}$";
 		Pattern r = Pattern.compile(pattern);
 		Matcher m = r.matcher(licence);
 		
