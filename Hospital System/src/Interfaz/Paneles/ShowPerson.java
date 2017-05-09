@@ -87,7 +87,6 @@ public class ShowPerson extends javax.swing.JPanel {
         jLabel13.setText("Estatus");
 
         nameField.setEditable(false);
-        nameField.setText("jTextField1");
         nameField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nameFieldActionPerformed(evt);
@@ -95,43 +94,27 @@ public class ShowPerson extends javax.swing.JPanel {
         });
 
         lastNameField.setEditable(false);
-        lastNameField.setText("jTextField2");
 
         edadField.setEditable(false);
-        edadField.setText("jTextField3");
 
         direccionField.setEditable(false);
-        direccionField.setText("jTextField4");
 
         telefonoField.setEditable(false);
-        telefonoField.setText("jTextField5");
 
         e_mailField.setEditable(false);
-        e_mailField.setText("jTextField6");
 
         nSSField.setEditable(false);
-        nSSField.setText("jTextField7");
 
         pesoField.setEditable(false);
-        pesoField.setText("jTextField8");
 
         alturaField.setEditable(false);
-        alturaField.setText("jTextField9");
 
         enfermedadField.setEditable(false);
-        enfermedadField.setText("jTextField10");
 
         estatusField.setEditable(false);
-        estatusField.setText("jTextField11");
 
         iDHabitacionField.setEditable(false);
-        iDHabitacionField.setText("jTextField12");
 
-        iDDoctoresList.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
         jScrollPane1.setViewportView(iDDoctoresList);
 
         javax.swing.GroupLayout TypePersonLayout = new javax.swing.GroupLayout(TypePerson);
@@ -226,7 +209,7 @@ public class ShowPerson extends javax.swing.JPanel {
                 .addGroup(TypePersonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(IDDoctores)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(144, Short.MAX_VALUE))
+                .addContainerGap(160, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
