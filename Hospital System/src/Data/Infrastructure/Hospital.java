@@ -28,15 +28,15 @@ public class Hospital {
      */
     private int doctorsIds;
 
-    private String name;
-    private String address;
-    private String telephone;
-    private int numOfDoctorsOffices;
-    private int numOfRooms;
-    private ArrayList<DoctorsOffice> offices;
-    private ArrayList<Room> rooms;
-    private ArrayList<Doctor> doctors;
-    private ArrayList<Patient> patients;
+    private String name; //El nombre del Hospital
+    private String address; //La dirección del Hospital
+    private String telephone; //El teléfono del Hospital
+    private int numOfDoctorsOffices; //El número de consultorios de un Hospital
+    private int numOfRooms; //El número de habitaciones de un Hospital
+    private ArrayList<DoctorsOffice> offices; //Arreglo con los consultoros del Hospital
+    private ArrayList<Room> rooms; //Arreglo con las habitaciones del Hospital
+    private ArrayList<Doctor> doctors; //Arreglo con los doctores que laboran en el Hospital
+    private ArrayList<Patient> patients; //Arreglo con los pacientes atendidos por los doctores
     
     /**
      *Constructor con valores por omisión
@@ -59,6 +59,7 @@ public class Hospital {
     /**
      *Constructor de copia
      * @param H
+     * recibe un objeto Hospital y copia sus datos
      */
     public Hospital(Hospital H){
         this.doctorsIds = 1000;
@@ -127,6 +128,7 @@ public class Hospital {
         
     }
     
+    //Método que automáticamente crea el numero de habitaciones y oficinas que se señalaron en el constructor
     private void fillRoomsAndOffice(){
         
         for(int x = 0; x < this.numOfRooms; x++){
@@ -375,6 +377,9 @@ public class Hospital {
         
     }
     
+    /**
+     *Método para crear oficinas de doctor en un Hospital
+     */
     public void addDoctorOffice(){
             this.numOfDoctorsOffices ++;
             int id = this.numOfDoctorsOffices;
@@ -417,7 +422,7 @@ public class Hospital {
     }
     
     /**
-     *Método para hacer búsquedas de consultorio
+     *Método para hacer búsquedas de consultorio y mostrar su información
      * @param doctorsOfficeId
      */
     public void showDoctorsOfficeInfo(String doctorsOfficeId){
@@ -428,8 +433,8 @@ public class Hospital {
     }
     
     /**
-     *Mpetodo para hacer búsquedas de Doctores
-     * @param doctorId
+     *Metodo para hacer búsquedas de Doctores y mostrar su información
+     * @param doctorId 
      */
     public void showDoctorInfo(String doctorId){
         String idFounded = "";
@@ -483,6 +488,20 @@ public class Hospital {
         
     }
     
+    /**
+     *Método utilizado para la creación de un nuevo Paciente
+     * //Recibe como atributos todas las características de un Paciente
+     * @param name
+     * @param lastName
+     * @param nSS
+     * @param age
+     * @param e_mail
+     * @param address
+     * @param telephone
+     * @param disease
+     * @param size
+     * @param weigth
+     */
     public void addPatient(String name, String lastName, String nSS, int age, String e_mail, String address, String telephone, String disease, float size, float weigth){
         Patient newPatient = new Patient();
         newPatient.setFirstName(name);
@@ -513,6 +532,20 @@ public class Hospital {
         
         this.patients.add(newPatient);
         
+    }
+    
+    public void addDoctor(String name, String lastName, String licence, int age, String e_mail, String address, String telephone, String Department){
+        Doctor newDoc = new Doctor();
+        newDoc.setfirstName(name);
+        newDoc.setlastName(lastName);
+        newDoc.setage(age);
+        newDoc.setLicence(licence);
+        newDoc.sete_mail(e_mail);
+        newDoc.setDepartment(Department);
+        newDoc.setaddress(address);
+        newDoc.settelephone(telephone);
+        
+        this.doctors.add(newDoc);
     }
     
     /**
