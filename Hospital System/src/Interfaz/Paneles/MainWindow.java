@@ -43,7 +43,7 @@ public class MainWindow extends javax.swing.JFrame {
         menuBar = new javax.swing.JMenuBar();
         menuHospital = new javax.swing.JMenu();
         menuNewHospital = new javax.swing.JMenuItem();
-        jMenu6 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
         menuOffice = new javax.swing.JMenu();
         menuNewOffice = new javax.swing.JMenuItem();
         menuEditOffice = new javax.swing.JMenuItem();
@@ -57,6 +57,8 @@ public class MainWindow extends javax.swing.JFrame {
         menuEditPatient = new javax.swing.JMenuItem();
         menuRemovePatient = new javax.swing.JMenuItem();
         menuReport = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -202,8 +204,8 @@ public class MainWindow extends javax.swing.JFrame {
         });
         menuHospital.add(menuNewHospital);
 
-        jMenu6.setText("Select");
-        menuHospital.add(jMenu6);
+        jMenuItem1.setText("Select");
+        menuHospital.add(jMenuItem1);
 
         menuBar.add(menuHospital);
 
@@ -292,6 +294,18 @@ public class MainWindow extends javax.swing.JFrame {
         menuBar.add(menuPatient);
 
         menuReport.setText("Report");
+
+        jMenuItem2.setText("Doctor");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        menuReport.add(jMenuItem2);
+
+        jMenuItem3.setText("Person");
+        menuReport.add(jMenuItem3);
+
         menuBar.add(menuReport);
 
         setJMenuBar(menuBar);
@@ -360,6 +374,10 @@ public class MainWindow extends javax.swing.JFrame {
 		card.show(mainPanel, "removePatient");
     }//GEN-LAST:event_menuRemovePatientActionPerformed
 
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
 	/**
 	 * @param args the command line arguments
 	 */
@@ -399,7 +417,9 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JPanel editDoctor;
     private javax.swing.JPanel editOffice;
     private javax.swing.JPanel editPatient;
-    private javax.swing.JMenu jMenu6;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenu menuDoctor;
