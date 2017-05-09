@@ -139,7 +139,7 @@ public class ShowPerson extends javax.swing.JPanel {
                     .addComponent(IDDoctores))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(TypePersonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(iDHabitacionField, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE)
+                    .addComponent(iDHabitacionField)
                     .addComponent(estatusField)
                     .addComponent(enfermedadField)
                     .addComponent(alturaField)
