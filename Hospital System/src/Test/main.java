@@ -25,7 +25,7 @@ public class main {
         
         //H.showPatientInfo("91028364718");
         
-        H.addDoctor("Perez", "Perez", "91028364718", 30, "jc_estevez@hotmail.com", "Vilas la Hacienda", "9992846572", "Hola");
+        H.addDoctor("Perez", "Perez", "47584637465", 30, "jc_estevez@hotmail.com", "Vilas la Hacienda", "9992846572", "Hola");
         
         H.showDoctorInfo("1000");
         
