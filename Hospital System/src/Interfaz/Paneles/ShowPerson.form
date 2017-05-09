@@ -153,7 +153,7 @@
                       <Component id="IDDoctores" min="-2" max="-2" attributes="0"/>
                       <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="144" max="32767" attributes="0"/>
+                  <EmptySpace pref="160" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -227,7 +227,6 @@
         <Component class="javax.swing.JTextField" name="nameField">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
-            <Property name="text" type="java.lang.String" value="jTextField1"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nameFieldActionPerformed"/>
@@ -236,67 +235,56 @@
         <Component class="javax.swing.JTextField" name="lastNameField">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
-            <Property name="text" type="java.lang.String" value="jTextField2"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="edadField">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
-            <Property name="text" type="java.lang.String" value="jTextField3"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="direccionField">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
-            <Property name="text" type="java.lang.String" value="jTextField4"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="telefonoField">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
-            <Property name="text" type="java.lang.String" value="jTextField5"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="e_mailField">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
-            <Property name="text" type="java.lang.String" value="jTextField6"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="nSSField">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
-            <Property name="text" type="java.lang.String" value="jTextField7"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="pesoField">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
-            <Property name="text" type="java.lang.String" value="jTextField8"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="alturaField">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
-            <Property name="text" type="java.lang.String" value="jTextField9"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="enfermedadField">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
-            <Property name="text" type="java.lang.String" value="jTextField10"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="estatusField">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
-            <Property name="text" type="java.lang.String" value="jTextField11"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="iDHabitacionField">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
-            <Property name="text" type="java.lang.String" value="jTextField12"/>
           </Properties>
         </Component>
         <Container class="javax.swing.JScrollPane" name="jScrollPane1">
@@ -309,13 +297,7 @@
             <Component class="javax.swing.JList" name="iDDoctoresList">
               <Properties>
                 <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
-                  <StringArray count="5">
-                    <StringItem index="0" value="Item 1"/>
-                    <StringItem index="1" value="Item 2"/>
-                    <StringItem index="2" value="Item 3"/>
-                    <StringItem index="3" value="Item 4"/>
-                    <StringItem index="4" value="Item 5"/>
-                  </StringArray>
+                  <StringArray count="0"/>
                 </Property>
               </Properties>
               <AuxValues>
