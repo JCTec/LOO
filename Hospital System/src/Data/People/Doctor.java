@@ -85,7 +85,7 @@ public class Doctor extends Person {
      * @return id
      */
     public String getId() {
-		return id;
+		return this.id;
 	}
 
     /**
