@@ -544,7 +544,8 @@ public class Hospital {
         newDoc.setDepartment(Department);
         newDoc.setAddress(address);
         newDoc.setTelephone(telephone);
-        
+        newDoc.setId(Integer.toString(this.doctorsIds));
+        this.doctorsIds++;
         this.doctors.add(newDoc);
     }
     
