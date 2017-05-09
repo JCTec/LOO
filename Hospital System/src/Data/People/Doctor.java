@@ -143,6 +143,7 @@ public class Doctor extends Person {
 			this.licence = licence;
 		}
 		else{
+			System.out.println("error using setLicence : licence should be 11 alphanumerical characters long");
 			this.licence = "UNDEFINED LICENCE";
 		}
 	}
