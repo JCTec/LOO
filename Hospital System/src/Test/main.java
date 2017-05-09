@@ -12,7 +12,7 @@ import Data.Infrastructure.Hospital;
  * @author Juan
  */
 public class main {
- 
+ /*
     public static void main(String[] args){
         
         //(String name, String address, String telephone, int numOfDoctorsOffices, int numOfRooms)
@@ -31,4 +31,5 @@ public class main {
         
 
     }
+*/
 }
