@@ -58,7 +58,7 @@ public class Hospital {
     
     /**
      *Constructor de copia
-     * @param H
+     * @param Un objeto de tipo Hospital H
      */
     public Hospital(Hospital H){
         this.doctorsIds = 1000;
@@ -375,6 +375,9 @@ public class Hospital {
         
     }
     
+    /**
+     *Método para crear oficinas de doctor en un Hospital
+     */
     public void addDoctorOffice(){
             this.numOfDoctorsOffices ++;
             int id = this.numOfDoctorsOffices;
@@ -483,6 +486,19 @@ public class Hospital {
         
     }
     
+    /**
+     *Método utilizado para la creación de un nuevo Paciente
+     * @param name
+     * @param lastName
+     * @param nSS
+     * @param age
+     * @param e_mail
+     * @param address
+     * @param telephone
+     * @param disease
+     * @param size
+     * @param weigth
+     */
     public void addPatient(String name, String lastName, String nSS, int age, String e_mail, String address, String telephone, String disease, float size, float weigth){
         Patient newPatient = new Patient();
         newPatient.setFirstName(name);
