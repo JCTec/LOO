@@ -43,35 +43,35 @@ public class DoctorsOffice {
      */
     public DoctorsOffice(int id, int floor, float monthlyRent, String doctorID, float lastPayment){
         try {
-            this.setid(id);
+            this.setId(id);
         }catch(NotValidNumber error){
             JOptionPane.showMessageDialog(null, error.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
             this.id=0;
         }
         
         try {
-            this.setfloor(floor);
+            this.setFloor(floor);
         }catch(NotValidNumber error){
             JOptionPane.showMessageDialog(null, error.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
             this.floor=0;
         }
         
         try {
-            this.setmonthlyRent(monthlyRent);
+            this.setMonthlyRent(monthlyRent);
         }catch(NotValidNumber error){
             JOptionPane.showMessageDialog(null, error.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
             this.monthlyRent = 0.0f;
         }
         
         try {
-            this.setdoctorID(doctorID);
+            this.setDoctorID(doctorID);
         }catch(NotValidNumber error){
             JOptionPane.showMessageDialog(null, error.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
             this.doctorID = "NOT DEFINED";
         }
         
         try {
-            this.setlastPayment(lastPayment);
+            this.setLastPayment(lastPayment);
         }catch(NotValidNumber error){
             JOptionPane.showMessageDialog(null, error.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
             this.lastPayment = 0.0f;
@@ -86,21 +86,21 @@ public class DoctorsOffice {
      */
     public DoctorsOffice(int id, int floor, float monthlyRent){
         try {
-            this.setid(id);
+            this.setId(id);
         }catch(NotValidNumber error){
             JOptionPane.showMessageDialog(null, error.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
             this.id = 0;
         }
         
         try {
-            this.setfloor(floor);
+            this.setFloor(floor);
         }catch(NotValidNumber error){
             JOptionPane.showMessageDialog(null, error.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
             this.floor = 0;
         }
         
         try {
-            this.setmonthlyRent(monthlyRent);
+            this.setMonthlyRent(monthlyRent);
         }catch(NotValidNumber error){
             JOptionPane.showMessageDialog(null, error.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
             this.monthlyRent = 0.0f;
@@ -115,35 +115,35 @@ public class DoctorsOffice {
      */
     public DoctorsOffice(DoctorsOffice office){
         try {
-            this.setid(office.id);
+            this.setId(office.id);
         }catch(NotValidNumber error){
             JOptionPane.showMessageDialog(null, error.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
             this.id = 0;
         }
         
         try {
-            this.setfloor(office.floor);
+            this.setFloor(office.floor);
         }catch(NotValidNumber error){
             JOptionPane.showMessageDialog(null, error.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
             this.floor = 0;
         }
         
         try {
-            this.setmonthlyRent(office.monthlyRent);
+            this.setMonthlyRent(office.monthlyRent);
         }catch(NotValidNumber error){
             JOptionPane.showMessageDialog(null, error.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
             this.monthlyRent = 0.0f;
         }
         
         try {
-            this.setdoctorID(office.doctorID);
+            this.setDoctorID(office.doctorID);
         }catch(NotValidNumber error){
             JOptionPane.showMessageDialog(null, error.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
             this.doctorID = "NOT DEFINED";
         }
         
         try {
-            this.setlastPayment(office.lastPayment);
+            this.setLastPayment(office.lastPayment);
         }catch(NotValidNumber error){
             JOptionPane.showMessageDialog(null, error.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
             this.lastPayment = 0.0f;
@@ -154,7 +154,7 @@ public class DoctorsOffice {
      * Método set para asignar un identificador al consultorio
      * @param id
      */
-    public void setid (int id) throws NotValidNumber{
+    public void setId (int id) throws NotValidNumber{
         if (id>0)
             this.id = id;
         else
@@ -167,7 +167,7 @@ public class DoctorsOffice {
      *  Método set para asignar un piso a un consultorio
      * @param floor
      */
-    public void setfloor(int floor) throws NotValidNumber{
+    public void setFloor(int floor) throws NotValidNumber{
         if (id>0)
             this.floor = floor;
         else
@@ -178,7 +178,7 @@ public class DoctorsOffice {
      *  Método set para asignar un costo mensual de renta de un consultorio
      * @param monthlyRent
      */
-    public void setmonthlyRent(float monthlyRent) throws NotValidNumber{
+    public void setMonthlyRent(float monthlyRent) throws NotValidNumber{
         if (monthlyRent>0)
             this.monthlyRent = monthlyRent;
         else
@@ -189,7 +189,7 @@ public class DoctorsOffice {
      * Método set para asignar un doctor a un consultorio
      * @param doctorID
      */
-    public void setdoctorID(String doctorID) throws NotValidNumber{
+    public void setDoctorID(String doctorID) throws NotValidNumber{
         if (doctorID.length()==4)
             this.doctorID = doctorID;
         else
@@ -200,7 +200,7 @@ public class DoctorsOffice {
      * Método set para asignar el ultimo pago de un médico de un consultorio
      * @param lastPayment
      */
-    public void setlastPayment(float lastPayment) throws NotValidNumber{
+    public void setLastPayment(float lastPayment) throws NotValidNumber{
         if (lastPayment>0)
             this.lastPayment = lastPayment;
         else
@@ -211,7 +211,7 @@ public class DoctorsOffice {
      * Método get para obtener el id de un consultorio
      * @return id
      */
-    public int getid(){
+    public int getId(){
         return this.id;
     }
     
@@ -219,7 +219,7 @@ public class DoctorsOffice {
      *  Método get para obtener el piso de un consultorio
      * @return floor
      */
-    public int getfloor(){
+    public int getFloor(){
         return this.floor;
     }
     
@@ -227,7 +227,7 @@ public class DoctorsOffice {
      * Método get para obtener el costo mensual de un consultorio
      * @return monthlyRent
      */
-    public float getmonthlyRent(){
+    public float getMonthlyRent(){
         return this.monthlyRent;
     }
     
@@ -235,7 +235,7 @@ public class DoctorsOffice {
      * Método get para obtener el ID del doctor de ese consultorio
      * @return doctorID
      */
-    public String getdoctorID(){
+    public String getDoctorID(){
         return this.doctorID;
     }
     
@@ -243,13 +243,13 @@ public class DoctorsOffice {
      * Método get para obtener el último pago del doctor de un consultorio
      * @return lastPayment
      */
-    public float getlastPayment(){
+    public float getLastPayment(){
         return this.lastPayment;
     }
     
     /**
      * Método toString para obtener todos los atributos de un consultorio
-     * @return 
+     * @return string con todos los valores y datos de un DoctorsOffice
      */
     @Override
     public String toString(){

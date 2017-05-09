@@ -28,15 +28,15 @@ public class Hospital {
      */
     private int doctorsIds;
 
-    private String name;
-    private String address;
-    private String telephone;
-    private int numOfDoctorsOffices;
-    private int numOfRooms;
-    private ArrayList<DoctorsOffice> offices;
-    private ArrayList<Room> rooms;
-    private ArrayList<Doctor> doctors;
-    private ArrayList<Patient> patients;
+    private String name; //El nombre del Hospital
+    private String address; //La dirección del Hospital
+    private String telephone; //El teléfono del Hospital
+    private int numOfDoctorsOffices; //El número de consultorios de un Hospital
+    private int numOfRooms; //El número de habitaciones de un Hospital
+    private ArrayList<DoctorsOffice> offices; //Arreglo con los consultoros del Hospital
+    private ArrayList<Room> rooms; //Arreglo con las habitaciones del Hospital
+    private ArrayList<Doctor> doctors; //Arreglo con los doctores que laboran en el Hospital
+    private ArrayList<Patient> patients; //Arreglo con los pacientes atendidos por los doctores
     
     /**
      *Constructor con valores por omisión
@@ -59,6 +59,7 @@ public class Hospital {
     /**
      *Constructor de copia
      * @param H
+     * recibe un objeto Hospital y copia sus datos
      */
     public Hospital(Hospital H){
         this.doctorsIds = 1000;
@@ -101,19 +102,19 @@ public class Hospital {
         }
 
         try {
-            this.settelephone(telephone);
+            this.setTelephone(telephone);
         }catch(NotValidNumber error){
             JOptionPane.showMessageDialog(null, error.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
         }
         
         try {
-            this.setnumOfDoctorsOffices(numOfDoctorsOffices);
+            this.setNumOfDoctorsOffices(numOfDoctorsOffices);
         }catch(NotValidNumber error){
             JOptionPane.showMessageDialog(null, error.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
         }
         
         try {
-            this.setnumOfRooms(numOfRooms);
+            this.setNumOfRooms(numOfRooms);
         }catch(NotValidNumber error){
             JOptionPane.showMessageDialog(null, error.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
         }
@@ -127,6 +128,7 @@ public class Hospital {
         
     }
     
+    //Método que automáticamente crea el numero de habitaciones y oficinas que se señalaron en el constructor
     private void fillRoomsAndOffice(){
         
         for(int x = 0; x < this.numOfRooms; x++){
@@ -138,7 +140,7 @@ public class Hospital {
             DoctorsOffice newDoctorsOffice = new DoctorsOffice();
             
             try {
-                newDoctorsOffice.setid(x + 1);
+                newDoctorsOffice.setId(x + 1);
             } catch (NotValidNumber error) {
                 JOptionPane.showMessageDialog(null, error.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
             }
@@ -151,7 +153,7 @@ public class Hospital {
      *Método set para asignar un nombre a un Hospital
      * @param name
      */
-    public void setname(String name){
+    public void setName(String name){
         if(name != null){
             this.name = name;
         }
@@ -161,7 +163,7 @@ public class Hospital {
      *Método set para asignar una dirección a un Hospital
      * @param address
      */
-    public void setaddress(String address){
+    public void setAddress(String address){
         if(address != null){
             this.address = address;
         }
@@ -172,7 +174,7 @@ public class Hospital {
      * @param telephone
      * @throws NotValidNumber
      */
-    public void settelephone(String telephone) throws NotValidNumber{
+    public void setTelephone(String telephone) throws NotValidNumber{
        
         if(telephone != null && telephone.length() == 10){ 
             this.telephone = telephone; 
@@ -187,7 +189,7 @@ public class Hospital {
      * @param numOfDoctorsOffices
      * @throws NotValidNumber
      */
-    public void setnumOfDoctorsOffices(int numOfDoctorsOffices) throws NotValidNumber{
+    public void setNumOfDoctorsOffices(int numOfDoctorsOffices) throws NotValidNumber{
        
         if(numOfDoctorsOffices >= 0){ 
             this.numOfDoctorsOffices = numOfDoctorsOffices; 
@@ -202,7 +204,7 @@ public class Hospital {
      * @param numOfRooms
      * @throws NotValidNumber
      */
-    public void setnumOfRooms(int numOfRooms) throws NotValidNumber{
+    public void setNumOfRooms(int numOfRooms) throws NotValidNumber{
        
         if(numOfRooms >= 0){ 
             this.numOfRooms = numOfRooms; 
@@ -216,7 +218,7 @@ public class Hospital {
      *Método get para obtener el nombre de un Hospital
      * @return name
      */
-    public String getname(){
+    public String getName(){
         return this.name;
     }
     
@@ -224,7 +226,7 @@ public class Hospital {
      *Método get para obtener la dirección de un Hospital
      * @return address
      */
-    public String getaddress(){
+    public String getAddress(){
         return this.address;
     }
     
@@ -232,7 +234,7 @@ public class Hospital {
      *Método get para obtener el número de consultorios
      * @return numOfDoctorsOffice
      */
-    public int getnumOfDoctorsOffices(){
+    public int getNumOfDoctorsOffices(){
         return this.numOfDoctorsOffices;
     }
     
@@ -240,7 +242,7 @@ public class Hospital {
      *Método get para obtener el número de habitaciones
      * @return numOfRooms
      */
-    public int getnumOfRooms(){
+    public int getNumOfRooms(){
         return this.numOfRooms;
     }
     
@@ -248,7 +250,7 @@ public class Hospital {
      *Mpetodo get para obtener los datos de los consultorios
      * @return offices
      */
-    public ArrayList<DoctorsOffice> getoffices(){
+    public ArrayList<DoctorsOffice> getOffices(){
         return this.offices;
     }
     
@@ -256,7 +258,7 @@ public class Hospital {
      *Método get para obtener los datos de las habitaciones
      * @return rooms
      */
-    public ArrayList<Room> getrooms(){
+    public ArrayList<Room> getRooms(){
         return this.rooms;
     }
     
@@ -264,7 +266,7 @@ public class Hospital {
      *Método get para obtener los datos de los doctores de un Hospital
      * @return doctos
      */
-    public ArrayList<Doctor> getdoctors(){
+    public ArrayList<Doctor> getDoctors(){
         return this.doctors;
     }
     
@@ -272,7 +274,7 @@ public class Hospital {
      *Método get para obtener los datos de los pacientes de un Hospital
      * @return patients
      */
-    public ArrayList<Patient> getpatients(){
+    public ArrayList<Patient> getPatients(){
         return this.patients;
     }
     
@@ -290,7 +292,7 @@ public class Hospital {
         
         
         for(int i=0; i<this.patients.size();i++){
-            if(securityNumber.equals(this.patients.get(i).getsecurityNumber())){
+            if(securityNumber.equals(this.patients.get(i).getSecurityNumber())){
                 securityNumberFounded = String.valueOf(i);
                 i = this.patients.size(); 
             }
@@ -329,19 +331,19 @@ public class Hospital {
             DoctorsOffice newOffice = new DoctorsOffice();
             
             try {
-                newOffice.setid(id);
+                newOffice.setId(id);
             } catch (NotValidNumber error) {
                 JOptionPane.showMessageDialog(null, error.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
             }
             
             try {
-                newOffice.setfloor(floor);
+                newOffice.setFloor(floor);
             } catch (NotValidNumber error) {
                 JOptionPane.showMessageDialog(null, error.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
             }
             
             try {
-                newOffice.setmonthlyRent(monthlyRent);
+                newOffice.setMonthlyRent(monthlyRent);
             } catch (NotValidNumber error) {
                 JOptionPane.showMessageDialog(null, error.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
             }
@@ -360,13 +362,13 @@ public class Hospital {
             DoctorsOffice newOffice = new DoctorsOffice();
             
             try {
-                newOffice.setid(id);
+                newOffice.setId(id);
             } catch (NotValidNumber error) {
                 JOptionPane.showMessageDialog(null, error.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
             }
             
             try {
-                newOffice.setfloor(floor);
+                newOffice.setFloor(floor);
             } catch (NotValidNumber error) {
                 JOptionPane.showMessageDialog(null, error.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
             }
@@ -375,13 +377,16 @@ public class Hospital {
         
     }
     
+    /**
+     *Método para crear oficinas de doctor en un Hospital
+     */
     public void addDoctorOffice(){
             this.numOfDoctorsOffices ++;
             int id = this.numOfDoctorsOffices;
             DoctorsOffice newOffice = new DoctorsOffice();
             
         try {
-            newOffice.setid(id);
+            newOffice.setId(id);
         } catch (NotValidNumber error) {
             JOptionPane.showMessageDialog(null, error.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
         }
@@ -417,7 +422,7 @@ public class Hospital {
     }
     
     /**
-     *Método para hacer búsquedas de consultorio
+     *Método para hacer búsquedas de consultorio y mostrar su información
      * @param doctorsOfficeId
      */
     public void showDoctorsOfficeInfo(String doctorsOfficeId){
@@ -428,8 +433,8 @@ public class Hospital {
     }
     
     /**
-     *Mpetodo para hacer búsquedas de Doctores
-     * @param doctorId
+     *Metodo para hacer búsquedas de Doctores y mostrar su información
+     * @param doctorId 
      */
     public void showDoctorInfo(String doctorId){
         String idFounded = "";
@@ -459,7 +464,7 @@ public class Hospital {
         int indice = Integer.valueOf(securityNumberFounded);
         
         if (!securityNumberFounded.isEmpty()){
-            ArrayList<String> IDDoctors = this.patients.get(indice).getdoctorID();
+            ArrayList<String> IDDoctors = this.patients.get(indice).getDoctorID();
             
             DefaultListModel<String> model = new DefaultListModel<String>();
             
@@ -469,7 +474,7 @@ public class Hospital {
             
             ShowPerson Patient = new ShowPerson();
             
-            Patient.setFields(this.patients.get(indice).getfirstName(), this.patients.get(indice).getlastName(), this.patients.get(indice).getsecurityNumber(), Float.toString(this.patients.get(indice).getweigth()), this.patients.get(indice).gettelephone(), Float.toString(this.patients.get(indice).getsize()), this.patients.get(indice).getaddress(), this.patients.get(indice).gete_mail(), Integer.toString(this.patients.get(indice).getage()), this.patients.get(indice).getdisease(), this.patients.get(indice).getstatus(), Integer.toString(this.patients.get(indice).getroomID()), model);
+            Patient.setFields(this.patients.get(indice).getFirstName(), this.patients.get(indice).getLastName(), this.patients.get(indice).getSecurityNumber(), Float.toString(this.patients.get(indice).getWeigth()), this.patients.get(indice).getTelephone(), Float.toString(this.patients.get(indice).getSize()), this.patients.get(indice).getAddress(), this.patients.get(indice).getEmail(), Integer.toString(this.patients.get(indice).getAge()), this.patients.get(indice).getDisease(), this.patients.get(indice).getStatus(), Integer.toString(this.patients.get(indice).getRoomID()), model);
             
             Patient.setVisible(true);
             
@@ -483,30 +488,44 @@ public class Hospital {
         
     }
     
+    /**
+     *Método utilizado para la creación de un nuevo Paciente
+     * //Recibe como atributos todas las características de un Paciente
+     * @param name
+     * @param lastName
+     * @param nSS
+     * @param age
+     * @param e_mail
+     * @param address
+     * @param telephone
+     * @param disease
+     * @param size
+     * @param weigth
+     */
     public void addPatient(String name, String lastName, String nSS, int age, String e_mail, String address, String telephone, String disease, float size, float weigth){
         Patient newPatient = new Patient();
-        newPatient.setfirstName(name);
-        newPatient.setlastName(lastName);
-        newPatient.setage(age);
-        newPatient.setdisease(disease);
-        newPatient.sete_mail(e_mail);
-        newPatient.setstatus("Ingreso");
-        newPatient.settelephone(telephone);
-        newPatient.setaddress(address);
+        newPatient.setFirstName(name);
+        newPatient.setLastName(lastName);
+        newPatient.setAge(age);
+        newPatient.setDisease(disease);
+        newPatient.setEmail(e_mail);
+        newPatient.setStatus("Ingreso");
+        newPatient.setTelephone(telephone);
+        newPatient.setAddress(address);
         
         try {
-            newPatient.setsecurityNumber(nSS);
+            newPatient.setSecurityNumber(nSS);
         } catch (NotValidNumber ex) {
             JOptionPane.showMessageDialog(null, ex.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
         }
         
         try {
-            newPatient.setsize(size);
+            newPatient.setSize(size);
         } catch (NotValidNumber ex) {
             JOptionPane.showMessageDialog(null, ex.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
         }
         try {
-            newPatient.setweigth(weigth);
+            newPatient.setWeigth(weigth);
         } catch (NotValidNumber ex) {
             JOptionPane.showMessageDialog(null, ex.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
         }
@@ -558,7 +577,7 @@ public class Hospital {
         
         if (!securityNumberFounded.isEmpty()){
             try {
-                this.patients.get(Integer.valueOf(securityNumberFounded)).setroomID(roomId);
+                this.patients.get(Integer.valueOf(securityNumberFounded)).setRoomID(roomId);
             } catch (NotValidNumber error) {
                 JOptionPane.showMessageDialog(null, error.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
             }
@@ -573,7 +592,7 @@ public class Hospital {
     public void assignOfficeToDoctor(String idDoctor, String doctorsOfficeId){
         
         try {
-            this.offices.get(doctorsIds - 1).setdoctorID(idDoctor);
+            this.offices.get(doctorsIds - 1).setDoctorID(idDoctor);
         } catch (NotValidNumber error) {
             JOptionPane.showMessageDialog(null, error.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
         }
@@ -589,7 +608,7 @@ public class Hospital {
         String securityNumberFounded = this.findPatientBySecurityNumber(securityNumber);
         
         if (!securityNumberFounded.isEmpty()){
-            this.patients.get(Integer.valueOf(securityNumberFounded)).setstatus(Status);
+            this.patients.get(Integer.valueOf(securityNumberFounded)).setStatus(Status);
         }
     }
     
@@ -602,7 +621,7 @@ public class Hospital {
         ArrayList<Patient> patientsReady = new ArrayList<>();
         
         for(int i=0; i<this.patients.size();i++){
-            if(this.patients.get(i).getstatus().equals("Alta")){
+            if(this.patients.get(i).getStatus().equals("Alta")){
                 patientsReady.add(this.patients.get(i));
             }
         }
@@ -661,7 +680,7 @@ public class Hospital {
         boolean validacion = false;
 
         for(int i=0; i<this.offices.size();i++){
-            if(id == this.offices.get(i).getid()){
+            if(id == this.offices.get(i).getId()){
                 validacion= true;
                 i= this.offices.size();
             }

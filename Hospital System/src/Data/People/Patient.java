@@ -49,7 +49,7 @@ public class Patient extends Person {
      * @param paciente
      */
     public Patient(Patient paciente){
-        super(paciente.firstName, paciente.address, paciente.e_mail, paciente.lastName, paciente.telephone, paciente.age);
+        super(paciente.firstName, paciente.address, paciente.email, paciente.lastName, paciente.telephone, paciente.age);
         this.securityNumber = paciente.securityNumber;
         this.weigth= paciente.weigth;
         this.size = paciente.size;
@@ -78,27 +78,27 @@ public class Patient extends Person {
     public Patient(String firstName, String lastName, int age, String address, String telephone, String e_mail, String securityNumber, float weigth, float size, String disease, int roomID, ArrayList<String> doctorID, String status){
         super(firstName, address, e_mail, lastName, telephone, age);
         try{
-            this.setsecurityNumber(securityNumber);
+            this.setSecurityNumber(securityNumber);
         }catch(NotValidNumber error){
             JOptionPane.showMessageDialog(null, error.toString(), "ERROR.", JOptionPane.ERROR_MESSAGE);
         }
         
         try{
-           this.setweigth(weigth);
+           this.setWeigth(weigth);
         }catch(NotValidNumber error){
             JOptionPane.showMessageDialog(null, error.toString(), "ERROR.", JOptionPane.ERROR_MESSAGE);
         }
         
         try{
-           this.setsize(size);
+           this.setSize(size);
         }catch(NotValidNumber error){
             JOptionPane.showMessageDialog(null, error.toString(), "ERROR.", JOptionPane.ERROR_MESSAGE);
         }
         
-        this.setdisease(disease);
+        this.setDisease(disease);
         
         try{
-           this.setroomID(roomID);
+           this.setRoomID(roomID);
         }catch(NotValidNumber error){
             JOptionPane.showMessageDialog(null, error.toString(), "ERROR.", JOptionPane.ERROR_MESSAGE);
         }
@@ -106,13 +106,13 @@ public class Patient extends Person {
         try{
             this.doctorID = new ArrayList<>();
             for(int i=0;i<doctorID.size();i++){
-                this.setdoctorID(doctorID.get(i));
+                this.setDoctorID(doctorID.get(i));
             }
         }catch(NotValidNumber error){
             JOptionPane.showMessageDialog(null, error.toString(), "ERROR,", JOptionPane.ERROR_MESSAGE);
         }
         
-        this.setstatus(status);
+        this.setStatus(status);
        
     }
     
@@ -130,27 +130,27 @@ public class Patient extends Person {
     public Patient(Person persona, String securityNumber, float weigth, float size, String disease, int roomID, ArrayList<String> doctorID, String status){
         super(persona);
         try{
-            this.setsecurityNumber(securityNumber);
+            this.setSecurityNumber(securityNumber);
         }catch(NotValidNumber error){
             JOptionPane.showMessageDialog(null, error.toString(), "ERROR.", JOptionPane.ERROR_MESSAGE);
         }
         
         try{
-           this.setweigth(weigth);
+           this.setWeigth(weigth);
         }catch(NotValidNumber error){
             JOptionPane.showMessageDialog(null, error.toString(), "ERROR.", JOptionPane.ERROR_MESSAGE);
         }
         
         try{
-           this.setsize(size);
+           this.setSize(size);
         }catch(NotValidNumber error){
             JOptionPane.showMessageDialog(null, error.toString(), "ERROR.", JOptionPane.ERROR_MESSAGE);
         }
         
-        this.setdisease(disease);
+        this.setDisease(disease);
         
         try{
-           this.setroomID(roomID);
+           this.setRoomID(roomID);
         }catch(NotValidNumber error){
             JOptionPane.showMessageDialog(null, error.toString(), "ERROR.", JOptionPane.ERROR_MESSAGE);
         }
@@ -158,13 +158,13 @@ public class Patient extends Person {
         try{
             this.doctorID = new ArrayList<>();
             for(int i=0;i<doctorID.size();i++){
-                this.setdoctorID(doctorID.get(i));
+                this.setDoctorID(doctorID.get(i));
             }
         }catch(NotValidNumber error){
             JOptionPane.showMessageDialog(null, error.toString(), "ERROR,", JOptionPane.ERROR_MESSAGE);
         }
         
-        this.setstatus(status);
+        this.setStatus(status);
     }
     
     /**
@@ -172,7 +172,7 @@ public class Patient extends Person {
      * @param securityNumber
      * @throws Exceptions.NotValidNumber
      */
-    public void setsecurityNumber(String securityNumber) throws NotValidNumber{
+    public void setSecurityNumber(String securityNumber) throws NotValidNumber{
         if(securityNumber.length() == 11)
             this.securityNumber = securityNumber;
         else
@@ -184,7 +184,7 @@ public class Patient extends Person {
      * @param weigth
      * @throws Exceptions.NotValidNumber
      */
-    public void setweigth(float weigth) throws NotValidNumber{
+    public void setWeigth(float weigth) throws NotValidNumber{
         if(weigth >0.0f)
             this.weigth = weigth;
         else
@@ -196,7 +196,7 @@ public class Patient extends Person {
      * @param size
      * @throws Exceptions.NotValidNumber
      */
-    public void setsize(float size) throws NotValidNumber{
+    public void setSize(float size) throws NotValidNumber{
         if(size>0.0f)
             this.size=size;
         else
@@ -207,7 +207,7 @@ public class Patient extends Person {
      * Método set para asignar la enfermedad que padece el Paciente
      * @param disease
      */
-    public void setdisease(String disease){
+    public void setDisease(String disease){
         this.disease = disease;
     }
     
@@ -216,7 +216,7 @@ public class Patient extends Person {
      * @param roomID
      * @throws NotValidNumber
      */
-    public void setroomID(int roomID) throws NotValidNumber{
+    public void setRoomID(int roomID) throws NotValidNumber{
         if(roomID>0)
             this.roomID = roomID;
         else
@@ -228,7 +228,7 @@ public class Patient extends Person {
      * @param roomID
      * @throws NotValidNumber
      */
-    public void setroomID(String roomID) throws NotValidNumber{
+    public void setRoomID(String roomID) throws NotValidNumber{
         if(Integer.valueOf(roomID) > 0)
             this.roomID = Integer.valueOf(roomID);
         else
@@ -240,7 +240,7 @@ public class Patient extends Person {
      * @param doctorID
      * @throws Exceptions.NotValidNumber
      */
-    public void setdoctorID(String doctorID) throws NotValidNumber{
+    public void setDoctorID(String doctorID) throws NotValidNumber{
         if(doctorID.length()==4){
             this.doctorID.add(doctorID);
             JOptionPane.showConfirmDialog(null, "El doctor "+doctorID+" ha sido agregado satisfactoriamente.", "OPERACION EXITOSA", JOptionPane.OK_OPTION);
@@ -254,7 +254,7 @@ public class Patient extends Person {
      *Método set para asginar un status al Paciente
      * @param status
      */
-    public void setstatus(String status){
+    public void setStatus(String status){
         this.status=status;
     }
     
@@ -262,7 +262,7 @@ public class Patient extends Person {
      * Método get para obtener el numero de seguridad de un paciente
      * @return securityNumber
      */
-    public String getsecurityNumber(){
+    public String getSecurityNumber(){
         return this.securityNumber;
     }
     
@@ -270,7 +270,7 @@ public class Patient extends Person {
      *Método get para obtener el peso de un paciente
      * @return weigth
      */
-    public float getweigth(){
+    public float getWeigth(){
         return this.weigth;
     }
     
@@ -278,7 +278,7 @@ public class Patient extends Person {
      *Método get para obtener la altura de un paciente
      * @return size
      */
-    public float getsize(){
+    public float getSize(){
         return this.size;
     }
     
@@ -286,7 +286,7 @@ public class Patient extends Person {
      *Método get para obtener la enfermedad que padece un Paciente
      * @return disease
      */
-    public String getdisease(){
+    public String getDisease(){
         return this.disease;
     }
     
@@ -294,7 +294,7 @@ public class Patient extends Person {
      *Método get para obtener el numero de habitacion en la que esta un paciente
      * @return roomID
      */
-    public int getroomID(){
+    public int getRoomID(){
         return this.roomID;
     }
     
@@ -302,7 +302,7 @@ public class Patient extends Person {
      *Método get para obtener el conjunto que doctores que atienden a un Paciente
      * @return doctorID
      */
-    public ArrayList<String> getdoctorID(){
+    public ArrayList<String> getDoctorID(){
         return this.doctorID;
     }
     
@@ -310,7 +310,7 @@ public class Patient extends Person {
      *Método get para obtener el status de un Paciente
      * @return status
      */
-    public String getstatus(){
+    public String getStatus(){
         return this.status;
     }
     
@@ -322,7 +322,7 @@ public class Patient extends Person {
      */
     public void setNewDoc(String idDoctor) throws OverSize, NotValidNumber{
         if(this.doctorID.size()<6){
-            this.setdoctorID(idDoctor);
+            this.setDoctorID(idDoctor);
         }
         else
             throw new OverSize();
@@ -351,7 +351,7 @@ public class Patient extends Person {
      */
     @Override
     public String toString(){
-        return "NOMBRE: " + this.firstName + "\nAPELLIDO: " + this.lastName + "\nEDAD: " + this.age + "\nEMAIL: " + this.e_mail + "\nTELEFONO: " + this.telephone + "\nDIRECCION: " + this.address +"\nNUMERO DE SEGURIDAD: "+this.securityNumber+"\nPESO: "+this.weigth+"\nALTURA"+this.size+"\nPADECIMIENTO: "+this.disease+"\nHABITACION:"+this.roomID+"\nDOCTORES: "+this.doctorID+"\nSTATUS:"+this.status;
+        return "NOMBRE: " + this.firstName + "\nAPELLIDO: " + this.lastName + "\nEDAD: " + this.age + "\nEMAIL: " + this.email + "\nTELEFONO: " + this.telephone + "\nDIRECCION: " + this.address +"\nNUMERO DE SEGURIDAD: "+this.securityNumber+"\nPESO: "+this.weigth+"\nALTURA"+this.size+"\nPADECIMIENTO: "+this.disease+"\nHABITACION:"+this.roomID+"\nDOCTORES: "+this.doctorID+"\nSTATUS:"+this.status;
     }
     
     

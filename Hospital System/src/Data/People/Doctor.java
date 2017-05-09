@@ -35,7 +35,8 @@ public class Doctor extends Person {
 	 */
 	private ArrayList<String> patientSet;
 
-	/**
+	/** 
+         *      Constructor vacío
 	 *	id : "NOT DEFINED";
 	 *	department : "UNDEFINED DEPARTMENT";
 	 *	licence : "UNDEFINED LICENCE";
@@ -49,7 +50,7 @@ public class Doctor extends Person {
 	}
 	
 	/**
-	 *
+	 * Constructor de copia
 	 * @param doctor
 	 * objeto doctor para copiar
 	 */
@@ -62,7 +63,7 @@ public class Doctor extends Person {
 	}
 	
 	/**
-	 *
+	 * Constructor con valores sueltos
 	 * @see Person
 	 * @param id
 	 * el identificador de un médico del hospital
@@ -79,11 +80,19 @@ public class Doctor extends Person {
 		this.patientSet = new ArrayList<>();
 	}
 
-	public String getId() {
+    /**
+     * Método para obtener el ID de un Doctor
+     * @return id
+     */
+    public String getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+    /**
+     * Método para asginar un ID a un Doctor
+     * @param id
+     */
+    public void setId(String id) {
 		String pattern = "^[1-9][0-9]{3}$";
 		Pattern r = Pattern.compile(pattern);
 		Matcher m = r.matcher(id);
@@ -96,19 +105,35 @@ public class Doctor extends Person {
 		}
 	}
 
-	public String getDepartment() {
+    /**
+     * Método para obtener el departamento de un Doctor
+     * @return department
+     */
+    public String getDepartment() {
 		return department;
 	}
 
-	public void setDepartment(String department) {
+    /**
+     * Método para asignar un departamento a un Doctor
+     * @param department
+     */
+    public void setDepartment(String department) {
 		this.department = department;
 	}
 
-	public String getLicence() {
+    /**
+     * Método para obtener la matrícula de un Doctor
+     * @return licence
+     */
+    public String getLicence() {
 		return licence;
 	}
 
-	public void setLicence(String licence) {
+    /**
+     *Método interfaz para la asignación de una matrícula a un Doctor
+     * @param licence
+     */
+    public void setLicence(String licence) {
 		String pattern = "^[1-9]{11}$";
 		Pattern r = Pattern.compile(pattern);
 		Matcher m = r.matcher(licence);
