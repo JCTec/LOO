@@ -5,6 +5,8 @@
  */
 package Interfaz.Paneles;
 
+import java.awt.CardLayout;
+
 /**
  *
  * @author oscar
@@ -27,45 +29,336 @@ public class MainWindow extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
-        jMenu3 = new javax.swing.JMenu();
-        jMenu4 = new javax.swing.JMenu();
-        jMenu5 = new javax.swing.JMenu();
+        mainPanel = new javax.swing.JPanel();
+        newHospital = new javax.swing.JPanel();
+        newPatient = new javax.swing.JPanel();
+        newOffice = new javax.swing.JPanel();
+        newDoctor = new javax.swing.JPanel();
+        editPatient = new javax.swing.JPanel();
+        editOffice = new javax.swing.JPanel();
+        editDoctor = new javax.swing.JPanel();
+        removePatient = new javax.swing.JPanel();
+        removeOffice = new javax.swing.JPanel();
+        removeDoctor = new javax.swing.JPanel();
+        menuBar = new javax.swing.JMenuBar();
+        menuHospital = new javax.swing.JMenu();
+        menuNewHospital = new javax.swing.JMenuItem();
+        jMenu6 = new javax.swing.JMenu();
+        menuOffice = new javax.swing.JMenu();
+        menuNewOffice = new javax.swing.JMenuItem();
+        menuEditOffice = new javax.swing.JMenuItem();
+        menuRemoveOffice = new javax.swing.JMenuItem();
+        menuDoctor = new javax.swing.JMenu();
+        menuNewDoctor = new javax.swing.JMenuItem();
+        menuEditDoctor = new javax.swing.JMenuItem();
+        menuRemoveDoctor = new javax.swing.JMenuItem();
+        menuPatient = new javax.swing.JMenu();
+        menuNewPatient = new javax.swing.JMenuItem();
+        menuEditPatient = new javax.swing.JMenuItem();
+        menuRemovePatient = new javax.swing.JMenuItem();
+        menuReport = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jMenu1.setText("Hospital");
-        jMenuBar1.add(jMenu1);
+        mainPanel.setLayout(new java.awt.CardLayout());
 
-        jMenu2.setText("Office");
-        jMenuBar1.add(jMenu2);
+        javax.swing.GroupLayout newHospitalLayout = new javax.swing.GroupLayout(newHospital);
+        newHospital.setLayout(newHospitalLayout);
+        newHospitalLayout.setHorizontalGroup(
+            newHospitalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 874, Short.MAX_VALUE)
+        );
+        newHospitalLayout.setVerticalGroup(
+            newHospitalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 493, Short.MAX_VALUE)
+        );
 
-        jMenu3.setText("Doctor");
-        jMenuBar1.add(jMenu3);
+        mainPanel.add(newHospital, "newHospital");
 
-        jMenu4.setText("Patient");
-        jMenuBar1.add(jMenu4);
+        javax.swing.GroupLayout newPatientLayout = new javax.swing.GroupLayout(newPatient);
+        newPatient.setLayout(newPatientLayout);
+        newPatientLayout.setHorizontalGroup(
+            newPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 874, Short.MAX_VALUE)
+        );
+        newPatientLayout.setVerticalGroup(
+            newPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 493, Short.MAX_VALUE)
+        );
 
-        jMenu5.setText("Report");
-        jMenuBar1.add(jMenu5);
+        mainPanel.add(newPatient, "newPatient");
 
-        setJMenuBar(jMenuBar1);
+        javax.swing.GroupLayout newOfficeLayout = new javax.swing.GroupLayout(newOffice);
+        newOffice.setLayout(newOfficeLayout);
+        newOfficeLayout.setHorizontalGroup(
+            newOfficeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 874, Short.MAX_VALUE)
+        );
+        newOfficeLayout.setVerticalGroup(
+            newOfficeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 493, Short.MAX_VALUE)
+        );
+
+        mainPanel.add(newOffice, "newOffice");
+
+        javax.swing.GroupLayout newDoctorLayout = new javax.swing.GroupLayout(newDoctor);
+        newDoctor.setLayout(newDoctorLayout);
+        newDoctorLayout.setHorizontalGroup(
+            newDoctorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 874, Short.MAX_VALUE)
+        );
+        newDoctorLayout.setVerticalGroup(
+            newDoctorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 493, Short.MAX_VALUE)
+        );
+
+        mainPanel.add(newDoctor, "newDoctor");
+
+        javax.swing.GroupLayout editPatientLayout = new javax.swing.GroupLayout(editPatient);
+        editPatient.setLayout(editPatientLayout);
+        editPatientLayout.setHorizontalGroup(
+            editPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 874, Short.MAX_VALUE)
+        );
+        editPatientLayout.setVerticalGroup(
+            editPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 493, Short.MAX_VALUE)
+        );
+
+        mainPanel.add(editPatient, "editPatient");
+
+        javax.swing.GroupLayout editOfficeLayout = new javax.swing.GroupLayout(editOffice);
+        editOffice.setLayout(editOfficeLayout);
+        editOfficeLayout.setHorizontalGroup(
+            editOfficeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 874, Short.MAX_VALUE)
+        );
+        editOfficeLayout.setVerticalGroup(
+            editOfficeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 493, Short.MAX_VALUE)
+        );
+
+        mainPanel.add(editOffice, "editOffice");
+
+        javax.swing.GroupLayout editDoctorLayout = new javax.swing.GroupLayout(editDoctor);
+        editDoctor.setLayout(editDoctorLayout);
+        editDoctorLayout.setHorizontalGroup(
+            editDoctorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 874, Short.MAX_VALUE)
+        );
+        editDoctorLayout.setVerticalGroup(
+            editDoctorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 493, Short.MAX_VALUE)
+        );
+
+        mainPanel.add(editDoctor, "editDoctor");
+
+        javax.swing.GroupLayout removePatientLayout = new javax.swing.GroupLayout(removePatient);
+        removePatient.setLayout(removePatientLayout);
+        removePatientLayout.setHorizontalGroup(
+            removePatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 874, Short.MAX_VALUE)
+        );
+        removePatientLayout.setVerticalGroup(
+            removePatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 493, Short.MAX_VALUE)
+        );
+
+        mainPanel.add(removePatient, "removePatient");
+
+        javax.swing.GroupLayout removeOfficeLayout = new javax.swing.GroupLayout(removeOffice);
+        removeOffice.setLayout(removeOfficeLayout);
+        removeOfficeLayout.setHorizontalGroup(
+            removeOfficeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 874, Short.MAX_VALUE)
+        );
+        removeOfficeLayout.setVerticalGroup(
+            removeOfficeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 493, Short.MAX_VALUE)
+        );
+
+        mainPanel.add(removeOffice, "removeOffice");
+
+        javax.swing.GroupLayout removeDoctorLayout = new javax.swing.GroupLayout(removeDoctor);
+        removeDoctor.setLayout(removeDoctorLayout);
+        removeDoctorLayout.setHorizontalGroup(
+            removeDoctorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 874, Short.MAX_VALUE)
+        );
+        removeDoctorLayout.setVerticalGroup(
+            removeDoctorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 493, Short.MAX_VALUE)
+        );
+
+        mainPanel.add(removeDoctor, "removeDoctor");
+
+        menuHospital.setText("Hospital");
+
+        menuNewHospital.setText("New");
+        menuNewHospital.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuNewHospitalActionPerformed(evt);
+            }
+        });
+        menuHospital.add(menuNewHospital);
+
+        jMenu6.setText("Select");
+        menuHospital.add(jMenu6);
+
+        menuBar.add(menuHospital);
+
+        menuOffice.setText("Office");
+
+        menuNewOffice.setText("Add");
+        menuNewOffice.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuNewOfficeActionPerformed(evt);
+            }
+        });
+        menuOffice.add(menuNewOffice);
+
+        menuEditOffice.setText("Edit");
+        menuEditOffice.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuEditOfficeActionPerformed(evt);
+            }
+        });
+        menuOffice.add(menuEditOffice);
+
+        menuRemoveOffice.setText("Remove");
+        menuRemoveOffice.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuRemoveOfficeActionPerformed(evt);
+            }
+        });
+        menuOffice.add(menuRemoveOffice);
+
+        menuBar.add(menuOffice);
+
+        menuDoctor.setText("Doctor");
+
+        menuNewDoctor.setText("Add");
+        menuNewDoctor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuNewDoctorActionPerformed(evt);
+            }
+        });
+        menuDoctor.add(menuNewDoctor);
+
+        menuEditDoctor.setText("Edit");
+        menuEditDoctor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuEditDoctorActionPerformed(evt);
+            }
+        });
+        menuDoctor.add(menuEditDoctor);
+
+        menuRemoveDoctor.setText("Remove");
+        menuRemoveDoctor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuRemoveDoctorActionPerformed(evt);
+            }
+        });
+        menuDoctor.add(menuRemoveDoctor);
+
+        menuBar.add(menuDoctor);
+
+        menuPatient.setText("Patient");
+
+        menuNewPatient.setText("Add");
+        menuNewPatient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuNewPatientActionPerformed(evt);
+            }
+        });
+        menuPatient.add(menuNewPatient);
+
+        menuEditPatient.setText("Edit");
+        menuEditPatient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuEditPatientActionPerformed(evt);
+            }
+        });
+        menuPatient.add(menuEditPatient);
+
+        menuRemovePatient.setText("Remove");
+        menuRemovePatient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuRemovePatientActionPerformed(evt);
+            }
+        });
+        menuPatient.add(menuRemovePatient);
+
+        menuBar.add(menuPatient);
+
+        menuReport.setText("Report");
+        menuBar.add(menuReport);
+
+        setJMenuBar(menuBar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 874, Short.MAX_VALUE)
+            .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 493, Short.MAX_VALUE)
+            .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void menuRemoveOfficeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuRemoveOfficeActionPerformed
+        CardLayout card = (CardLayout)mainPanel.getLayout();
+		card.show(mainPanel, "removeOffice");
+    }//GEN-LAST:event_menuRemoveOfficeActionPerformed
+
+    private void menuNewHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuNewHospitalActionPerformed
+        CardLayout card = (CardLayout)mainPanel.getLayout();
+		card.show(mainPanel, "newHospital");
+    }//GEN-LAST:event_menuNewHospitalActionPerformed
+
+    private void menuNewOfficeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuNewOfficeActionPerformed
+        CardLayout card = (CardLayout)mainPanel.getLayout();
+		card.show(mainPanel, "newOffice");
+    }//GEN-LAST:event_menuNewOfficeActionPerformed
+
+    private void menuEditOfficeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuEditOfficeActionPerformed
+        CardLayout card = (CardLayout)mainPanel.getLayout();
+		card.show(mainPanel, "editOffice");
+    }//GEN-LAST:event_menuEditOfficeActionPerformed
+
+    private void menuNewDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuNewDoctorActionPerformed
+        CardLayout card = (CardLayout)mainPanel.getLayout();
+		card.show(mainPanel, "newDoctor");
+    }//GEN-LAST:event_menuNewDoctorActionPerformed
+
+    private void menuEditDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuEditDoctorActionPerformed
+        CardLayout card = (CardLayout)mainPanel.getLayout();
+		card.show(mainPanel, "editDoctor");
+    }//GEN-LAST:event_menuEditDoctorActionPerformed
+
+    private void menuRemoveDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuRemoveDoctorActionPerformed
+        CardLayout card = (CardLayout)mainPanel.getLayout();
+		card.show(mainPanel, "removeDoctor");
+    }//GEN-LAST:event_menuRemoveDoctorActionPerformed
+
+    private void menuNewPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuNewPatientActionPerformed
+        CardLayout card = (CardLayout)mainPanel.getLayout();
+		card.show(mainPanel, "newPatient");
+    }//GEN-LAST:event_menuNewPatientActionPerformed
+
+    private void menuEditPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuEditPatientActionPerformed
+        CardLayout card = (CardLayout)mainPanel.getLayout();
+		card.show(mainPanel, "editPatient");
+    }//GEN-LAST:event_menuEditPatientActionPerformed
+
+    private void menuRemovePatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuRemovePatientActionPerformed
+        CardLayout card = (CardLayout)mainPanel.getLayout();
+		card.show(mainPanel, "removePatient");
+    }//GEN-LAST:event_menuRemovePatientActionPerformed
 
 	/**
 	 * @param args the command line arguments
@@ -103,11 +396,33 @@ public class MainWindow extends javax.swing.JFrame {
 	}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
-    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JPanel editDoctor;
+    private javax.swing.JPanel editOffice;
+    private javax.swing.JPanel editPatient;
+    private javax.swing.JMenu jMenu6;
+    private javax.swing.JPanel mainPanel;
+    private javax.swing.JMenuBar menuBar;
+    private javax.swing.JMenu menuDoctor;
+    private javax.swing.JMenuItem menuEditDoctor;
+    private javax.swing.JMenuItem menuEditOffice;
+    private javax.swing.JMenuItem menuEditPatient;
+    private javax.swing.JMenu menuHospital;
+    private javax.swing.JMenuItem menuNewDoctor;
+    private javax.swing.JMenuItem menuNewHospital;
+    private javax.swing.JMenuItem menuNewOffice;
+    private javax.swing.JMenuItem menuNewPatient;
+    private javax.swing.JMenu menuOffice;
+    private javax.swing.JMenu menuPatient;
+    private javax.swing.JMenuItem menuRemoveDoctor;
+    private javax.swing.JMenuItem menuRemoveOffice;
+    private javax.swing.JMenuItem menuRemovePatient;
+    private javax.swing.JMenu menuReport;
+    private javax.swing.JPanel newDoctor;
+    private javax.swing.JPanel newHospital;
+    private javax.swing.JPanel newOffice;
+    private javax.swing.JPanel newPatient;
+    private javax.swing.JPanel removeDoctor;
+    private javax.swing.JPanel removeOffice;
+    private javax.swing.JPanel removePatient;
     // End of variables declaration//GEN-END:variables
 }
