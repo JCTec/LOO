@@ -249,7 +249,7 @@ public class DoctorsOffice {
     
     /**
      * Método toString para obtener todos los atributos de un consultorio
-     * @return 
+     * @return string con todos los valores y datos de un DoctorsOffice
      */
     @Override
     public String toString(){
