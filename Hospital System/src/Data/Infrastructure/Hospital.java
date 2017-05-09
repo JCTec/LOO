@@ -536,14 +536,14 @@ public class Hospital {
     
     public void addDoctor(String name, String lastName, String licence, int age, String e_mail, String address, String telephone, String Department){
         Doctor newDoc = new Doctor();
-        newDoc.setfirstName(name);
-        newDoc.setlastName(lastName);
-        newDoc.setage(age);
+        newDoc.setFirstName(name);
+        newDoc.setLastName(lastName);
+        newDoc.setAge(age);
         newDoc.setLicence(licence);
-        newDoc.sete_mail(e_mail);
+        newDoc.setEmail(e_mail);
         newDoc.setDepartment(Department);
-        newDoc.setaddress(address);
-        newDoc.settelephone(telephone);
+        newDoc.setAddress(address);
+        newDoc.setTelephone(telephone);
         
         this.doctors.add(newDoc);
     }
