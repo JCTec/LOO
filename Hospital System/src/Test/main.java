@@ -23,7 +23,12 @@ public class main {
         H.addPatient("Karen", "Dichi", "91028364718", 20, "jc_estevez@hotmail.com", "Vilas la Hacienda", "9992716672", "Gonorrea", 172, 80);
         H.addPatient("Emilio", "Galindo", "24283647592", 19, "jc_estevez@hotmail.com", "Vilas la Hacienda", "9992846572", "Hepatitis", 172, 80);
         
-        H.showPatientInfo("91028364718");
+        //H.showPatientInfo("91028364718");
+        
+        H.addDoctor("Perez", "Perez", "91028364718", 30, "jc_estevez@hotmail.com", "Vilas la Hacienda", "9992846572", "Hola");
+        
+        H.showDoctorInfo("91028364718");
+        
 
     }
 }

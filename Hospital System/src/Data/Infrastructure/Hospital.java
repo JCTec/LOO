@@ -515,6 +515,20 @@ public class Hospital {
         
     }
     
+    public void addDoctor(String name, String lastName, String licence, int age, String e_mail, String address, String telephone, String Department){
+        Doctor newDoc = new Doctor();
+        newDoc.setfirstName(name);
+        newDoc.setlastName(lastName);
+        newDoc.setage(age);
+        newDoc.setLicence(licence);
+        newDoc.sete_mail(e_mail);
+        newDoc.setDepartment(Department);
+        newDoc.setaddress(address);
+        newDoc.settelephone(telephone);
+        
+        this.doctors.add(newDoc);
+    }
+    
     /**
      *Método para asignarle un Doctor a un Paciente
      * @param doctorId

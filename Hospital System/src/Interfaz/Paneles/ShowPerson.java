@@ -40,8 +40,8 @@ public class ShowPerson extends javax.swing.JPanel {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
+        IDHabitacion = new javax.swing.JLabel();
+        IDDoctores = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         nameField = new javax.swing.JTextField();
         lastNameField = new javax.swing.JTextField();
@@ -80,9 +80,9 @@ public class ShowPerson extends javax.swing.JPanel {
 
         jLabel10.setText("Enfermedad");
 
-        jLabel11.setText("ID Habitación");
+        IDHabitacion.setText("ID Habitación");
 
-        jLabel12.setText("ID Doctore");
+        IDDoctores.setText("ID Doctore");
 
         jLabel13.setText("Estatus");
 
@@ -152,8 +152,8 @@ public class ShowPerson extends javax.swing.JPanel {
                     .addComponent(jLabel9)
                     .addComponent(jLabel10)
                     .addComponent(jLabel13)
-                    .addComponent(jLabel11)
-                    .addComponent(jLabel12))
+                    .addComponent(IDHabitacion)
+                    .addComponent(IDDoctores))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(TypePersonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(iDHabitacionField, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE)
@@ -220,11 +220,11 @@ public class ShowPerson extends javax.swing.JPanel {
                     .addComponent(estatusField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(TypePersonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel11)
+                    .addComponent(IDHabitacion)
                     .addComponent(iDHabitacionField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(TypePersonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel12)
+                    .addComponent(IDDoctores)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(144, Short.MAX_VALUE))
         );
@@ -271,6 +271,8 @@ public class ShowPerson extends javax.swing.JPanel {
 
     //DefaultListModel<String> model = new DefaultListModel<String>();
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel IDDoctores;
+    private javax.swing.JLabel IDHabitacion;
     private javax.swing.JPanel TypePerson;
     private javax.swing.JTextField alturaField;
     private javax.swing.JTextField direccionField;
@@ -282,8 +284,6 @@ public class ShowPerson extends javax.swing.JPanel {
     private javax.swing.JTextField iDHabitacionField;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
