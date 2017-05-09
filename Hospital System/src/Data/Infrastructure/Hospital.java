@@ -8,6 +8,7 @@ package Data.Infrastructure;
 import Data.People.*;
 import Exceptions.NotValidNumber;
 import Exceptions.OverSize;
+import Interfaz.Paneles.ShowDoctor;
 import Interfaz.Paneles.ShowPerson;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -437,18 +438,35 @@ public class Hospital {
      * @param doctorId 
      */
     public void showDoctorInfo(String doctorId){
-        String idFounded = "";
+        int idFounded = -1;
         
         
         for(int i=0; i<this.doctors.size();i++){
+            System.out.println(doctorId.equals(this.doctors.get(i).getId()));
             if(doctorId.equals(this.doctors.get(i).getId())){
-                idFounded = this.doctors.get(i).getId();
+                idFounded = i;
                 i = this.doctors.size(); 
             }
         }
         
-        if (!idFounded.isEmpty()){
-            //Display info
+        if (idFounded >= 0){
+  
+            
+            ShowDoctor doctor = new ShowDoctor();
+            
+            doctor.setFields(this.doctors.get(idFounded).getFirstName() , this.doctors.get(idFounded).getLastName(), this.doctors.get(idFounded).getLicence(), this.doctors.get(idFounded).getTelephone(), this.doctors.get(idFounded).getAddress(), this.doctors.get(idFounded).getEmail(), Integer.toString(this.doctors.get(idFounded).getAge()));
+            
+            doctor.setVisible(true);
+            
+            JFrame f = new JFrame();
+            
+            f.getContentPane().add(doctor);
+            f.pack();
+            f.setVisible(true);
+            
+        }
+        else{
+            System.out.println("Hola");
         }
         
     }
