@@ -182,7 +182,7 @@ public class ShowDoctor extends javax.swing.JPanel {
 
     private void closeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeActionPerformed
         // TODO add your handling code here:
-        this.setVisible(false);
+        
     }//GEN-LAST:event_closeActionPerformed
 
 
@@ -198,6 +198,8 @@ public class ShowDoctor extends javax.swing.JPanel {
         this.edadField.setText(edad);
 
     }
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton close;
     private javax.swing.JTextField departmentField;

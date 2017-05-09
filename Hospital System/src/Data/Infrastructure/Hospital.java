@@ -11,8 +11,6 @@ import Exceptions.OverSize;
 import Interfaz.Paneles.ShowDoctor;
 import Interfaz.Paneles.ShowPerson;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -442,7 +440,6 @@ public class Hospital {
         
         
         for(int i=0; i<this.doctors.size();i++){
-            System.out.println(doctorId.equals(this.doctors.get(i).getId()));
             if(doctorId.equals(this.doctors.get(i).getId())){
                 idFounded = i;
                 i = this.doctors.size(); 
@@ -460,13 +457,11 @@ public class Hospital {
             
             JFrame f = new JFrame();
             
+            
+                        
             f.getContentPane().add(doctor);
             f.pack();
             f.setVisible(true);
-            
-        }
-        else{
-            System.out.println("Hola");
         }
         
     }
