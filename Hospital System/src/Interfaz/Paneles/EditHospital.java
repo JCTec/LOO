@@ -5,12 +5,17 @@
  */
 package Interfaz.Paneles;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author alanp
  */
 public class EditHospital extends javax.swing.JPanel {
 
+    protected String name;
+    protected String telephone;
+    protected String address;
     /**
      * Creates new form EditHospital
      */
@@ -39,6 +44,11 @@ public class EditHospital extends javax.swing.JPanel {
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Editar Hospital"));
 
         saveButton.setText("Guardar");
+        saveButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveButtonActionPerformed(evt);
+            }
+        });
 
         nameLabel.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         nameLabel.setText("Nombre:");
@@ -109,6 +119,19 @@ public class EditHospital extends javax.swing.JPanel {
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
+        // TODO add your handling code here:
+        if(!nameField.getText().isEmpty() && !addressField.getText().isEmpty() && !telephoneField.getText().isEmpty())
+        {
+            this.name = nameField.getText();
+            this.telephone = telephoneField.getText();
+            this.address = addressField.getText();
+            JOptionPane.showConfirmDialog(saveButton, "Cambios guardados.", "OPERACIÓN EXITOSA", JOptionPane.OK_OPTION);
+        }
+        else
+            JOptionPane.showMessageDialog(null, "Uno de los cuadros se encuentra vacío. Favor de llenar.", "ERROR", JOptionPane.ERROR_MESSAGE);
+    }//GEN-LAST:event_saveButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
