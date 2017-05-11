@@ -5,7 +5,7 @@
  */
 
 package Interfaz.Paneles;
-
+import Data.Infrastructure.Hospital;
 /**
  *
  * @author alanp
@@ -15,6 +15,7 @@ public class DeletePatient extends javax.swing.JPanel {
     /** Creates new form DeletePatient */
     public DeletePatient() {
         initComponents();
+      
     }
 
     /** This method is called from within the constructor to
@@ -31,6 +32,7 @@ public class DeletePatient extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         patientTable = new javax.swing.JTable();
         deleteButton = new javax.swing.JButton();
+        cancelButton = new javax.swing.JButton();
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Eliminar Paciente"));
 
@@ -67,6 +69,8 @@ public class DeletePatient extends javax.swing.JPanel {
 
         deleteButton.setText("Eliminar");
 
+        cancelButton.setText("Cancelar");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -80,7 +84,9 @@ public class DeletePatient extends javax.swing.JPanel {
                             .addComponent(searchField, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(206, 206, 206)
-                        .addComponent(deleteButton)))
+                        .addComponent(deleteButton)
+                        .addGap(30, 30, 30)
+                        .addComponent(cancelButton)))
                 .addContainerGap(32, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -91,7 +97,9 @@ public class DeletePatient extends javax.swing.JPanel {
                 .addGap(31, 31, 31)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(45, 45, 45)
-                .addComponent(deleteButton)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(deleteButton)
+                    .addComponent(cancelButton))
                 .addContainerGap(46, Short.MAX_VALUE))
         );
 
@@ -115,6 +123,7 @@ public class DeletePatient extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton cancelButton;
     private javax.swing.JButton deleteButton;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
