@@ -26,6 +26,7 @@ public class MainWindow extends javax.swing.JFrame {
 	public MainWindow() {
 		this.hospitals = new ArrayList<>();
 		initComponents();
+		initSaveButtonsListeners();
 	}
 
 	/**
@@ -40,9 +41,9 @@ public class MainWindow extends javax.swing.JFrame {
         mainPanel = new javax.swing.JPanel();
         newHospital = new javax.swing.JPanel();
         createNewHospital1 = new Interfaz.Paneles.CreateNewHospital();
-        newPatient = new javax.swing.JPanel();
         newOffice = new javax.swing.JPanel();
         createNewDoctorsOffice1 = new Interfaz.Paneles.CreateNewDoctorsOffice();
+        newPatient = new javax.swing.JPanel();
         newDoctor = new javax.swing.JPanel();
         editPatient = new javax.swing.JPanel();
         editOffice = new javax.swing.JPanel();
@@ -97,19 +98,6 @@ public class MainWindow extends javax.swing.JFrame {
 
         mainPanel.add(newHospital, "newHospital");
 
-        javax.swing.GroupLayout newPatientLayout = new javax.swing.GroupLayout(newPatient);
-        newPatient.setLayout(newPatientLayout);
-        newPatientLayout.setHorizontalGroup(
-            newPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 874, Short.MAX_VALUE)
-        );
-        newPatientLayout.setVerticalGroup(
-            newPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 493, Short.MAX_VALUE)
-        );
-
-        mainPanel.add(newPatient, "newPatient");
-
         javax.swing.GroupLayout newOfficeLayout = new javax.swing.GroupLayout(newOffice);
         newOffice.setLayout(newOfficeLayout);
         newOfficeLayout.setHorizontalGroup(
@@ -128,6 +116,19 @@ public class MainWindow extends javax.swing.JFrame {
         );
 
         mainPanel.add(newOffice, "newOffice");
+
+        javax.swing.GroupLayout newPatientLayout = new javax.swing.GroupLayout(newPatient);
+        newPatient.setLayout(newPatientLayout);
+        newPatientLayout.setHorizontalGroup(
+            newPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 874, Short.MAX_VALUE)
+        );
+        newPatientLayout.setVerticalGroup(
+            newPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 493, Short.MAX_VALUE)
+        );
+
+        mainPanel.add(newPatient, "newPatient");
 
         javax.swing.GroupLayout newDoctorLayout = new javax.swing.GroupLayout(newDoctor);
         newDoctor.setLayout(newDoctorLayout);
@@ -532,4 +533,19 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JPanel removePatient;
     private javax.swing.JPanel selectHospital;
     // End of variables declaration//GEN-END:variables
+
+	private void initSaveButtonsListeners() {
+		this.createNewHospital1.getSaveButton().addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveNewHospitalAction(evt);
+            }
+        });
+	}
+	
+	public void saveNewHospitalAction(java.awt.event.ActionEvent evt){
+		Hospital h = this.createNewHospital1.getHospital();
+		this.hospitals.add(h);
+		this.createNewHospital1.clearFields();
+		//System.out.println(this.hospitals.get(0).getAddress());
+	}
 }

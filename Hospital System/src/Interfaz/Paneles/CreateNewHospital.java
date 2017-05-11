@@ -5,6 +5,9 @@
  */
 package Interfaz.Paneles;
 
+import Data.Infrastructure.Hospital;
+import javax.swing.JButton;
+
 /**
  *
  * @author alanp
@@ -17,6 +20,23 @@ public class CreateNewHospital extends javax.swing.JPanel {
     public CreateNewHospital() {
         initComponents();
     }
+
+	public JButton getSaveButton() {
+		return saveButton;
+	}
+	
+	public Hospital getHospital(){
+		int numOfDoctorsOffice = Integer.parseInt(this.numOfDoctorsOfficeField.getText());
+		int numOfRoomsField = Integer.parseInt(this.numOfRoomsField.getText());
+		Hospital h = new Hospital(
+			this.nameField.getText(),
+			this.addresField.getText(),
+			this.telephoneField.getText(),
+			numOfDoctorsOffice,
+			numOfRoomsField
+		);
+		return h;
+	}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -81,7 +101,7 @@ public class CreateNewHospital extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(159, 159, 159)
                 .addComponent(saveButton)
-                .addContainerGap(166, Short.MAX_VALUE))
+                .addContainerGap(182, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -117,8 +137,8 @@ public class CreateNewHospital extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -144,4 +164,12 @@ public class CreateNewHospital extends javax.swing.JPanel {
     private javax.swing.JTextField telephoneField;
     private javax.swing.JLabel telephoneLabel;
     // End of variables declaration//GEN-END:variables
+
+	public void clearFields() {
+		this.addresField.setText("");
+		this.nameField.setText("");
+		this.numOfDoctorsOfficeField.setText("");
+		this.numOfRoomsField.setText("");
+		this.telephoneField.setText("");
+	}
 }
