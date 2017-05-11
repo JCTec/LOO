@@ -5,12 +5,19 @@
  */
 package Interfaz.Paneles;
 
+import Exceptions.NotValidNumber;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author alanp
  */
 public class EditDoctorsOffice extends javax.swing.JPanel {
 
+    protected float monthlyRent;
+    protected String idDoctor;
     /**
      * Creates new form EditDoctorsOffice
      */
@@ -37,6 +44,11 @@ public class EditDoctorsOffice extends javax.swing.JPanel {
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0))), "Modificar Consultorio", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 18))); // NOI18N
 
         saveButton.setText("Guardar");
+        saveButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveButtonActionPerformed(evt);
+            }
+        });
 
         monthlyRentLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         monthlyRentLabel.setText("Renta Mensual: ");
@@ -101,6 +113,42 @@ public class EditDoctorsOffice extends javax.swing.JPanel {
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
+        // TODO add your handling code here:
+        if(!this.idDoctorField.getText().isEmpty() && !this.monthlyRentField.getText().isEmpty()){
+            String pattern = "^[1-9][0-9]{3}$";
+		Pattern r = Pattern.compile(pattern);
+		Matcher m = r.matcher(idDoctorField.getText());
+		
+		if(m.find())
+			this.idDoctor = idDoctorField.getText();			
+		else
+			JOptionPane.showMessageDialog(null, "ID Inválido", "ERROR.", JOptionPane.ERROR_MESSAGE);
+                
+            try{
+                if(Float.parseFloat(this.monthlyRentField.getText())>0)
+                    this.monthlyRent = Float.parseFloat(this.monthlyRentField.getText());
+                else
+                    JOptionPane.showMessageDialog(null, "Número Inválido. Favor de escribir un valor positivo en renta mensual.", "ERROR.", JOptionPane.ERROR_MESSAGE);
+            }catch(NumberFormatException nfe){
+                JOptionPane.showMessageDialog(null, "Favor de escribir un valor numérico en renta mensual.", "ERROR.", JOptionPane.ERROR_MESSAGE);
+            }
+                
+        }
+        else if(this.monthlyRentField.getText().isEmpty())
+            JOptionPane.showMessageDialog(null, "Favor de no dejar el espacio de renta mensual en blanco.", "ERROR.", JOptionPane.ERROR_MESSAGE);
+        else{
+            try{
+                if(Float.parseFloat(this.monthlyRentField.getText())>0)
+                    this.monthlyRent = Float.parseFloat(this.monthlyRentField.getText());
+                else
+                    JOptionPane.showMessageDialog(null, "Número Inválido. Favor de escribir un valor positivo en renta mensual.", "ERROR.", JOptionPane.ERROR_MESSAGE);
+            }catch(NumberFormatException nfe){
+                JOptionPane.showMessageDialog(null, "Favor de escribir un valor numérico en renta mensual.", "ERROR.", JOptionPane.ERROR_MESSAGE);
+            } 
+        }
+    }//GEN-LAST:event_saveButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
