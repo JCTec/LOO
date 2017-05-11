@@ -5,6 +5,7 @@
  */
 package Interfaz.Paneles;
 
+import Data.Infrastructure.DoctorsOffice;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
@@ -174,4 +175,10 @@ public class CreateNewDoctorsOffice extends javax.swing.JPanel {
     private javax.swing.JLabel monthlyRentLabel;
     private javax.swing.JButton saveButton;
     // End of variables declaration//GEN-END:variables
+
+	DoctorsOffice getOffice() {
+		
+		DoctorsOffice o = new DoctorsOffice(5, floor, monthlyRent);
+		return o;
+	}
 }

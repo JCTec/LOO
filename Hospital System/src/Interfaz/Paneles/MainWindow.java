@@ -5,6 +5,7 @@
  */
 package Interfaz.Paneles;
 
+import Data.Infrastructure.DoctorsOffice;
 import Data.Infrastructure.Hospital;
 import java.awt.CardLayout;
 import java.util.ArrayList;
@@ -27,6 +28,7 @@ public class MainWindow extends javax.swing.JFrame {
 		this.hospitals = new ArrayList<>();
 		initComponents();
 		initSaveButtonsListeners();
+		intiFakeData();
 	}
 
 	/**
@@ -47,6 +49,7 @@ public class MainWindow extends javax.swing.JFrame {
         createNewDoctorsOffice1 = new Interfaz.Paneles.CreateNewDoctorsOffice();
         newPatient = new javax.swing.JPanel();
         newDoctor = new javax.swing.JPanel();
+        createNewDoctor2 = new Interfaz.Paneles.CreateNewDoctor();
         editPatient = new javax.swing.JPanel();
         editOffice = new javax.swing.JPanel();
         editDoctorsOffice1 = new Interfaz.Paneles.EditDoctorsOffice();
@@ -159,11 +162,17 @@ public class MainWindow extends javax.swing.JFrame {
         newDoctor.setLayout(newDoctorLayout);
         newDoctorLayout.setHorizontalGroup(
             newDoctorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(newDoctorLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(createNewDoctor2, javax.swing.GroupLayout.DEFAULT_SIZE, 874, Short.MAX_VALUE)
+                .addContainerGap())
         );
         newDoctorLayout.setVerticalGroup(
             newDoctorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(newDoctorLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(createNewDoctor2, javax.swing.GroupLayout.DEFAULT_SIZE, 700, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         mainPanel.add(newDoctor, "newDoctor");
@@ -271,15 +280,21 @@ public class MainWindow extends javax.swing.JFrame {
 
         mainPanel.add(aboutHospital, "aboutHospital");
 
-        javax.swing.GroupLayout selectHospitalLayout = new javax.swing.GroupLayout(selectHospital);
-        selectHospital.setLayout(selectHospitalLayout);
-        selectHospitalLayout.setHorizontalGroup(
-            selectHospitalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+        javax.swing.GroupLayout editHospitalLayout = new javax.swing.GroupLayout(editHospital);
+        editHospital.setLayout(editHospitalLayout);
+        editHospitalLayout.setHorizontalGroup(
+            editHospitalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(editHospitalLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(editHospital1, javax.swing.GroupLayout.DEFAULT_SIZE, 874, Short.MAX_VALUE)
+                .addContainerGap())
         );
-        selectHospitalLayout.setVerticalGroup(
-            selectHospitalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+        editHospitalLayout.setVerticalGroup(
+            editHospitalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(editHospitalLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(editHospital1, javax.swing.GroupLayout.DEFAULT_SIZE, 700, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         mainPanel.add(selectHospital, "selectHospital");
@@ -470,12 +485,18 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_menuNewHospitalActionPerformed
 
     private void menuNewOfficeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuNewOfficeActionPerformed
-        CardLayout card = (CardLayout)mainPanel.getLayout();
-		card.show(mainPanel, "newOffice");
+        if(this.hospital != null){
+			CardLayout card = (CardLayout)mainPanel.getLayout();
+			card.show(mainPanel, "newOffice");
+		}
+		else{
+			JOptionPane.showMessageDialog(null, "Please create a hospital first", "ERROR", JOptionPane.ERROR_MESSAGE);
+			this.menuNewHospital.doClick();
+		}
     }//GEN-LAST:event_menuNewOfficeActionPerformed
 
     private void menuEditOfficeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuEditOfficeActionPerformed
-        CardLayout card = (CardLayout)mainPanel.getLayout();
+		CardLayout card = (CardLayout)mainPanel.getLayout();
 		card.show(mainPanel, "editOffice");
     }//GEN-LAST:event_menuEditOfficeActionPerformed
 
@@ -572,6 +593,8 @@ public class MainWindow extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel aboutHospital;
+    private Interfaz.Paneles.aboutHospital aboutHospital1;
+    private Interfaz.Paneles.CreateNewDoctor createNewDoctor2;
     private Interfaz.Paneles.CreateNewDoctorsOffice createNewDoctorsOffice1;
     private Interfaz.Paneles.CreateNewHospital createNewHospital1;
     private Interfaz.Paneles.DeleteDoctorsOffice deleteDoctorsOffice1;
@@ -629,4 +652,27 @@ public class MainWindow extends javax.swing.JFrame {
 		this.createNewHospital1.clearFields();
 		//System.out.println(this.hospitals.get(0).getAddress());
 	}
+	
+	public void saveEditHospitalAction(java.awt.event.ActionEvent evt){
+		String name = this.editHospital1.getHospitalName();
+		String address = this.editHospital1.getHospitalAddress();
+		String telephone = this.editHospital1.getHospitalTelephone();
+		this.hospital.setName(name);
+		this.hospital.setAddress(address);
+		try {
+			this.hospital.setTelephone(telephone);		
+		}
+		catch(NotValidNumber error){
+            JOptionPane.showMessageDialog(null, error.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+	}
+	
+	public void saveNewOfficeAction(java.awt.event.ActionEvent evt){
+		DoctorsOffice o = this.createNewDoctorsOffice1.getOffice();
+	}
+
+	private void intiFakeData() {
+		this.hospital = new Hospital("Hôpital joseph ducuing", "rue de paris, 31000 Toulouse, frnace", "0783927381", 5, 42);
+	}
+
 }
