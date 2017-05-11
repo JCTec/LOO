@@ -5,8 +5,6 @@
  */
 package Interfaz.Paneles;
 
-import Data.Infrastructure.Hospital;
-import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
 /**
@@ -14,7 +12,7 @@ import javax.swing.JOptionPane;
  * @author alanp
  */
 public class EditHospital extends javax.swing.JPanel {
-	
+
     protected String name;
     protected String telephone;
     protected String address;
@@ -24,10 +22,6 @@ public class EditHospital extends javax.swing.JPanel {
     public EditHospital() {
         initComponents();
     }
-
-	public JButton getSaveButton() {
-		return saveButton;
-	}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -150,23 +144,4 @@ public class EditHospital extends javax.swing.JPanel {
     private javax.swing.JTextField telephoneField;
     private javax.swing.JLabel telephoneLabel;
     // End of variables declaration//GEN-END:variables
-
-	String getHospitalName() {
-		return this.nameField.getText();
-	}
-
-	String getHospitalAddress() {
-		return this.addressField.getText();
-	}
-
-	String getHospitalTelephone() {
-		return this.telephoneField.getText();
-	}
-
-	public void setFields(Hospital hospital) {
-		this.addressField.setText(hospital.getAddress());
-		this.telephoneField.setText(hospital.getTelephone());
-		this.nameField.setText(hospital.getName());
-	}
-	
 }

@@ -18,6 +18,14 @@
             <Property name="text" type="java.lang.String" value="Hospital"/>
           </Properties>
           <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="menuAboutHospital">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="About"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuAboutHospitalActionPerformed"/>
+              </Events>
+            </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="menuNewHospital">
               <Properties>
                 <Property name="text" type="java.lang.String" value="New"/>
@@ -26,20 +34,12 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuNewHospitalActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="menuEditHospital">
+            <MenuItem class="javax.swing.JMenuItem" name="menuSelectHospital">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Edit"/>
+                <Property name="text" type="java.lang.String" value="Select"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuEditHospitalActionPerformed"/>
-              </Events>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="menuAboutHospital">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="About"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuAboutHospitalActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuSelectHospitalActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>
@@ -210,11 +210,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                       <Component id="inicioPanel1" min="-2" max="-2" attributes="0"/>
-<<<<<<< HEAD
                       <EmptySpace max="32767" attributes="0"/>
-=======
-                      <EmptySpace pref="54" max="32767" attributes="0"/>
->>>>>>> master
                   </Group>
               </Group>
             </DimensionLayout>
@@ -245,7 +241,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="createNewHospitalForm" pref="862" max="32767" attributes="0"/>
+                      <Component id="createNewHospital1" pref="862" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -254,14 +250,14 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="createNewHospitalForm" pref="700" max="32767" attributes="0"/>
+                      <Component id="createNewHospital1" pref="575" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="Interfaz.Paneles.CreateNewHospital" name="createNewHospitalForm">
+            <Component class="Interfaz.Paneles.CreateNewHospital" name="createNewHospital1">
             </Component>
           </SubComponents>
         </Container>
@@ -286,7 +282,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="createNewDoctorsOffice1" pref="700" max="32767" attributes="0"/>
+                      <Component id="createNewDoctorsOffice1" pref="575" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -307,35 +303,15 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-<<<<<<< HEAD
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-=======
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="createNewPatient1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="117" max="32767" attributes="0"/>
-                  </Group>
->>>>>>> master
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-<<<<<<< HEAD
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-=======
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="createNewPatient1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                  </Group>
->>>>>>> master
               </Group>
             </DimensionLayout>
           </Layout>
-          <SubComponents>
-            <Component class="Interfaz.Paneles.CreateNewPatient" name="createNewPatient1">
-            </Component>
-          </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="newDoctor">
           <Constraints>
@@ -352,11 +328,7 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-<<<<<<< HEAD
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-=======
-                  <EmptySpace min="0" pref="712" max="32767" attributes="0"/>
->>>>>>> master
               </Group>
             </DimensionLayout>
           </Layout>
@@ -376,11 +348,7 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-<<<<<<< HEAD
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-=======
-                  <EmptySpace min="0" pref="712" max="32767" attributes="0"/>
->>>>>>> master
               </Group>
             </DimensionLayout>
           </Layout>
@@ -406,7 +374,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="editDoctorsOffice1" pref="700" max="32767" attributes="0"/>
+                      <Component id="editDoctorsOffice1" pref="575" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -432,11 +400,7 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-<<<<<<< HEAD
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-=======
-                  <EmptySpace min="0" pref="712" max="32767" attributes="0"/>
->>>>>>> master
               </Group>
             </DimensionLayout>
           </Layout>
@@ -456,11 +420,7 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-<<<<<<< HEAD
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-=======
-                  <EmptySpace min="0" pref="712" max="32767" attributes="0"/>
->>>>>>> master
               </Group>
             </DimensionLayout>
           </Layout>
@@ -484,15 +444,11 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-<<<<<<< HEAD
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace pref="30" max="32767" attributes="0"/>
                       <Component id="deleteDoctorsOffice1" min="-2" pref="558" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
-=======
-                  <EmptySpace min="0" pref="712" max="32767" attributes="0"/>
->>>>>>> master
               </Group>
             </DimensionLayout>
           </Layout>
@@ -516,11 +472,7 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-<<<<<<< HEAD
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-=======
-                  <EmptySpace min="0" pref="712" max="32767" attributes="0"/>
->>>>>>> master
               </Group>
             </DimensionLayout>
           </Layout>
@@ -535,7 +487,6 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-<<<<<<< HEAD
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
@@ -557,45 +508,19 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-=======
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="aboutHospital1" pref="874" max="32767" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                  </Group>
->>>>>>> master
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-<<<<<<< HEAD
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-=======
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="aboutHospital1" pref="700" max="32767" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                  </Group>
->>>>>>> master
               </Group>
             </DimensionLayout>
           </Layout>
-          <SubComponents>
-            <Component class="Interfaz.Paneles.aboutHospital" name="aboutHospital1">
-            </Component>
-          </SubComponents>
         </Container>
-<<<<<<< HEAD
         <Container class="javax.swing.JPanel" name="showDoctor">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
               <CardConstraints cardName="showDoctor"/>
-=======
-        <Container class="javax.swing.JPanel" name="editHospital">
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
-              <CardConstraints cardName="editHospital"/>
->>>>>>> master
             </Constraint>
           </Constraints>
 
@@ -603,41 +528,24 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-<<<<<<< HEAD
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="showDoctor1" min="-2" pref="833" max="-2" attributes="0"/>
                       <EmptySpace pref="41" max="32767" attributes="0"/>
-=======
-                      <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
-                      <Component id="editHospital1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="296" max="32767" attributes="0"/>
->>>>>>> master
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-<<<<<<< HEAD
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                       <Component id="showDoctor1" pref="551" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-=======
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
-                      <Component id="editHospital1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="318" max="32767" attributes="0"/>
->>>>>>> master
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-<<<<<<< HEAD
             <Component class="Interfaz.Paneles.ShowDoctor" name="showDoctor1">
-=======
-            <Component class="Interfaz.Paneles.EditHospital" name="editHospital1">
->>>>>>> master
             </Component>
           </SubComponents>
         </Container>
