@@ -126,15 +126,27 @@ public class EditDoctorsOffice extends javax.swing.JPanel {
 		else
 			JOptionPane.showMessageDialog(null, "ID Inválido", "ERROR.", JOptionPane.ERROR_MESSAGE);
                 
-                if(Integer.getInteger(this.monthlyRentField.getText())!=null){
-                    if(Integer.getInteger(this.monthlyRentField.getText())>0)
-                        this.monthlyRent = Integer.getInteger(this.monthlyRentField.getText());
-                    else
-                    JOptionPane.showMessageDialog(null, "Renta mensual inválida. Asignar un valor numérico positivo.", "ERROR.", JOptionPane.ERROR_MESSAGE);
-                }
+            try{
+                if(Float.parseFloat(this.monthlyRentField.getText())>0)
+                    this.monthlyRent = Float.parseFloat(this.monthlyRentField.getText());
                 else
-                    JOptionPane.showMessageDialog(null, "Renta mensual inválida. Asignar un valor numérico.", "ERROR.", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Número Inválido. Favor de escribir un valor positivo en renta mensual.", "ERROR.", JOptionPane.ERROR_MESSAGE);
+            }catch(NumberFormatException nfe){
+                JOptionPane.showMessageDialog(null, "Favor de escribir un valor numérico en renta mensual.", "ERROR.", JOptionPane.ERROR_MESSAGE);
+            }
                 
+        }
+        else if(this.monthlyRentField.getText().isEmpty())
+            JOptionPane.showMessageDialog(null, "Favor de no dejar el espacio de renta mensual en blanco.", "ERROR.", JOptionPane.ERROR_MESSAGE);
+        else{
+            try{
+                if(Float.parseFloat(this.monthlyRentField.getText())>0)
+                    this.monthlyRent = Float.parseFloat(this.monthlyRentField.getText());
+                else
+                    JOptionPane.showMessageDialog(null, "Número Inválido. Favor de escribir un valor positivo en renta mensual.", "ERROR.", JOptionPane.ERROR_MESSAGE);
+            }catch(NumberFormatException nfe){
+                JOptionPane.showMessageDialog(null, "Favor de escribir un valor numérico en renta mensual.", "ERROR.", JOptionPane.ERROR_MESSAGE);
+            } 
         }
     }//GEN-LAST:event_saveButtonActionPerformed
 
