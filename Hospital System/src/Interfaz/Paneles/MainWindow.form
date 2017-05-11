@@ -4,6 +4,14 @@
   <NonVisualComponents>
     <Menu class="javax.swing.JMenuBar" name="menuBar">
       <SubComponents>
+        <Menu class="javax.swing.JMenu" name="inicioMenu">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Inicio"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="inicioMenuActionPerformed"/>
+          </Events>
+        </Menu>
         <Menu class="javax.swing.JMenu" name="menuHospital">
           <Properties>
             <Property name="text" type="java.lang.String" value="Hospital"/>
@@ -209,7 +217,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="createNewHospital1" pref="481" max="32767" attributes="0"/>
+                      <Component id="createNewHospital1" pref="575" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -241,7 +249,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="createNewDoctorsOffice1" pref="481" max="32767" attributes="0"/>
+                      <Component id="createNewDoctorsOffice1" pref="575" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -267,7 +275,7 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="493" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="601" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -287,7 +295,7 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="493" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="601" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -307,7 +315,7 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="493" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="601" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -333,7 +341,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="editDoctorsOffice1" pref="481" max="32767" attributes="0"/>
+                      <Component id="editDoctorsOffice1" pref="575" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -359,7 +367,7 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="493" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="601" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -379,7 +387,7 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="493" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="601" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -399,7 +407,7 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="493" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="601" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -419,7 +427,7 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="493" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="601" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -439,7 +447,7 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="493" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="601" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -459,10 +467,42 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="493" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="601" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
+        </Container>
+        <Container class="javax.swing.JPanel" name="inicioPanel">
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
+              <CardConstraints cardName="inicioPanel"/>
+            </Constraint>
+          </Constraints>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                      <Component id="inicioPanel1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="54" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="inicioPanel1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="Interfaz.Paneles.InicioPanel" name="inicioPanel1">
+            </Component>
+          </SubComponents>
         </Container>
       </SubComponents>
     </Container>
