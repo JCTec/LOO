@@ -702,4 +702,8 @@ public class Hospital {
         return validacion;
     }
 
+	public String getTelephone() {
+		return this.telephone;
+	}
+
 }
