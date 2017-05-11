@@ -252,16 +252,16 @@ public class MainWindow extends javax.swing.JFrame {
         aboutHospitalLayout.setHorizontalGroup(
             aboutHospitalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(aboutHospitalLayout.createSequentialGroup()
-                .addGap(203, 203, 203)
-                .addComponent(aboutHospital1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(283, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(aboutHospital1, javax.swing.GroupLayout.DEFAULT_SIZE, 874, Short.MAX_VALUE)
+                .addContainerGap())
         );
         aboutHospitalLayout.setVerticalGroup(
             aboutHospitalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, aboutHospitalLayout.createSequentialGroup()
-                .addContainerGap(155, Short.MAX_VALUE)
-                .addComponent(aboutHospital1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(146, 146, 146))
+            .addGroup(aboutHospitalLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(aboutHospital1, javax.swing.GroupLayout.DEFAULT_SIZE, 589, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         mainPanel.add(aboutHospital, "aboutHospital");

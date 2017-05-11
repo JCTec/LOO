@@ -35,15 +35,15 @@ public class aboutHospital extends javax.swing.JPanel {
         labelNumOfOffices = new javax.swing.JLabel();
         labelNumOfRooms = new javax.swing.JLabel();
 
-        labelName.setText("jLabel1");
+        labelName.setText("labelName");
 
-        labelAddress.setText("jLabel2");
+        labelAddress.setText("labelAddress");
 
-        labelTelephone.setText("jLabel3");
+        labelTelephone.setText("labelTelephone");
 
-        labelNumOfOffices.setText("jLabel4");
+        labelNumOfOffices.setText("labelNumOfOffices");
 
-        labelNumOfRooms.setText("jLabel5");
+        labelNumOfRooms.setText("labelNumOfRooms");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -56,8 +56,8 @@ public class aboutHospital extends javax.swing.JPanel {
                     .addComponent(labelNumOfOffices)
                     .addComponent(labelTelephone)
                     .addComponent(labelAddress)
-                    .addComponent(labelName))
-                .addContainerGap(282, Short.MAX_VALUE))
+                    .addComponent(labelName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(282, 282, 282))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -70,9 +70,9 @@ public class aboutHospital extends javax.swing.JPanel {
                 .addComponent(labelTelephone)
                 .addGap(38, 38, 38)
                 .addComponent(labelNumOfOffices)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
-                .addComponent(labelNumOfRooms)
-                .addGap(35, 35, 35))
+                .addGap(18, 18, 18)
+                .addComponent(labelNumOfRooms, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(63, 63, 63))
         );
     }// </editor-fold>//GEN-END:initComponents
 

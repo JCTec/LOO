@@ -23,9 +23,9 @@
                   <Component id="labelNumOfOffices" min="-2" max="-2" attributes="0"/>
                   <Component id="labelTelephone" min="-2" max="-2" attributes="0"/>
                   <Component id="labelAddress" min="-2" max="-2" attributes="0"/>
-                  <Component id="labelName" min="-2" max="-2" attributes="0"/>
+                  <Component id="labelName" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace pref="282" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="282" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -40,9 +40,9 @@
               <Component id="labelTelephone" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
               <Component id="labelNumOfOffices" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="46" max="32767" attributes="0"/>
-              <Component id="labelNumOfRooms" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+              <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
+              <Component id="labelNumOfRooms" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -50,27 +50,27 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="labelName">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jLabel1"/>
+        <Property name="text" type="java.lang.String" value="labelName"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="labelAddress">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jLabel2"/>
+        <Property name="text" type="java.lang.String" value="labelAddress"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="labelTelephone">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jLabel3"/>
+        <Property name="text" type="java.lang.String" value="labelTelephone"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="labelNumOfOffices">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jLabel4"/>
+        <Property name="text" type="java.lang.String" value="labelNumOfOffices"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="labelNumOfRooms">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jLabel5"/>
+        <Property name="text" type="java.lang.String" value="labelNumOfRooms"/>
       </Properties>
     </Component>
   </SubComponents>
