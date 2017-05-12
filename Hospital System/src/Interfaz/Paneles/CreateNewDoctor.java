@@ -5,6 +5,7 @@
  */
 package Interfaz.Paneles;
 
+import Data.People.Doctor;
 import javax.swing.JButton;
 
 /**
@@ -208,5 +209,31 @@ public class CreateNewDoctor extends javax.swing.JPanel {
 	public JButton getSaveButton() {
 		return saveButton;
 	}
+	
+	public Doctor getDoctor(){
+		Doctor d = new Doctor(
+			labelName.getText(),
+			labelSurname.getText(),
+			labelAddress.getText(),
+			labelEmail.getText(),
+			labelTelephone.getText(),
+			Integer.parseInt(labelAge.getText()),
+			labelID.getText(),
+			labelDepartment.getText(),
+			labelLicence.getText()
+		);
+		return d;
+	}
 
+	public void clearFields(){
+		labelAddress.setText("");
+		labelAge.setText("");
+		labelDepartment.setText("");
+		labelEmail.setText("");
+		labelID.setText("");
+		labelLicence.setText("");
+		labelName.setText("");
+		labelSurname.setText("");
+		labelTelephone.setText("");
+	}
 }

@@ -636,6 +636,26 @@ public class MainWindow extends javax.swing.JFrame {
                 saveEditHospitalAction(evt);
             }
         });
+		this.createNewDoctor2.getSaveButton().addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveNewDoctorAction(evt);
+            }
+        });
+		this.editDoctor1.getSaveButton().addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveEditDoctorAction(evt);
+            }
+        });
+		this.createNewDoctorsOffice1.getSaveButton().addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveNewOfficeAction(evt);
+            }
+        });
+		this.editDoctorsOffice1.getSaveButton().addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveEditOfficeAction(evt);
+            }
+        });
 	}
 	
 	public void saveNewHospitalAction(java.awt.event.ActionEvent evt){
@@ -659,8 +679,16 @@ public class MainWindow extends javax.swing.JFrame {
         }
 	}
 	
+	public void saveNewDoctorAction(java.awt.event.ActionEvent evt){
+	}
+	
+	public void saveEditDoctorAction(java.awt.event.ActionEvent evt){
+	}
+	
 	public void saveNewOfficeAction(java.awt.event.ActionEvent evt){
-		DoctorsOffice o = this.createNewDoctorsOffice1.getOffice();
+	}
+	
+	public void saveEditOfficeAction(java.awt.event.ActionEvent evt){
 	}
 
 	private void intiFakeData() {

@@ -181,4 +181,8 @@ public class CreateNewDoctorsOffice extends javax.swing.JPanel {
 		DoctorsOffice o = new DoctorsOffice(5, floor, monthlyRent);
 		return o;
 	}
+
+	javax.swing.JButton getSaveButton() {
+		return this.saveButton;
+	}
 }

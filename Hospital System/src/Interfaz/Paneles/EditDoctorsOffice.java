@@ -159,4 +159,8 @@ public class EditDoctorsOffice extends javax.swing.JPanel {
     private javax.swing.JLabel monthlyRentLabel;
     private javax.swing.JButton saveButton;
     // End of variables declaration//GEN-END:variables
+
+	javax.swing.JButton getSaveButton() {
+		return this.saveButton;
+	}
 }
