@@ -72,7 +72,7 @@ public class Doctor extends Person {
 	 * @param licence
 	 * el departamento del hospital al que pertenece el médico
 	 */
-	public Doctor(String firstName, String lastName, String address, String e_mail, String telephone, int age, String id, String departamento, String licence) {
+	public Doctor(String firstName, String lastName, String address, String e_mail, String telephone, int age, String id, String department, String licence) {
 		super(firstName, address, e_mail, lastName, telephone, age);
 		this.setDepartment(department);
 		this.setId(id);

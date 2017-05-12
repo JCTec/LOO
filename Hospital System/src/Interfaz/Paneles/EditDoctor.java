@@ -185,13 +185,7 @@ public class EditDoctor extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void selectDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectDoctorActionPerformed
-        String doctorId = this.getSelectedDoctorId();
-		for(int i = 0 ; i < this.hospital.getDoctors().size() ; i++){
-			if(doctorId.equals(this.hospital.getDoctors().get(i).getId())){
-				this.doctor = this.hospital.getDoctors().get(i);
-			}
-		}
-		this.fillFields();
+		this.refreshDoctor();
     }//GEN-LAST:event_selectDoctorActionPerformed
 
 
@@ -231,6 +225,7 @@ public class EditDoctor extends javax.swing.JPanel {
 			items[i] = doc.getId() + " " + doc.getFirstName() + " " + doc.getLastName();
 		}
 		this.selectDoctor.setModel(new DefaultComboBoxModel<>(items));
+		this.refreshDoctor();
 	}
 
 	private void fillFields() {
@@ -272,5 +267,15 @@ public class EditDoctor extends javax.swing.JPanel {
 			fieldLicence.getText()
 		);
 		return d;
+	}
+
+	private void refreshDoctor() {
+		String doctorId = this.getSelectedDoctorId();
+		for(int i = 0 ; i < this.hospital.getDoctors().size() ; i++){
+			if(doctorId.equals(this.hospital.getDoctors().get(i).getId())){
+				this.doctor = this.hospital.getDoctors().get(i);
+			}
+		}
+		this.fillFields();
 	}
 }
