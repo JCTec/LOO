@@ -705,7 +705,10 @@ public class MainWindow extends javax.swing.JFrame {
 
 	private void intiFakeData() {
 		this.hospital = new Hospital("Hôpital joseph ducuing", "rue de paris, 31000 Toulouse, frnace", "0783927381", 5, 42);
-		//this.hospital.addDoctor("Jean", "Leguain", "XWZ182K9281", 34, "test@yopmail.com", "Rue des remparts sud, 09130 Carla-Bayle", "0293047382", "urologie");
+		this.hospital.addDoctor("Jean", "Leguain", "XWZ182K9281", 34, "test@yopmail.com", "Rue des remparts sud, 09130 Carla-Bayle", "0293047382", "urologie");
+		this.hospital.addDoctor("Aude", "Chapelet", "HDU73JSKE9Z", 25, "aude@yopmail.com", "Boulevard du maréchal leclerc, toulouse", "0248273813", "pédiatrie");
+		this.hospital.addDoctor("André", "Smith", "9JDUE738SKD", 82, "halo@yopmail.com", "Place de l'europe, moyrazes", "0673849234", "pédiatrie");
+		this.hospital.addDoctor("Anne", "Montana", "DUE7283LDM0", 27, "anna@yopmail.com", "Bollywood street, 97120 Mérida, Yucatán", "9992738473", "orthodontie");
 	}
 
 }

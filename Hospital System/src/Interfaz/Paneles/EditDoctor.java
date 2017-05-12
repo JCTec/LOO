@@ -9,6 +9,7 @@ import Data.Infrastructure.Hospital;
 import Data.People.Doctor;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
@@ -57,8 +58,7 @@ public class EditDoctor extends javax.swing.JPanel {
         fieldLicence = new javax.swing.JTextField();
         saveButton = new javax.swing.JButton();
         labelFindID = new javax.swing.JLabel();
-        fieldFindID = new javax.swing.JTextField();
-        buttonFind = new javax.swing.JButton();
+        selectDoctor = new javax.swing.JComboBox<>();
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Edit Doctor"));
 
@@ -80,12 +80,12 @@ public class EditDoctor extends javax.swing.JPanel {
 
         saveButton.setText("Save");
 
-        labelFindID.setText("Find the doctor with his ID first:");
+        labelFindID.setText("Select the doctor:");
 
-        buttonFind.setText("Find");
-        buttonFind.addActionListener(new java.awt.event.ActionListener() {
+        selectDoctor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        selectDoctor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonFindActionPerformed(evt);
+                selectDoctorActionPerformed(evt);
             }
         });
 
@@ -95,58 +95,40 @@ public class EditDoctor extends javax.swing.JPanel {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(33, 33, 33)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(labelLicence, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(labelDepartment, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(labelEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(labelTelephone, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(labelAddress, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(labelName, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(labelSurname, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(labelAge, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(labelFindID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(41, 41, 41)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labelName)
-                            .addComponent(labelSurname)
-                            .addComponent(labelAge))
-                        .addGap(100, 100, 100)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(fieldSurname)
-                            .addComponent(fieldName, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(fieldAge, javax.swing.GroupLayout.Alignment.TRAILING)))
+                    .addComponent(fieldSurname)
+                    .addComponent(fieldName, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(fieldAge, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(selectDoctor, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(fieldAddress)
+                    .addComponent(fieldTelephone)
+                    .addComponent(fieldEmail)
+                    .addComponent(fieldDepartment)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(labelAddress)
-                        .addGap(105, 105, 105)
-                        .addComponent(fieldAddress))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(labelTelephone)
-                        .addGap(88, 88, 88)
-                        .addComponent(fieldTelephone))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(labelEmail)
-                        .addGap(121, 121, 121)
-                        .addComponent(fieldEmail))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(labelDepartment)
-                        .addGap(78, 78, 78)
-                        .addComponent(fieldDepartment))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(labelLicence)
-                        .addGap(110, 110, 110)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(saveButton)
-                                .addGap(0, 250, Short.MAX_VALUE))
-                            .addComponent(fieldLicence)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(labelFindID)
-                        .addGap(32, 32, 32)
-                        .addComponent(fieldFindID, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(buttonFind)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addComponent(saveButton)
+                        .addGap(0, 223, Short.MAX_VALUE))
+                    .addComponent(fieldLicence))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(6, 6, 6)
+                .addGap(9, 9, 9)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelFindID)
-                    .addComponent(fieldFindID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonFind))
+                    .addComponent(selectDoctor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelName)
@@ -181,7 +163,7 @@ public class EditDoctor extends javax.swing.JPanel {
                     .addComponent(fieldLicence, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(saveButton)
-                .addContainerGap(67, Short.MAX_VALUE))
+                .addContainerGap(73, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -202,48 +184,22 @@ public class EditDoctor extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void buttonFindActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonFindActionPerformed
-        String searchID = this.fieldFindID.getText();
-        String pattern = "^[1-9][0-9]{3}$";
-        Pattern r = Pattern.compile(pattern);
-        Matcher m = r.matcher(searchID);
-
-        if(m.find()){
-            int i = 0;
-            String findID;
-            do{
-                System.out.println(hospital.getDoctors().toString());
-                System.out.println(hospital.getDoctors().size());
-                findID = hospital.getDoctors().get(i).getId();
-                System.out.println(hospital.getDoctors().get(i).toString());
-                i++;
-            } while (i < hospital.getDoctors().size() && !searchID.equals(findID));
-
-            //at the end of this, 1<=i<=size, we have to retrieve 1 to make it correspond to index values
-            //to know if nothing has been found, we check if the find is equal to the search
-
-            if(findID.equals(searchID)){
-                doctor = hospital.getDoctors().get(i-1);
-                fillFields();
-            }
-            else{
-                JOptionPane.showMessageDialog(null, "Non existent ID given", "ERROR", JOptionPane.ERROR_MESSAGE);
-            }
-
-        }
-        else{
-            JOptionPane.showMessageDialog(null, "Invalid ID given", "ERROR", JOptionPane.ERROR_MESSAGE);
-        }
-    }//GEN-LAST:event_buttonFindActionPerformed
+    private void selectDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectDoctorActionPerformed
+        String doctorId = this.selectDoctor.getSelectedItem().toString().split(" ")[0];
+		for(int i = 0 ; i < this.hospital.getDoctors().size() ; i++){
+			if(doctorId.equals(this.hospital.getDoctors().get(i).getId())){
+				this.doctor = this.hospital.getDoctors().get(i);
+			}
+		}
+		this.fillFields();
+    }//GEN-LAST:event_selectDoctorActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton buttonFind;
     private javax.swing.JTextField fieldAddress;
     private javax.swing.JTextField fieldAge;
     private javax.swing.JTextField fieldDepartment;
     private javax.swing.JTextField fieldEmail;
-    private javax.swing.JTextField fieldFindID;
     private javax.swing.JTextField fieldLicence;
     private javax.swing.JTextField fieldName;
     private javax.swing.JTextField fieldSurname;
@@ -259,6 +215,7 @@ public class EditDoctor extends javax.swing.JPanel {
     private javax.swing.JLabel labelSurname;
     private javax.swing.JLabel labelTelephone;
     private javax.swing.JButton saveButton;
+    private javax.swing.JComboBox<String> selectDoctor;
     // End of variables declaration//GEN-END:variables
 
 	public JButton getSaveButton() {
@@ -267,6 +224,13 @@ public class EditDoctor extends javax.swing.JPanel {
 
 	public void setHospital(Hospital hospital) {
 		this.hospital = hospital;
+		int doctorNumber = hospital.getDoctors().size();
+		String[] items = new String[doctorNumber];
+		for(int i = 0 ; i < doctorNumber ; i++){
+			Doctor doc = hospital.getDoctors().get(i);
+			items[i] = doc.getId() + " " + doc.getFirstName() + " " + doc.getLastName();
+		}
+		this.selectDoctor.setModel(new DefaultComboBoxModel<>(items));
 	}
 
 	private void fillFields() {
@@ -280,4 +244,14 @@ public class EditDoctor extends javax.swing.JPanel {
 		this.fieldTelephone.setText(doctor.getTelephone());
 	}
 
+	public void clearFields(){
+		this.fieldAddress.setText("");
+		this.fieldAge.setText("");
+		this.fieldDepartment.setText("");
+		this.fieldEmail.setText("");
+		this.fieldLicence.setText("");
+		this.fieldName.setText("");
+		this.fieldSurname.setText("");
+		this.fieldTelephone.setText("");		
+	}
 }
