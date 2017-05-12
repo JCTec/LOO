@@ -185,7 +185,7 @@ public class EditDoctor extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void selectDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectDoctorActionPerformed
-        String doctorId = this.selectDoctor.getSelectedItem().toString().split(" ")[0];
+        String doctorId = this.getSelectedDoctorId();
 		for(int i = 0 ; i < this.hospital.getDoctors().size() ; i++){
 			if(doctorId.equals(this.hospital.getDoctors().get(i).getId())){
 				this.doctor = this.hospital.getDoctors().get(i);
@@ -253,5 +253,24 @@ public class EditDoctor extends javax.swing.JPanel {
 		this.fieldName.setText("");
 		this.fieldSurname.setText("");
 		this.fieldTelephone.setText("");		
+	}
+	
+	private String getSelectedDoctorId(){
+		return this.selectDoctor.getSelectedItem().toString().split(" ")[0];
+	}
+	
+	public Doctor getDoctor(){
+		Doctor d = new Doctor(
+			fieldName.getText(),
+			fieldSurname.getText(),
+			fieldAddress.getText(),
+			fieldEmail.getText(),
+			fieldTelephone.getText(),
+			Integer.parseInt(fieldAge.getText()),
+			this.getSelectedDoctorId(),
+			fieldDepartment.getText(),
+			fieldLicence.getText()
+		);
+		return d;
 	}
 }

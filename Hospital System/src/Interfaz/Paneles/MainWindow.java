@@ -695,6 +695,29 @@ public class MainWindow extends javax.swing.JFrame {
 	}
 	
 	public void saveEditDoctorAction(java.awt.event.ActionEvent evt){
+		Doctor oldDoctor = null;
+		Doctor newDoctor = this.editDoctor1.getDoctor();
+		for (int i = 0; i < this.hospital.getDoctors().size(); i++) {
+			if(this.hospital.getDoctors().get(i).getId().equals(newDoctor.getId())){
+				oldDoctor = this.hospital.getDoctors().get(i);
+			}
+		}
+		
+		if(oldDoctor != null){
+			oldDoctor.setFirstName(newDoctor.getFirstName());
+			oldDoctor.setLastName(newDoctor.getLastName());
+			oldDoctor.setAddress(newDoctor.getAddress());
+			oldDoctor.setEmail(newDoctor.getEmail());
+			oldDoctor.setTelephone(newDoctor.getTelephone());
+			oldDoctor.setAge(newDoctor.getAge());
+			oldDoctor.setDepartment(newDoctor.getDepartment());
+			oldDoctor.setLicence(newDoctor.getLicence());
+			JOptionPane.showMessageDialog(null, "Doctor edited successfully", "INFORMATION", JOptionPane.INFORMATION_MESSAGE);		
+			this.menuEditDoctor.doClick();
+		}
+		else{
+			System.out.println("error editing a doctor : the doctor was not found in the hospital");
+		}
 	}
 	
 	public void saveNewOfficeAction(java.awt.event.ActionEvent evt){
