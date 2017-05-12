@@ -66,7 +66,6 @@ public class MainWindow extends javax.swing.JFrame {
         editHospital = new javax.swing.JPanel();
         editHospital1 = new Interfaz.Paneles.EditHospital();
         menuBar = new javax.swing.JMenuBar();
-        inicioMenu = new javax.swing.JMenu();
         menuHospital = new javax.swing.JMenu();
         menuNewHospital = new javax.swing.JMenuItem();
         menuEditHospital = new javax.swing.JMenuItem();
@@ -320,14 +319,6 @@ public class MainWindow extends javax.swing.JFrame {
 
         mainPanel.add(editHospital, "editHospital");
 
-        inicioMenu.setText("Inicio");
-        inicioMenu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                inicioMenuActionPerformed(evt);
-            }
-        });
-        menuBar.add(inicioMenu);
-
         menuHospital.setText("Hospital");
 
         menuNewHospital.setText("New");
@@ -506,7 +497,7 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_menuNewDoctorActionPerformed
 
     private void menuEditDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuEditDoctorActionPerformed
-        CardLayout card = (CardLayout)mainPanel.getLayout();
+		CardLayout card = (CardLayout)mainPanel.getLayout();
 		card.show(mainPanel, "editDoctor");
     }//GEN-LAST:event_menuEditDoctorActionPerformed
 
@@ -539,12 +530,6 @@ public class MainWindow extends javax.swing.JFrame {
 		CardLayout card = (CardLayout)mainPanel.getLayout();
 		card.show(mainPanel, "aboutHospital");
     }//GEN-LAST:event_menuAboutHospitalActionPerformed
-
-    private void inicioMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inicioMenuActionPerformed
-        // TODO add your handling code here:
-        CardLayout card = (CardLayout)mainPanel.getLayout();
-		card.show(mainPanel, "inicioPanel");
-    }//GEN-LAST:event_inicioMenuActionPerformed
 
     private void menuEditHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuEditHospitalActionPerformed
         if(this.hospital != null){
@@ -608,7 +593,6 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JPanel editOffice;
     private javax.swing.JPanel editPatient;
     private Interfaz.Paneles.EditPatient editPatient1;
-    private javax.swing.JMenu inicioMenu;
     private javax.swing.JPanel inicioPanel;
     private Interfaz.Paneles.InicioPanel inicioPanel1;
     private javax.swing.JPanel mainPanel;
