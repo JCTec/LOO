@@ -706,4 +706,12 @@ public class Hospital {
 		return this.telephone;
 	}
 
+	public void addDoctor(Doctor d) {
+		d.setId(Integer.toString(this.doctorsIds));
+		this.doctorsIds++;
+		this.doctors.add(d);
+		System.out.println(this.doctors.size());
+		System.out.println(this.doctors.get(0).toString());
+	}
+
 }

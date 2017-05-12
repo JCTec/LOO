@@ -39,7 +39,6 @@ public class EditDoctor extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        labelID = new javax.swing.JLabel();
         labelDepartment = new javax.swing.JLabel();
         labelName = new javax.swing.JLabel();
         labelSurname = new javax.swing.JLabel();
@@ -54,7 +53,6 @@ public class EditDoctor extends javax.swing.JPanel {
         fieldAddress = new javax.swing.JTextField();
         fieldTelephone = new javax.swing.JTextField();
         fieldEmail = new javax.swing.JTextField();
-        fieldID = new javax.swing.JTextField();
         fieldDepartment = new javax.swing.JTextField();
         fieldLicence = new javax.swing.JTextField();
         saveButton = new javax.swing.JButton();
@@ -63,8 +61,6 @@ public class EditDoctor extends javax.swing.JPanel {
         buttonFind = new javax.swing.JButton();
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Edit Doctor"));
-
-        labelID.setText("Doctor ID:");
 
         labelDepartment.setText("Department:");
 
@@ -100,13 +96,6 @@ public class EditDoctor extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(33, 33, 33)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(labelFindID)
-                        .addGap(32, 32, 32)
-                        .addComponent(fieldFindID, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(buttonFind)
-                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(labelName)
@@ -130,10 +119,6 @@ public class EditDoctor extends javax.swing.JPanel {
                         .addGap(121, 121, 121)
                         .addComponent(fieldEmail))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(labelID)
-                        .addGap(98, 98, 98)
-                        .addComponent(fieldID))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(labelDepartment)
                         .addGap(78, 78, 78)
                         .addComponent(fieldDepartment))
@@ -144,7 +129,14 @@ public class EditDoctor extends javax.swing.JPanel {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(saveButton)
                                 .addGap(0, 250, Short.MAX_VALUE))
-                            .addComponent(fieldLicence))))
+                            .addComponent(fieldLicence)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(labelFindID)
+                        .addGap(32, 32, 32)
+                        .addComponent(fieldFindID, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(buttonFind)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -181,10 +173,6 @@ public class EditDoctor extends javax.swing.JPanel {
                     .addComponent(fieldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelID)
-                    .addComponent(fieldID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelDepartment)
                     .addComponent(fieldDepartment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -193,7 +181,7 @@ public class EditDoctor extends javax.swing.JPanel {
                     .addComponent(fieldLicence, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(saveButton)
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addContainerGap(67, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -215,34 +203,37 @@ public class EditDoctor extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonFindActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonFindActionPerformed
-		String searchID = this.fieldFindID.getText();
-		String pattern = "^[1-9][0-9]{3}$";
-		Pattern r = Pattern.compile(pattern);
-		Matcher m = r.matcher(searchID);
-		
-		if(m.find()){
-			int i = 0;
-			String findID;
-			do{
-				findID = hospital.getDoctors().get(i).getId();
-				i++;
-			} while (i < hospital.getDoctors().size() && !searchID.equals(findID));
-			
-			//at the end of this, 1<=i<=size, we have to retrieve 1 to make it correspond to index values
-			//to know if nothing has been found, we check if the find is equal to the search
-			
-			if(findID.equals(searchID)){
-				doctor = hospital.getDoctors().get(i-1);
-				fillFields();
-			}
-			else{		
-				JOptionPane.showMessageDialog(null, "Non existent ID given", "ERROR", JOptionPane.ERROR_MESSAGE);
-			}
-			
-		}
-		else{
+        String searchID = this.fieldFindID.getText();
+        String pattern = "^[1-9][0-9]{3}$";
+        Pattern r = Pattern.compile(pattern);
+        Matcher m = r.matcher(searchID);
+
+        if(m.find()){
+            int i = 0;
+            String findID;
+            do{
+                System.out.println(hospital.getDoctors().toString());
+                System.out.println(hospital.getDoctors().size());
+                findID = hospital.getDoctors().get(i).getId();
+                System.out.println(hospital.getDoctors().get(i).toString());
+                i++;
+            } while (i < hospital.getDoctors().size() && !searchID.equals(findID));
+
+            //at the end of this, 1<=i<=size, we have to retrieve 1 to make it correspond to index values
+            //to know if nothing has been found, we check if the find is equal to the search
+
+            if(findID.equals(searchID)){
+                doctor = hospital.getDoctors().get(i-1);
+                fillFields();
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Non existent ID given", "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+
+        }
+        else{
             JOptionPane.showMessageDialog(null, "Invalid ID given", "ERROR", JOptionPane.ERROR_MESSAGE);
-		}
+        }
     }//GEN-LAST:event_buttonFindActionPerformed
 
 
@@ -253,7 +244,6 @@ public class EditDoctor extends javax.swing.JPanel {
     private javax.swing.JTextField fieldDepartment;
     private javax.swing.JTextField fieldEmail;
     private javax.swing.JTextField fieldFindID;
-    private javax.swing.JTextField fieldID;
     private javax.swing.JTextField fieldLicence;
     private javax.swing.JTextField fieldName;
     private javax.swing.JTextField fieldSurname;
@@ -264,7 +254,6 @@ public class EditDoctor extends javax.swing.JPanel {
     private javax.swing.JLabel labelDepartment;
     private javax.swing.JLabel labelEmail;
     private javax.swing.JLabel labelFindID;
-    private javax.swing.JLabel labelID;
     private javax.swing.JLabel labelLicence;
     private javax.swing.JLabel labelName;
     private javax.swing.JLabel labelSurname;
@@ -281,15 +270,14 @@ public class EditDoctor extends javax.swing.JPanel {
 	}
 
 	private void fillFields() {
-		this.labelAddress.setText(doctor.getAddress());
-		this.labelAge.setText("" + doctor.getAge());
-		this.labelDepartment.setText(doctor.getDepartment());
-		this.labelEmail.setText(doctor.getEmail());
-		this.labelID.setText(doctor.getId());
-		this.labelLicence.setText(doctor.getLicence());
-		this.labelName.setText(doctor.getFirstName());
-		this.labelSurname.setText(doctor.getLastName());
-		this.labelTelephone.setText(doctor.getTelephone());
+		this.fieldAddress.setText(doctor.getAddress());
+		this.fieldAge.setText("" + doctor.getAge());
+		this.fieldDepartment.setText(doctor.getDepartment());
+		this.fieldEmail.setText(doctor.getEmail());
+		this.fieldLicence.setText(doctor.getLicence());
+		this.fieldName.setText(doctor.getFirstName());
+		this.fieldSurname.setText(doctor.getLastName());
+		this.fieldTelephone.setText(doctor.getTelephone());
 	}
 
 }

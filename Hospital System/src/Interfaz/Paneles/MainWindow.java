@@ -7,6 +7,7 @@ package Interfaz.Paneles;
 
 import Data.Infrastructure.DoctorsOffice;
 import Data.Infrastructure.Hospital;
+import Data.People.Doctor;
 import Exceptions.NotValidNumber;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
@@ -497,8 +498,15 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_menuNewDoctorActionPerformed
 
     private void menuEditDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuEditDoctorActionPerformed
-		CardLayout card = (CardLayout)mainPanel.getLayout();
-		card.show(mainPanel, "editDoctor");
+		if(this.hospital.getDoctors().isEmpty()){
+			JOptionPane.showMessageDialog(null, "Please create a doctor first", "ERROR", JOptionPane.ERROR_MESSAGE);
+			this.menuNewDoctor.doClick();
+		}
+		else{
+			this.editDoctor1.setHospital(hospital);
+			CardLayout card = (CardLayout)mainPanel.getLayout();
+			card.show(mainPanel, "editDoctor");
+		}
     }//GEN-LAST:event_menuEditDoctorActionPerformed
 
     private void menuRemoveDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuRemoveDoctorActionPerformed
@@ -680,6 +688,10 @@ public class MainWindow extends javax.swing.JFrame {
 	}
 	
 	public void saveNewDoctorAction(java.awt.event.ActionEvent evt){
+		Doctor d = this.createNewDoctor2.getDoctor();
+		this.hospital.addDoctor(d);
+		JOptionPane.showMessageDialog(null, "Doctor created successfully", "INFORMATION", JOptionPane.INFORMATION_MESSAGE);
+		this.createNewDoctor2.clearFields();
 	}
 	
 	public void saveEditDoctorAction(java.awt.event.ActionEvent evt){
@@ -693,6 +705,7 @@ public class MainWindow extends javax.swing.JFrame {
 
 	private void intiFakeData() {
 		this.hospital = new Hospital("Hôpital joseph ducuing", "rue de paris, 31000 Toulouse, frnace", "0783927381", 5, 42);
+		//this.hospital.addDoctor("Jean", "Leguain", "XWZ182K9281", 34, "test@yopmail.com", "Rue des remparts sud, 09130 Carla-Bayle", "0293047382", "urologie");
 	}
 
 }

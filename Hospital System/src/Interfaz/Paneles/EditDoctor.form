@@ -49,14 +49,6 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Component id="labelFindID" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                          <Component id="fieldFindID" min="-2" pref="95" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="buttonFind" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="labelName" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -86,11 +78,6 @@
                           <Component id="fieldEmail" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="labelID" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="98" max="-2" attributes="0"/>
-                          <Component id="fieldID" max="32767" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
                           <Component id="labelDepartment" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
                           <Component id="fieldDepartment" max="32767" attributes="0"/>
@@ -105,6 +92,14 @@
                               </Group>
                               <Component id="fieldLicence" alignment="0" max="32767" attributes="0"/>
                           </Group>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Component id="labelFindID" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                          <Component id="fieldFindID" min="-2" pref="95" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="buttonFind" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -152,11 +147,6 @@
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="labelID" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="fieldID" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="labelDepartment" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="fieldDepartment" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -167,17 +157,12 @@
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="saveButton" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="38" max="32767" attributes="0"/>
+                  <EmptySpace pref="67" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="labelID">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Doctor ID:"/>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JLabel" name="labelDepartment">
           <Properties>
             <Property name="text" type="java.lang.String" value="Department:"/>
@@ -229,8 +214,6 @@
         <Component class="javax.swing.JTextField" name="fieldTelephone">
         </Component>
         <Component class="javax.swing.JTextField" name="fieldEmail">
-        </Component>
-        <Component class="javax.swing.JTextField" name="fieldID">
         </Component>
         <Component class="javax.swing.JTextField" name="fieldDepartment">
         </Component>

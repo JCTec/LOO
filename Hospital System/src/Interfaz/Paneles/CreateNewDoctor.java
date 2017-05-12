@@ -212,28 +212,28 @@ public class CreateNewDoctor extends javax.swing.JPanel {
 	
 	public Doctor getDoctor(){
 		Doctor d = new Doctor(
-			labelName.getText(),
-			labelSurname.getText(),
-			labelAddress.getText(),
-			labelEmail.getText(),
-			labelTelephone.getText(),
-			Integer.parseInt(labelAge.getText()),
-			labelID.getText(),
-			labelDepartment.getText(),
-			labelLicence.getText()
+			fieldName.getText(),
+			fieldSurname.getText(),
+			fieldAddress.getText(),
+			fieldEmail.getText(),
+			fieldTelephone.getText(),
+			Integer.parseInt(fieldAge.getText()),
+			fieldID.getText(),
+			fieldDepartment.getText(),
+			fieldLicence.getText()
 		);
 		return d;
 	}
 
 	public void clearFields(){
-		labelAddress.setText("");
-		labelAge.setText("");
-		labelDepartment.setText("");
-		labelEmail.setText("");
-		labelID.setText("");
-		labelLicence.setText("");
-		labelName.setText("");
-		labelSurname.setText("");
-		labelTelephone.setText("");
+		fieldAddress.setText("");
+		fieldAge.setText("");
+		fieldDepartment.setText("");
+		fieldEmail.setText("");
+		fieldID.setText("");
+		fieldLicence.setText("");
+		fieldName.setText("");
+		fieldSurname.setText("");
+		fieldTelephone.setText("");
 	}
 }
