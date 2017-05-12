@@ -53,9 +53,11 @@ public class MainWindow extends javax.swing.JFrame {
         newDoctor = new javax.swing.JPanel();
         createNewDoctor2 = new Interfaz.Paneles.CreateNewDoctor();
         editPatient = new javax.swing.JPanel();
+        editPatient1 = new Interfaz.Paneles.EditPatient();
         editOffice = new javax.swing.JPanel();
         editDoctorsOffice1 = new Interfaz.Paneles.EditDoctorsOffice();
         editDoctor = new javax.swing.JPanel();
+        editDoctor1 = new Interfaz.Paneles.EditDoctor();
         removePatient = new javax.swing.JPanel();
         removeOffice = new javax.swing.JPanel();
         removeDoctor = new javax.swing.JPanel();
@@ -82,8 +84,8 @@ public class MainWindow extends javax.swing.JFrame {
         menuEditPatient = new javax.swing.JMenuItem();
         menuRemovePatient = new javax.swing.JMenuItem();
         menuReport = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        menuReportDoctor = new javax.swing.JMenuItem();
+        menuReportPerson = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -95,15 +97,15 @@ public class MainWindow extends javax.swing.JFrame {
             inicioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(inicioPanelLayout.createSequentialGroup()
                 .addGap(39, 39, 39)
-                .addComponent(inicioPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(54, Short.MAX_VALUE))
+                .addComponent(inicioPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(54, 54, 54))
         );
         inicioPanelLayout.setVerticalGroup(
             inicioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(inicioPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(inicioPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(inicioPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(132, 132, 132))
         );
 
         mainPanel.add(inicioPanel, "inicioPanel");
@@ -188,11 +190,17 @@ public class MainWindow extends javax.swing.JFrame {
         editPatient.setLayout(editPatientLayout);
         editPatientLayout.setHorizontalGroup(
             editPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 874, Short.MAX_VALUE)
+            .addGroup(editPatientLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(editPatient1, javax.swing.GroupLayout.DEFAULT_SIZE, 874, Short.MAX_VALUE)
+                .addContainerGap())
         );
         editPatientLayout.setVerticalGroup(
             editPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 712, Short.MAX_VALUE)
+            .addGroup(editPatientLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(editPatient1, javax.swing.GroupLayout.DEFAULT_SIZE, 700, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         mainPanel.add(editPatient, "editPatient");
@@ -220,11 +228,17 @@ public class MainWindow extends javax.swing.JFrame {
         editDoctor.setLayout(editDoctorLayout);
         editDoctorLayout.setHorizontalGroup(
             editDoctorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 874, Short.MAX_VALUE)
+            .addGroup(editDoctorLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(editDoctor1, javax.swing.GroupLayout.DEFAULT_SIZE, 874, Short.MAX_VALUE)
+                .addContainerGap())
         );
         editDoctorLayout.setVerticalGroup(
             editDoctorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 712, Short.MAX_VALUE)
+            .addGroup(editDoctorLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(editDoctor1, javax.swing.GroupLayout.DEFAULT_SIZE, 700, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         mainPanel.add(editDoctor, "editDoctor");
@@ -428,16 +442,16 @@ public class MainWindow extends javax.swing.JFrame {
 
         menuReport.setText("Report");
 
-        jMenuItem2.setText("Doctor");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        menuReportDoctor.setText("Doctor");
+        menuReportDoctor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                menuReportDoctorActionPerformed(evt);
             }
         });
-        menuReport.add(jMenuItem2);
+        menuReport.add(menuReportDoctor);
 
-        jMenuItem3.setText("Person");
-        menuReport.add(jMenuItem3);
+        menuReportPerson.setText("Person");
+        menuReport.add(menuReportPerson);
 
         menuBar.add(menuReport);
 
@@ -463,7 +477,10 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_menuRemoveOfficeActionPerformed
 
     private void menuNewHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuNewHospitalActionPerformed
-        CardLayout card = (CardLayout)mainPanel.getLayout();
+        if(this.hospital != null){			
+			JOptionPane.showMessageDialog(null, "By pressing \"Save\" you will overwrite your current Hospital", "WARNING", JOptionPane.WARNING_MESSAGE);
+		}
+		CardLayout card = (CardLayout)mainPanel.getLayout();
 		card.show(mainPanel, "newHospital");
     }//GEN-LAST:event_menuNewHospitalActionPerformed
 
@@ -513,9 +530,9 @@ public class MainWindow extends javax.swing.JFrame {
 		card.show(mainPanel, "removePatient");
     }//GEN-LAST:event_menuRemovePatientActionPerformed
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+    private void menuReportDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuReportDoctorActionPerformed
         
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+    }//GEN-LAST:event_menuReportDoctorActionPerformed
 
     private void menuAboutHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuAboutHospitalActionPerformed
         this.aboutHospital1.setHospital(hospital);
@@ -584,16 +601,16 @@ public class MainWindow extends javax.swing.JFrame {
     private Interfaz.Paneles.CreateNewHospital createNewHospitalForm;
     private Interfaz.Paneles.CreateNewPatient createNewPatient1;
     private javax.swing.JPanel editDoctor;
+    private Interfaz.Paneles.EditDoctor editDoctor1;
     private Interfaz.Paneles.EditDoctorsOffice editDoctorsOffice1;
     private javax.swing.JPanel editHospital;
     private Interfaz.Paneles.EditHospital editHospital1;
     private javax.swing.JPanel editOffice;
     private javax.swing.JPanel editPatient;
+    private Interfaz.Paneles.EditPatient editPatient1;
     private javax.swing.JMenu inicioMenu;
     private javax.swing.JPanel inicioPanel;
     private Interfaz.Paneles.InicioPanel inicioPanel1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JMenuItem menuAboutHospital;
     private javax.swing.JMenuBar menuBar;
@@ -613,6 +630,8 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JMenuItem menuRemoveOffice;
     private javax.swing.JMenuItem menuRemovePatient;
     private javax.swing.JMenu menuReport;
+    private javax.swing.JMenuItem menuReportDoctor;
+    private javax.swing.JMenuItem menuReportPerson;
     private javax.swing.JPanel newDoctor;
     private javax.swing.JPanel newHospital;
     private javax.swing.JPanel newOffice;
