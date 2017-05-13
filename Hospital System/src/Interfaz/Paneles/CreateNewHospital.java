@@ -7,9 +7,8 @@ package Interfaz.Paneles;
 
 import Data.Infrastructure.Hospital;
 import Exceptions.NotValidNumber;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -62,7 +61,6 @@ public class CreateNewHospital extends javax.swing.JPanel {
         addresField = new javax.swing.JTextField();
         numOfRoomsField = new javax.swing.JTextField();
         numOfDoctorsOfficeField = new javax.swing.JTextField();
-        errorLabel = new javax.swing.JLabel();
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Crear Hospital"));
 
@@ -83,8 +81,6 @@ public class CreateNewHospital extends javax.swing.JPanel {
                 saveButtonActionPerformed(evt);
             }
         });
-
-        errorLabel.setText(" ");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -111,8 +107,7 @@ public class CreateNewHospital extends javax.swing.JPanel {
                                     .addComponent(numOfRoomsField))
                                 .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(errorLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(saveButton)))
                 .addContainerGap())
         );
@@ -139,12 +134,8 @@ public class CreateNewHospital extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(numOfDoctorsOfficeLabel)
                     .addComponent(numOfDoctorsOfficeField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 8, Short.MAX_VALUE)
-                        .addComponent(saveButton))
-                    .addComponent(errorLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 26, Short.MAX_VALUE)
+                .addComponent(saveButton)
                 .addContainerGap())
         );
 
@@ -194,7 +185,7 @@ public class CreateNewHospital extends javax.swing.JPanel {
         
             this.hospitalAGuardar = new Hospital(H);
         }else {
-            this.errorLabel.setText("Por favor llene todos los campos antes de guardar.");
+            JOptionPane.showMessageDialog(null, "Uno de los cuadros se encuentra vacío. Favor de llenar.", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_saveButtonActionPerformed
 
@@ -203,7 +194,6 @@ public class CreateNewHospital extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField addresField;
     private javax.swing.JLabel addressLabel;
-    private javax.swing.JLabel errorLabel;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField nameField;
     private javax.swing.JLabel nameLabel;
@@ -223,4 +213,8 @@ public class CreateNewHospital extends javax.swing.JPanel {
 		this.numOfRoomsField.setText("");
 		this.telephoneField.setText("");
 	}
+        
+        public Hospital newHopital(){
+            return this.hospitalAGuardar;
+        }
 }

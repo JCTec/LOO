@@ -6,6 +6,9 @@
 package Interfaz.Paneles;
 
 import Data.Infrastructure.Hospital;
+import Exceptions.NotValidNumber;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
@@ -18,6 +21,8 @@ public class EditHospital extends javax.swing.JPanel {
     protected String name;
     protected String telephone;
     protected String address;
+    protected int numOfRooms;
+    protected int numOfDoctorsOffices;
     /**
      * Creates new form EditHospital
      */
@@ -160,11 +165,33 @@ public class EditHospital extends javax.swing.JPanel {
 
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
         // TODO add your handling code here:
-        if(!nameField.getText().isEmpty() && !addressField.getText().isEmpty() && !telephoneField.getText().isEmpty())
+        if(!this.nameField.getText().isEmpty() && !this.addressField.getText().isEmpty() && !this.telephoneField.getText().isEmpty() && !this.numOfDoctorsOfficeField.getText().isEmpty() && !this.numOfRoomsField.getText().isEmpty())
         {
             this.name = nameField.getText();
             this.telephone = telephoneField.getText();
             this.address = addressField.getText();
+            this.numOfRooms = Integer.valueOf(this.numOfRoomsField.getText());
+            this.numOfDoctorsOffices = Integer.valueOf(this.numOfDoctorsOfficeField.getText());
+            
+            this.HospitalEdited = new Hospital();
+            this.HospitalEdited.setAddress(this.address);
+            this.HospitalEdited.setName(this.name);
+            try {
+                this.HospitalEdited.setTelephone(this.telephone);
+            } catch (NotValidNumber ex) {
+                //TODO
+            }
+            try {
+                this.HospitalEdited.setNumOfDoctorsOffices(this.numOfDoctorsOffices);
+            } catch (NotValidNumber ex) {
+                //TODO
+            }
+            try {
+                this.HospitalEdited.setNumOfRooms(this.numOfRooms);
+            } catch (NotValidNumber ex) {
+                //TODO
+            }
+            
             JOptionPane.showConfirmDialog(saveButton, "Cambios guardados.", "OPERACIÓN EXITOSA", JOptionPane.OK_OPTION);
         }
         else
@@ -172,6 +199,7 @@ public class EditHospital extends javax.swing.JPanel {
     }//GEN-LAST:event_saveButtonActionPerformed
 
 
+    private Hospital HospitalEdited;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField addressField;
     private javax.swing.JLabel addressLabel;
@@ -198,6 +226,10 @@ public class EditHospital extends javax.swing.JPanel {
 	String getHospitalTelephone() {
 		return this.telephoneField.getText();
 	}
+        
+        public Hospital EditedHospital(){
+            return this.HospitalEdited;
+        }
 
 	public void setFields(Hospital hospital) {
 		this.addressField.setText(hospital.getAddress());

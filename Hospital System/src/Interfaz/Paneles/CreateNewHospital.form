@@ -75,9 +75,8 @@
                               </Group>
                           </Group>
                       </Group>
-                      <Group type="102" attributes="0">
-                          <Component id="errorLabel" max="32767" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           <Component id="saveButton" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -113,14 +112,8 @@
                       <Component id="numOfDoctorsOfficeLabel" min="-2" max="-2" attributes="0"/>
                       <Component id="numOfDoctorsOfficeField" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="0" pref="8" max="32767" attributes="0"/>
-                          <Component id="saveButton" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Component id="errorLabel" max="32767" attributes="0"/>
-                  </Group>
+                  <EmptySpace type="separate" pref="26" max="32767" attributes="0"/>
+                  <Component id="saveButton" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -170,11 +163,6 @@
         <Component class="javax.swing.JTextField" name="numOfRoomsField">
         </Component>
         <Component class="javax.swing.JTextField" name="numOfDoctorsOfficeField">
-        </Component>
-        <Component class="javax.swing.JLabel" name="errorLabel">
-          <Properties>
-            <Property name="text" type="java.lang.String" value=" "/>
-          </Properties>
         </Component>
       </SubComponents>
     </Container>
