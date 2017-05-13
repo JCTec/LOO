@@ -8,8 +8,10 @@ package Interfaz.Paneles;
 import Data.Infrastructure.DoctorsOffice;
 import Data.Infrastructure.Hospital;
 import Data.People.Doctor;
+import DataBase.LoadDataBase;
 import Exceptions.NotValidNumber;
 import java.awt.CardLayout;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -27,10 +29,27 @@ public class MainWindow extends javax.swing.JFrame {
 	 * Creates new form MainWindow
 	 */
 	public MainWindow() {
-		this.hospital = null;
+            
+		LoadDataBase DB = new LoadDataBase();
+                this.hospital = DB.LoadHospital();
+                
+                if(this.hospital == null){
+                    CreateNewHospital H = new CreateNewHospital();
+                    H.setVisible(true);
+            
+                    JFrame f = new JFrame();
+                     
+                    f.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                    f.setVisible(true);
+ 
+                    f.getContentPane().add(H);
+                    
+                    
+                }
+                
 		initComponents();
 		initSaveButtonsListeners();
-		intiFakeData();
+		//intiFakeData();
 	}
 
 	/**
@@ -68,7 +87,6 @@ public class MainWindow extends javax.swing.JFrame {
         editHospital1 = new Interfaz.Paneles.EditHospital();
         menuBar = new javax.swing.JMenuBar();
         menuHospital = new javax.swing.JMenu();
-        menuNewHospital = new javax.swing.JMenuItem();
         menuEditHospital = new javax.swing.JMenuItem();
         menuAboutHospital = new javax.swing.JMenuItem();
         menuOffice = new javax.swing.JMenu();
@@ -322,14 +340,6 @@ public class MainWindow extends javax.swing.JFrame {
 
         menuHospital.setText("Hospital");
 
-        menuNewHospital.setText("New");
-        menuNewHospital.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuNewHospitalActionPerformed(evt);
-            }
-        });
-        menuHospital.add(menuNewHospital);
-
         menuEditHospital.setText("Edit");
         menuEditHospital.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -468,22 +478,13 @@ public class MainWindow extends javax.swing.JFrame {
 		card.show(mainPanel, "removeOffice");
     }//GEN-LAST:event_menuRemoveOfficeActionPerformed
 
-    private void menuNewHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuNewHospitalActionPerformed
-        if(this.hospital != null){			
-			JOptionPane.showMessageDialog(null, "By pressing \"Save\" you will overwrite your current Hospital", "WARNING", JOptionPane.WARNING_MESSAGE);
-		}
-		CardLayout card = (CardLayout)mainPanel.getLayout();
-		card.show(mainPanel, "newHospital");
-    }//GEN-LAST:event_menuNewHospitalActionPerformed
-
     private void menuNewOfficeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuNewOfficeActionPerformed
         if(this.hospital != null){
 			CardLayout card = (CardLayout)mainPanel.getLayout();
 			card.show(mainPanel, "newOffice");
 		}
 		else{
-			JOptionPane.showMessageDialog(null, "Please create a hospital first", "ERROR", JOptionPane.ERROR_MESSAGE);
-			this.menuNewHospital.doClick();
+			JOptionPane.showMessageDialog(null, "Ningun Hosital seleccionado", "ERROR", JOptionPane.ERROR_MESSAGE);
 		}
     }//GEN-LAST:event_menuNewOfficeActionPerformed
 
@@ -546,8 +547,7 @@ public class MainWindow extends javax.swing.JFrame {
 			this.editHospital1.setFields(hospital);
 		}
 		else{
-			JOptionPane.showMessageDialog(null, "Please create a hospital first", "ERROR", JOptionPane.ERROR_MESSAGE);
-			this.menuNewHospital.doClick();
+			JOptionPane.showMessageDialog(null, "Ningun Hosital seleccionado", "ERROR", JOptionPane.ERROR_MESSAGE);
 		}
     }//GEN-LAST:event_menuEditHospitalActionPerformed
 
@@ -579,6 +579,8 @@ public class MainWindow extends javax.swing.JFrame {
 		//</editor-fold>
 
 		/* Create and display the form */
+                
+                
 		java.awt.EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				new MainWindow().setVisible(true);
@@ -613,7 +615,6 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JMenuItem menuEditPatient;
     private javax.swing.JMenu menuHospital;
     private javax.swing.JMenuItem menuNewDoctor;
-    private javax.swing.JMenuItem menuNewHospital;
     private javax.swing.JMenuItem menuNewOffice;
     private javax.swing.JMenuItem menuNewPatient;
     private javax.swing.JMenu menuOffice;

@@ -46,6 +46,10 @@ public class EditHospital extends javax.swing.JPanel {
         nameField = new javax.swing.JTextField();
         telephoneField = new javax.swing.JTextField();
         addressField = new javax.swing.JTextField();
+        numOfRoomsLabel = new javax.swing.JLabel();
+        numOfDoctorsOfficeLabel = new javax.swing.JLabel();
+        numOfDoctorsOfficeField = new javax.swing.JTextField();
+        numOfRoomsField = new javax.swing.JTextField();
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Editar Hospital"));
 
@@ -65,28 +69,48 @@ public class EditHospital extends javax.swing.JPanel {
         addressLabel.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         addressLabel.setText("Dirección:");
 
+        numOfRoomsLabel.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        numOfRoomsLabel.setText("Número de habitaciones:");
+
+        numOfDoctorsOfficeLabel.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        numOfDoctorsOfficeLabel.setText("Número de consultorios:");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(addressLabel)
-                    .addComponent(telephoneLabel, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(nameLabel, javax.swing.GroupLayout.Alignment.LEADING))
-                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(nameField)
-                    .addComponent(addressField)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(telephoneField, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 216, Short.MAX_VALUE)))
+                        .addGap(22, 22, 22)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(telephoneLabel, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(nameLabel, javax.swing.GroupLayout.Alignment.LEADING))
+                                .addGap(188, 188, 188)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(telephoneField, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 175, Short.MAX_VALUE))
+                                    .addComponent(nameField)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(numOfDoctorsOfficeLabel)
+                                    .addComponent(numOfRoomsLabel)
+                                    .addComponent(addressLabel))
+                                .addGap(47, 47, 47)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(addressField)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(numOfDoctorsOfficeField, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(numOfRoomsField, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(0, 0, Short.MAX_VALUE))))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(saveButton)))
                 .addContainerGap())
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(205, 205, 205)
-                .addComponent(saveButton)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -95,17 +119,25 @@ public class EditHospital extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nameLabel)
                     .addComponent(nameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 35, 35)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(telephoneLabel)
-                    .addComponent(telephoneField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(41, 41, 41)
+                    .addComponent(telephoneField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(telephoneLabel))
+                .addGap(22, 22, 22)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addressLabel)
                     .addComponent(addressField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(numOfRoomsLabel)
+                    .addComponent(numOfRoomsField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(numOfDoctorsOfficeLabel)
+                    .addComponent(numOfDoctorsOfficeField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
                 .addComponent(saveButton)
-                .addGap(40, 40, 40))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -146,6 +178,10 @@ public class EditHospital extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField nameField;
     private javax.swing.JLabel nameLabel;
+    private javax.swing.JTextField numOfDoctorsOfficeField;
+    private javax.swing.JLabel numOfDoctorsOfficeLabel;
+    private javax.swing.JTextField numOfRoomsField;
+    private javax.swing.JLabel numOfRoomsLabel;
     private javax.swing.JButton saveButton;
     private javax.swing.JTextField telephoneField;
     private javax.swing.JLabel telephoneLabel;

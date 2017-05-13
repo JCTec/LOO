@@ -25,36 +25,28 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      <Component id="close" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel1" alignment="0" min="-2" pref="168" max="-2" attributes="0"/>
-                          <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="departmentLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="idLabel" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="nSSField" alignment="0" pref="171" max="32767" attributes="0"/>
-                          <Component id="e_mailField" alignment="0" max="32767" attributes="0"/>
-                          <Component id="telefonoField" alignment="0" max="32767" attributes="0"/>
-                          <Component id="direccionField" alignment="0" max="32767" attributes="0"/>
-                          <Component id="edadField" alignment="0" max="32767" attributes="0"/>
-                          <Component id="lastNameField" alignment="0" max="32767" attributes="0"/>
-                          <Component id="nameField" alignment="0" max="32767" attributes="0"/>
-                          <Component id="idField" alignment="0" max="32767" attributes="0"/>
-                          <Component id="departmentField" alignment="0" max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jLabel1" alignment="0" min="-2" pref="168" max="-2" attributes="0"/>
+                  <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="departmentLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="idLabel" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="nSSField" alignment="0" pref="183" max="32767" attributes="0"/>
+                  <Component id="e_mailField" alignment="0" max="32767" attributes="0"/>
+                  <Component id="telefonoField" alignment="0" max="32767" attributes="0"/>
+                  <Component id="direccionField" alignment="0" max="32767" attributes="0"/>
+                  <Component id="edadField" alignment="0" max="32767" attributes="0"/>
+                  <Component id="lastNameField" alignment="0" max="32767" attributes="0"/>
+                  <Component id="nameField" alignment="0" max="32767" attributes="0"/>
+                  <Component id="idField" alignment="0" max="32767" attributes="0"/>
+                  <Component id="departmentField" alignment="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
           </Group>
@@ -108,9 +100,7 @@
                   <Component id="departmentLabel" min="-2" max="-2" attributes="0"/>
                   <Component id="departmentField" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="39" max="32767" attributes="0"/>
-              <Component id="close" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace pref="20" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -188,14 +178,6 @@
       <Properties>
         <Property name="editable" type="boolean" value="false"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="close">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Ok"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="closeActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="idLabel">
       <Properties>

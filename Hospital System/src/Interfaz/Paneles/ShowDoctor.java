@@ -41,7 +41,6 @@ public class ShowDoctor extends javax.swing.JPanel {
         e_mailField = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         nSSField = new javax.swing.JTextField();
-        close = new javax.swing.JButton();
         idLabel = new javax.swing.JLabel();
         idField = new javax.swing.JTextField();
         departmentLabel = new javax.swing.JLabel();
@@ -82,13 +81,6 @@ public class ShowDoctor extends javax.swing.JPanel {
 
         nSSField.setEditable(false);
 
-        close.setText("Ok");
-        close.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                closeActionPerformed(evt);
-            }
-        });
-
         idLabel.setText("ID");
 
         idField.setEditable(false);
@@ -103,32 +95,27 @@ public class ShowDoctor extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(close))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel7)
-                            .addComponent(departmentLabel)
-                            .addComponent(idLabel))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(nSSField, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE)
-                            .addComponent(e_mailField)
-                            .addComponent(telefonoField)
-                            .addComponent(direccionField)
-                            .addComponent(edadField)
-                            .addComponent(lastNameField)
-                            .addComponent(nameField)
-                            .addComponent(idField)
-                            .addComponent(departmentField))))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel7)
+                    .addComponent(departmentLabel)
+                    .addComponent(idLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(nSSField, javax.swing.GroupLayout.DEFAULT_SIZE, 183, Short.MAX_VALUE)
+                    .addComponent(e_mailField)
+                    .addComponent(telefonoField)
+                    .addComponent(direccionField)
+                    .addComponent(edadField)
+                    .addComponent(lastNameField)
+                    .addComponent(nameField)
+                    .addComponent(idField)
+                    .addComponent(departmentField))
                 .addGap(37, 37, 37))
         );
         layout.setVerticalGroup(
@@ -170,20 +157,13 @@ public class ShowDoctor extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(departmentLabel)
                     .addComponent(departmentField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
-                .addComponent(close)
-                .addContainerGap())
+                .addContainerGap(20, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void nameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_nameFieldActionPerformed
-
-    private void closeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeActionPerformed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_closeActionPerformed
 
 
     public void setFields(String name, String lastName, String nss, String telefono, String direccion, String e_mail, String edad){
@@ -201,7 +181,6 @@ public class ShowDoctor extends javax.swing.JPanel {
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton close;
     private javax.swing.JTextField departmentField;
     private javax.swing.JLabel departmentLabel;
     private javax.swing.JTextField direccionField;

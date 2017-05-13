@@ -21,10 +21,11 @@ public class LoadDataBase {
     private XStream xstream = new XStream();
     
     public LoadDataBase(){
+        this.xstream.alias("Hospital", Hospital.class);
+        
         String Xml = this.Get();
         
         if(Xml != "NOT_FOUND"){
-            
             this.hospital = (Hospital)this.xstream.fromXML(Xml);
             
         }

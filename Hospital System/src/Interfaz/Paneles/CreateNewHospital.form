@@ -53,31 +53,35 @@
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="nameLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="telephoneLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="addressLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="numOfRoomsLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="numOfDoctorsOfficeLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="nameField" max="32767" attributes="0"/>
-                      <Component id="telephoneField" max="32767" attributes="0"/>
-                      <Component id="addresField" alignment="0" max="32767" attributes="0"/>
                       <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="numOfDoctorsOfficeField" pref="66" max="32767" attributes="0"/>
-                              <Component id="numOfRoomsField" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="nameLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="telephoneLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="addressLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="numOfRoomsLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="numOfDoctorsOfficeLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="nameField" pref="201" max="32767" attributes="0"/>
+                              <Component id="telephoneField" max="32767" attributes="0"/>
+                              <Component id="addresField" alignment="0" max="32767" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="numOfDoctorsOfficeField" pref="66" max="32767" attributes="0"/>
+                                      <Component id="numOfRoomsField" max="32767" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Component id="errorLabel" max="32767" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="saveButton" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="159" max="-2" attributes="0"/>
-                  <Component id="saveButton" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="182" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -109,9 +113,15 @@
                       <Component id="numOfDoctorsOfficeLabel" min="-2" max="-2" attributes="0"/>
                       <Component id="numOfDoctorsOfficeField" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
-                  <Component id="saveButton" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="46" max="32767" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="0" pref="8" max="32767" attributes="0"/>
+                          <Component id="saveButton" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="errorLabel" max="32767" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -147,6 +157,9 @@
             <Property name="text" type="java.lang.String" value="Guardar"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="saveButtonActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="nameField">
         </Component>
@@ -157,6 +170,11 @@
         <Component class="javax.swing.JTextField" name="numOfRoomsField">
         </Component>
         <Component class="javax.swing.JTextField" name="numOfDoctorsOfficeField">
+        </Component>
+        <Component class="javax.swing.JLabel" name="errorLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value=" "/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>

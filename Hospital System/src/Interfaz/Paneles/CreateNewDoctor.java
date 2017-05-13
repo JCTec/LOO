@@ -72,6 +72,11 @@ public class CreateNewDoctor extends javax.swing.JPanel {
         labelLicence.setText("Licence:");
 
         saveButton.setText("Save");
+        saveButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -87,36 +92,30 @@ public class CreateNewDoctor extends javax.swing.JPanel {
                             .addComponent(labelAge))
                         .addGap(100, 100, 100)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(fieldSurname)
+                            .addComponent(fieldSurname, javax.swing.GroupLayout.DEFAULT_SIZE, 322, Short.MAX_VALUE)
                             .addComponent(fieldName, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(fieldAge, javax.swing.GroupLayout.Alignment.TRAILING)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(labelAddress)
-                        .addGap(105, 105, 105)
-                        .addComponent(fieldAddress))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(labelTelephone)
-                        .addGap(88, 88, 88)
-                        .addComponent(fieldTelephone))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(labelEmail)
-                        .addGap(121, 121, 121)
-                        .addComponent(fieldEmail))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(labelID)
-                        .addGap(98, 98, 98)
-                        .addComponent(fieldID))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(labelDepartment)
-                        .addGap(78, 78, 78)
-                        .addComponent(fieldDepartment))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelTelephone)
+                            .addComponent(labelEmail)
+                            .addComponent(labelAddress)
+                            .addComponent(labelID)
+                            .addComponent(labelDepartment))
+                        .addGap(80, 80, 80)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(fieldDepartment)
+                            .addComponent(fieldTelephone, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(fieldEmail)
+                            .addComponent(fieldID)
+                            .addComponent(fieldAddress)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(labelLicence)
-                        .addGap(110, 110, 110)
+                        .addGap(107, 107, 107)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(saveButton)
-                                .addGap(0, 261, Short.MAX_VALUE))
+                                .addGap(0, 0, Short.MAX_VALUE))
                             .addComponent(fieldLicence))))
                 .addContainerGap())
         );
@@ -181,6 +180,10 @@ public class CreateNewDoctor extends javax.swing.JPanel {
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_saveButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -8,6 +8,7 @@ package Data.Infrastructure;
 import Data.People.*;
 import Exceptions.NotValidNumber;
 import Exceptions.OverSize;
+import Interfaz.Paneles.FrameWithCloseButton;
 import Interfaz.Paneles.ShowDoctor;
 import Interfaz.Paneles.ShowPerson;
 import java.util.ArrayList;
@@ -455,13 +456,12 @@ public class Hospital {
             
             doctor.setVisible(true);
             
-            JFrame f = new JFrame();
-            
-            
-                        
-            f.getContentPane().add(doctor);
-            f.pack();
+            FrameWithCloseButton f = new FrameWithCloseButton();
+                     
+            f.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             f.setVisible(true);
+ 
+            f.setContent(doctor);
         }
         
     }
