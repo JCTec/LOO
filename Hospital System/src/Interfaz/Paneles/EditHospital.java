@@ -33,6 +33,40 @@ public class EditHospital extends javax.swing.JPanel {
 	public JButton getSaveButton() {
 		return saveButton;
 	}
+        
+        public void save(){
+        if(!this.nameField.getText().isEmpty() && !this.addressField.getText().isEmpty() && !this.telephoneField.getText().isEmpty() && !this.numOfDoctorsOfficeField.getText().isEmpty() && !this.numOfRoomsField.getText().isEmpty())
+            {
+            this.name = nameField.getText();
+            this.telephone = telephoneField.getText();
+            this.address = addressField.getText();
+            this.numOfRooms = Integer.valueOf(this.numOfRoomsField.getText());
+            this.numOfDoctorsOffices = Integer.valueOf(this.numOfDoctorsOfficeField.getText());
+            
+            this.HospitalEdited = new Hospital();
+            this.HospitalEdited.setAddress(this.address);
+            this.HospitalEdited.setName(this.name);
+            try {
+                this.HospitalEdited.setTelephone(this.telephone);
+            } catch (NotValidNumber ex) {
+                //TODO
+            }
+            try {
+                this.HospitalEdited.setNumOfDoctorsOffices(this.numOfDoctorsOffices);
+            } catch (NotValidNumber ex) {
+                //TODO
+            }
+            try {
+                this.HospitalEdited.setNumOfRooms(this.numOfRooms);
+            } catch (NotValidNumber ex) {
+                //TODO
+            }
+            
+            JOptionPane.showMessageDialog(null, "Cambios guardados.", "Operacon Exitosa", JOptionPane.INFORMATION_MESSAGE);
+        }else{
+            JOptionPane.showMessageDialog(null, "Uno de los cuadros se encuentra vacío. Favor de llenar.", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+        }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -165,37 +199,7 @@ public class EditHospital extends javax.swing.JPanel {
 
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
         // TODO add your handling code here:
-        if(!this.nameField.getText().isEmpty() && !this.addressField.getText().isEmpty() && !this.telephoneField.getText().isEmpty() && !this.numOfDoctorsOfficeField.getText().isEmpty() && !this.numOfRoomsField.getText().isEmpty())
-        {
-            this.name = nameField.getText();
-            this.telephone = telephoneField.getText();
-            this.address = addressField.getText();
-            this.numOfRooms = Integer.valueOf(this.numOfRoomsField.getText());
-            this.numOfDoctorsOffices = Integer.valueOf(this.numOfDoctorsOfficeField.getText());
-            
-            this.HospitalEdited = new Hospital();
-            this.HospitalEdited.setAddress(this.address);
-            this.HospitalEdited.setName(this.name);
-            try {
-                this.HospitalEdited.setTelephone(this.telephone);
-            } catch (NotValidNumber ex) {
-                //TODO
-            }
-            try {
-                this.HospitalEdited.setNumOfDoctorsOffices(this.numOfDoctorsOffices);
-            } catch (NotValidNumber ex) {
-                //TODO
-            }
-            try {
-                this.HospitalEdited.setNumOfRooms(this.numOfRooms);
-            } catch (NotValidNumber ex) {
-                //TODO
-            }
-            
-            JOptionPane.showConfirmDialog(saveButton, "Cambios guardados.", "OPERACIÓN EXITOSA", JOptionPane.OK_OPTION);
-        }
-        else
-            JOptionPane.showMessageDialog(null, "Uno de los cuadros se encuentra vacío. Favor de llenar.", "ERROR", JOptionPane.ERROR_MESSAGE);
+        
     }//GEN-LAST:event_saveButtonActionPerformed
 
 
@@ -227,7 +231,7 @@ public class EditHospital extends javax.swing.JPanel {
 		return this.telephoneField.getText();
 	}
         
-        public Hospital EditedHospital(){
+        public Hospital getHospital(){
             return this.HospitalEdited;
         }
 
@@ -235,6 +239,8 @@ public class EditHospital extends javax.swing.JPanel {
 		this.addressField.setText(hospital.getAddress());
 		this.telephoneField.setText(hospital.getTelephone());
 		this.nameField.setText(hospital.getName());
+                this.numOfDoctorsOfficeField.setText(Integer.toString(hospital.getNumOfDoctorsOffices()));
+                this.numOfRoomsField.setText(Integer.toString(hospital.getNumOfRooms()));
 	}
 	
 }

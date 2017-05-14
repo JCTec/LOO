@@ -607,7 +607,7 @@ public class MainWindow extends javax.swing.JFrame {
         if(this.hospital != null){
 			CardLayout card = (CardLayout)mainPanel.getLayout();
 			card.show(mainPanel, "editHospital");
-			this.editHospital1.setFields(hospital);
+			this.editHospital1.setFields(this.hospital);
 		}
 		else{
 			JOptionPane.showMessageDialog(null, "Ningun Hospital seleccionado", "ERROR", JOptionPane.ERROR_MESSAGE);
@@ -738,49 +738,73 @@ public class MainWindow extends javax.swing.JFrame {
 
 		this.hospital = null;
                 
-                this.hospital = new Hospital();
-                this.hospital.setName(this.createNewHospitalForm.getHospital().getName());
-                this.hospital.setAddress(this.createNewHospitalForm.getHospital().getAddress());
-                try {
-                    this.hospital.setTelephone(this.createNewHospitalForm.getHospital().getTelephone());
-                } catch (NotValidNumber ex) {
-                    //TODO
-                }
+                if(this.createNewHospitalForm.getHospital() != null){
+                    
+                    this.hospital = new Hospital();
+                    this.hospital.setName(this.createNewHospitalForm.getHospital().getName());
+                    this.hospital.setAddress(this.createNewHospitalForm.getHospital().getAddress());
+                    try {
+                        this.hospital.setTelephone(this.createNewHospitalForm.getHospital().getTelephone());
+                    } catch (NotValidNumber ex) {
+                     //TODO
+                    }
                 
-                try {
-                    this.hospital.setNumOfRooms(this.createNewHospitalForm.getHospital().getNumOfRooms());
-                } catch (NotValidNumber ex) {
-                    //TODO
-                }
+                    try {
+                        this.hospital.setNumOfRooms(this.createNewHospitalForm.getHospital().getNumOfRooms());
+                    } catch (NotValidNumber ex) {
+                      //TODO
+                    }
                 
-                try {
-                    this.hospital.setNumOfDoctorsOffices(this.createNewHospitalForm.getHospital().getNumOfDoctorsOffices());
-                } catch (NotValidNumber ex) {
-                    //TODO
-                }
+                    try {
+                        this.hospital.setNumOfDoctorsOffices(this.createNewHospitalForm.getHospital().getNumOfDoctorsOffices());
+                    } catch (NotValidNumber ex) {
+                        //TODO
+                    }
                 
-                GuardarHospital GDB = new GuardarHospital(this.hospital);
+                    GuardarHospital GDB = new GuardarHospital(this.hospital);
                 
-                this.Frame.setVisible(false);
+                    this.Frame.setVisible(false);
             
-                this.setVisible(true);
+                    this.setVisible(true);
                 
-		this.createNewHospitalForm.clearFields();
-		this.menuAboutHospital.doClick();
+                    this.createNewHospitalForm.clearFields();
+                    this.menuAboutHospital.doClick();
+                }
 	}
 	
 	public void saveEditHospitalAction(java.awt.event.ActionEvent evt){
-		String name = this.editHospital1.getHospitalName();
-		String address = this.editHospital1.getHospitalAddress();
-		String telephone = this.editHospital1.getHospitalTelephone();
-		this.hospital.setName(name);
-		this.hospital.setAddress(address);
-		try {
-			this.hospital.setTelephone(telephone);		
-		}
-		catch(NotValidNumber error){
-            JOptionPane.showMessageDialog(null, error.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
-        }
+		this.editHospital1.save();
+
+		this.hospital = null;
+                
+                if(this.editHospital1.getHospital() != null){
+                    
+                    this.hospital = new Hospital();
+                    this.hospital.setName(this.editHospital1.getHospital().getName());
+                    this.hospital.setAddress(this.editHospital1.getHospital().getAddress());
+                    try {
+                        this.hospital.setTelephone(this.editHospital1.getHospital().getTelephone());
+                    } catch (NotValidNumber ex) {
+                     //TODO
+                    }
+                
+                    try {
+                        this.hospital.setNumOfRooms(this.editHospital1.getHospital().getNumOfRooms());
+                    } catch (NotValidNumber ex) {
+                      //TODO
+                    }
+                
+                    try {
+                        this.hospital.setNumOfDoctorsOffices(this.editHospital1.getHospital().getNumOfDoctorsOffices());
+                    } catch (NotValidNumber ex) {
+                        //TODO
+                    }
+                
+                    GuardarHospital GDB = new GuardarHospital(this.hospital);
+             
+                
+                    this.menuAboutHospital.doClick();
+                }
 	}
 	
 	public void saveNewDoctorAction(java.awt.event.ActionEvent evt){
