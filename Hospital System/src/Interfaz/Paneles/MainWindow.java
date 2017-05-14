@@ -111,6 +111,7 @@ public class MainWindow extends javax.swing.JFrame {
         editHospital = new javax.swing.JPanel();
         editHospital1 = new Interfaz.Paneles.EditHospital();
         menuBar = new javax.swing.JMenuBar();
+        save = new javax.swing.JMenu();
         menuHospital = new javax.swing.JMenu();
         menuEditHospital = new javax.swing.JMenuItem();
         menuAboutHospital = new javax.swing.JMenuItem();
@@ -159,7 +160,7 @@ public class MainWindow extends javax.swing.JFrame {
             newHospitalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(newHospitalLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(createNewHospitalForm, javax.swing.GroupLayout.DEFAULT_SIZE, 862, Short.MAX_VALUE)
+                .addComponent(createNewHospitalForm, javax.swing.GroupLayout.DEFAULT_SIZE, 889, Short.MAX_VALUE)
                 .addContainerGap())
         );
         newHospitalLayout.setVerticalGroup(
@@ -178,7 +179,7 @@ public class MainWindow extends javax.swing.JFrame {
             newOfficeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(newOfficeLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(createNewDoctorsOffice1, javax.swing.GroupLayout.DEFAULT_SIZE, 862, Short.MAX_VALUE)
+                .addComponent(createNewDoctorsOffice1, javax.swing.GroupLayout.DEFAULT_SIZE, 889, Short.MAX_VALUE)
                 .addContainerGap())
         );
         newOfficeLayout.setVerticalGroup(
@@ -198,7 +199,7 @@ public class MainWindow extends javax.swing.JFrame {
             .addGroup(newPatientLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(createNewPatient1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(117, Short.MAX_VALUE))
+                .addContainerGap(141, Short.MAX_VALUE))
         );
         newPatientLayout.setVerticalGroup(
             newPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -216,7 +217,7 @@ public class MainWindow extends javax.swing.JFrame {
             newDoctorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(newDoctorLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(createNewDoctor2, javax.swing.GroupLayout.DEFAULT_SIZE, 874, Short.MAX_VALUE)
+                .addComponent(createNewDoctor2, javax.swing.GroupLayout.DEFAULT_SIZE, 889, Short.MAX_VALUE)
                 .addContainerGap())
         );
         newDoctorLayout.setVerticalGroup(
@@ -235,7 +236,7 @@ public class MainWindow extends javax.swing.JFrame {
             editPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(editPatientLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(editPatient1, javax.swing.GroupLayout.DEFAULT_SIZE, 874, Short.MAX_VALUE)
+                .addComponent(editPatient1, javax.swing.GroupLayout.DEFAULT_SIZE, 889, Short.MAX_VALUE)
                 .addContainerGap())
         );
         editPatientLayout.setVerticalGroup(
@@ -254,7 +255,7 @@ public class MainWindow extends javax.swing.JFrame {
             editOfficeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(editOfficeLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(editDoctorsOffice1, javax.swing.GroupLayout.DEFAULT_SIZE, 862, Short.MAX_VALUE)
+                .addComponent(editDoctorsOffice1, javax.swing.GroupLayout.DEFAULT_SIZE, 889, Short.MAX_VALUE)
                 .addContainerGap())
         );
         editOfficeLayout.setVerticalGroup(
@@ -273,7 +274,7 @@ public class MainWindow extends javax.swing.JFrame {
             editDoctorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(editDoctorLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(editDoctor1, javax.swing.GroupLayout.DEFAULT_SIZE, 874, Short.MAX_VALUE)
+                .addComponent(editDoctor1, javax.swing.GroupLayout.DEFAULT_SIZE, 889, Short.MAX_VALUE)
                 .addContainerGap())
         );
         editDoctorLayout.setVerticalGroup(
@@ -290,7 +291,7 @@ public class MainWindow extends javax.swing.JFrame {
         removePatient.setLayout(removePatientLayout);
         removePatientLayout.setHorizontalGroup(
             removePatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 874, Short.MAX_VALUE)
+            .addGap(0, 901, Short.MAX_VALUE)
         );
         removePatientLayout.setVerticalGroup(
             removePatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -303,7 +304,7 @@ public class MainWindow extends javax.swing.JFrame {
         removeOffice.setLayout(removeOfficeLayout);
         removeOfficeLayout.setHorizontalGroup(
             removeOfficeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 874, Short.MAX_VALUE)
+            .addGap(0, 901, Short.MAX_VALUE)
         );
         removeOfficeLayout.setVerticalGroup(
             removeOfficeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -316,7 +317,7 @@ public class MainWindow extends javax.swing.JFrame {
         removeDoctor.setLayout(removeDoctorLayout);
         removeDoctorLayout.setHorizontalGroup(
             removeDoctorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 874, Short.MAX_VALUE)
+            .addGap(0, 901, Short.MAX_VALUE)
         );
         removeDoctorLayout.setVerticalGroup(
             removeDoctorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -331,7 +332,7 @@ public class MainWindow extends javax.swing.JFrame {
             aboutHospitalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(aboutHospitalLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(aboutHospital1, javax.swing.GroupLayout.DEFAULT_SIZE, 874, Short.MAX_VALUE)
+                .addComponent(aboutHospital1, javax.swing.GroupLayout.DEFAULT_SIZE, 889, Short.MAX_VALUE)
                 .addContainerGap())
         );
         aboutHospitalLayout.setVerticalGroup(
@@ -350,7 +351,7 @@ public class MainWindow extends javax.swing.JFrame {
             editHospitalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(editHospitalLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(editHospital1, javax.swing.GroupLayout.DEFAULT_SIZE, 874, Short.MAX_VALUE)
+                .addComponent(editHospital1, javax.swing.GroupLayout.DEFAULT_SIZE, 889, Short.MAX_VALUE)
                 .addContainerGap())
         );
         editHospitalLayout.setVerticalGroup(
@@ -362,6 +363,14 @@ public class MainWindow extends javax.swing.JFrame {
         );
 
         mainPanel.add(editHospital, "editHospital");
+
+        save.setText("Guardar");
+        save.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                saveMouseClicked(evt);
+            }
+        });
+        menuBar.add(save);
 
         menuHospital.setText("Hospital");
 
@@ -615,6 +624,13 @@ public class MainWindow extends javax.swing.JFrame {
         
     }//GEN-LAST:event_menuEditHospitalActionPerformed
 
+    private void saveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_saveMouseClicked
+        // TODO add your handling code here:
+        
+        GuardarHospital GDB = new GuardarHospital(this.hospital);
+        
+    }//GEN-LAST:event_saveMouseClicked
+
 	/**
 	 * @param args the command line arguments
 	 */
@@ -697,6 +713,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JPanel removeDoctor;
     private javax.swing.JPanel removeOffice;
     private javax.swing.JPanel removePatient;
+    private javax.swing.JMenu save;
     // End of variables declaration//GEN-END:variables
 
 	private void initSaveButtonsListeners() {

@@ -52,7 +52,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
+                      <Group type="102" attributes="0">
                           <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
@@ -64,7 +64,7 @@
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" attributes="0">
                                           <Component id="telephoneField" min="-2" pref="156" max="-2" attributes="0"/>
-                                          <EmptySpace min="0" pref="175" max="32767" attributes="0"/>
+                                          <EmptySpace min="0" pref="242" max="32767" attributes="0"/>
                                       </Group>
                                       <Component id="nameField" max="32767" attributes="0"/>
                                   </Group>
@@ -126,9 +126,9 @@
                       <Component id="numOfDoctorsOfficeLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="numOfDoctorsOfficeField" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="60" max="32767" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="saveButton" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace pref="26" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
