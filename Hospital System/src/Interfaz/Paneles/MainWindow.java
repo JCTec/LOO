@@ -773,7 +773,10 @@ public class MainWindow extends javax.swing.JFrame {
         });
                 this.reportDoctor1.getTable().getSelectionModel().addListSelectionListener(new ListSelectionListener(){
             public void valueChanged(ListSelectionEvent event) {
-                modifyDoctor(reportDoctor1.getTable().getValueAt(reportDoctor1.getTable().getSelectedRow(), 8).toString());
+                if ( !event.getValueIsAdjusting() ){
+                    modifyDoctor(reportDoctor1.getTable().getValueAt(reportDoctor1.getTable().getSelectedRow(), 8).toString());
+                }
+                
             }
         });
                 //Editar Hospital

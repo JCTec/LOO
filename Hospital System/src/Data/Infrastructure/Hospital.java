@@ -457,7 +457,8 @@ public class Hospital {
             doctor.setVisible(true);
             
             FrameWithCloseButton f = new FrameWithCloseButton();
-                     
+                    
+            f.setSize(500, 600);
             f.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             f.setVisible(true);
  
