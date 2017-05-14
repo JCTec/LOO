@@ -17,61 +17,113 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="labelNumOfRooms" min="-2" max="-2" attributes="0"/>
-                  <Component id="labelNumOfOffices" min="-2" max="-2" attributes="0"/>
-                  <Component id="labelTelephone" min="-2" max="-2" attributes="0"/>
-                  <Component id="labelAddress" min="-2" max="-2" attributes="0"/>
-                  <Component id="labelName" max="32767" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="282" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jPanel1" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-              <Component id="labelName" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-              <Component id="labelAddress" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
-              <Component id="labelTelephone" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-              <Component id="labelNumOfOffices" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
-              <Component id="labelNumOfRooms" max="32767" attributes="0"/>
-              <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jPanel1" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="labelName">
+    <Container class="javax.swing.JPanel" name="jPanel1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="labelName"/>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+            <TitledBorder title="About"/>
+          </Border>
+        </Property>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="labelAddress">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="labelAddress"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="labelTelephone">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="labelTelephone"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="labelNumOfOffices">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="labelNumOfOffices"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="labelNumOfRooms">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="labelNumOfRooms"/>
-      </Properties>
-    </Component>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="labelName" alignment="0" pref="514" max="32767" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="labelAddress" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelTelephone" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelNumOfOffices" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelNumOfRooms" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="labelName" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="labelAddress" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="labelTelephone" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="labelNumOfOffices" min="-2" pref="18" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="labelNumOfRooms" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="43" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="labelName">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Verdana" size="24" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="labelName"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="labelAddress">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Verdana" size="14" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="labelAddress"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="labelTelephone">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Verdana" size="14" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="labelTelephone"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="labelNumOfOffices">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Verdana" size="14" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="labelNumOfOffices"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="labelNumOfRooms">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Verdana" size="14" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="labelNumOfRooms"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
   </SubComponents>
 </Form>

@@ -12,10 +12,13 @@ import DataBase.GuardarHospital;
 import DataBase.LoadDataBase;
 import Exceptions.NotValidNumber;
 import java.awt.CardLayout;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.WindowConstants;
 
 /**
  *
@@ -33,28 +36,42 @@ public class MainWindow extends javax.swing.JFrame {
 	 */
 	public MainWindow() {
             
+            this.hospital = null;
             
                 initComponents();
 		initSaveButtonsListeners();
 		//intiFakeData();
             
-                this.setVisible(false);
                 
 		LoadDataBase DB = new LoadDataBase();
                 this.hospital = DB.LoadHospital();
                 
+                this.setVisible(true);
+                
                 if(this.hospital == null){
+
+                    this.setVisible(false);
           
                     this.createNewHospitalForm.setVisible(true);
 
+                    this.Frame.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
+                    this.Frame.addWindowListener(new WindowAdapter() {
+                        
+                    public void windowClosing(WindowEvent ev) {
+                        int reply = JOptionPane.showConfirmDialog(null, "¿Seguro que quieres salir?", "Salir", JOptionPane.OK_CANCEL_OPTION);
+                        if (reply == JOptionPane.OK_OPTION){
+                            System.exit(0);
+                        }
+                        }
+                    });
+                    
                     this.Frame.setSize(500, 600);
-                    this.Frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                     this.Frame.setVisible(true);
  
                     this.Frame.getContentPane().add(this.createNewHospitalForm);
  
                 }else {
-                    this.setVisible(true);
+                    
                 }
                 
 		
@@ -482,8 +499,12 @@ public class MainWindow extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void menuRemoveOfficeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuRemoveOfficeActionPerformed
+        if(this.hospital != null){
         CardLayout card = (CardLayout)mainPanel.getLayout();
 		card.show(mainPanel, "removeOffice");
+        }else{
+            JOptionPane.showMessageDialog(null, "Ningun Hospital seleccionado", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_menuRemoveOfficeActionPerformed
 
     private void menuNewOfficeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuNewOfficeActionPerformed
@@ -492,22 +513,31 @@ public class MainWindow extends javax.swing.JFrame {
 			card.show(mainPanel, "newOffice");
 		}
 		else{
-			JOptionPane.showMessageDialog(null, "Ningun Hosital seleccionado", "ERROR", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null, "Ningun Hospital seleccionado", "ERROR", JOptionPane.ERROR_MESSAGE);
 		}
     }//GEN-LAST:event_menuNewOfficeActionPerformed
 
     private void menuEditOfficeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuEditOfficeActionPerformed
-		CardLayout card = (CardLayout)mainPanel.getLayout();
-		card.show(mainPanel, "editOffice");
+		if(this.hospital != null){
+                    CardLayout card = (CardLayout)mainPanel.getLayout();
+                        card.show(mainPanel, "editOffice");
+                }else{
+            JOptionPane.showMessageDialog(null, "Ningun Hospital seleccionado", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_menuEditOfficeActionPerformed
 
     private void menuNewDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuNewDoctorActionPerformed
+        if(this.hospital != null){
         CardLayout card = (CardLayout)mainPanel.getLayout();
 		card.show(mainPanel, "newDoctor");
+        }else{
+            JOptionPane.showMessageDialog(null, "Ningun Hospital seleccionado", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_menuNewDoctorActionPerformed
 
     private void menuEditDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuEditDoctorActionPerformed
-		if(this.hospital.getDoctors().isEmpty()){
+	if(this.hospital != null){	
+        if(this.hospital.getDoctors().isEmpty()){
 			JOptionPane.showMessageDialog(null, "Please create a doctor first", "ERROR", JOptionPane.ERROR_MESSAGE);
 			this.menuNewDoctor.doClick();
 		}
@@ -516,26 +546,45 @@ public class MainWindow extends javax.swing.JFrame {
 			CardLayout card = (CardLayout)mainPanel.getLayout();
 			card.show(mainPanel, "editDoctor");
 		}
+        }else{
+            JOptionPane.showMessageDialog(null, "Ningun Hospital seleccionado", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_menuEditDoctorActionPerformed
 
     private void menuRemoveDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuRemoveDoctorActionPerformed
+        if(this.hospital != null){
         CardLayout card = (CardLayout)mainPanel.getLayout();
 		card.show(mainPanel, "removeDoctor");
+        }else{
+            JOptionPane.showMessageDialog(null, "Ningun Hospital seleccionado", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_menuRemoveDoctorActionPerformed
 
     private void menuNewPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuNewPatientActionPerformed
-        CardLayout card = (CardLayout)mainPanel.getLayout();
+        if(this.hospital != null){
+            CardLayout card = (CardLayout)mainPanel.getLayout();
 		card.show(mainPanel, "newPatient");
+                }else{
+            JOptionPane.showMessageDialog(null, "Ningun Hospital seleccionado", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_menuNewPatientActionPerformed
 
     private void menuEditPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuEditPatientActionPerformed
+        if(this.hospital != null){
         CardLayout card = (CardLayout)mainPanel.getLayout();
 		card.show(mainPanel, "editPatient");
+                }else{
+            JOptionPane.showMessageDialog(null, "Ningun Hospital seleccionado", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_menuEditPatientActionPerformed
 
     private void menuRemovePatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuRemovePatientActionPerformed
+        if(this.hospital != null){
         CardLayout card = (CardLayout)mainPanel.getLayout();
 		card.show(mainPanel, "removePatient");
+                }else{
+            JOptionPane.showMessageDialog(null, "Ningun Hospital seleccionado", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_menuRemovePatientActionPerformed
 
     private void menuReportDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuReportDoctorActionPerformed
@@ -543,9 +592,15 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_menuReportDoctorActionPerformed
 
     private void menuAboutHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuAboutHospitalActionPerformed
-        this.aboutHospital1.setHospital(hospital);
+        
+        if(this.hospital != null){
+            this.aboutHospital1.setHospital(hospital);
+        
 		CardLayout card = (CardLayout)mainPanel.getLayout();
 		card.show(mainPanel, "aboutHospital");
+                }else{
+            JOptionPane.showMessageDialog(null, "Ningun Hospital seleccionado", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_menuAboutHospitalActionPerformed
 
     private void menuEditHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuEditHospitalActionPerformed
@@ -555,8 +610,9 @@ public class MainWindow extends javax.swing.JFrame {
 			this.editHospital1.setFields(hospital);
 		}
 		else{
-			JOptionPane.showMessageDialog(null, "Ningun Hosital seleccionado", "ERROR", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null, "Ningun Hospital seleccionado", "ERROR", JOptionPane.ERROR_MESSAGE);
 		}
+        
     }//GEN-LAST:event_menuEditHospitalActionPerformed
 
 	/**
@@ -591,7 +647,7 @@ public class MainWindow extends javax.swing.JFrame {
                 
 		java.awt.EventQueue.invokeLater(new Runnable() {
 			public void run() {
-				new MainWindow().setVisible(false);
+				new MainWindow().setVisible(true);
 			}
 		});
 	}

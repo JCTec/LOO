@@ -181,8 +181,6 @@ public class CreateNewHospital extends javax.swing.JPanel {
 
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
         // TODO add your handling code here:
-        
-        
     }//GEN-LAST:event_saveButtonActionPerformed
 
 

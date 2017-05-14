@@ -29,55 +29,84 @@ public class aboutHospital extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
         labelName = new javax.swing.JLabel();
         labelAddress = new javax.swing.JLabel();
         labelTelephone = new javax.swing.JLabel();
         labelNumOfOffices = new javax.swing.JLabel();
         labelNumOfRooms = new javax.swing.JLabel();
 
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("About"));
+
+        labelName.setFont(new java.awt.Font("Verdana", 0, 24)); // NOI18N
         labelName.setText("labelName");
 
+        labelAddress.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         labelAddress.setText("labelAddress");
 
+        labelTelephone.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         labelTelephone.setText("labelTelephone");
 
+        labelNumOfOffices.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         labelNumOfOffices.setText("labelNumOfOffices");
 
+        labelNumOfRooms.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         labelNumOfRooms.setText("labelNumOfRooms");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelName, javax.swing.GroupLayout.DEFAULT_SIZE, 514, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelAddress)
+                            .addComponent(labelTelephone)
+                            .addComponent(labelNumOfOffices)
+                            .addComponent(labelNumOfRooms))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(labelName)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(labelAddress)
+                .addGap(18, 18, 18)
+                .addComponent(labelTelephone)
+                .addGap(18, 18, 18)
+                .addComponent(labelNumOfOffices, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(labelNumOfRooms)
+                .addContainerGap(43, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(67, 67, 67)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labelNumOfRooms)
-                    .addComponent(labelNumOfOffices)
-                    .addComponent(labelTelephone)
-                    .addComponent(labelAddress)
-                    .addComponent(labelName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(282, 282, 282))
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(labelName)
-                .addGap(40, 40, 40)
-                .addComponent(labelAddress)
-                .addGap(45, 45, 45)
-                .addComponent(labelTelephone)
-                .addGap(38, 38, 38)
-                .addComponent(labelNumOfOffices)
-                .addGap(18, 18, 18)
-                .addComponent(labelNumOfRooms, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(63, 63, 63))
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel labelAddress;
     private javax.swing.JLabel labelName;
     private javax.swing.JLabel labelNumOfOffices;
