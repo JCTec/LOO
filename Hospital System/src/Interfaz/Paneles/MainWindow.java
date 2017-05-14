@@ -106,10 +106,13 @@ public class MainWindow extends javax.swing.JFrame {
         removePatient = new javax.swing.JPanel();
         removeOffice = new javax.swing.JPanel();
         removeDoctor = new javax.swing.JPanel();
+        deleteDoctor1 = new Interfaz.Paneles.DeleteDoctor();
         aboutHospital = new javax.swing.JPanel();
         aboutHospital1 = new Interfaz.Paneles.aboutHospital();
         editHospital = new javax.swing.JPanel();
         editHospital1 = new Interfaz.Paneles.EditHospital();
+        reportDoctor = new javax.swing.JPanel();
+        reportDoctor1 = new Interfaz.Paneles.ReportDoctor();
         menuBar = new javax.swing.JMenuBar();
         save = new javax.swing.JMenu();
         menuHospital = new javax.swing.JMenu();
@@ -317,11 +320,17 @@ public class MainWindow extends javax.swing.JFrame {
         removeDoctor.setLayout(removeDoctorLayout);
         removeDoctorLayout.setHorizontalGroup(
             removeDoctorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 901, Short.MAX_VALUE)
+            .addGroup(removeDoctorLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(deleteDoctor1, javax.swing.GroupLayout.PREFERRED_SIZE, 879, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(24, Short.MAX_VALUE))
         );
         removeDoctorLayout.setVerticalGroup(
             removeDoctorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 712, Short.MAX_VALUE)
+            .addGroup(removeDoctorLayout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(deleteDoctor1, javax.swing.GroupLayout.PREFERRED_SIZE, 533, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(167, Short.MAX_VALUE))
         );
 
         mainPanel.add(removeDoctor, "removeDoctor");
@@ -363,6 +372,25 @@ public class MainWindow extends javax.swing.JFrame {
         );
 
         mainPanel.add(editHospital, "editHospital");
+
+        javax.swing.GroupLayout reportDoctorLayout = new javax.swing.GroupLayout(reportDoctor);
+        reportDoctor.setLayout(reportDoctorLayout);
+        reportDoctorLayout.setHorizontalGroup(
+            reportDoctorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(reportDoctorLayout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(reportDoctor1, javax.swing.GroupLayout.PREFERRED_SIZE, 872, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(20, Short.MAX_VALUE))
+        );
+        reportDoctorLayout.setVerticalGroup(
+            reportDoctorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(reportDoctorLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(reportDoctor1, javax.swing.GroupLayout.PREFERRED_SIZE, 567, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(146, Short.MAX_VALUE))
+        );
+
+        mainPanel.add(reportDoctor, "reportDoctor");
 
         save.setText("Guardar");
         save.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -597,7 +625,15 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_menuRemovePatientActionPerformed
 
     private void menuReportDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuReportDoctorActionPerformed
-        
+        if(this.hospital != null){
+            
+            CardLayout card = (CardLayout)mainPanel.getLayout();
+            this.reportDoctor1.setData(this.hospital.getDoctors());
+            card.show(mainPanel, "reportDoctor");
+            
+        }else{
+            JOptionPane.showMessageDialog(null, "Ningun Hospital seleccionado", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_menuReportDoctorActionPerformed
 
     private void menuAboutHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuAboutHospitalActionPerformed
@@ -676,6 +712,7 @@ public class MainWindow extends javax.swing.JFrame {
     private Interfaz.Paneles.CreateNewDoctorsOffice createNewDoctorsOffice1;
     private Interfaz.Paneles.CreateNewHospital createNewHospitalForm;
     private Interfaz.Paneles.CreateNewPatient createNewPatient1;
+    private Interfaz.Paneles.DeleteDoctor deleteDoctor1;
     private javax.swing.JPanel editDoctor;
     private Interfaz.Paneles.EditDoctor editDoctor1;
     private Interfaz.Paneles.EditDoctorsOffice editDoctorsOffice1;
@@ -713,6 +750,8 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JPanel removeDoctor;
     private javax.swing.JPanel removeOffice;
     private javax.swing.JPanel removePatient;
+    private javax.swing.JPanel reportDoctor;
+    private Interfaz.Paneles.ReportDoctor reportDoctor1;
     private javax.swing.JMenu save;
     // End of variables declaration//GEN-END:variables
 

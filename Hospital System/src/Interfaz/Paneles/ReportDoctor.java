@@ -26,7 +26,29 @@ public class ReportDoctor extends javax.swing.JPanel {
      */
     public ReportDoctor() {
         initComponents();
+        
+        
+    }
+    
+    public void setData(ArrayList<Doctor> doctors){
+        
+        this.data = new String[doctors.size()][9];
+        
+        for(int x = 0; x < doctors.size(); x++){
+            this.data[x][0] = doctors.get(x).getFirstName();
+            this.data[x][1] = doctors.get(x).getLastName();
+            this.data[x][2] = Integer.toString(doctors.get(x).getAge());
+            this.data[x][3] = doctors.get(x).getAddress();
+            this.data[x][4] = doctors.get(x).getTelephone();
+            this.data[x][5] = doctors.get(x).getEmail();
+            this.data[x][6] = doctors.get(x).getLicence();
+            this.data[x][7] = doctors.get(x).getDepartment();
+            this.data[x][8] = doctors.get(x).getId();
+        }
+        
+        
         this.model = new DefaultTableModel(this.data, this.columnNames);
+        
         this.doctorsTable = new JTable(model);
         this.rowSorter = new TableRowSorter<>(this.doctorsTable.getModel());
         
@@ -60,21 +82,6 @@ public class ReportDoctor extends javax.swing.JPanel {
             }
 
         });
-        
-    }
-    
-    public void setData(ArrayList<Doctor> doctors){
-        for(int x = 0; x < doctors.size(); x++){
-            this.data[x][0] = doctors.get(x).getFirstName();
-            this.data[x][1] = doctors.get(x).getLastName();
-            this.data[x][2] = Integer.toString(doctors.get(x).getAge());
-            this.data[x][3] = doctors.get(x).getAddress();
-            this.data[x][4] = doctors.get(x).getTelephone();
-            this.data[x][5] = doctors.get(x).getEmail();
-            this.data[x][6] = doctors.get(x).getLicence();
-            this.data[x][7] = doctors.get(x).getDepartment();
-            this.data[x][8] = doctors.get(x).getId();
-        }
     }
 
     /**
