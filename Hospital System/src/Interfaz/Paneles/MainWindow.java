@@ -43,6 +43,7 @@ public class MainWindow extends javax.swing.JFrame {
 		//intiFakeData();
             
                 
+                
 		LoadDataBase DB = new LoadDataBase();
                 this.hospital = DB.LoadHospital();
                 
@@ -73,8 +74,7 @@ public class MainWindow extends javax.swing.JFrame {
                 }else {
                     
                 }
-                
-		
+
 	}
 
 	/**
@@ -628,8 +628,8 @@ public class MainWindow extends javax.swing.JFrame {
         if(this.hospital != null){
             
             CardLayout card = (CardLayout)mainPanel.getLayout();
-            this.reportDoctor1.setData(this.hospital.getDoctors());
             card.show(mainPanel, "reportDoctor");
+            this.reportDoctor1.setData(this.hospital.getDoctors());
             
         }else{
             JOptionPane.showMessageDialog(null, "Ningun Hospital seleccionado", "ERROR", JOptionPane.ERROR_MESSAGE);

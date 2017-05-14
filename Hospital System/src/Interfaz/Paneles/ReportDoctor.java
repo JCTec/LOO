@@ -11,6 +11,8 @@ import javax.swing.JTable;
 import javax.swing.RowFilter;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
+import javax.swing.event.TableModelEvent;
+import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
@@ -26,30 +28,30 @@ public class ReportDoctor extends javax.swing.JPanel {
      */
     public ReportDoctor() {
         initComponents();
-        
+
         
     }
+  
     
     public void setData(ArrayList<Doctor> doctors){
         
-        this.data = new String[doctors.size()][9];
+        this.model = (DefaultTableModel) this.doctorsTable.getModel();
+        
         
         for(int x = 0; x < doctors.size(); x++){
-            this.data[x][0] = doctors.get(x).getFirstName();
-            this.data[x][1] = doctors.get(x).getLastName();
-            this.data[x][2] = Integer.toString(doctors.get(x).getAge());
-            this.data[x][3] = doctors.get(x).getAddress();
-            this.data[x][4] = doctors.get(x).getTelephone();
-            this.data[x][5] = doctors.get(x).getEmail();
-            this.data[x][6] = doctors.get(x).getLicence();
-            this.data[x][7] = doctors.get(x).getDepartment();
-            this.data[x][8] = doctors.get(x).getId();
+            this.data[0] = doctors.get(x).getFirstName();
+            this.data[1] = doctors.get(x).getLastName();
+            this.data[2] = Integer.toString(doctors.get(x).getAge());
+            this.data[3] = doctors.get(x).getAddress();
+            this.data[4] = doctors.get(x).getTelephone();
+            this.data[5] = doctors.get(x).getEmail();
+            this.data[6] = doctors.get(x).getLicence();
+            this.data[7] = doctors.get(x).getDepartment();
+            this.data[8] = doctors.get(x).getId();
+            
+            this.model.insertRow(this.model.getRowCount(), this.data);
         }
         
-        
-        this.model = new DefaultTableModel(this.data, this.columnNames);
-        
-        this.doctorsTable = new JTable(model);
         this.rowSorter = new TableRowSorter<>(this.doctorsTable.getModel());
         
         this.search.getDocument().addDocumentListener(new DocumentListener(){
@@ -82,6 +84,18 @@ public class ReportDoctor extends javax.swing.JPanel {
             }
 
         });
+        
+        this.doctorsTable.setRowSorter(this.rowSorter);
+        
+        this.doctorsTable.getModel().addTableModelListener(new TableModelListener() {
+            
+            @Override
+            public void tableChanged(TableModelEvent e) {
+                    doctorsTable.getModel()
+            }
+            
+        });
+        
     }
 
     /**
@@ -102,13 +116,10 @@ public class ReportDoctor extends javax.swing.JPanel {
 
         doctorsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Nombre", "Apellido", "Edad", "Direccion", "Telefono", "e-mail", "Matricula", "Departamento", "ID"
             }
         ));
         jScrollPane1.setViewportView(doctorsTable);
@@ -126,8 +137,8 @@ public class ReportDoctor extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 607, Short.MAX_VALUE)
-                    .addComponent(search))
+                    .addComponent(search, javax.swing.GroupLayout.DEFAULT_SIZE, 785, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -163,9 +174,12 @@ public class ReportDoctor extends javax.swing.JPanel {
     }//GEN-LAST:event_searchActionPerformed
 
     private String[] columnNames = {"Nombre", "Apellido", "Edad", "Dirección", "Teléfono","e-mail", "Matricula", "Departamento","ID"};
-    private String[][] data;
+    private String[] data = new String[9];
     private DefaultTableModel model;
     private TableRowSorter<TableModel> rowSorter;
+    
+    private ArrayList<Doctor> newDoctorsList;
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable doctorsTable;
     private javax.swing.JPanel jPanel1;
