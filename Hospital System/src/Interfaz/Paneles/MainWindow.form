@@ -496,7 +496,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="deleteDoctor1" min="-2" pref="879" max="-2" attributes="0"/>
+                      <Component id="removeDoctorPanel" min="-2" pref="879" max="-2" attributes="0"/>
                       <EmptySpace pref="24" max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -505,14 +505,14 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                      <Component id="deleteDoctor1" min="-2" pref="533" max="-2" attributes="0"/>
+                      <Component id="removeDoctorPanel" min="-2" pref="533" max="-2" attributes="0"/>
                       <EmptySpace pref="167" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="Interfaz.Paneles.DeleteDoctor" name="deleteDoctor1">
+            <Component class="Interfaz.Paneles.DeleteDoctor" name="removeDoctorPanel">
             </Component>
           </SubComponents>
         </Container>

@@ -5,17 +5,25 @@
  */
 package Interfaz.Paneles;
 
+import Data.Infrastructure.Hospital;
+import Data.People.Doctor;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JButton;
+
 /**
  *
  * @author alanp
  */
 public class DeleteDoctor extends javax.swing.JPanel {
 
+    private Hospital hospital;
+	private Doctor doctor;
     /**
      * Creates new form DeleteDoctor
      */
     public DeleteDoctor() {
         initComponents();
+        doctor = null;
     }
 
     /**
@@ -74,6 +82,22 @@ public class DeleteDoctor extends javax.swing.JPanel {
 
         labelLicence.setFont(new java.awt.Font("Verdana", 0, 13)); // NOI18N
         labelLicence.setText("Matrícula:");
+
+        fieldName.setEditable(false);
+
+        fieldSurname.setEditable(false);
+
+        fieldAge.setEditable(false);
+
+        fieldAddress.setEditable(false);
+
+        fieldTelephone.setEditable(false);
+
+        fieldEmail.setEditable(false);
+
+        fieldDepartment.setEditable(false);
+
+        fieldLicence.setEditable(false);
 
         deleteButton.setFont(new java.awt.Font("Verdana", 0, 13)); // NOI18N
         deleteButton.setText("Eliminar");
@@ -159,9 +183,9 @@ public class DeleteDoctor extends javax.swing.JPanel {
                 .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelLicence)
                     .addComponent(fieldLicence, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(44, 44, 44)
                 .addComponent(deleteButton)
-                .addContainerGap(122, Short.MAX_VALUE))
+                .addContainerGap(91, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -204,7 +228,7 @@ public class DeleteDoctor extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void selectDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectDoctorActionPerformed
-
+        this.refreshDoctor();
     }//GEN-LAST:event_selectDoctorActionPerformed
 
 
@@ -231,4 +255,73 @@ public class DeleteDoctor extends javax.swing.JPanel {
     private javax.swing.JLabel labelTelephone;
     private javax.swing.JComboBox<String> selectDoctor;
     // End of variables declaration//GEN-END:variables
+
+    public JButton getDeleteButton() {
+		return this.deleteButton;
+	}
+
+	public void setHospital(Hospital hospital){	
+                this.hospital = hospital;
+		int doctorNumber = hospital.getDoctors().size();
+		String[] items = new String[doctorNumber];
+		for(int i = 0 ; i < doctorNumber ; i++){
+			Doctor doc = hospital.getDoctors().get(i);
+			items[i] = doc.getId() + " " + doc.getFirstName() + " " + doc.getLastName();
+		}
+		this.selectDoctor.setModel(new DefaultComboBoxModel<>(items));
+		this.refreshDoctor();
+	}
+
+	private void fillFields() {
+		this.fieldAddress.setText(doctor.getAddress());
+		this.fieldAge.setText("" + doctor.getAge());
+		this.fieldDepartment.setText(doctor.getDepartment());
+		this.fieldEmail.setText(doctor.getEmail());
+		this.fieldLicence.setText(doctor.getLicence());
+		this.fieldName.setText(doctor.getFirstName());
+		this.fieldSurname.setText(doctor.getLastName());
+		this.fieldTelephone.setText(doctor.getTelephone());
+	}
+
+	public void clearFields(){
+		this.fieldAddress.setText("");
+		this.fieldAge.setText("");
+		this.fieldDepartment.setText("");
+		this.fieldEmail.setText("");
+		this.fieldLicence.setText("");
+		this.fieldName.setText("");
+		this.fieldSurname.setText("");
+		this.fieldTelephone.setText("");		
+	}
+	
+	private String getSelectedDoctorId(){
+		return this.selectDoctor.getSelectedItem().toString().split(" ")[0];
+	}
+	
+	public Doctor getDoctor(){
+		Doctor d = new Doctor(
+			fieldName.getText(),
+			fieldSurname.getText(),
+			fieldAddress.getText(),
+			fieldEmail.getText(),
+			fieldTelephone.getText(),
+			Integer.parseInt(fieldAge.getText()),
+			this.getSelectedDoctorId(),
+			fieldDepartment.getText(),
+			fieldLicence.getText()
+		);
+		return d;
+	}
+
+	private void refreshDoctor() {
+		String doctorId = this.getSelectedDoctorId();
+		for(int i = 0 ; i < this.hospital.getDoctors().size() ; i++){
+			if(doctorId.equals(this.hospital.getDoctors().get(i).getId())){
+				this.doctor = this.hospital.getDoctors().get(i);
+			}
+		}
+		this.fillFields();
+	}
+    
 }
+
