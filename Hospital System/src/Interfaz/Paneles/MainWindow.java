@@ -8,9 +8,12 @@ package Interfaz.Paneles;
 import Data.Infrastructure.DoctorsOffice;
 import Data.Infrastructure.Hospital;
 import Data.People.Doctor;
+import DataBase.GuardarHospital;
 import DataBase.LoadDataBase;
 import Exceptions.NotValidNumber;
 import java.awt.CardLayout;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -30,26 +33,31 @@ public class MainWindow extends javax.swing.JFrame {
 	 */
 	public MainWindow() {
             
+            
+                initComponents();
+		initSaveButtonsListeners();
+		//intiFakeData();
+            
+                this.setVisible(false);
+                
 		LoadDataBase DB = new LoadDataBase();
                 this.hospital = DB.LoadHospital();
                 
                 if(this.hospital == null){
-                    CreateNewHospital H = new CreateNewHospital();
-                    H.setVisible(true);
-            
-                    JFrame f = new JFrame();
-                     
-                    f.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                    f.setVisible(true);
+          
+                    this.createNewHospitalForm.setVisible(true);
+
+                    this.Frame.setSize(500, 600);
+                    this.Frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                    this.Frame.setVisible(true);
  
-                    f.getContentPane().add(H);
-                    
-                    
+                    this.Frame.getContentPane().add(this.createNewHospitalForm);
+ 
+                }else {
+                    this.setVisible(true);
                 }
                 
-		initComponents();
-		initSaveButtonsListeners();
-		//intiFakeData();
+		
 	}
 
 	/**
@@ -583,11 +591,12 @@ public class MainWindow extends javax.swing.JFrame {
                 
 		java.awt.EventQueue.invokeLater(new Runnable() {
 			public void run() {
-				new MainWindow().setVisible(true);
+				new MainWindow().setVisible(false);
 			}
 		});
 	}
 
+    private JFrame Frame = new JFrame();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel aboutHospital;
     private Interfaz.Paneles.aboutHospital aboutHospital1;
@@ -668,8 +677,38 @@ public class MainWindow extends javax.swing.JFrame {
 	}
 	
 	public void saveNewHospitalAction(java.awt.event.ActionEvent evt){
-		Hospital h = this.createNewHospitalForm.getHospital();
-		this.hospital = h;
+            
+                this.createNewHospitalForm.save();
+
+		this.hospital = null;
+                
+                this.hospital = new Hospital();
+                this.hospital.setName(this.createNewHospitalForm.getHospital().getName());
+                this.hospital.setAddress(this.createNewHospitalForm.getHospital().getAddress());
+                try {
+                    this.hospital.setTelephone(this.createNewHospitalForm.getHospital().getTelephone());
+                } catch (NotValidNumber ex) {
+                    //TODO
+                }
+                
+                try {
+                    this.hospital.setNumOfRooms(this.createNewHospitalForm.getHospital().getNumOfRooms());
+                } catch (NotValidNumber ex) {
+                    //TODO
+                }
+                
+                try {
+                    this.hospital.setNumOfDoctorsOffices(this.createNewHospitalForm.getHospital().getNumOfDoctorsOffices());
+                } catch (NotValidNumber ex) {
+                    //TODO
+                }
+                
+                GuardarHospital GDB = new GuardarHospital(this.hospital);
+                
+                this.Frame.setVisible(false);
+            
+                this.setVisible(true);
+                
 		this.createNewHospitalForm.clearFields();
 		this.menuAboutHospital.doClick();
 	}

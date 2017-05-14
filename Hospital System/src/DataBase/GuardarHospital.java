@@ -23,9 +23,11 @@ public class GuardarHospital {
     
     
     public GuardarHospital(Hospital H){
+        
         this.hospitalAGuardar = H;
         this.xstream.alias("Hospital", Hospital.class);
         this.toXMl();
+        
     }
     
     public GuardarHospital(){

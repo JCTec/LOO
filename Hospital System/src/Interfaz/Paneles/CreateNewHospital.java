@@ -28,17 +28,39 @@ public class CreateNewHospital extends javax.swing.JPanel {
 	}
 	
 	public Hospital getHospital(){
-		int numOfDoctorsOffice = Integer.parseInt(this.numOfDoctorsOfficeField.getText());
-		int numOfRoomsField = Integer.parseInt(this.numOfRoomsField.getText());
-		Hospital h = new Hospital(
-			this.nameField.getText(),
-			this.addresField.getText(),
-			this.telephoneField.getText(),
-			numOfDoctorsOffice,
-			numOfRoomsField
-		);
-		return h;
+		return this.hospitalAGuardar;
 	}
+        
+        public void save(){
+            if(!this.addresField.getText().isEmpty() && !this.nameField.getText().isEmpty() && !this.numOfRoomsField.getText().isEmpty() && !this.numOfDoctorsOfficeField.getText().isEmpty() && !this.telephoneField.getText().isEmpty())
+            {
+                Hospital H = new Hospital();
+                H.setAddress(this.addresField.getText());
+                H.setName(this.nameField.getText());
+        
+            try {
+                H.setNumOfRooms(Integer.valueOf(this.numOfRoomsField.getText()));
+            } catch (NotValidNumber ex) {
+                //TODO
+            }
+        
+            try {
+                H.setNumOfDoctorsOffices(Integer.valueOf(this.numOfDoctorsOfficeField.getText()));
+            } catch (NotValidNumber ex) {
+                //TODO
+            }
+        
+            try {
+                H.setTelephone(this.telephoneField.getText());
+            } catch (NotValidNumber ex) {
+                //TODO
+            }
+        
+            this.hospitalAGuardar = new Hospital(H);
+        }else {
+            JOptionPane.showMessageDialog(null, "Uno de los cuadros se encuentra vacío. Favor de llenar.", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+        }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -159,34 +181,8 @@ public class CreateNewHospital extends javax.swing.JPanel {
 
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
         // TODO add your handling code here:
-        if(this.addresField.getText().isEmpty() == false && this.nameField.getText().isEmpty() == false && this.numOfRoomsField.getText().isEmpty() == false && this.numOfDoctorsOfficeField.getText().isEmpty() == false && this.telephoneField.getText().isEmpty() == false)
-        {
-            Hospital H = new Hospital();
-            H.setAddress(this.addresField.getText());
-            H.setName(this.nameField.getText());
         
-            try {
-                H.setNumOfRooms(Integer.valueOf(this.numOfRoomsField.getText()));
-            } catch (NotValidNumber ex) {
-                //TODO
-            }
         
-            try {
-                H.setNumOfDoctorsOffices(Integer.valueOf(this.numOfDoctorsOfficeField.getText()));
-            } catch (NotValidNumber ex) {
-                //TODO
-            }
-        
-            try {
-                H.setTelephone(this.telephoneField.getText());
-            } catch (NotValidNumber ex) {
-                //TODO
-            }
-        
-            this.hospitalAGuardar = new Hospital(H);
-        }else {
-            JOptionPane.showMessageDialog(null, "Uno de los cuadros se encuentra vacío. Favor de llenar.", "ERROR", JOptionPane.ERROR_MESSAGE);
-        }
     }//GEN-LAST:event_saveButtonActionPerformed
 
 
@@ -214,7 +210,4 @@ public class CreateNewHospital extends javax.swing.JPanel {
 		this.telephoneField.setText("");
 	}
         
-        public Hospital newHopital(){
-            return this.hospitalAGuardar;
-        }
 }
