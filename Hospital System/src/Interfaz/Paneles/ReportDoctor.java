@@ -11,6 +11,8 @@ import javax.swing.JTable;
 import javax.swing.RowFilter;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
@@ -86,16 +88,10 @@ public class ReportDoctor extends javax.swing.JPanel {
         });
         
         this.doctorsTable.setRowSorter(this.rowSorter);
-        
-        this.doctorsTable.getModel().addTableModelListener(new TableModelListener() {
-            
-            @Override
-            public void tableChanged(TableModelEvent e) {
-                    doctorsTable.getModel()
-            }
-            
-        });
-        
+    }
+    
+    public JTable getTable(){
+        return this.doctorsTable;
     }
 
     /**
@@ -121,7 +117,15 @@ public class ReportDoctor extends javax.swing.JPanel {
             new String [] {
                 "Nombre", "Apellido", "Edad", "Direccion", "Telefono", "e-mail", "Matricula", "Departamento", "ID"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(doctorsTable);
 
         search.addActionListener(new java.awt.event.ActionListener() {
@@ -137,8 +141,8 @@ public class ReportDoctor extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(search, javax.swing.GroupLayout.DEFAULT_SIZE, 785, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 743, Short.MAX_VALUE)
+                    .addComponent(search))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -147,7 +151,7 @@ public class ReportDoctor extends javax.swing.JPanel {
                 .addGap(31, 31, 31)
                 .addComponent(search, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 353, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -177,9 +181,7 @@ public class ReportDoctor extends javax.swing.JPanel {
     private String[] data = new String[9];
     private DefaultTableModel model;
     private TableRowSorter<TableModel> rowSorter;
-    
-    private ArrayList<Doctor> newDoctorsList;
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable doctorsTable;
     private javax.swing.JPanel jPanel1;

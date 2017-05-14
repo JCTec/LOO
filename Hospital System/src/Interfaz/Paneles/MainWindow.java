@@ -19,6 +19,8 @@ import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.WindowConstants;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
 /**
  *
@@ -769,6 +771,11 @@ public class MainWindow extends javax.swing.JFrame {
                 saveNewHospitalAction(evt);
             }
         });
+                this.reportDoctor1.getTable().getSelectionModel().addListSelectionListener(new ListSelectionListener(){
+            public void valueChanged(ListSelectionEvent event) {
+                modifyDoctor(reportDoctor1.getTable().getValueAt(reportDoctor1.getTable().getSelectedRow(), 8).toString());
+            }
+        });
                 //Editar Hospital
 		this.editHospital1.getSaveButton().addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -808,6 +815,11 @@ public class MainWindow extends javax.swing.JFrame {
         });
 	}
 	
+        public void modifyDoctor(String ID){
+            this.hospital.showDoctorInfo(ID);
+        }
+        
+        
 	public void saveNewHospitalAction(java.awt.event.ActionEvent evt){
             
                 this.createNewHospitalForm.save();
