@@ -414,7 +414,7 @@ public class MainWindow extends javax.swing.JFrame {
                 .addContainerGap(159, Short.MAX_VALUE))
         );
 
-        mainPanel.add(reportPatient, "card16");
+        mainPanel.add(reportPatient, "reportPatient");
 
         save.setText("Guardar");
         save.addMouseListener(new java.awt.event.MouseAdapter() {

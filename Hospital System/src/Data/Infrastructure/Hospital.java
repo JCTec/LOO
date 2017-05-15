@@ -499,6 +499,8 @@ public class Hospital {
             f.setVisible(true);
             
         }
+        else
+            JOptionPane.showMessageDialog(null, "No se encontró al paciente.", "NOT FOUNDED.", JOptionPane.ERROR_MESSAGE);
         
     }
     
