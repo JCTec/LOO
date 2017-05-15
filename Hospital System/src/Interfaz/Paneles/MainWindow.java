@@ -206,15 +206,15 @@ public class MainWindow extends javax.swing.JFrame {
             newPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(newPatientLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(createNewPatient1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(141, Short.MAX_VALUE))
+                .addComponent(createNewPatient1, javax.swing.GroupLayout.DEFAULT_SIZE, 903, Short.MAX_VALUE)
+                .addContainerGap())
         );
         newPatientLayout.setVerticalGroup(
             newPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(newPatientLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(createNewPatient1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(createNewPatient1, javax.swing.GroupLayout.DEFAULT_SIZE, 712, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         mainPanel.add(newPatient, "newPatient");
@@ -646,8 +646,14 @@ public class MainWindow extends javax.swing.JFrame {
     //Botón menú Editar Paciente
     private void menuEditPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuEditPatientActionPerformed
         if (this.hospital != null) {
-            CardLayout card = (CardLayout) mainPanel.getLayout();
-            card.show(mainPanel, "editPatient");
+			if(!this.hospital.getPatients().isEmpty()){
+				this.editPatient1.setHospital(hospital);
+				CardLayout card = (CardLayout) mainPanel.getLayout();
+				card.show(mainPanel, "editPatient");
+			}
+			else{
+				JOptionPane.showMessageDialog(null, "Por favor, cree un paciente primero.", "ERROR", JOptionPane.ERROR_MESSAGE);
+			}
         } else {
             JOptionPane.showMessageDialog(null, "Por favor, cree un hospital primero.", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
@@ -870,6 +876,12 @@ public class MainWindow extends javax.swing.JFrame {
                 saveNewPatientAction(evt);
             }
         });
+		
+		this.editPatient1.getSaveButton().addActionListener(new java.awt.event.ActionListener(){
+			public void actionPerformed(java.awt.event.ActionEvent evt){
+				saveEditPatientAction(evt);
+			}
+		});
         
 
         //Crear Consultorio
@@ -1017,19 +1029,53 @@ public class MainWindow extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, "Paciente creado satisfactoriamente", "INFORMATION", JOptionPane.INFORMATION_MESSAGE);
         this.createNewPatient1.clearFields();
     }
+	
+	public void saveEditPatientAction(java.awt.event.ActionEvent evt){
+		Patient oldPatient = this.editPatient1.getOldPatient();
+		Patient newPatient = this.editPatient1.getPatient();
+		oldPatient.setFirstName(newPatient.getFirstName());
+		oldPatient.setLastName(newPatient.getLastName());
+		oldPatient.setAge(newPatient.getAge());
+		oldPatient.setAddress(newPatient.getAddress());
+		oldPatient.setTelephone(newPatient.getTelephone());
+		oldPatient.setEmail(newPatient.getEmail());
+		try {
+			oldPatient.setSecurityNumber(newPatient.getSecurityNumber());
+		} catch (NotValidNumber ex) {
+			Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+		}
+		try {
+			oldPatient.setWeigth(newPatient.getWeigth());
+		} catch (NotValidNumber ex) {
+			Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+		}
+		try {
+			oldPatient.setSize(newPatient.getSize());
+		} catch (NotValidNumber ex) {
+			Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+		}
+		oldPatient.setDisease(newPatient.getDisease());
+		try {
+			oldPatient.setRoomID(newPatient.getRoomID());
+		} catch (NotValidNumber ex) {
+			Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+		}
+		for(int i = 0 ; i < newPatient.getDoctorID().size() ; i++){
+			try {
+				oldPatient.setDoctorID(newPatient.getDoctorID().get(i));
+			} catch (NotValidNumber ex) {
+				Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+			}
+		}
+		oldPatient.setStatus(newPatient.getStatus());
+			
+	}
 
     public void saveNewOfficeAction(java.awt.event.ActionEvent evt) {
     }
 
     public void saveEditOfficeAction(java.awt.event.ActionEvent evt) {
     }
-
-    /*
-	private void intiFakeData() {
-		this.hospital = new Hospital("Hôpital joseph ducuing", "rue de paris, 31000 Toulouse, frnace", "0783927381", 5, 42);
-		this.hospital.addDoctor("Jean", "Leguain", "XWZ182K9281", 34, "test@yopmail.com", "Rue des remparts sud, 09130 Carla-Bayle", "0293047382", "urologie");
-		this.hospital.addDoctor("Aude", "Chapelet", "HDU73JSKE9Z", 25, "aude@yopmail.com", "Boulevard du maréchal leclerc, toulouse", "0248273813", "pédiatrie");
-		this.hospital.addDoctor("André", "Smith", "9JDUE738SKD", 82, "halo@yopmail.com", "Place de l'europe, moyrazes", "0673849234", "pédiatrie");
-		this.hospital.addDoctor("Anne", "Montana", "DUE7283LDM0", 27, "anna@yopmail.com", "Bollywood street, 97120 Mérida, Yucatán", "9992738473", "orthodontie");
-	}*/
+	
+	
 }
