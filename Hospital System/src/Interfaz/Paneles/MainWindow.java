@@ -198,7 +198,7 @@ public class MainWindow extends javax.swing.JFrame {
             newOfficeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(newOfficeLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(createNewDoctorsOffice1, javax.swing.GroupLayout.DEFAULT_SIZE, 698, Short.MAX_VALUE)
+                .addComponent(createNewDoctorsOffice1, javax.swing.GroupLayout.DEFAULT_SIZE, 725, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -602,6 +602,7 @@ public class MainWindow extends javax.swing.JFrame {
    //Botón de menú Agregar Consultorio
     private void menuNewOfficeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuNewOfficeActionPerformed
         if (this.hospital != null) {
+			this.createNewDoctorsOffice1.setHospital(hospital);
             CardLayout card = (CardLayout) mainPanel.getLayout();
             card.show(mainPanel, "newOffice");
         } else {
