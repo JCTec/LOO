@@ -34,6 +34,9 @@ public class ReportDoctor extends javax.swing.JPanel {
         
     }
   
+    public JTable getTable(){
+       return this.doctorsTable;
+    }
     
     public void setData(ArrayList<Doctor> doctors){
         
@@ -87,13 +90,7 @@ public class ReportDoctor extends javax.swing.JPanel {
 
         });
         
-
-    }
-    
-    public JTable getTable(){
         
-    
-    
         this.doctorsTable.getModel().addTableModelListener(new TableModelListener() {
             
             @Override
@@ -102,10 +99,11 @@ public class ReportDoctor extends javax.swing.JPanel {
             }
             
         });
-       return this.doctorsTable;
         
-
+        this.doctorsTable.setRowSorter(this.rowSorter); 
     }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
