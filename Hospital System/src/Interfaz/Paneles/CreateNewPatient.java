@@ -6,9 +6,14 @@
 package Interfaz.Paneles;
 
 import Data.Infrastructure.Hospital;
+import Data.People.Doctor;
 import Data.People.Patient;
 import Data.People.Person;
+import Exceptions.NotValidNumber;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 
 /**
@@ -18,12 +23,18 @@ import javax.swing.JButton;
 public class CreateNewPatient extends javax.swing.JPanel {
 
     private Patient patient;
+	private Hospital hospital;
+	DefaultListModel<String> doctorForPatient = new DefaultListModel<>();
+	DefaultListModel<String> otherDoctors = new DefaultListModel<>();
 
     /**
      * Creates new form CreateNewPatient
      */
     public CreateNewPatient() {
         initComponents();
+		this.patient = null;
+		this.patientDoctorList.setModel(doctorForPatient);
+		this.otherDoctorList.setModel(otherDoctors);
     }
 
     /**
@@ -64,11 +75,11 @@ public class CreateNewPatient extends javax.swing.JPanel {
         statusField = new javax.swing.JTextField();
         idRoomField = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jList2 = new javax.swing.JList<>();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        otherDoctorList = new javax.swing.JList<>();
+        doctorToOtherButton = new javax.swing.JButton();
+        doctorToPatientButton = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jList3 = new javax.swing.JList<>();
+        patientDoctorList = new javax.swing.JList<>();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
@@ -107,23 +118,33 @@ public class CreateNewPatient extends javax.swing.JPanel {
 
         saveButton.setText("Guardar");
 
-        jList2.setModel(new javax.swing.AbstractListModel<String>() {
+        otherDoctorList.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane2.setViewportView(jList2);
+        jScrollPane2.setViewportView(otherDoctorList);
 
-        jButton1.setText(">");
+        doctorToOtherButton.setText(">");
+        doctorToOtherButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                doctorToOtherButtonActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("<");
+        doctorToPatientButton.setText("<");
+        doctorToPatientButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                doctorToPatientButtonActionPerformed(evt);
+            }
+        });
 
-        jList3.setModel(new javax.swing.AbstractListModel<String>() {
+        patientDoctorList.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane3.setViewportView(jList3);
+        jScrollPane3.setViewportView(patientDoctorList);
 
         jLabel1.setText("Doctors following the patient");
 
@@ -171,8 +192,8 @@ public class CreateNewPatient extends javax.swing.JPanel {
                             .addComponent(idRoomField)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButton2)
-                                    .addComponent(jButton1))
+                                    .addComponent(doctorToPatientButton)
+                                    .addComponent(doctorToOtherButton))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -246,9 +267,9 @@ public class CreateNewPatient extends javax.swing.JPanel {
                                 .addComponent(saveButton))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(74, 74, 74)
-                                .addComponent(jButton1)))
+                                .addComponent(doctorToOtherButton)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2))
+                        .addComponent(doctorToPatientButton))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(19, 19, 19)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -267,8 +288,8 @@ public class CreateNewPatient extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -277,6 +298,22 @@ public class CreateNewPatient extends javax.swing.JPanel {
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void doctorToOtherButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doctorToOtherButtonActionPerformed
+        if(!this.doctorForPatient.isEmpty() && !this.patientDoctorList.isSelectionEmpty()){
+			int index = this.patientDoctorList.getSelectedIndex();
+			this.otherDoctors.addElement(this.doctorForPatient.getElementAt(index));
+			this.doctorForPatient.remove(index);
+		}
+    }//GEN-LAST:event_doctorToOtherButtonActionPerformed
+
+    private void doctorToPatientButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doctorToPatientButtonActionPerformed
+        if(!this.otherDoctors.isEmpty() && !this.otherDoctorList.isSelectionEmpty()){
+			int index = this.otherDoctorList.getSelectedIndex();
+			this.doctorForPatient.addElement(this.otherDoctors.getElementAt(index));
+			this.otherDoctors.remove(index);
+		}
+    }//GEN-LAST:event_doctorToPatientButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -287,18 +324,16 @@ public class CreateNewPatient extends javax.swing.JPanel {
     private javax.swing.JLabel ageLabel;
     private javax.swing.JTextField deseaseField;
     private javax.swing.JLabel deseaseLabel;
+    private javax.swing.JButton doctorToOtherButton;
+    private javax.swing.JButton doctorToPatientButton;
     private javax.swing.JTextField emailField;
     private javax.swing.JLabel emialLabel;
     private javax.swing.JTextField highField;
     private javax.swing.JLabel highLabel;
     private javax.swing.JTextField idRoomField;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JList<String> jList1;
-    private javax.swing.JList<String> jList2;
-    private javax.swing.JList<String> jList3;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
@@ -306,6 +341,8 @@ public class CreateNewPatient extends javax.swing.JPanel {
     private javax.swing.JTextField nameField;
     private javax.swing.JLabel nameLabel;
     private javax.swing.JTextField nssField;
+    private javax.swing.JList<String> otherDoctorList;
+    private javax.swing.JList<String> patientDoctorList;
     private javax.swing.JLabel roomIdLabel;
     private javax.swing.JButton saveButton;
     private javax.swing.JTextField statusField;
@@ -317,7 +354,8 @@ public class CreateNewPatient extends javax.swing.JPanel {
     private javax.swing.JTextField weightField;
     private javax.swing.JLabel weightLabel;
     // End of variables declaration//GEN-END:variables
-    public JButton getSaveButton() {
+    
+	public JButton getSaveButton() {
         return saveButton;
     }
 
@@ -352,9 +390,19 @@ public class CreateNewPatient extends javax.swing.JPanel {
                 this.deseaseField.getText(),
                 Integer.parseInt(this.idRoomField.getText()),
                 this.statusField.getText()
-        );
+			);
         }
-        
+		
+        //Adding the doctors to the patient
+		ArrayList<String> docIDs = this.getDoctorIDs();
+		for(int i = 0 ; i < docIDs.size() ; i++){
+			try {
+				p.setDoctorID(docIDs.get(i));
+			} catch (NotValidNumber ex) {
+				Logger.getLogger(CreateNewPatient.class.getName()).log(Level.SEVERE, null, ex);
+			}
+		}
+		
         this.patient = p;
         return this.patient;
     }
@@ -374,6 +422,30 @@ public class CreateNewPatient extends javax.swing.JPanel {
         this.ageField.setText("");
     }
     
-	
+	public void setHospital(Hospital hospital){	
+		this.hospital = hospital;
+		this.putDoctorsInLists();
+	}
   
+	private void putDoctorsInLists() {
+		//First we should empty the list for refreshing
+		this.otherDoctors.clear();
+		this.doctorForPatient.clear();
+		System.out.println(this.hospital);
+		//All these fors are for adding the patient's doctor to the list
+		for(int i = 0 ; i < this.hospital.getDoctors().size() ; i++){
+			Doctor doc = this.hospital.getDoctors().get(i);
+			otherDoctors.addElement(doc.getId() + " " + doc.getLastName() + " (" + doc.getDepartment() + ")");
+		}
+	}
+
+	private ArrayList<String> getDoctorIDs() {
+		ArrayList<String> doctorIDs = new ArrayList<>();
+		for(int i = 0 ; i < this.doctorForPatient.getSize() ; i++){
+			//the following line extracts the doctor ID from the line of text in the list
+			doctorIDs.add(this.doctorForPatient.getElementAt(i).split(" ")[0]);
+		}
+		return doctorIDs;
+	}
+	
 }

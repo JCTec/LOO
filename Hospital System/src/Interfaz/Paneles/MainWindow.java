@@ -621,6 +621,7 @@ public class MainWindow extends javax.swing.JFrame {
     //Botón menú Agregar Paciente
     private void menuNewPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuNewPatientActionPerformed
         if (this.hospital != null) {
+			this.createNewPatient1.setHospital(hospital);
             CardLayout card = (CardLayout) mainPanel.getLayout();
             card.show(mainPanel, "newPatient");
         } else {
