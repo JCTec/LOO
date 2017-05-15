@@ -116,6 +116,8 @@ public class MainWindow extends javax.swing.JFrame {
         reportDoctor1 = new Interfaz.Paneles.ReportDoctor();
         reportPatient = new javax.swing.JPanel();
         reportPatientPanel = new Interfaz.Paneles.ReportPatient();
+        assignRoom = new javax.swing.JPanel();
+        createNewRoomPanel = new Interfaz.Paneles.CreateNewRoom();
         menuBar = new javax.swing.JMenuBar();
         save = new javax.swing.JMenu();
         menuHospital = new javax.swing.JMenu();
@@ -124,6 +126,9 @@ public class MainWindow extends javax.swing.JFrame {
         menuOffice = new javax.swing.JMenu();
         menuNewOffice = new javax.swing.JMenuItem();
         menuSearchOffice = new javax.swing.JMenuItem();
+        menuRoom = new javax.swing.JMenu();
+        menuAssignRoom = new javax.swing.JMenuItem();
+        menuSearchRoom = new javax.swing.JMenuItem();
         menuDoctor = new javax.swing.JMenu();
         menuNewDoctor = new javax.swing.JMenuItem();
         menuEditDoctor = new javax.swing.JMenuItem();
@@ -415,6 +420,25 @@ public class MainWindow extends javax.swing.JFrame {
 
         mainPanel.add(reportPatient, "reportPatient");
 
+        javax.swing.GroupLayout assignRoomLayout = new javax.swing.GroupLayout(assignRoom);
+        assignRoom.setLayout(assignRoomLayout);
+        assignRoomLayout.setHorizontalGroup(
+            assignRoomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(assignRoomLayout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(createNewRoomPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(219, Short.MAX_VALUE))
+        );
+        assignRoomLayout.setVerticalGroup(
+            assignRoomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(assignRoomLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(createNewRoomPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(398, Short.MAX_VALUE))
+        );
+
+        mainPanel.add(assignRoom, "assignRoom");
+
         save.setText("Guardar");
         save.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -467,6 +491,21 @@ public class MainWindow extends javax.swing.JFrame {
         menuOffice.add(menuSearchOffice);
 
         menuBar.add(menuOffice);
+
+        menuRoom.setText("Habitación");
+
+        menuAssignRoom.setText("Asignar");
+        menuAssignRoom.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuAssignRoomActionPerformed(evt);
+            }
+        });
+        menuRoom.add(menuAssignRoom);
+
+        menuSearchRoom.setText("Buscar");
+        menuRoom.add(menuSearchRoom);
+
+        menuBar.add(menuRoom);
 
         menuDoctor.setText("Doctor");
 
@@ -717,6 +756,21 @@ public class MainWindow extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_menuReportPatientActionPerformed
 
+    private void menuAssignRoomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuAssignRoomActionPerformed
+        // TODO add your handling code here:
+        if (this.hospital != null) {
+            if (!this.hospital.getRooms().isEmpty()) {
+                CardLayout card = (CardLayout) mainPanel.getLayout();
+                card.show(mainPanel, "newRoom");
+                this.createNewRoomPanel.setHospital(this.hospital);
+            } else {
+                JOptionPane.showMessageDialog(null, "Por favor, cree una habitación primero.", "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Por favor, cree un hospital primero.", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_menuAssignRoomActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -756,10 +810,12 @@ public class MainWindow extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel aboutHospital;
     private Interfaz.Paneles.aboutHospital aboutHospital1;
+    private javax.swing.JPanel assignRoom;
     private Interfaz.Paneles.CreateNewDoctor createNewDoctor2;
     private Interfaz.Paneles.CreateNewDoctorsOffice createNewDoctorsOffice1;
     private Interfaz.Paneles.CreateNewHospital createNewHospitalForm;
     private Interfaz.Paneles.CreateNewPatient createNewPatient1;
+    private Interfaz.Paneles.CreateNewRoom createNewRoomPanel;
     private javax.swing.JPanel editDoctor;
     private Interfaz.Paneles.EditDoctor editDoctor1;
     private javax.swing.JPanel editHospital;
@@ -771,6 +827,7 @@ public class MainWindow extends javax.swing.JFrame {
     private Interfaz.Paneles.InicioPanel inicioPanel1;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JMenuItem menuAboutHospital;
+    private javax.swing.JMenuItem menuAssignRoom;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenu menuDoctor;
     private javax.swing.JMenuItem menuEditDoctor;
@@ -787,7 +844,9 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JMenu menuReport;
     private javax.swing.JMenuItem menuReportDoctor;
     private javax.swing.JMenuItem menuReportPatient;
+    private javax.swing.JMenu menuRoom;
     private javax.swing.JMenuItem menuSearchOffice;
+    private javax.swing.JMenuItem menuSearchRoom;
     private javax.swing.JPanel newDoctor;
     private javax.swing.JPanel newHospital;
     private javax.swing.JPanel newOffice;
