@@ -129,8 +129,10 @@ public class MainWindow extends javax.swing.JFrame {
         menuAboutHospital = new javax.swing.JMenuItem();
         menuOffice = new javax.swing.JMenu();
         menuNewOffice = new javax.swing.JMenuItem();
+        menuAssignOffice = new javax.swing.JMenuItem();
         menuSearchOffice = new javax.swing.JMenuItem();
         menuRoom = new javax.swing.JMenu();
+        menuAddRoom = new javax.swing.JMenuItem();
         menuAssignRoom = new javax.swing.JMenuItem();
         menuSearchRoom = new javax.swing.JMenuItem();
         menuDoctor = new javax.swing.JMenu();
@@ -511,6 +513,9 @@ public class MainWindow extends javax.swing.JFrame {
         });
         menuOffice.add(menuNewOffice);
 
+        menuAssignOffice.setText("Asignar");
+        menuOffice.add(menuAssignOffice);
+
         menuSearchOffice.setText("Buscar");
         menuSearchOffice.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -522,6 +527,9 @@ public class MainWindow extends javax.swing.JFrame {
         menuBar.add(menuOffice);
 
         menuRoom.setText("Habitación");
+
+        menuAddRoom.setText("Agregar");
+        menuRoom.add(menuAddRoom);
 
         menuAssignRoom.setText("Asignar");
         menuAssignRoom.addActionListener(new java.awt.event.ActionListener() {
@@ -865,6 +873,8 @@ public class MainWindow extends javax.swing.JFrame {
     private Interfaz.Paneles.InicioPanel inicioPanel1;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JMenuItem menuAboutHospital;
+    private javax.swing.JMenuItem menuAddRoom;
+    private javax.swing.JMenuItem menuAssignOffice;
     private javax.swing.JMenuItem menuAssignRoom;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenu menuDoctor;
@@ -1304,6 +1314,7 @@ public class MainWindow extends javax.swing.JFrame {
     public void saveAssignRoom(java.awt.event.ActionEvent evt) {
         String rom = this.createNewRoomPanel.getSelectedRoom();
         String pat = this.createNewRoomPanel.getSelectedPatient();
+        System.out.print(rom+" "+pat);
         this.hospital.assignRoomToPatient(pat, rom);
         JOptionPane.showMessageDialog(null, "Asignación Satisfactoria", "INFORMATION", JOptionPane.INFORMATION_MESSAGE);
     }

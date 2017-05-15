@@ -49,6 +49,11 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuNewOfficeActionPerformed"/>
               </Events>
             </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="menuAssignOffice">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Asignar"/>
+              </Properties>
+            </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="menuSearchOffice">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Buscar"/>
@@ -64,6 +69,11 @@
             <Property name="text" type="java.lang.String" value="Habitaci&#xf3;n"/>
           </Properties>
           <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="menuAddRoom">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Agregar"/>
+              </Properties>
+            </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="menuAssignRoom">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Asignar"/>
