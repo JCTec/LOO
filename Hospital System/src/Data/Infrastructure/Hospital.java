@@ -10,6 +10,7 @@ import Exceptions.NotValidNumber;
 import Exceptions.OverSize;
 import Interfaz.Paneles.FrameWithCloseButton;
 import Interfaz.Paneles.ShowDoctor;
+import Interfaz.Paneles.ShowOffice;
 import Interfaz.Paneles.ShowPerson;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
@@ -21,10 +22,10 @@ import javax.swing.JOptionPane;
  * @author Juan
  */
 public class Hospital {
-    
+
     /**
-     * Declarando todas las variables necesarias para la aplicacion,
-     * de la clase Hospital se va a crear un XML donde se va almacenar toda la informacion.
+     * Declarando todas las variables necesarias para la aplicacion, de la clase
+     * Hospital se va a crear un XML donde se va almacenar toda la informacion.
      */
     private int doctorsIds;
 
@@ -37,13 +38,12 @@ public class Hospital {
     private ArrayList<Room> rooms; //Arreglo con las habitaciones del Hospital
     private ArrayList<Doctor> doctors; //Arreglo con los doctores que laboran en el Hospital
     private ArrayList<Patient> patients; //Arreglo con los pacientes atendidos por los doctores
-    
+
     /**
-     *Constructor con valores por omisión
+     * Constructor con valores por omisión
      */
-    public Hospital(){
+    public Hospital() {
         this.doctorsIds = 1000;
-        
 
         this.name = "NOT DEFINED";
         this.address = "NOT DEFINED";
@@ -55,15 +55,14 @@ public class Hospital {
         this.doctors = new ArrayList<>();
         this.patients = new ArrayList<>();
     }
-    
-    /**
-     *Constructor de copia
-     * @param H
-     * recibe un objeto Hospital y copia sus datos
-     */
-    public Hospital(Hospital H){
-        this.doctorsIds = 1000;
 
+    /**
+     * Constructor de copia
+     *
+     * @param H recibe un objeto Hospital y copia sus datos
+     */
+    public Hospital(Hospital H) {
+        this.doctorsIds = 1000;
 
         this.name = H.name;
         this.address = H.address;
@@ -75,393 +74,436 @@ public class Hospital {
         this.doctors = H.doctors;
         this.patients = H.patients;
     }
-    
+
     /**
      * Constructor con valores aislados
+     *
      * @param name
      * @param address
      * @param telephone
      * @param numOfDoctorsOffices
      * @param numOfRooms
      */
-    public Hospital(String name, String address, String telephone, int numOfDoctorsOffices, int numOfRooms){
+    public Hospital(String name, String address, String telephone, int numOfDoctorsOffices, int numOfRooms) {
         this.doctorsIds = 1000;
 
-
-        if(name != null){
+        if (name != null) {
             this.name = name;
-        }
-        else{
+        } else {
             this.name = "NOT DEFINED";
         }
-        
-        if(address != null){
+
+        if (address != null) {
             this.address = address;
-        }else{
+        } else {
             this.address = "NOT DEFINED";
         }
 
         try {
             this.setTelephone(telephone);
-        }catch(NotValidNumber error){
+        } catch (NotValidNumber error) {
             JOptionPane.showMessageDialog(null, error.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
         }
-        
+
         try {
             this.setNumOfDoctorsOffices(numOfDoctorsOffices);
-        }catch(NotValidNumber error){
+        } catch (NotValidNumber error) {
             JOptionPane.showMessageDialog(null, error.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
         }
-        
+
         try {
             this.setNumOfRooms(numOfRooms);
-        }catch(NotValidNumber error){
+        } catch (NotValidNumber error) {
             JOptionPane.showMessageDialog(null, error.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
         }
-        
+
         this.offices = new ArrayList<>();
         this.rooms = new ArrayList<>();
         this.doctors = new ArrayList<>();
         this.patients = new ArrayList<>();
-        
+
         this.fillRoomsAndOffice();
-        
+
     }
-    
+
     //Método que automáticamente crea el numero de habitaciones y oficinas que se señalaron en el constructor
-    private void fillRoomsAndOffice(){
-        
-        for(int x = 0; x < this.numOfRooms; x++){
+    private void fillRoomsAndOffice() {
+
+        for (int x = 0; x < this.numOfRooms; x++) {
             Room newRoom = new Room(x + 1);
             this.rooms.add(newRoom);
         }
-        
-        for(int x = 0; x < this.numOfDoctorsOffices; x++){
+
+        for (int x = 0; x < this.numOfDoctorsOffices; x++) {
             DoctorsOffice newDoctorsOffice = new DoctorsOffice();
-            
+
             try {
                 newDoctorsOffice.setId(x + 1);
             } catch (NotValidNumber error) {
                 JOptionPane.showMessageDialog(null, error.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
             }
-            
+
             this.offices.add(newDoctorsOffice);
         }
     }
-    
+
     /**
-     *Método set para asignar un nombre a un Hospital
+     * Método set para asignar un nombre a un Hospital
+     *
      * @param name
      */
-    public void setName(String name){
-        if(name != null){
+    public void setName(String name) {
+        if (name != null) {
             this.name = name;
         }
     }
-    
+
     /**
-     *Método set para asignar una dirección a un Hospital
+     * Método set para asignar una dirección a un Hospital
+     *
      * @param address
      */
-    public void setAddress(String address){
-        if(address != null){
+    public void setAddress(String address) {
+        if (address != null) {
             this.address = address;
         }
     }
-    
+
     /**
-     *Método set para asginar un teléfono a un Hospital
+     * Método set para asginar un teléfono a un Hospital
+     *
      * @param telephone
      * @throws NotValidNumber
      */
-    public void setTelephone(String telephone) throws NotValidNumber{
-       
-        if(telephone != null && telephone.length() == 10){ 
-            this.telephone = telephone; 
-       }else {
+    public void setTelephone(String telephone) throws NotValidNumber {
+
+        if (telephone != null && telephone.length() == 10) {
+            this.telephone = telephone;
+        } else {
             this.telephone = "0000000000";
             throw new NotValidNumber("El numero de telefono no es valido, telefono asignado por omision (000) 00 00 000");
         }
     }
-    
+
     /**
-     *Método set para asignar un número de oficinas a un Hospital
+     * Método set para asignar un número de oficinas a un Hospital
+     *
      * @param numOfDoctorsOffices
      * @throws NotValidNumber
      */
-    public void setNumOfDoctorsOffices(int numOfDoctorsOffices) throws NotValidNumber{
-       
-        if(numOfDoctorsOffices >= 0){ 
-            this.numOfDoctorsOffices = numOfDoctorsOffices; 
-       }else {
-            this.numOfDoctorsOffices = 0; 
+    public void setNumOfDoctorsOffices(int numOfDoctorsOffices) throws NotValidNumber {
+
+        if (numOfDoctorsOffices >= 0) {
+            this.numOfDoctorsOffices = numOfDoctorsOffices;
+        } else {
+            this.numOfDoctorsOffices = 0;
             throw new NotValidNumber("El numero de oficinas no es valido, numero de oficinas asignado por omision: 0");
         }
     }
-    
+
     /**
-     *Método set para asignar un número de habitaciones a un Hospital
+     * Método set para asignar un número de habitaciones a un Hospital
+     *
      * @param numOfRooms
      * @throws NotValidNumber
      */
-    public void setNumOfRooms(int numOfRooms) throws NotValidNumber{
-       
-        if(numOfRooms >= 0){ 
-            this.numOfRooms = numOfRooms; 
-       }else {
-            this.numOfRooms = 0; 
+    public void setNumOfRooms(int numOfRooms) throws NotValidNumber {
+
+        if (numOfRooms >= 0) {
+            this.numOfRooms = numOfRooms;
+        } else {
+            this.numOfRooms = 0;
             throw new NotValidNumber("El numero de cuartos no es valido, numero de cuartos asignado por omision: 0");
         }
     }
-    
+
     /**
-     *Método get para obtener el nombre de un Hospital
+     * Método get para obtener el nombre de un Hospital
+     *
      * @return name
      */
-    public String getName(){
+    public String getName() {
         return this.name;
     }
-    
+
     /**
-     *Método get para obtener la dirección de un Hospital
+     * Método get para obtener la dirección de un Hospital
+     *
      * @return address
      */
-    public String getAddress(){
+    public String getAddress() {
         return this.address;
     }
-    
+
     /**
-     *Método get para obtener el número de consultorios
+     * Método get para obtener el número de consultorios
+     *
      * @return numOfDoctorsOffice
      */
-    public int getNumOfDoctorsOffices(){
+    public int getNumOfDoctorsOffices() {
         return this.numOfDoctorsOffices;
     }
-    
+
     /**
-     *Método get para obtener el número de habitaciones
+     * Método get para obtener el número de habitaciones
+     *
      * @return numOfRooms
      */
-    public int getNumOfRooms(){
+    public int getNumOfRooms() {
         return this.numOfRooms;
     }
-    
+
     /**
-     *Mpetodo get para obtener los datos de los consultorios
+     * Mpetodo get para obtener los datos de los consultorios
+     *
      * @return offices
      */
-    public ArrayList<DoctorsOffice> getOffices(){
+    public ArrayList<DoctorsOffice> getOffices() {
         return this.offices;
     }
-    
+
     /**
-     *Método get para obtener los datos de las habitaciones
+     * Método get para obtener los datos de las habitaciones
+     *
      * @return rooms
      */
-    public ArrayList<Room> getRooms(){
+    public ArrayList<Room> getRooms() {
         return this.rooms;
     }
-    
+
     /**
-     *Método get para obtener los datos de los doctores de un Hospital
+     * Método get para obtener los datos de los doctores de un Hospital
+     *
      * @return doctos
      */
-    public ArrayList<Doctor> getDoctors(){
+    public ArrayList<Doctor> getDoctors() {
         return this.doctors;
     }
-    
+
     /**
-     *Método get para obtener los datos de los pacientes de un Hospital
+     * Método get para obtener los datos de los pacientes de un Hospital
+     *
      * @return patients
      */
-    public ArrayList<Patient> getPatients(){
+    public ArrayList<Patient> getPatients() {
         return this.patients;
     }
-    
+
     /**
-     * Funcion para buscar un paciente por su Numero de Seguridad Social.
-     * Si lo encuetra regresa su posicion en el arreglo de pacientes, en caso de no encontrarlo regresa un String vacio.
-     * 
+     * Funcion para buscar un paciente por su Numero de Seguridad Social. Si lo
+     * encuetra regresa su posicion en el arreglo de pacientes, en caso de no
+     * encontrarlo regresa un String vacio.
+     *
      * Se recomienda usar if (!securityNumberFounded.isEmpty()){ //TODO }
-     * 
+     *
      * @param securityNumber
      * @return securityNumberFounded
      */
-    public String findPatientBySecurityNumber(String securityNumber){
+    public String findPatientBySecurityNumber(String securityNumber) {
         String securityNumberFounded = "";
-        
-        
-        for(int i=0; i<this.patients.size();i++){
-            if(securityNumber.equals(this.patients.get(i).getSecurityNumber())){
+
+        for (int i = 0; i < this.patients.size(); i++) {
+            if (securityNumber.equals(this.patients.get(i).getSecurityNumber())) {
                 securityNumberFounded = String.valueOf(i);
-                i = this.patients.size(); 
+                i = this.patients.size();
             }
         }
-        if(securityNumberFounded.isEmpty()){
-         JOptionPane.showMessageDialog(null, "Paciente no encontrado, revise el Numero de Seguridad Social", "ERROR", JOptionPane.ERROR_MESSAGE);
+        if (securityNumberFounded.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Paciente no encontrado, revise el Numero de Seguridad Social", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
-        
         return securityNumberFounded;
     }
-    
+
     /**
      * Método para agregar un consultorio a un Hospital con un doctor
+     *
      * @param floor
      * @param monthlyRent
      * @param doctorID
      * @param lastPayment
      */
-    public void addDoctorOffice(int floor, float monthlyRent, String doctorID, float lastPayment){
-        if(this.validateDoctor(doctorID) ==  true){
-            this.numOfDoctorsOffices ++;
+    public void addDoctorOffice(int floor, float monthlyRent, String doctorID, float lastPayment) {
+        if (this.validateDoctor(doctorID) == true) {
+            this.numOfDoctorsOffices++;
             int id = this.numOfDoctorsOffices;
             DoctorsOffice newOffice = new DoctorsOffice(id, floor, monthlyRent, doctorID, lastPayment);
             this.offices.add(newOffice);
         }
     }
     
+    public void addDoctorOffice(DoctorsOffice dof){
+        this.numOfDoctorsOffices++;
+        int id = this.numOfDoctorsOffices;
+        try {
+            dof.setId(id);
+        }catch(NotValidNumber error){
+            JOptionPane.showMessageDialog(null, error.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+        this.offices.add(dof);
+    }
+
     /**
-     *Segundo método para agregar un consultorio vacío
+     * Segundo método para agregar un consultorio vacío
+     *
      * @param floor
      * @param monthlyRent
      */
-    public void addDoctorOffice(int floor, float monthlyRent){
-            this.numOfDoctorsOffices ++;
-            int id = this.numOfDoctorsOffices;
-            DoctorsOffice newOffice = new DoctorsOffice();
-            
-            try {
-                newOffice.setId(id);
-            } catch (NotValidNumber error) {
-                JOptionPane.showMessageDialog(null, error.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
-            }
-            
-            try {
-                newOffice.setFloor(floor);
-            } catch (NotValidNumber error) {
-                JOptionPane.showMessageDialog(null, error.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
-            }
-            
-            try {
-                newOffice.setMonthlyRent(monthlyRent);
-            } catch (NotValidNumber error) {
-                JOptionPane.showMessageDialog(null, error.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
-            }
-            
-            this.offices.add(newOffice);
-        
-    }
-    
-    /**
-     *Tercer método para agregar un consultorio pero en este caso sin un costo asignado por mes
-     * @param floor
-     */
-    public void addDoctorOffice(int floor){
-            this.numOfDoctorsOffices ++;
-            int id = this.numOfDoctorsOffices;
-            DoctorsOffice newOffice = new DoctorsOffice();
-            
-            try {
-                newOffice.setId(id);
-            } catch (NotValidNumber error) {
-                JOptionPane.showMessageDialog(null, error.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
-            }
-            
-            try {
-                newOffice.setFloor(floor);
-            } catch (NotValidNumber error) {
-                JOptionPane.showMessageDialog(null, error.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
-            }
-            
-            this.offices.add(newOffice);
-        
-    }
-    
-    /**
-     *Método para crear oficinas de doctor en un Hospital
-     */
-    public void addDoctorOffice(){
-            this.numOfDoctorsOffices ++;
-            int id = this.numOfDoctorsOffices;
-            DoctorsOffice newOffice = new DoctorsOffice();
-            
+    public void addDoctorOffice(int floor, float monthlyRent) {
+        this.numOfDoctorsOffices++;
+        int id = this.numOfDoctorsOffices;
+        DoctorsOffice newOffice = new DoctorsOffice();
+
         try {
             newOffice.setId(id);
         } catch (NotValidNumber error) {
             JOptionPane.showMessageDialog(null, error.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
         }
-            
-            this.offices.add(newOffice);
+
+        try {
+            newOffice.setFloor(floor);
+        } catch (NotValidNumber error) {
+            JOptionPane.showMessageDialog(null, error.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+
+        try {
+            newOffice.setMonthlyRent(monthlyRent);
+        } catch (NotValidNumber error) {
+            JOptionPane.showMessageDialog(null, error.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+
+        this.offices.add(newOffice);
+
     }
-    
-    //addDoctorOffice -------------------------------------------------
 
     /**
-     *Método para crear una Habitación sin un Paciente
+     * Tercer método para agregar un consultorio pero en este caso sin un costo
+     * asignado por mes
+     *
+     * @param floor
      */
-    
-    public void addRoom(){
-        this.numOfRooms ++;
+    public void addDoctorOffice(int floor) {
+        this.numOfDoctorsOffices++;
+        int id = this.numOfDoctorsOffices;
+        DoctorsOffice newOffice = new DoctorsOffice();
+
+        try {
+            newOffice.setId(id);
+        } catch (NotValidNumber error) {
+            JOptionPane.showMessageDialog(null, error.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+
+        try {
+            newOffice.setFloor(floor);
+        } catch (NotValidNumber error) {
+            JOptionPane.showMessageDialog(null, error.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+
+        this.offices.add(newOffice);
+
+    }
+
+    /**
+     * Método para crear oficinas de doctor en un Hospital
+     */
+    public void addDoctorOffice() {
+        this.numOfDoctorsOffices++;
+        int id = this.numOfDoctorsOffices;
+        DoctorsOffice newOffice = new DoctorsOffice();
+
+        try {
+            newOffice.setId(id);
+        } catch (NotValidNumber error) {
+            JOptionPane.showMessageDialog(null, error.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+
+        this.offices.add(newOffice);
+    }
+
+    //addDoctorOffice -------------------------------------------------
+    /**
+     * Método para crear una Habitación sin un Paciente
+     */
+    public void addRoom() {
+        this.numOfRooms++;
         Room newRoom = new Room(this.numOfRooms);
-        
+
         this.rooms.add(newRoom);
     }
-    
+
     /**
-     *Método para crear una Habitación con un Paciente
+     * Método para crear una Habitación con un Paciente
+     *
      * @param patientID
      * @throws Exceptions.NotValidNumber
      */
-    public void addRoom(String patientID) throws NotValidNumber{
-        this.numOfRooms ++;
+    public void addRoom(String patientID) throws NotValidNumber {
+        this.numOfRooms++;
         Room newRoom = new Room(this.numOfRooms);
-        
+
         newRoom.setPatientID(patientID);
-        
+
         this.rooms.add(newRoom);
     }
-    
+
     /**
-     *Método para hacer búsquedas de consultorio y mostrar su información
+     * Método para hacer búsquedas de consultorio y mostrar su información
+     *
      * @param doctorsOfficeId
      */
-    public void showDoctorsOfficeInfo(String doctorsOfficeId){
-        
-        DoctorsOffice officeFound = this.offices.get(Integer.valueOf(doctorsOfficeId) - 1);
+    public void showDoctorsOfficeInfo(String doctorsOfficeId) {
 
-        //officeFound.
-    }
-    
-    /**
-     *Metodo para hacer búsquedas de Doctores y mostrar su información
-     * @param doctorId 
-     */
-    public void showDoctorInfo(String doctorId){
         int idFounded = -1;
         
-        
-        for(int i=0; i<this.doctors.size();i++){
-            if(doctorId.equals(this.doctors.get(i).getId())){
+        for (int i=0; i < this.getNumOfDoctorsOffices(); i++){
+            if(doctorsOfficeId.equals(this.offices.get(i).getId())){
                 idFounded = i;
-                i = this.doctors.size(); 
+                i = this.getNumOfDoctorsOffices();
             }
         }
         
-        if (idFounded >= 0){
-  
-            
+        if(idFounded>=0){
+            ShowOffice office = new ShowOffice();
+            office.setFields(Integer.toString(this.offices.get(idFounded).getId()), Float.toString(this.offices.get(idFounded).getMonthlyRent()), this.offices.get(idFounded).getDoctorID(), Float.toString(this.offices.get(idFounded).getLastPayment()));//Falta codigo aquí
+            office.setVisible(true);
+            FrameWithCloseButton f = new FrameWithCloseButton();
+
+            f.setSize(500, 600);
+            f.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            f.setVisible(true);
+
+            f.setContent(office);
+        }
+    }
+
+    /**
+     * Metodo para hacer búsquedas de Doctores y mostrar su información
+     *
+     * @param doctorId
+     */
+    public void showDoctorInfo(String doctorId) {
+        int idFounded = -1;
+
+        for (int i = 0; i < this.doctors.size(); i++) {
+            if (doctorId.equals(this.doctors.get(i).getId())) {
+                idFounded = i;
+                i = this.doctors.size();
+            }
+        }
+
+        if (idFounded >= 0) {
+
             ShowDoctor doctor = new ShowDoctor();
             
             doctor.setFields(this.doctors.get(idFounded).getFirstName() , this.doctors.get(idFounded).getLastName(), this.doctors.get(idFounded).getLicence(), this.doctors.get(idFounded).getTelephone(), this.doctors.get(idFounded).getAddress(), this.doctors.get(idFounded).getEmail(), Integer.toString(this.doctors.get(idFounded).getAge()), this.doctors.get(idFounded).getDepartment(), this.doctors.get(idFounded).getId());
             
             doctor.setVisible(true);
-            
+
             FrameWithCloseButton f = new FrameWithCloseButton();
-                    
+
             f.setSize(500, 600);
             f.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             f.setVisible(true);
- 
+
             f.setContent(doctor);
             
             doctor.getSaveButton().addActionListener(new java.awt.event.ActionListener() {
@@ -472,49 +514,59 @@ public class Hospital {
                 }
             });
         }
-        
+
     }
-    
+
     /**
-     *Método mostrar la informacion del paciente con su NSS.
+     * Método mostrar la informacion del paciente con su NSS.
+     *
      * @param securityNumber
      */
-    public void showPatientInfo(String securityNumber){
+    public void showPatientInfo(String securityNumber) {
         String securityNumberFounded = this.findPatientBySecurityNumber(securityNumber);
-        
+
         //Donde se encuentra el paciente en el arreglo;
-        int indice = Integer.valueOf(securityNumberFounded);
-        
-        if (!securityNumberFounded.isEmpty()){
+        int indice = Integer.parseInt(securityNumberFounded);
+
+        if (!securityNumberFounded.isEmpty()) {
             ArrayList<String> IDDoctors = this.patients.get(indice).getDoctorID();
+            DefaultListModel<String> model = new DefaultListModel<>();
             
-            DefaultListModel<String> model = new DefaultListModel<String>();
-            
-            for(int x = 0; x < IDDoctors.size(); x++){
-              model.addElement(IDDoctors.get(x));
+            if(IDDoctors!=null){
+                if(!IDDoctors.isEmpty()){
+                    for (int x = 0; x < IDDoctors.size(); x++) {
+                    model.addElement(IDDoctors.get(x));
+                }
+                }
+                
+            } 
+            else {
+                model.addElement("Ningún doctor atiende a este paciente.");
             }
             
+            
             ShowPerson Patient = new ShowPerson();
-            
+
             Patient.setFields(this.patients.get(indice).getFirstName(), this.patients.get(indice).getLastName(), this.patients.get(indice).getSecurityNumber(), Float.toString(this.patients.get(indice).getWeigth()), this.patients.get(indice).getTelephone(), Float.toString(this.patients.get(indice).getSize()), this.patients.get(indice).getAddress(), this.patients.get(indice).getEmail(), Integer.toString(this.patients.get(indice).getAge()), this.patients.get(indice).getDisease(), this.patients.get(indice).getStatus(), Integer.toString(this.patients.get(indice).getRoomID()), model);
-            
+
             Patient.setVisible(true);
-            
+
             JFrame f = new JFrame();
-            
+
             f.getContentPane().add(Patient);
             f.pack();
             f.setVisible(true);
-            
-        }
-        else
+
+        } else {
             JOptionPane.showMessageDialog(null, "No se encontró al paciente.", "NOT FOUNDED.", JOptionPane.ERROR_MESSAGE);
-        
+        }
+
     }
-    
+
     /**
-     *Método utilizado para la creación de un nuevo Paciente
-     * //Recibe como atributos todas las características de un Paciente
+     * Método utilizado para la creación de un nuevo Paciente //Recibe como
+     * atributos todas las características de un Paciente
+     *
      * @param name
      * @param lastName
      * @param nSS
@@ -526,7 +578,7 @@ public class Hospital {
      * @param size
      * @param weigth
      */
-    public void addPatient(String name, String lastName, String nSS, int age, String e_mail, String address, String telephone, String disease, float size, float weigth){
+    public void addPatient(String name, String lastName, String nSS, int age, String e_mail, String address, String telephone, String disease, float size, float weigth) {
         Patient newPatient = new Patient();
         newPatient.setFirstName(name);
         newPatient.setLastName(lastName);
@@ -536,13 +588,13 @@ public class Hospital {
         newPatient.setStatus("Ingreso");
         newPatient.setTelephone(telephone);
         newPatient.setAddress(address);
-        
+
         try {
             newPatient.setSecurityNumber(nSS);
         } catch (NotValidNumber ex) {
             JOptionPane.showMessageDialog(null, ex.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
         }
-        
+
         try {
             newPatient.setSize(size);
         } catch (NotValidNumber ex) {
@@ -553,20 +605,21 @@ public class Hospital {
         } catch (NotValidNumber ex) {
             JOptionPane.showMessageDialog(null, ex.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
         }
-        
+
         this.patients.add(newPatient);
-        
+
     }
-    
+
     /**
-     *Método de copia utilizado para la creación de un nuevo paciente
+     * Método de copia utilizado para la creación de un nuevo paciente
+     *
      * @param p
      */
-    public void addPatient(Patient p){
+    public void addPatient(Patient p) {
         this.patients.add(p);
     }
-    
-    public void addDoctor(String name, String lastName, String licence, int age, String e_mail, String address, String telephone, String Department){
+
+    public void addDoctor(String name, String lastName, String licence, int age, String e_mail, String address, String telephone, String Department) {
         Doctor newDoc = new Doctor();
         newDoc.setFirstName(name);
         newDoc.setLastName(lastName);
@@ -580,16 +633,17 @@ public class Hospital {
         this.doctorsIds++;
         this.doctors.add(newDoc);
     }
-    
+
     /**
-     *Método para asignarle un Doctor a un Paciente
+     * Método para asignarle un Doctor a un Paciente
+     *
      * @param doctorId
      * @param securityNumber
      */
-    public void assignDoctorToPatient(String doctorId, String securityNumber){
+    public void assignDoctorToPatient(String doctorId, String securityNumber) {
         String securityNumberFounded = this.findPatientBySecurityNumber(securityNumber);
-        
-        if (!securityNumberFounded.isEmpty()){
+
+        if (!securityNumberFounded.isEmpty()) {
             try {
                 this.patients.get(Integer.valueOf(securityNumberFounded)).setNewDoc(doctorId);
             } catch (OverSize error) {
@@ -599,16 +653,17 @@ public class Hospital {
             }
         }
     }
-    
+
     /**
-     *Método para asignarle un cuarto a un Paciente
+     * Método para asignarle un cuarto a un Paciente
+     *
      * @param securityNumber
      * @param roomId
      */
-    public void assignRoomToPatient(String securityNumber, String roomId){
+    public void assignRoomToPatient(String securityNumber, String roomId) {
         String securityNumberFounded = this.findPatientBySecurityNumber(securityNumber);
-        
-        if (!securityNumberFounded.isEmpty()){
+
+        if (!securityNumberFounded.isEmpty()) {
             try {
                 this.patients.get(Integer.valueOf(securityNumberFounded)).setRoomID(roomId);
             } catch (NotValidNumber error) {
@@ -618,104 +673,110 @@ public class Hospital {
     }
 
     /**
-     *Método para asignarle un consultorio a un Doctor
+     * Método para asignarle un consultorio a un Doctor
+     *
      * @param idDoctor
      * @param doctorsOfficeId
      */
-    public void assignOfficeToDoctor(String idDoctor, String doctorsOfficeId){
-        
+    public void assignOfficeToDoctor(String idDoctor, String doctorsOfficeId) {
+
         try {
             this.offices.get(doctorsIds - 1).setDoctorID(idDoctor);
         } catch (NotValidNumber error) {
             JOptionPane.showMessageDialog(null, error.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
         }
-        
+
     }
-    
+
     /**
-     *Método para modificiar el status de un Paciente
+     * Método para modificiar el status de un Paciente
+     *
      * @param securityNumber
      * @param Status
      */
-    public void changeStatusOfPatient(String securityNumber, String Status){
+    public void changeStatusOfPatient(String securityNumber, String Status) {
         String securityNumberFounded = this.findPatientBySecurityNumber(securityNumber);
-        
-        if (!securityNumberFounded.isEmpty()){
+
+        if (!securityNumberFounded.isEmpty()) {
             this.patients.get(Integer.valueOf(securityNumberFounded)).setStatus(Status);
         }
     }
-    
+
     /**
-     *Método para modificar el status de un Paciente a "Alta"
+     * Método para modificar el status de un Paciente a "Alta"
+     *
      * @return patientsReady
      */
-    public ArrayList<Patient> showPatientsReadyToGoHome(){
-        
+    public ArrayList<Patient> showPatientsReadyToGoHome() {
+
         ArrayList<Patient> patientsReady = new ArrayList<>();
-        
-        for(int i=0; i<this.patients.size();i++){
-            if(this.patients.get(i).getStatus().equals("Alta")){
+
+        for (int i = 0; i < this.patients.size(); i++) {
+            if (this.patients.get(i).getStatus().equals("Alta")) {
                 patientsReady.add(this.patients.get(i));
             }
         }
         return patientsReady;
     }
-    
+
     /**
-     *Método para dar de baja a un Paciente
+     * Método para dar de baja a un Paciente
+     *
      * @param securityNumber
      * @throws Exceptions.NotValidNumber
      */
-    public void dischargePatient(String securityNumber) throws NotValidNumber{
+    public void dischargePatient(String securityNumber) throws NotValidNumber {
         String securityNumberFounded = this.findPatientBySecurityNumber(securityNumber);
-        
-        for(int x = 0; x < this.numOfRooms; x++){
-            if(this.rooms.get(x).getPatientID().equals(securityNumber)){
+
+        for (int x = 0; x < this.numOfRooms; x++) {
+            if (this.rooms.get(x).getPatientID().equals(securityNumber)) {
                 this.rooms.get(x).setPatientID("NOT DEFINED");
-                
+
                 x = this.numOfRooms;
             }
-            
+
         }
-        
-        for(int x = 0; x < this.doctors.size(); x++){
+
+        for (int x = 0; x < this.doctors.size(); x++) {
             this.doctors.get(x).erasePatient(securityNumber);
         }
-        
-        if (!securityNumberFounded.isEmpty()){
+
+        if (!securityNumberFounded.isEmpty()) {
             this.patients.remove(securityNumberFounded);
         }
     }
-    
+
     /**
-     *Método para validar la existencia de un Doctor
+     * Método para validar la existencia de un Doctor
+     *
      * @param idDoctor
      * @return validacion
      */
-    public boolean validateDoctor(String idDoctor){
+    public boolean validateDoctor(String idDoctor) {
         boolean validacion = false;
 
-        for(int i=0; i<this.doctors.size();i++){
-            if(idDoctor.equals(this.doctors.get(i).getId())){
+        for (int i = 0; i < this.doctors.size(); i++) {
+            if (idDoctor.equals(this.doctors.get(i).getId())) {
                 validacion = true;
-                i = this.doctors.size(); 
+                i = this.doctors.size();
             }
         }
         return validacion;
     }
-    
+
     /**
      * Método para validar la existencia de un consultorio
+     *
      * @param id
      * @return validacion
      */
-    public boolean validateDoctorOffice(int id){
+    public boolean validateDoctorOffice(int id) {
         boolean validacion = false;
 
-        for(int i=0; i<this.offices.size();i++){
-            if(id == this.offices.get(i).getId()){
-                validacion= true;
-                i= this.offices.size();
+        for (int i = 0; i < this.offices.size(); i++) {
+            if (id == this.offices.get(i).getId()) {
+                validacion = true;
+                i = this.offices.size();
             }
         }
         return validacion;
@@ -748,26 +809,24 @@ public class Hospital {
 
     /**
      * Método get para el Teléfono
+     *
      * @return telephone
      */
     public String getTelephone() {
-		return this.telephone;
-	}
+        return this.telephone;
+    }
 
     /**
-     *Método de copia para la creación de un nuevo doctor
+     * Método de copia para la creación de un nuevo doctor
+     *
      * @param d
      */
     public void addDoctor(Doctor d) {
-		d.setId(Integer.toString(this.doctorsIds));
-		this.doctorsIds++;
-		this.doctors.add(d);
-		System.out.println(this.doctors.size());
-		System.out.println(this.doctors.get(0).toString());
-	}
-    
-    public void setDoctors(ArrayList<Doctor> doctors){
-        this.doctors = doctors;
+        d.setId(Integer.toString(this.doctorsIds));
+        this.doctorsIds++;
+        this.doctors.add(d);
+        System.out.println(this.doctors.size());
+        System.out.println(this.doctors.get(0).toString());
     }
 
 }

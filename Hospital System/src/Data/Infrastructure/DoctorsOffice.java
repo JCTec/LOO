@@ -109,6 +109,65 @@ public class DoctorsOffice {
         this.doctorID = "NOT DEFINED";
         this.lastPayment = 0.0f;
     }
+    
+    /**
+     * Constructor que no recibe ni id de oficina ni id de doctores
+     * @param floor
+     * @param monthlyRent
+     */
+    public DoctorsOffice(int floor, float monthlyRent){
+        
+        try {
+            this.setFloor(floor);
+        }catch(NotValidNumber error){
+            JOptionPane.showMessageDialog(null, error.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
+            this.floor = 0;
+        }
+        
+        try {
+            this.setMonthlyRent(monthlyRent);
+        }catch(NotValidNumber error){
+            JOptionPane.showMessageDialog(null, error.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
+            this.monthlyRent = 0.0f;
+        }
+        
+        this.doctorID = "NOT DEFINED";
+        this.lastPayment = 0.0f;
+        this.id =0;
+    }
+    
+    /**
+     * Constructor que no recibe id de habitacion, si recibe id de doctor
+     * @param floor
+     * @param monthlyRent
+     * @param doctorID
+     */
+    public DoctorsOffice(int floor, float monthlyRent, String doctorID){
+        
+        try {
+            this.setFloor(floor);
+        }catch(NotValidNumber error){
+            JOptionPane.showMessageDialog(null, error.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
+            this.floor = 0;
+        }
+        
+        try {
+            this.setMonthlyRent(monthlyRent);
+        }catch(NotValidNumber error){
+            JOptionPane.showMessageDialog(null, error.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
+            this.monthlyRent = 0.0f;
+        }
+        
+        try {
+            this.setDoctorID(doctorID);
+        }catch(NotValidNumber error){
+            JOptionPane.showMessageDialog(null, error.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
+            this.doctorID = "NOT DEFINED";
+        }
+        
+        this.lastPayment = 0.0f;
+        this.id =0;
+    }
     /**
      * Constructor de copia
      * @param office
@@ -168,7 +227,7 @@ public class DoctorsOffice {
      * @param floor
      */
     public void setFloor(int floor) throws NotValidNumber{
-        if (id>0)
+        if (floor>0)
             this.floor = floor;
         else
             throw new NotValidNumber();
