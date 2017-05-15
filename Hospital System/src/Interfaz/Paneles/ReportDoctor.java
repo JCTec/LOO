@@ -7,12 +7,15 @@ package Interfaz.Paneles;
 
 import Data.People.Doctor;
 import java.util.ArrayList;
+import javax.swing.DefaultRowSorter;
 import javax.swing.JTable;
 import javax.swing.RowFilter;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+import javax.swing.event.RowSorterEvent;
+import javax.swing.event.RowSorterListener;
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
@@ -30,34 +33,8 @@ public class ReportDoctor extends javax.swing.JPanel {
      */
     public ReportDoctor() {
         initComponents();
-
-        
-    }
-  
-    public JTable getTable(){
-       return this.doctorsTable;
-    }
-    
-    public void setData(ArrayList<Doctor> doctors){
-        
-        this.model = (DefaultTableModel) this.doctorsTable.getModel();
         
         
-        for(int x = 0; x < doctors.size(); x++){
-            this.data[0] = doctors.get(x).getFirstName();
-            this.data[1] = doctors.get(x).getLastName();
-            this.data[2] = Integer.toString(doctors.get(x).getAge());
-            this.data[3] = doctors.get(x).getAddress();
-            this.data[4] = doctors.get(x).getTelephone();
-            this.data[5] = doctors.get(x).getEmail();
-            this.data[6] = doctors.get(x).getLicence();
-            this.data[7] = doctors.get(x).getDepartment();
-            this.data[8] = doctors.get(x).getId();
-            
-            this.model.insertRow(this.model.getRowCount(), this.data);
-        }
-        
-        this.rowSorter = new TableRowSorter<>(this.doctorsTable.getModel());
         
         this.search.getDocument().addDocumentListener(new DocumentListener(){
 
@@ -89,21 +66,66 @@ public class ReportDoctor extends javax.swing.JPanel {
             }
 
         });
-        
-        
-        this.doctorsTable.getModel().addTableModelListener(new TableModelListener() {
+    }
+  
+    public JTable getTable(){
+       return this.doctorsTable;
+    }
+    
+    public void DeleAll(){
+        this.data = null;
+        //this.doctorsTable = null;
+        this.rowSorter = null;
+        this.model = null;
+        //this.delete();
+    }
+    
+    public void delete(){
+        if(set){
+            if(doctorsTable != null && this.model != null){
+                this.doctorsTable.setRowSorter(null);
             
-            @Override
-            public void tableChanged(TableModelEvent e) {
-                    doctorsTable.getModel();
+                for (int i = this.model.getRowCount() - 1; i >= 0; i--) {
+                    this.model.removeRow(i);
+                }
             }
-            
-        });
-        
-        this.doctorsTable.setRowSorter(this.rowSorter); 
+        }
     }
     
     
+    public void setData(ArrayList<Doctor> doctors){
+        
+        this.set = true;
+
+        this.model = new DefaultTableModel();
+
+        
+        this.model = (DefaultTableModel) this.doctorsTable.getModel();
+        this.rowSorter = new TableRowSorter<>(this.doctorsTable.getModel());
+        
+        this.doctorsTable.setRowSorter(null);
+        
+        for(int x = 0; x < doctors.size(); x++){
+            this.data[0] = doctors.get(x).getFirstName();
+            this.data[1] = doctors.get(x).getLastName();
+            this.data[2] = Integer.toString(doctors.get(x).getAge());
+            this.data[3] = doctors.get(x).getAddress();
+            this.data[4] = doctors.get(x).getTelephone();
+            this.data[5] = doctors.get(x).getEmail();
+            this.data[6] = doctors.get(x).getLicence();
+            this.data[7] = doctors.get(x).getDepartment();
+            this.data[8] = doctors.get(x).getId();
+            
+            this.model.insertRow(this.model.getRowCount(), this.data);
+        }
+        
+
+        this.doctorsTable.setRowSorter(this.rowSorter);
+   
+      
+    }
+    
+ 
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -190,9 +212,10 @@ public class ReportDoctor extends javax.swing.JPanel {
 
     private String[] columnNames = {"Nombre", "Apellido", "Edad", "Dirección", "Teléfono","e-mail", "Matricula", "Departamento","ID"};
     private String[] data = new String[9];
-    private DefaultTableModel model;
     private TableRowSorter<TableModel> rowSorter;
 
+    private boolean set = false;
+    private DefaultTableModel model;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable doctorsTable;
     private javax.swing.JPanel jPanel1;

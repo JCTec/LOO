@@ -5,6 +5,10 @@
  */
 package Interfaz.Paneles;
 
+import Data.People.Doctor;
+import Data.People.Patient;
+import javax.swing.JButton;
+
 /**
  *
  * @author Juan
@@ -16,6 +20,30 @@ public class ShowDoctor extends javax.swing.JPanel {
      */
     public ShowDoctor() {
         initComponents();
+    }
+    
+    public JButton getSaveButton(){
+        return this.save;
+    }
+    
+    public JButton getDeleteButton(){
+        return this.delete;
+    }
+    
+    public Doctor getDoctor(){
+        Doctor p = new Doctor();
+        
+        p.setFirstName(this.nameField.getText());
+        p.setLastName(this.lastNameField.getText());
+        p.setAge(Integer.valueOf(this.edadField.getText()));
+        p.setAddress(this.direccionField.getText());
+        p.setEmail(this.e_mailField.getText());
+        p.setId(this.idField.getText());
+        p.setDepartment(this.departmentField.getText());
+        p.setTelephone(this.telefonoField.getText());
+        p.setLicence(this.nSSField.getText());
+        
+        return p;
     }
 
     /**
@@ -45,12 +73,13 @@ public class ShowDoctor extends javax.swing.JPanel {
         idField = new javax.swing.JTextField();
         departmentLabel = new javax.swing.JLabel();
         departmentField = new javax.swing.JTextField();
+        save = new javax.swing.JButton();
+        delete = new javax.swing.JButton();
 
         setBorder(javax.swing.BorderFactory.createTitledBorder("Doctor"));
 
         jLabel1.setText("Nombre(s)");
 
-        nameField.setEditable(false);
         nameField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nameFieldActionPerformed(evt);
@@ -59,27 +88,15 @@ public class ShowDoctor extends javax.swing.JPanel {
 
         jLabel2.setText("Apellido(s)");
 
-        lastNameField.setEditable(false);
-
         jLabel3.setText("Edad");
-
-        edadField.setEditable(false);
 
         jLabel4.setText("Direccion");
 
-        direccionField.setEditable(false);
-
         jLabel5.setText("Telefono");
-
-        telefonoField.setEditable(false);
 
         jLabel6.setText("e-mail");
 
-        e_mailField.setEditable(false);
-
         jLabel7.setText("Matricula");
-
-        nSSField.setEditable(false);
 
         idLabel.setText("ID");
 
@@ -87,35 +104,43 @@ public class ShowDoctor extends javax.swing.JPanel {
 
         departmentLabel.setText("Departamento");
 
-        departmentField.setEditable(false);
+        save.setText("Guardar");
+
+        delete.setText("Eliminar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel7)
-                    .addComponent(departmentLabel)
-                    .addComponent(idLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(nSSField, javax.swing.GroupLayout.DEFAULT_SIZE, 183, Short.MAX_VALUE)
-                    .addComponent(e_mailField)
-                    .addComponent(telefonoField)
-                    .addComponent(direccionField)
-                    .addComponent(edadField)
-                    .addComponent(lastNameField)
-                    .addComponent(nameField)
-                    .addComponent(idField)
-                    .addComponent(departmentField))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel6)
+                            .addComponent(idLabel)
+                            .addComponent(departmentLabel)
+                            .addComponent(jLabel7))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(nSSField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 293, Short.MAX_VALUE)
+                            .addComponent(e_mailField, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(telefonoField, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(direccionField, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(edadField, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lastNameField, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(nameField, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(idField, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(departmentField, javax.swing.GroupLayout.Alignment.LEADING)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(save, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(delete, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(37, 37, 37))
         );
         layout.setVerticalGroup(
@@ -149,15 +174,19 @@ public class ShowDoctor extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nSSField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(idField)
-                    .addComponent(idLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(21, 21, 21)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(departmentField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(departmentLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(idField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(idLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(departmentLabel)
-                    .addComponent(departmentField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(20, Short.MAX_VALUE))
+                    .addComponent(delete)
+                    .addComponent(save))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -166,7 +195,7 @@ public class ShowDoctor extends javax.swing.JPanel {
     }//GEN-LAST:event_nameFieldActionPerformed
 
 
-    public void setFields(String name, String lastName, String nss, String telefono, String direccion, String e_mail, String edad){
+    public void setFields(String name, String lastName, String nss, String telefono, String direccion, String e_mail, String edad, String departamento, String id){
         
         this.nameField.setText(name);
         this.lastNameField.setText(lastName);
@@ -176,11 +205,15 @@ public class ShowDoctor extends javax.swing.JPanel {
         this.direccionField.setText(direccion);
         this.e_mailField.setText(e_mail);
         this.edadField.setText(edad);
+        
+        this.departmentField.setText(departamento);
 
+        this.idField.setText(id);
     }
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton delete;
     private javax.swing.JTextField departmentField;
     private javax.swing.JLabel departmentLabel;
     private javax.swing.JTextField direccionField;
@@ -198,6 +231,7 @@ public class ShowDoctor extends javax.swing.JPanel {
     private javax.swing.JTextField lastNameField;
     private javax.swing.JTextField nSSField;
     private javax.swing.JTextField nameField;
+    private javax.swing.JButton save;
     private javax.swing.JTextField telefonoField;
     // End of variables declaration//GEN-END:variables
 }
