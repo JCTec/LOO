@@ -56,6 +56,7 @@ public class Hospital {
         this.rooms = new ArrayList<>();
         this.doctors = new ArrayList<>();
         this.patients = new ArrayList<>();
+        this.fillRoomsAndOffice();
     }
 
     /**
@@ -129,7 +130,7 @@ public class Hospital {
     }
 
     //Método que automáticamente crea el numero de habitaciones y oficinas que se señalaron en el constructor
-    private void fillRoomsAndOffice() {
+    public void fillRoomsAndOffice() {
 
         for (int x = 0; x < this.numOfRooms; x++) {
             Room newRoom = new Room(x + 1);
