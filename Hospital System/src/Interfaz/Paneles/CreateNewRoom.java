@@ -148,11 +148,11 @@ public class CreateNewRoom extends javax.swing.JPanel {
         this.patientComboBox.setModel(new DefaultComboBoxModel<>(itemsPatient));
     }
 
-    private String getSelectedRoom() {
+    public String getSelectedRoom() {
         return this.idComboBox.getSelectedItem().toString().split(" ")[0];
     }
 
-    private String getSelectedPatient() {
+    public String getSelectedPatient() {
         return this.patientComboBox.getSelectedItem().toString().split(" ")[2];
     }
 }
