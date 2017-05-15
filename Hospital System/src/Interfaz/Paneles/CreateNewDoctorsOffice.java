@@ -6,8 +6,9 @@
 package Interfaz.Paneles;
 
 import Data.Infrastructure.DoctorsOffice;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import Data.Infrastructure.Hospital;
+import Data.People.Doctor;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 
 /**
@@ -15,6 +16,8 @@ import javax.swing.JOptionPane;
  * @author alanp
  */
 public class CreateNewDoctorsOffice extends javax.swing.JPanel {
+
+	private Hospital hospital;
     /**
      * Creates new form CreateNewDoctorsOffice
      */
@@ -37,8 +40,8 @@ public class CreateNewDoctorsOffice extends javax.swing.JPanel {
         idDoctorLabel = new javax.swing.JLabel();
         floorField = new javax.swing.JTextField();
         monthlyRentField = new javax.swing.JTextField();
-        idDoctorField = new javax.swing.JTextField();
         saveButton = new javax.swing.JButton();
+        selectDoctor = new javax.swing.JComboBox<>();
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Crear Consultorio", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Verdana", 0, 13))); // NOI18N
 
@@ -49,13 +52,11 @@ public class CreateNewDoctorsOffice extends javax.swing.JPanel {
         monthlyRentLabel.setText("Renta mensual:");
 
         idDoctorLabel.setFont(new java.awt.Font("Verdana", 0, 13)); // NOI18N
-        idDoctorLabel.setText("ID Doctor:");
+        idDoctorLabel.setText("Doctor:");
 
         floorField.setFont(new java.awt.Font("Verdana", 0, 13)); // NOI18N
 
         monthlyRentField.setFont(new java.awt.Font("Verdana", 0, 13)); // NOI18N
-
-        idDoctorField.setFont(new java.awt.Font("Verdana", 0, 13)); // NOI18N
 
         saveButton.setFont(new java.awt.Font("Verdana", 0, 13)); // NOI18N
         saveButton.setText("Guardar");
@@ -65,27 +66,27 @@ public class CreateNewDoctorsOffice extends javax.swing.JPanel {
             }
         });
 
+        selectDoctor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(126, 126, 126)
+                .addComponent(saveButton)
+                .addGap(73, 73, 73))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(31, 31, 31)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(flloorLabel)
-                            .addComponent(monthlyRentLabel)
-                            .addComponent(idDoctorLabel))
-                        .addGap(71, 71, 71)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(monthlyRentField, javax.swing.GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE)
-                            .addComponent(idDoctorField)
-                            .addComponent(floorField, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(126, 126, 126)
-                        .addComponent(saveButton)))
-                .addContainerGap(73, Short.MAX_VALUE))
+                    .addComponent(flloorLabel)
+                    .addComponent(monthlyRentLabel)
+                    .addComponent(idDoctorLabel))
+                .addGap(71, 71, 71)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(selectDoctor, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(monthlyRentField, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE)
+                    .addComponent(floorField)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -101,7 +102,7 @@ public class CreateNewDoctorsOffice extends javax.swing.JPanel {
                 .addGap(44, 44, 44)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(idDoctorLabel)
-                    .addComponent(idDoctorField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(selectDoctor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
                 .addComponent(saveButton)
                 .addGap(43, 43, 43))
@@ -133,42 +134,61 @@ public class CreateNewDoctorsOffice extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel flloorLabel;
     private javax.swing.JTextField floorField;
-    private javax.swing.JTextField idDoctorField;
     private javax.swing.JLabel idDoctorLabel;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField monthlyRentField;
     private javax.swing.JLabel monthlyRentLabel;
     private javax.swing.JButton saveButton;
+    private javax.swing.JComboBox<String> selectDoctor;
     // End of variables declaration//GEN-END:variables
 
 	public DoctorsOffice getOffice() {
 		DoctorsOffice dof = null;
-                if(idDoctorField.getText().isEmpty() && !this.floorField.getText().isEmpty() && !this.monthlyRentField.getText().isEmpty()){
-                    dof = new DoctorsOffice(
+		if(!this.floorField.getText().isEmpty() && !this.monthlyRentField.getText().isEmpty()){
+			if(this.getSelectedDoctorId().equals("Ningún")){
+				dof = new DoctorsOffice(
                             Integer.parseInt(this.floorField.getText()),
                             Float.parseFloat(this.monthlyRentField.getText())
                     );
-                }
-                else if(!idDoctorField.getText().isEmpty() && !this.floorField.getText().isEmpty() && !this.monthlyRentField.getText().isEmpty()){
-                    dof = new DoctorsOffice(
+			}
+			else{
+				dof = new DoctorsOffice(
                             Integer.parseInt(this.floorField.getText()),
                             Float.parseFloat(this.monthlyRentField.getText()),
-                            this.idDoctorField.getText()
+                            this.getSelectedDoctorId()
                     );
-                }
-                else if(this.floorField.getText().isEmpty() || this.monthlyRentField.getText().isEmpty())
-                    JOptionPane.showMessageDialog(null, "Por favor, no deje el espacio de Piso y/o el de Renta Mensual en blanco.", "ERROR", JOptionPane.ERROR_MESSAGE);
-                
-                return dof;
+			}
+		}
+		else{
+			JOptionPane.showMessageDialog(null, "Por favor, no deje el espacio de Piso y/o el de Renta Mensual en blanco.", "ERROR", JOptionPane.ERROR_MESSAGE);
+		}
+		return dof;
 	}
 
 	public javax.swing.JButton getSaveButton() {
 		return this.saveButton;
 	}
         
-        public void clearFields(){
-            this.floorField.setText("");
-            this.idDoctorField.setText("");
-            this.monthlyRentField.setText("");
-        }
+	public void clearFields(){
+		this.floorField.setText("");
+		this.monthlyRentField.setText("");
+	}
+	
+	public void setHospital(Hospital hospital){	
+		this.hospital = hospital;
+		int doctorNumber = hospital.getDoctors().size() + 1;
+		String[] items = new String[doctorNumber];
+		//Hardcoded string, keep it here, used for determining if office has doctor or not
+		items[0] = "Ningún";
+		for(int i = 1 ; i < doctorNumber ; i++){
+			//Do not forget that i has 1 too much for getDoctors, has to be lowered
+			Doctor doc = hospital.getDoctors().get(i - 1);
+			items[i] = doc.getId() + " " + doc.getFirstName() + " " + doc.getLastName();
+		}
+		this.selectDoctor.setModel(new DefaultComboBoxModel<>(items));
+	}
+
+	private String getSelectedDoctorId(){
+		return this.selectDoctor.getSelectedItem().toString().split(" ")[0];
+	}
 }
