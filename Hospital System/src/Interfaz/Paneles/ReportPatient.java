@@ -27,6 +27,7 @@ import javax.swing.table.TableRowSorter;
  */
 public class ReportPatient extends javax.swing.JPanel {
 
+    private boolean set;
 
     /**
      * Creates new form ReportPatient
@@ -131,8 +132,8 @@ public class ReportPatient extends javax.swing.JPanel {
     private javax.swing.JTextField searchField;
     // End of variables declaration//GEN-END:variables
 
-    public void setData(ArrayList<Patient> patients){
-        
+    public void setData(ArrayList<Patient> patients) {
+        this.set = true;
         this.model = (DefaultTableModel) this.patientsTable.getModel();
 
         for (int x = 0; x < patients.size(); x++) {
@@ -179,9 +180,8 @@ public class ReportPatient extends javax.swing.JPanel {
             }
 
         });
-        
-        
-        this.patientsTable.setRowSorter(this.rowSorter); 
+
+        this.patientsTable.setRowSorter(this.rowSorter);
 
         this.patientsTable.setRowSorter(this.rowSorter);
 
@@ -192,4 +192,16 @@ public class ReportPatient extends javax.swing.JPanel {
         return this.patientsTable;
     }
 
+    public void delete() {
+        if (set) {
+            if (patientsTable != null && this.model != null) {
+                this.patientsTable.setRowSorter(null);
+
+                for (int i = this.model.getRowCount() - 1; i >= 0; i--) {
+                    this.model.removeRow(i);
+                }
+            }
+        }
+    }
 }
+

@@ -529,6 +529,11 @@ public class MainWindow extends javax.swing.JFrame {
         menuRoom.setText("Habitación");
 
         menuAddRoom.setText("Agregar");
+        menuAddRoom.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuAddRoomActionPerformed(evt);
+            }
+        });
         menuRoom.add(menuAddRoom);
 
         menuAssignRoom.setText("Asignar");
@@ -776,6 +781,7 @@ public class MainWindow extends javax.swing.JFrame {
             if (!this.hospital.getPatients().isEmpty()) {
                 CardLayout card = (CardLayout) mainPanel.getLayout();
                 card.show(mainPanel, "reportPatient");
+                this.reportPatientPanel.delete();
                 this.reportPatientPanel.setData(this.hospital.getPatients());
             } else {
                 JOptionPane.showMessageDialog(null, "Por favor, cree un paciente primero.", "ERROR", JOptionPane.ERROR_MESSAGE);
@@ -806,6 +812,7 @@ public class MainWindow extends javax.swing.JFrame {
             if (!this.hospital.getRooms().isEmpty()) {
                 CardLayout card = (CardLayout) mainPanel.getLayout();
                 card.show(mainPanel, "reportRoom");
+                this.reportRoomPanel.delete();
                 this.reportRoomPanel.setData(this.hospital);
             } else {
                 JOptionPane.showMessageDialog(null, "Por favor, cree una habitación primero.", "ERROR", JOptionPane.ERROR_MESSAGE);
@@ -814,6 +821,10 @@ public class MainWindow extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Por favor, cree un hospital primero.", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_menuSearchRoomActionPerformed
+
+    private void menuAddRoomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuAddRoomActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menuAddRoomActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1222,7 +1233,7 @@ public class MainWindow extends javax.swing.JFrame {
         this.createNewPatient1.clearFields();
     }
 	
-	public void saveEditPatientAction(java.awt.event.ActionEvent evt){
+	public void saveEditPatientAction(java.awt.event.ActionEvent evt) {
 		Patient oldPatient = this.editPatient1.getOldPatient();
 		Patient newPatient = this.editPatient1.getPatient();
 		oldPatient.setFirstName(newPatient.getFirstName());
@@ -1260,6 +1271,12 @@ public class MainWindow extends javax.swing.JFrame {
 			}
 		}
 		oldPatient.setStatus(newPatient.getStatus());
+                try{
+                   this.hospital.getRooms().get(Integer.valueOf(this.hospital.findPatientBySecurityNumber(newPatient.getSecurityNumber()))).setPatientID(newPatient.getSecurityNumber()); 
+                } catch (NotValidNumber ex){
+                    Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
 			
 	}
 	
