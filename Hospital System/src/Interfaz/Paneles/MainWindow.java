@@ -15,6 +15,7 @@ import Exceptions.NotValidNumber;
 import java.awt.CardLayout;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
@@ -105,6 +106,7 @@ public class MainWindow extends javax.swing.JFrame {
         editDoctor = new javax.swing.JPanel();
         editDoctor1 = new Interfaz.Paneles.EditDoctor();
         removePatient = new javax.swing.JPanel();
+        deletePatientOld1 = new Interfaz.Paneles.DeletePatientOld();
         removeOffice = new javax.swing.JPanel();
         removeDoctor = new javax.swing.JPanel();
         removeDoctorPanel = new Interfaz.Paneles.DeleteDoctor();
@@ -303,11 +305,17 @@ public class MainWindow extends javax.swing.JFrame {
         removePatient.setLayout(removePatientLayout);
         removePatientLayout.setHorizontalGroup(
             removePatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 901, Short.MAX_VALUE)
+            .addGroup(removePatientLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(deletePatientOld1, javax.swing.GroupLayout.DEFAULT_SIZE, 903, Short.MAX_VALUE)
+                .addContainerGap())
         );
         removePatientLayout.setVerticalGroup(
             removePatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 724, Short.MAX_VALUE)
+            .addGroup(removePatientLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(deletePatientOld1, javax.swing.GroupLayout.DEFAULT_SIZE, 725, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         mainPanel.add(removePatient, "removePatient");
@@ -684,36 +692,25 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_menuEditPatientActionPerformed
     //Botón menú Eliminar Paciente
     private void menuRemovePatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuRemovePatientActionPerformed
-        if (this.hospital != null) {
-            CardLayout card = (CardLayout) mainPanel.getLayout();
-            card.show(mainPanel, "removePatient");
-        } else {
-            JOptionPane.showMessageDialog(null, "Por favor, cree un hospital primero.", "ERROR", JOptionPane.ERROR_MESSAGE);
-        }
+		this.switchToRemovePatientPanel();
     }//GEN-LAST:event_menuRemovePatientActionPerformed
     //Botón menú Reportar Doctor
     private void menuReportDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuReportDoctorActionPerformed
         if (this.hospital != null) {
+            System.out.println("HOLAAAAAa");
 
+            this.reportDoctor1.delete();
+            this.reportDoctor1.setData(this.hospital.getDoctors());
             CardLayout card = (CardLayout) mainPanel.getLayout();
             card.show(mainPanel, "reportDoctor");
-            this.reportDoctor1.setData(this.hospital.getDoctors());
-
+ 
         } else {
             JOptionPane.showMessageDialog(null, "Por favor, cree un hospital primero.", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_menuReportDoctorActionPerformed
     //Botón menú Acerca De
     private void menuAboutHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuAboutHospitalActionPerformed
-
-        if (this.hospital != null) {
-            this.aboutHospital1.setHospital(hospital);
-
-            CardLayout card = (CardLayout) mainPanel.getLayout();
-            card.show(mainPanel, "aboutHospital");
-        } else {
-            JOptionPane.showMessageDialog(null, "Por favor, cree un hosítal primero.", "ERROR", JOptionPane.ERROR_MESSAGE);
-        }
+		switchToInitPanel();
     }//GEN-LAST:event_menuAboutHospitalActionPerformed
     //Botón menú Editar Hospital
     private void menuEditHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuEditHospitalActionPerformed
@@ -806,6 +803,7 @@ public class MainWindow extends javax.swing.JFrame {
         });
     }
 
+   
     private JFrame Frame = new JFrame();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel aboutHospital;
@@ -815,6 +813,7 @@ public class MainWindow extends javax.swing.JFrame {
     private Interfaz.Paneles.CreateNewDoctorsOffice createNewDoctorsOffice1;
     private Interfaz.Paneles.CreateNewHospital createNewHospitalForm;
     private Interfaz.Paneles.CreateNewPatient createNewPatient1;
+    private Interfaz.Paneles.DeletePatientOld deletePatientOld1;
     private Interfaz.Paneles.CreateNewRoom createNewRoomPanel;
     private javax.swing.JPanel editDoctor;
     private Interfaz.Paneles.EditDoctor editDoctor1;
@@ -874,7 +873,14 @@ public class MainWindow extends javax.swing.JFrame {
         this.reportDoctor1.getTable().getSelectionModel().addListSelectionListener(new ListSelectionListener() {
             public void valueChanged(ListSelectionEvent event) {
                 if (!event.getValueIsAdjusting()) {
-                    modifyDoctor(reportDoctor1.getTable().getValueAt(reportDoctor1.getTable().getSelectedRow(), 8).toString());
+                    
+                    int selectedrow = reportDoctor1.getTable().getSelectedRow();
+                    System.out.println(selectedrow);
+                    if(selectedrow  != -1){
+                    String i = reportDoctor1.getTable().getValueAt(selectedrow, 8).toString();
+                    modifyDoctor(i);
+                    }
+                    
                 }
 
             }
@@ -928,12 +934,18 @@ public class MainWindow extends javax.swing.JFrame {
                 saveNewPatientAction(evt);
             }
         });
-        //Editar Paciente
-        this.editPatient1.getSaveButton().addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                saveEditPatientAction(evt);
-            }
-        });
+		
+		this.editPatient1.getSaveButton().addActionListener(new java.awt.event.ActionListener(){
+			public void actionPerformed(java.awt.event.ActionEvent evt){
+				saveEditPatientAction(evt);
+			}
+		});
+        
+		this.deletePatientOld1.getSaveButton().addActionListener(new java.awt.event.ActionListener(){
+			public void actionPerformed(java.awt.event.ActionEvent evt){
+				saveDeletePatientAction(evt);
+			}
+		});
 
         //Crear Consultorio
         this.createNewDoctorsOffice1.getSaveButton().addActionListener(new java.awt.event.ActionListener() {
@@ -951,7 +963,78 @@ public class MainWindow extends javax.swing.JFrame {
     }
 
     public void modifyDoctor(String ID) {
-        this.hospital.showDoctorInfo(ID);
+        int idFounded = -1;
+        
+        ArrayList<Doctor> doctors = this.hospital.getDoctors();
+        
+        for(int i=0; i< doctors.size();i++){
+            if(ID.equals(doctors.get(i).getId())){
+                idFounded = i;
+                i = doctors.size(); 
+            }
+        }
+        
+        if (idFounded >= 0){
+  
+            
+            ShowDoctor doctor = new ShowDoctor();
+            
+            doctor.setFields(doctors.get(idFounded).getFirstName() , doctors.get(idFounded).getLastName(), doctors.get(idFounded).getLicence(), doctors.get(idFounded).getTelephone(), doctors.get(idFounded).getAddress(), doctors.get(idFounded).getEmail(), Integer.toString(doctors.get(idFounded).getAge()), doctors.get(idFounded).getDepartment(), doctors.get(idFounded).getId());
+            
+            doctor.setVisible(true);
+            
+            FrameWithCloseButton f = new FrameWithCloseButton();
+                    
+            f.setSize(500, 600);
+            f.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            f.setVisible(true);
+ 
+            f.setContent(doctor);
+            
+            doctor.getSaveButton().addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    Doctor p = doctor.getDoctor();
+                
+                    changeed(p);
+                }
+            });
+        }
+        
+        CardLayout card = (CardLayout) mainPanel.getLayout();
+        card.show(mainPanel, "inicioPanel");
+        
+    }
+    
+    private void changeed(Doctor newInfo){
+        int index = -1;
+        
+        for(int x = 0; x < this.hospital.getDoctors().size(); x++ ){
+            if(this.hospital.getDoctors().get(x).getId().equals(newInfo.getId())){
+                index = x;
+            }
+        }
+        if(index != -1){
+            
+        
+        Doctor old = this.hospital.getDoctors().get(index);
+        
+        old.setAddress(newInfo.getAddress());
+                
+        old.setFirstName(newInfo.getFirstName());
+                
+        old.setLastName(newInfo.getLastName());
+                
+        old.setAge(newInfo.getAge());
+                
+        old.setDepartment(newInfo.getDepartment());
+                
+        old.setEmail(newInfo.getEmail());
+                
+        old.setLicence(newInfo.getLicence());
+                
+        old.setTelephone(newInfo.getTelephone());
+        
+        }
     }
 
     public void modifyPatient(String nSS) {
@@ -1086,6 +1169,55 @@ public class MainWindow extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, "Paciente creado satisfactoriamente", "INFORMATION", JOptionPane.INFORMATION_MESSAGE);
         this.createNewPatient1.clearFields();
     }
+	
+	public void saveEditPatientAction(java.awt.event.ActionEvent evt){
+		Patient oldPatient = this.editPatient1.getOldPatient();
+		Patient newPatient = this.editPatient1.getPatient();
+		oldPatient.setFirstName(newPatient.getFirstName());
+		oldPatient.setLastName(newPatient.getLastName());
+		oldPatient.setAge(newPatient.getAge());
+		oldPatient.setAddress(newPatient.getAddress());
+		oldPatient.setTelephone(newPatient.getTelephone());
+		oldPatient.setEmail(newPatient.getEmail());
+		try {
+			oldPatient.setSecurityNumber(newPatient.getSecurityNumber());
+		} catch (NotValidNumber ex) {
+			Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+		}
+		try {
+			oldPatient.setWeigth(newPatient.getWeigth());
+		} catch (NotValidNumber ex) {
+			Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+		}
+		try {
+			oldPatient.setSize(newPatient.getSize());
+		} catch (NotValidNumber ex) {
+			Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+		}
+		oldPatient.setDisease(newPatient.getDisease());
+		try {
+			oldPatient.setRoomID(newPatient.getRoomID());
+		} catch (NotValidNumber ex) {
+			Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+		}
+		for(int i = 0 ; i < newPatient.getDoctorID().size() ; i++){
+			try {
+				oldPatient.setDoctorID(newPatient.getDoctorID().get(i));
+			} catch (NotValidNumber ex) {
+				Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+			}
+		}
+		oldPatient.setStatus(newPatient.getStatus());
+			
+	}
+	
+	public void saveDeletePatientAction(java.awt.event.ActionEvent evt){
+		int eliminatedPatientIndex = this.deletePatientOld1.getDeletedPatientIndex();
+		this.hospital.getPatients().remove(eliminatedPatientIndex);
+		JOptionPane.showMessageDialog(null, "Paciente eliminado satisfactoriamente", "INFORMATION", JOptionPane.INFORMATION_MESSAGE);
+		this.deletePatientOld1.clearFields();
+		this.switchToRemovePatientPanel();
+	}
 
     public void saveEditPatientAction(java.awt.event.ActionEvent evt) {
         Patient oldPatient = this.editPatient1.getOldPatient();
@@ -1137,6 +1269,36 @@ public class MainWindow extends javax.swing.JFrame {
 
     public void saveEditOfficeAction(java.awt.event.ActionEvent evt) {
     }
+
+	private void switchToRemovePatientPanel() {
+        if (this.hospital != null) {
+			if(!this.hospital.getPatients().isEmpty()){
+				this.deletePatientOld1.setHospital(hospital);
+				CardLayout card = (CardLayout) mainPanel.getLayout();
+				card.show(mainPanel, "removePatient");
+			}
+			else{
+				switchToInitPanel();
+				JOptionPane.showMessageDialog(null, "No se queda ningún paciente en el hospital.", "ERROR", JOptionPane.ERROR_MESSAGE);				
+			}
+        } else {
+			switchToInitPanel();
+            JOptionPane.showMessageDialog(null, "Por favor, cree un hospital primero.", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+	}
+
+	private void switchToInitPanel() {
+        if (this.hospital != null) {
+            this.aboutHospital1.setHospital(hospital);
+
+            CardLayout card = (CardLayout) mainPanel.getLayout();
+            card.show(mainPanel, "aboutHospital");
+        } else {
+            JOptionPane.showMessageDialog(null, "Por favor, cree un hosítal primero.", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+	}
+	
+	
 
     public void saveAssignRoom(java.awt.event.ActionEvent evt) {
         String rom = this.createNewRoomPanel.getSelectedRoom();

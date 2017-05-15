@@ -494,9 +494,9 @@ public class Hospital {
         if (idFounded >= 0) {
 
             ShowDoctor doctor = new ShowDoctor();
-
-            doctor.setFields(this.doctors.get(idFounded).getFirstName(), this.doctors.get(idFounded).getLastName(), this.doctors.get(idFounded).getLicence(), this.doctors.get(idFounded).getTelephone(), this.doctors.get(idFounded).getAddress(), this.doctors.get(idFounded).getEmail(), Integer.toString(this.doctors.get(idFounded).getAge()));
-
+            
+            doctor.setFields(this.doctors.get(idFounded).getFirstName() , this.doctors.get(idFounded).getLastName(), this.doctors.get(idFounded).getLicence(), this.doctors.get(idFounded).getTelephone(), this.doctors.get(idFounded).getAddress(), this.doctors.get(idFounded).getEmail(), Integer.toString(this.doctors.get(idFounded).getAge()), this.doctors.get(idFounded).getDepartment(), this.doctors.get(idFounded).getId());
+            
             doctor.setVisible(true);
 
             FrameWithCloseButton f = new FrameWithCloseButton();
@@ -506,6 +506,14 @@ public class Hospital {
             f.setVisible(true);
 
             f.setContent(doctor);
+            
+            doctor.getSaveButton().addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    Doctor p = doctor.getDoctor();
+                
+                    modifyDoctor(p);
+                }
+            });
         }
 
     }
@@ -773,6 +781,31 @@ public class Hospital {
             }
         }
         return validacion;
+    }
+    
+    private void modifyDoctor(Doctor newInfo){
+        for(int x = 0; x < this.doctors.size(); x++ ){
+            if(this.doctors.get(x).getId().equals(newInfo.getId())){
+                
+                this.doctors.get(x).setAddress(newInfo.getAddress());
+                
+                this.doctors.get(x).setFirstName(newInfo.getFirstName());
+                
+                this.doctors.get(x).setLastName(newInfo.getLastName());
+                
+                this.doctors.get(x).setAge(newInfo.getAge());
+                
+                this.doctors.get(x).setDepartment(newInfo.getDepartment());
+                
+                this.doctors.get(x).setEmail(newInfo.getEmail());
+                
+                this.doctors.get(x).setLicence(newInfo.getLicence());
+                
+                this.doctors.get(x).setTelephone(newInfo.getTelephone());
+                
+                
+            }
+        }
     }
 
     /**
