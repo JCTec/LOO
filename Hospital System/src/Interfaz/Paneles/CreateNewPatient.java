@@ -8,6 +8,7 @@ package Interfaz.Paneles;
 import Data.Infrastructure.Hospital;
 import Data.People.Patient;
 import Data.People.Person;
+import java.util.ArrayList;
 import javax.swing.JButton;
 
 /**
@@ -47,7 +48,6 @@ public class CreateNewPatient extends javax.swing.JPanel {
         deseaseLabel = new javax.swing.JLabel();
         statusLabel = new javax.swing.JLabel();
         roomIdLabel = new javax.swing.JLabel();
-        doctorsIdLabel = new javax.swing.JLabel();
         saveButton = new javax.swing.JButton();
         nameField = new javax.swing.JTextField();
         surnameField = new javax.swing.JTextField();
@@ -88,8 +88,6 @@ public class CreateNewPatient extends javax.swing.JPanel {
 
         roomIdLabel.setText("ID Habitación:");
 
-        doctorsIdLabel.setText("ID Doctor(es)");
-
         saveButton.setText("Guardar");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -101,39 +99,36 @@ public class CreateNewPatient extends javax.swing.JPanel {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(doctorsIdLabel)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(nameLabel)
-                                    .addComponent(surnameLabel)
-                                    .addComponent(ageLabel)
-                                    .addComponent(telphoneLabel)
-                                    .addComponent(addressLabel)
-                                    .addComponent(emialLabel)
-                                    .addComponent(NSSLabel)
-                                    .addComponent(highLabel)
-                                    .addComponent(deseaseLabel)
-                                    .addComponent(weightLabel)
-                                    .addComponent(statusLabel)
-                                    .addComponent(roomIdLabel))
-                                .addGap(56, 56, 56)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(weightField, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(ageField, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(telphoneField, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(emailField, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(deseaseField, javax.swing.GroupLayout.DEFAULT_SIZE, 272, Short.MAX_VALUE)
-                                    .addComponent(nssField)
-                                    .addComponent(highField, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(surnameField)
-                                    .addComponent(addressField)
-                                    .addComponent(nameField)
-                                    .addComponent(statusField, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(idRoomField, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addComponent(nameLabel)
+                            .addComponent(surnameLabel)
+                            .addComponent(ageLabel)
+                            .addComponent(telphoneLabel)
+                            .addComponent(addressLabel)
+                            .addComponent(emialLabel)
+                            .addComponent(NSSLabel)
+                            .addComponent(highLabel)
+                            .addComponent(deseaseLabel)
+                            .addComponent(weightLabel)
+                            .addComponent(statusLabel)
+                            .addComponent(roomIdLabel))
+                        .addGap(56, 56, 56)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(weightField, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ageField, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(telphoneField, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(emailField, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(deseaseField, javax.swing.GroupLayout.DEFAULT_SIZE, 272, Short.MAX_VALUE)
+                            .addComponent(nssField)
+                            .addComponent(highField, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(surnameField)
+                            .addComponent(addressField)
+                            .addComponent(nameField)
+                            .addComponent(statusField, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(idRoomField, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(167, 167, 167)
+                        .addGap(137, 137, 137)
                         .addComponent(saveButton)))
-                .addContainerGap(308, Short.MAX_VALUE))
+                .addContainerGap(96, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -186,28 +181,26 @@ public class CreateNewPatient extends javax.swing.JPanel {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(roomIdLabel)
                     .addComponent(idRoomField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21)
-                .addComponent(doctorsIdLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
                 .addComponent(saveButton)
-                .addGap(39, 39, 39))
+                .addGap(47, 47, 47))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(31, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(40, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -220,7 +213,6 @@ public class CreateNewPatient extends javax.swing.JPanel {
     private javax.swing.JLabel ageLabel;
     private javax.swing.JTextField deseaseField;
     private javax.swing.JLabel deseaseLabel;
-    private javax.swing.JLabel doctorsIdLabel;
     private javax.swing.JTextField emailField;
     private javax.swing.JLabel emialLabel;
     private javax.swing.JTextField highField;
@@ -297,4 +289,6 @@ public class CreateNewPatient extends javax.swing.JPanel {
         this.statusField.setText("");
         this.ageField.setText("");
     }
+    
+  
 }

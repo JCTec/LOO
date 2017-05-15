@@ -16,19 +16,19 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="1" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jPanel2" max="32767" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="31" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="1" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jPanel2" max="32767" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="40" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -55,46 +55,41 @@
                       <Group type="102" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="doctorsIdLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="nameLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="surnameLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="ageLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="telphoneLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="addressLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="emialLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="NSSLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="highLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="deseaseLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="weightLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="statusLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="roomIdLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="weightField" min="-2" pref="91" max="-2" attributes="0"/>
-                                      <Component id="ageField" min="-2" pref="99" max="-2" attributes="0"/>
-                                      <Component id="telphoneField" alignment="0" min="-2" pref="157" max="-2" attributes="0"/>
-                                      <Component id="emailField" alignment="0" min="-2" pref="216" max="-2" attributes="0"/>
-                                      <Component id="deseaseField" alignment="0" pref="272" max="32767" attributes="0"/>
-                                      <Component id="nssField" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="highField" min="-2" pref="99" max="-2" attributes="0"/>
-                                      <Component id="surnameField" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="addressField" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="nameField" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="statusField" alignment="0" min="-2" pref="216" max="-2" attributes="0"/>
-                                      <Component id="idRoomField" alignment="0" min="-2" pref="144" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
+                              <Component id="nameLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="surnameLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="ageLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="telphoneLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="addressLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="emialLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="NSSLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="highLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="deseaseLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="weightLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="statusLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="roomIdLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="weightField" min="-2" pref="91" max="-2" attributes="0"/>
+                              <Component id="ageField" min="-2" pref="99" max="-2" attributes="0"/>
+                              <Component id="telphoneField" alignment="0" min="-2" pref="157" max="-2" attributes="0"/>
+                              <Component id="emailField" alignment="0" min="-2" pref="216" max="-2" attributes="0"/>
+                              <Component id="deseaseField" alignment="0" pref="272" max="32767" attributes="0"/>
+                              <Component id="nssField" alignment="0" max="32767" attributes="0"/>
+                              <Component id="highField" min="-2" pref="99" max="-2" attributes="0"/>
+                              <Component id="surnameField" alignment="0" max="32767" attributes="0"/>
+                              <Component id="addressField" alignment="0" max="32767" attributes="0"/>
+                              <Component id="nameField" alignment="0" max="32767" attributes="0"/>
+                              <Component id="statusField" alignment="0" min="-2" pref="216" max="-2" attributes="0"/>
+                              <Component id="idRoomField" alignment="0" min="-2" pref="144" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="167" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="137" max="-2" attributes="0"/>
                           <Component id="saveButton" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="308" max="32767" attributes="0"/>
+                  <EmptySpace pref="96" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -161,11 +156,9 @@
                       <Component id="roomIdLabel" min="-2" max="-2" attributes="0"/>
                       <Component id="idRoomField" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-                  <Component id="doctorsIdLabel" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="69" max="32767" attributes="0"/>
+                  <EmptySpace pref="57" max="32767" attributes="0"/>
                   <Component id="saveButton" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -229,11 +222,6 @@
         <Component class="javax.swing.JLabel" name="roomIdLabel">
           <Properties>
             <Property name="text" type="java.lang.String" value="ID Habitaci&#xf3;n:"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="doctorsIdLabel">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="ID Doctor(es)"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="saveButton">
