@@ -15,10 +15,6 @@ import javax.swing.JOptionPane;
  * @author alanp
  */
 public class CreateNewDoctorsOffice extends javax.swing.JPanel {
-
-    protected float monthlyRent;
-    protected String idDoctor;
-    protected int floor;
     /**
      * Creates new form CreateNewDoctorsOffice
      */
@@ -130,38 +126,7 @@ public class CreateNewDoctorsOffice extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
-        // TODO add your handling code here:
-        if(!this.idDoctorField.getText().isEmpty() && !this.monthlyRentField.getText().isEmpty()){
-            String pattern = "^[1-9][0-9]{3}$";
-		Pattern r = Pattern.compile(pattern);
-		Matcher m = r.matcher(idDoctorField.getText());
-		//Validación ID
-		if(m.find())
-			this.idDoctor = idDoctorField.getText();			
-		else
-			JOptionPane.showMessageDialog(null, "ID Inválido", "ERROR.", JOptionPane.ERROR_MESSAGE);
-            //Validación renta mensual    
-            try{
-                if(Float.parseFloat(this.monthlyRentField.getText())>0)
-                    this.monthlyRent = Float.parseFloat(this.monthlyRentField.getText());
-                else
-                    JOptionPane.showMessageDialog(null, "Número Inválido. Favor de escribir un valor positivo en renta mensual.", "ERROR.", JOptionPane.ERROR_MESSAGE);
-            }catch(NumberFormatException nfe){
-                JOptionPane.showMessageDialog(null, "Favor de escribir un valor numérico en renta mensual.", "ERROR.", JOptionPane.ERROR_MESSAGE);
-            }
-            //Validación piso
-            try{
-                if(Integer.parseInt(this.floorField.getText())>0)
-                    this.floor = Integer.parseInt(this.floorField.getText());
-                else
-                    JOptionPane.showMessageDialog(null, "Número Inválido. Favor de escribir un valor positivo en piso.", "ERROR.", JOptionPane.ERROR_MESSAGE);
-            }catch(NumberFormatException nfe){
-                JOptionPane.showMessageDialog(null, "Favor de escribir un valor numérico en piso.", "ERROR.", JOptionPane.ERROR_MESSAGE);
-            }
-                
-        }
-        else if(this.monthlyRentField.getText().isEmpty() || this.floorField.getText().isEmpty())
-            JOptionPane.showMessageDialog(null, "Favor de no dejar los espacios de renta mensual y piso en blanco.", "ERROR.", JOptionPane.ERROR_MESSAGE);
+
     }//GEN-LAST:event_saveButtonActionPerformed
 
 
@@ -177,9 +142,24 @@ public class CreateNewDoctorsOffice extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
 	public DoctorsOffice getOffice() {
-		
-		DoctorsOffice o = new DoctorsOffice(5, floor, monthlyRent);
-		return o;
+		DoctorsOffice dof = null;
+                if(idDoctorField.getText().isEmpty() && !this.floorField.getText().isEmpty() && !this.monthlyRentField.getText().isEmpty()){
+                    dof = new DoctorsOffice(
+                            Integer.parseInt(this.floorField.getText()),
+                            Float.parseFloat(this.monthlyRentField.getText())
+                    );
+                }
+                else if(!idDoctorField.getText().isEmpty() && !this.floorField.getText().isEmpty() && !this.monthlyRentField.getText().isEmpty()){
+                    dof = new DoctorsOffice(
+                            Integer.parseInt(this.floorField.getText()),
+                            Float.parseFloat(this.monthlyRentField.getText()),
+                            this.idDoctorField.getText()
+                    );
+                }
+                else if(this.floorField.getText().isEmpty() || this.monthlyRentField.getText().isEmpty())
+                    JOptionPane.showMessageDialog(null, "Por favor, no deje el espacio de Piso y/o el de Renta Mensual en blanco.", "ERROR", JOptionPane.ERROR_MESSAGE);
+                
+                return dof;
 	}
 
 	public javax.swing.JButton getSaveButton() {
