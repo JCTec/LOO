@@ -140,7 +140,7 @@ public class DeleteDoctor extends javax.swing.JPanel {
                     .addComponent(fieldDepartment)
                     .addGroup(jpanelLayout.createSequentialGroup()
                         .addComponent(deleteButton)
-                        .addGap(0, 343, Short.MAX_VALUE))
+                        .addGap(0, 349, Short.MAX_VALUE))
                     .addComponent(fieldLicence))
                 .addContainerGap())
         );
@@ -185,7 +185,7 @@ public class DeleteDoctor extends javax.swing.JPanel {
                     .addComponent(fieldLicence, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(44, 44, 44)
                 .addComponent(deleteButton)
-                .addContainerGap(91, Short.MAX_VALUE))
+                .addContainerGap(97, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -193,15 +193,13 @@ public class DeleteDoctor extends javax.swing.JPanel {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jpanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jpanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -261,7 +259,7 @@ public class DeleteDoctor extends javax.swing.JPanel {
 	}
 
 	public void setHospital(Hospital hospital){	
-                this.hospital = hospital;
+		this.hospital = hospital;
 		int doctorNumber = hospital.getDoctors().size();
 		String[] items = new String[doctorNumber];
 		for(int i = 0 ; i < doctorNumber ; i++){

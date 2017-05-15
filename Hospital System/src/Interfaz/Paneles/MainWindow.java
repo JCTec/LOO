@@ -105,6 +105,7 @@ public class MainWindow extends javax.swing.JFrame {
         editDoctor = new javax.swing.JPanel();
         editDoctor1 = new Interfaz.Paneles.EditDoctor();
         removePatient = new javax.swing.JPanel();
+        deletePatientOld1 = new Interfaz.Paneles.DeletePatientOld();
         removeOffice = new javax.swing.JPanel();
         removeDoctor = new javax.swing.JPanel();
         removeDoctorPanel = new Interfaz.Paneles.DeleteDoctor();
@@ -298,11 +299,17 @@ public class MainWindow extends javax.swing.JFrame {
         removePatient.setLayout(removePatientLayout);
         removePatientLayout.setHorizontalGroup(
             removePatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 901, Short.MAX_VALUE)
+            .addGroup(removePatientLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(deletePatientOld1, javax.swing.GroupLayout.DEFAULT_SIZE, 903, Short.MAX_VALUE)
+                .addContainerGap())
         );
         removePatientLayout.setVerticalGroup(
             removePatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 724, Short.MAX_VALUE)
+            .addGroup(removePatientLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(deletePatientOld1, javax.swing.GroupLayout.DEFAULT_SIZE, 725, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         mainPanel.add(removePatient, "removePatient");
@@ -646,12 +653,7 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_menuEditPatientActionPerformed
     //Botón menú Eliminar Paciente
     private void menuRemovePatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuRemovePatientActionPerformed
-        if (this.hospital != null) {
-            CardLayout card = (CardLayout) mainPanel.getLayout();
-            card.show(mainPanel, "removePatient");
-        } else {
-            JOptionPane.showMessageDialog(null, "Por favor, cree un hospital primero.", "ERROR", JOptionPane.ERROR_MESSAGE);
-        }
+		this.switchToRemovePatientPanel();
     }//GEN-LAST:event_menuRemovePatientActionPerformed
     //Botón menú Reportar Doctor
     private void menuReportDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuReportDoctorActionPerformed
@@ -667,15 +669,7 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_menuReportDoctorActionPerformed
     //Botón menú Acerca De
     private void menuAboutHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuAboutHospitalActionPerformed
-
-        if (this.hospital != null) {
-            this.aboutHospital1.setHospital(hospital);
-
-            CardLayout card = (CardLayout) mainPanel.getLayout();
-            card.show(mainPanel, "aboutHospital");
-        } else {
-            JOptionPane.showMessageDialog(null, "Por favor, cree un hosítal primero.", "ERROR", JOptionPane.ERROR_MESSAGE);
-        }
+		switchToInitPanel();
     }//GEN-LAST:event_menuAboutHospitalActionPerformed
     //Botón menú Editar Hospital
     private void menuEditHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuEditHospitalActionPerformed
@@ -761,6 +755,7 @@ public class MainWindow extends javax.swing.JFrame {
     private Interfaz.Paneles.CreateNewDoctorsOffice createNewDoctorsOffice1;
     private Interfaz.Paneles.CreateNewHospital createNewHospitalForm;
     private Interfaz.Paneles.CreateNewPatient createNewPatient1;
+    private Interfaz.Paneles.DeletePatientOld deletePatientOld1;
     private javax.swing.JPanel editDoctor;
     private Interfaz.Paneles.EditDoctor editDoctor1;
     private javax.swing.JPanel editHospital;
@@ -877,6 +872,11 @@ public class MainWindow extends javax.swing.JFrame {
 			}
 		});
         
+		this.deletePatientOld1.getSaveButton().addActionListener(new java.awt.event.ActionListener(){
+			public void actionPerformed(java.awt.event.ActionEvent evt){
+				saveDeletePatientAction(evt);
+			}
+		});
 
         //Crear Consultorio
         this.createNewDoctorsOffice1.getSaveButton().addActionListener(new java.awt.event.ActionListener() {
@@ -1063,6 +1063,14 @@ public class MainWindow extends javax.swing.JFrame {
 		oldPatient.setStatus(newPatient.getStatus());
 			
 	}
+	
+	public void saveDeletePatientAction(java.awt.event.ActionEvent evt){
+		int eliminatedPatientIndex = this.deletePatientOld1.getDeletedPatientIndex();
+		this.hospital.getPatients().remove(eliminatedPatientIndex);
+		JOptionPane.showMessageDialog(null, "Paciente eliminado satisfactoriamente", "INFORMATION", JOptionPane.INFORMATION_MESSAGE);
+		this.deletePatientOld1.clearFields();
+		this.switchToRemovePatientPanel();
+	}
 
     public void saveNewOfficeAction(java.awt.event.ActionEvent evt) {
         DoctorsOffice dof = this.createNewDoctorsOffice1.getOffice();
@@ -1073,6 +1081,34 @@ public class MainWindow extends javax.swing.JFrame {
 
     public void saveEditOfficeAction(java.awt.event.ActionEvent evt) {
     }
+
+	private void switchToRemovePatientPanel() {
+        if (this.hospital != null) {
+			if(!this.hospital.getPatients().isEmpty()){
+				this.deletePatientOld1.setHospital(hospital);
+				CardLayout card = (CardLayout) mainPanel.getLayout();
+				card.show(mainPanel, "removePatient");
+			}
+			else{
+				switchToInitPanel();
+				JOptionPane.showMessageDialog(null, "No se queda ningún paciente en el hospital.", "ERROR", JOptionPane.ERROR_MESSAGE);				
+			}
+        } else {
+			switchToInitPanel();
+            JOptionPane.showMessageDialog(null, "Por favor, cree un hospital primero.", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+	}
+
+	private void switchToInitPanel() {
+        if (this.hospital != null) {
+            this.aboutHospital1.setHospital(hospital);
+
+            CardLayout card = (CardLayout) mainPanel.getLayout();
+            card.show(mainPanel, "aboutHospital");
+        } else {
+            JOptionPane.showMessageDialog(null, "Por favor, cree un hosítal primero.", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+	}
 	
 	
 }
