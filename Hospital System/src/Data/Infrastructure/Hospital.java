@@ -330,6 +330,10 @@ public class Hospital {
             this.offices.add(newOffice);
         }
     }
+    
+    public void addDoctorOffice(DoctorsOffice dof){
+        this.offices.add(dof);
+    }
 
     /**
      * Segundo método para agregar un consultorio vacío

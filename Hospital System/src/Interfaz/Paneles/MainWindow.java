@@ -1064,7 +1064,7 @@ public class MainWindow extends javax.swing.JFrame {
 
     public void saveNewOfficeAction(java.awt.event.ActionEvent evt) {
         DoctorsOffice dof = this.createNewDoctorsOffice1.getOffice();
-        this.hospital.addDoctorOffice(dof.getFloor(), dof.getMonthlyRent());
+        this.hospital.addDoctorOffice(dof);
         JOptionPane.showMessageDialog(null, "Consultorio creado satisfactoriamente", "INFORMATION", JOptionPane.INFORMATION_MESSAGE);
         this.createNewDoctorsOffice1.clearFields();
     }
