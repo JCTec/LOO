@@ -7,11 +7,8 @@ package Interfaz.Paneles;
 
 import Data.Infrastructure.Hospital;
 import Data.People.Doctor;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -217,7 +214,7 @@ public class EditDoctor extends javax.swing.JPanel {
 	}
 
 	public void setHospital(Hospital hospital){	
-                this.hospital = hospital;
+		this.hospital = hospital;
 		int doctorNumber = hospital.getDoctors().size();
 		String[] items = new String[doctorNumber];
 		for(int i = 0 ; i < doctorNumber ; i++){
