@@ -94,9 +94,8 @@
                                       <Component id="deseaseLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="weightLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="statusLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="roomIdLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="96" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
                                   <Component id="jScrollPane3" max="32767" attributes="0"/>
@@ -115,7 +114,6 @@
                               <Component id="highField" alignment="0" max="32767" attributes="0"/>
                               <Component id="weightField" alignment="0" max="32767" attributes="0"/>
                               <Component id="statusField" alignment="0" max="32767" attributes="0"/>
-                              <Component id="idRoomField" alignment="0" max="32767" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="doctorToPatientButton" min="-2" max="-2" attributes="0"/>
@@ -203,20 +201,15 @@
                       <Component id="statusLabel" min="-2" max="-2" attributes="0"/>
                       <Component id="statusField" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="roomIdLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="idRoomField" alignment="0" min="-2" max="-2" attributes="0"/>
-                  </Group>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="88" max="-2" attributes="0"/>
                                   <Component id="saveButton" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="114" max="-2" attributes="0"/>
                                   <Component id="doctorToOtherButton" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -224,7 +217,7 @@
                           <Component id="doctorToPatientButton" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -297,11 +290,6 @@
             <Property name="text" type="java.lang.String" value="Estatus:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="roomIdLabel">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="ID Habitaci&#xf3;n:"/>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JButton" name="saveButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Guardar"/>
@@ -328,8 +316,6 @@
         <Component class="javax.swing.JTextField" name="deseaseField">
         </Component>
         <Component class="javax.swing.JTextField" name="statusField">
-        </Component>
-        <Component class="javax.swing.JTextField" name="idRoomField">
         </Component>
         <Container class="javax.swing.JScrollPane" name="jScrollPane2">
           <AuxValues>

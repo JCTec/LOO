@@ -31,8 +31,7 @@ public class CreateNewDoctor extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        labelID = new javax.swing.JLabel();
-        labelDepartment = new javax.swing.JLabel();
+        departmentLabel = new javax.swing.JLabel();
         labelName = new javax.swing.JLabel();
         labelSurname = new javax.swing.JLabel();
         labelAge = new javax.swing.JLabel();
@@ -46,16 +45,13 @@ public class CreateNewDoctor extends javax.swing.JPanel {
         fieldAddress = new javax.swing.JTextField();
         fieldTelephone = new javax.swing.JTextField();
         fieldEmail = new javax.swing.JTextField();
-        fieldID = new javax.swing.JTextField();
         fieldDepartment = new javax.swing.JTextField();
         fieldLicence = new javax.swing.JTextField();
         saveButton = new javax.swing.JButton();
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Create Doctor"));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Guardar Doctor"));
 
-        labelID.setText("Doctor ID:");
-
-        labelDepartment.setText("Department:");
+        departmentLabel.setText("Departamento:");
 
         labelName.setText("Name:");
 
@@ -69,9 +65,9 @@ public class CreateNewDoctor extends javax.swing.JPanel {
 
         labelEmail.setText("E-mail:");
 
-        labelLicence.setText("Licence:");
+        labelLicence.setText("Matrícula:");
 
-        saveButton.setText("Save");
+        saveButton.setText("Guardar");
         saveButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 saveButtonActionPerformed(evt);
@@ -90,33 +86,34 @@ public class CreateNewDoctor extends javax.swing.JPanel {
                             .addComponent(labelName)
                             .addComponent(labelSurname)
                             .addComponent(labelAge))
-                        .addGap(100, 100, 100)
+                        .addGap(95, 95, 95)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(fieldSurname, javax.swing.GroupLayout.DEFAULT_SIZE, 322, Short.MAX_VALUE)
-                            .addComponent(fieldName, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(fieldAge, javax.swing.GroupLayout.Alignment.TRAILING)))
+                            .addComponent(fieldSurname)
+                            .addComponent(fieldAge)
+                            .addComponent(fieldName)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(154, 154, 154)
+                        .addComponent(saveButton)
+                        .addGap(0, 246, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(labelTelephone)
                             .addComponent(labelEmail)
                             .addComponent(labelAddress)
-                            .addComponent(labelID)
-                            .addComponent(labelDepartment))
-                        .addGap(80, 80, 80)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(fieldDepartment)
-                            .addComponent(fieldTelephone, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(fieldEmail)
-                            .addComponent(fieldID)
-                            .addComponent(fieldAddress)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(labelLicence)
-                        .addGap(107, 107, 107)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(departmentLabel)
+                            .addComponent(labelLicence))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(saveButton)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(fieldLicence))))
+                                .addGap(66, 66, 66)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(fieldTelephone, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(fieldAddress)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                .addGap(68, 68, 68)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(fieldLicence, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(fieldEmail, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(fieldDepartment))))))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -148,19 +145,15 @@ public class CreateNewDoctor extends javax.swing.JPanel {
                     .addComponent(fieldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelID)
-                    .addComponent(fieldID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelDepartment)
+                    .addComponent(departmentLabel)
                     .addComponent(fieldDepartment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelLicence)
                     .addComponent(fieldLicence, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(33, 33, 33)
                 .addComponent(saveButton)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -187,11 +180,11 @@ public class CreateNewDoctor extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel departmentLabel;
     private javax.swing.JTextField fieldAddress;
     private javax.swing.JTextField fieldAge;
     private javax.swing.JTextField fieldDepartment;
     private javax.swing.JTextField fieldEmail;
-    private javax.swing.JTextField fieldID;
     private javax.swing.JTextField fieldLicence;
     private javax.swing.JTextField fieldName;
     private javax.swing.JTextField fieldSurname;
@@ -199,9 +192,7 @@ public class CreateNewDoctor extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel labelAddress;
     private javax.swing.JLabel labelAge;
-    private javax.swing.JLabel labelDepartment;
     private javax.swing.JLabel labelEmail;
-    private javax.swing.JLabel labelID;
     private javax.swing.JLabel labelLicence;
     private javax.swing.JLabel labelName;
     private javax.swing.JLabel labelSurname;
@@ -221,7 +212,7 @@ public class CreateNewDoctor extends javax.swing.JPanel {
 			fieldEmail.getText(),
 			fieldTelephone.getText(),
 			Integer.parseInt(fieldAge.getText()),
-			fieldID.getText(),
+			fieldDepartment.getText(),
 			fieldDepartment.getText(),
 			fieldLicence.getText()
 		);
@@ -233,7 +224,7 @@ public class CreateNewDoctor extends javax.swing.JPanel {
 		fieldAge.setText("");
 		fieldDepartment.setText("");
 		fieldEmail.setText("");
-		fieldID.setText("");
+		fieldDepartment.setText("");
 		fieldLicence.setText("");
 		fieldName.setText("");
 		fieldSurname.setText("");

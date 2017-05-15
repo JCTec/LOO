@@ -134,12 +134,17 @@ private String[] columnNames = {"ID Habitacion","Paciente"};
 public void setData(Hospital H){
         
         this.model = (DefaultTableModel) this.informationTable.getModel();
-
+        
         for (int x = 0; x < H.getRooms().size(); x++) {
             this.data[0] = Integer.toString(H.getRooms().get(x).getRoomID());
-            this.data[1] = H.getPatients().get(Integer.parseInt(H.findPatientBySecurityNumber(H.getRooms().get(x).getPatientID()))).getFirstName()
-            + " "+ H.getPatients().get(Integer.parseInt(H.findPatientBySecurityNumber(H.getRooms().get(x).getPatientID()))).getLastName()
-            + " "+H.getPatients().get(Integer.parseInt(H.findPatientBySecurityNumber(H.getRooms().get(x).getPatientID()))).getSecurityNumber();
+            if(H.getRooms().get(x).getPatientID().equals("NOT DEFINED"))
+                this.data[1] = "Ningún paciente en esta habitación";
+            else{
+                this.data[1] = H.getPatients().get(Integer.parseInt(H.findPatientBySecurityNumber(H.getRooms().get(x).getPatientID()))).getFirstName()
+                + " "+ H.getPatients().get(Integer.parseInt(H.findPatientBySecurityNumber(H.getRooms().get(x).getPatientID()))).getLastName()
+                + " "+ H.getPatients().get(Integer.parseInt(H.findPatientBySecurityNumber(H.getRooms().get(x).getPatientID()))).getSecurityNumber();
+            }
+           
             this.model.insertRow(this.model.getRowCount(), this.data);
         }
 

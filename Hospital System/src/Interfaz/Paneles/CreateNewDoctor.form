@@ -38,7 +38,7 @@
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-            <TitledBorder title="Create Doctor"/>
+            <TitledBorder title="Guardar Doctor"/>
           </Border>
         </Property>
       </Properties>
@@ -55,39 +55,42 @@
                               <Component id="labelSurname" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="labelAge" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="100" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="fieldSurname" pref="322" max="32767" attributes="0"/>
-                              <Component id="fieldName" alignment="1" max="32767" attributes="0"/>
-                              <Component id="fieldAge" alignment="1" max="32767" attributes="0"/>
+                              <Component id="fieldSurname" max="32767" attributes="0"/>
+                              <Component id="fieldAge" max="32767" attributes="0"/>
+                              <Component id="fieldName" max="32767" attributes="0"/>
                           </Group>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="154" max="-2" attributes="0"/>
+                          <Component id="saveButton" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="246" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="labelTelephone" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="labelEmail" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="labelAddress" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="labelID" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="labelDepartment" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="departmentLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelLicence" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="fieldDepartment" max="32767" attributes="0"/>
-                              <Component id="fieldTelephone" alignment="1" max="32767" attributes="0"/>
-                              <Component id="fieldEmail" alignment="0" max="32767" attributes="0"/>
-                              <Component id="fieldID" max="32767" attributes="0"/>
-                              <Component id="fieldAddress" alignment="0" max="32767" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="labelLicence" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="107" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" groupAlignment="1" attributes="0">
                               <Group type="102" attributes="0">
-                                  <Component id="saveButton" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="fieldTelephone" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="fieldAddress" max="32767" attributes="0"/>
+                                  </Group>
                               </Group>
-                              <Component id="fieldLicence" max="32767" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="fieldLicence" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="fieldEmail" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="fieldDepartment" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
                           </Group>
                       </Group>
                   </Group>
@@ -130,35 +133,25 @@
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="labelID" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="fieldID" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="labelDepartment" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="departmentLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="fieldDepartment" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="labelLicence" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="fieldLicence" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                   <Component id="saveButton" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="16" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="labelID">
+        <Component class="javax.swing.JLabel" name="departmentLabel">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Doctor ID:"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="labelDepartment">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Department:"/>
+            <Property name="text" type="java.lang.String" value="Departamento:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="labelName">
@@ -193,7 +186,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="labelLicence">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Licence:"/>
+            <Property name="text" type="java.lang.String" value="Matr&#xed;cula:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="fieldName">
@@ -208,15 +201,13 @@
         </Component>
         <Component class="javax.swing.JTextField" name="fieldEmail">
         </Component>
-        <Component class="javax.swing.JTextField" name="fieldID">
-        </Component>
         <Component class="javax.swing.JTextField" name="fieldDepartment">
         </Component>
         <Component class="javax.swing.JTextField" name="fieldLicence">
         </Component>
         <Component class="javax.swing.JButton" name="saveButton">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Save"/>
+            <Property name="text" type="java.lang.String" value="Guardar"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="saveButtonActionPerformed"/>

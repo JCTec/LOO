@@ -50,7 +50,7 @@ public class Room {
     }
 
     /**
-     * patientID será "undefined patientID" roomID será 0
+     * patientID será "NOT DEFINED" roomID será 0
      */
     public Room() {
         this.patientID = "NOT DEFINED";
@@ -117,7 +117,7 @@ public class Room {
      */
     public void setPatientID(String patientID) throws NotValidNumber {
         if (patientID.length() == 11) {
-            if(this.patientID.isEmpty())
+            if(this.patientID.equals("NOT DEFINED"))
                 this.patientID = patientID;
             else
                 JOptionPane.showMessageDialog(null, "Ya hay un paciente asignado (" + this.patientID+")", "ERROR", JOptionPane.ERROR_MESSAGE);

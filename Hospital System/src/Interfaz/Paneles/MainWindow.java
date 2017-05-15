@@ -1314,7 +1314,6 @@ public class MainWindow extends javax.swing.JFrame {
     public void saveAssignRoom(java.awt.event.ActionEvent evt) {
         String rom = this.createNewRoomPanel.getSelectedRoom();
         String pat = this.createNewRoomPanel.getSelectedPatient();
-        System.out.print(rom+" "+pat);
         this.hospital.assignRoomToPatient(pat, rom);
         JOptionPane.showMessageDialog(null, "Asignación Satisfactoria", "INFORMATION", JOptionPane.INFORMATION_MESSAGE);
     }

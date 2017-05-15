@@ -302,7 +302,6 @@ public class Hospital {
      */
     public String findPatientBySecurityNumber(String securityNumber) {
         String securityNumberFounded = "";
-
         for (int i = 0; i < this.patients.size(); i++) {
             if (securityNumber.equals(this.patients.get(i).getSecurityNumber())) {
                 securityNumberFounded = String.valueOf(i);
@@ -310,7 +309,7 @@ public class Hospital {
             }
         }
         if (securityNumberFounded.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Paciente no encontrado, revise el Numero de Seguridad Social", "ERROR", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Paciente no encontrado, revise el Numero de Seguro Social", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
         return securityNumberFounded;
     }
@@ -663,10 +662,10 @@ public class Hospital {
      */
     public void assignRoomToPatient(String securityNumber, String roomId) {
         String securityNumberFounded = this.findPatientBySecurityNumber(securityNumber);
-
         if (!securityNumberFounded.isEmpty()) {
             try {
                 this.patients.get(Integer.valueOf(securityNumberFounded)).setRoomID(roomId);
+                this.rooms.get(Integer.valueOf(securityNumberFounded)).setPatientID(securityNumber);
             } catch (NotValidNumber error) {
                 JOptionPane.showMessageDialog(null, error.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
             }
