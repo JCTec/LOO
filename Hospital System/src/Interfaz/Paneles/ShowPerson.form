@@ -216,7 +216,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="IDDoctores">
           <Properties>
-            <Property name="text" type="java.lang.String" value="ID Doctore"/>
+            <Property name="text" type="java.lang.String" value="ID Doctores"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel13">

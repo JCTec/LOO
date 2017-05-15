@@ -82,7 +82,7 @@ public class ShowPerson extends javax.swing.JPanel {
 
         IDHabitacion.setText("ID Habitación");
 
-        IDDoctores.setText("ID Doctore");
+        IDDoctores.setText("ID Doctores");
 
         jLabel13.setText("Estatus");
 
