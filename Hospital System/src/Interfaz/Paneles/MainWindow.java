@@ -120,6 +120,8 @@ public class MainWindow extends javax.swing.JFrame {
         reportPatientPanel = new Interfaz.Paneles.ReportPatient();
         assignRoom = new javax.swing.JPanel();
         createNewRoomPanel = new Interfaz.Paneles.CreateNewRoom();
+        reportRoom = new javax.swing.JPanel();
+        reportRoomPanel = new Interfaz.Paneles.ReportRoom();
         menuBar = new javax.swing.JMenuBar();
         save = new javax.swing.JMenu();
         menuHospital = new javax.swing.JMenu();
@@ -447,6 +449,25 @@ public class MainWindow extends javax.swing.JFrame {
 
         mainPanel.add(assignRoom, "assignRoom");
 
+        javax.swing.GroupLayout reportRoomLayout = new javax.swing.GroupLayout(reportRoom);
+        reportRoom.setLayout(reportRoomLayout);
+        reportRoomLayout.setHorizontalGroup(
+            reportRoomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(reportRoomLayout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(reportRoomPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 861, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(43, Short.MAX_VALUE))
+        );
+        reportRoomLayout.setVerticalGroup(
+            reportRoomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(reportRoomLayout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addComponent(reportRoomPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 571, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(148, Short.MAX_VALUE))
+        );
+
+        mainPanel.add(reportRoom, "reportRoom");
+
         save.setText("Guardar");
         save.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -511,6 +532,11 @@ public class MainWindow extends javax.swing.JFrame {
         menuRoom.add(menuAssignRoom);
 
         menuSearchRoom.setText("Buscar");
+        menuSearchRoom.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuSearchRoomActionPerformed(evt);
+            }
+        });
         menuRoom.add(menuSearchRoom);
 
         menuBar.add(menuRoom);
@@ -768,6 +794,21 @@ public class MainWindow extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_menuAssignRoomActionPerformed
 
+    private void menuSearchRoomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuSearchRoomActionPerformed
+        // TODO add your handling code here:
+         if (this.hospital != null) {
+            if (!this.hospital.getRooms().isEmpty()) {
+                CardLayout card = (CardLayout) mainPanel.getLayout();
+                card.show(mainPanel, "reportRoom");
+                this.reportRoomPanel.setData(this.hospital);
+            } else {
+                JOptionPane.showMessageDialog(null, "Por favor, cree una habitación primero.", "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Por favor, cree un hospital primero.", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_menuSearchRoomActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -813,8 +854,8 @@ public class MainWindow extends javax.swing.JFrame {
     private Interfaz.Paneles.CreateNewDoctorsOffice createNewDoctorsOffice1;
     private Interfaz.Paneles.CreateNewHospital createNewHospitalForm;
     private Interfaz.Paneles.CreateNewPatient createNewPatient1;
-    private Interfaz.Paneles.DeletePatientOld deletePatientOld1;
     private Interfaz.Paneles.CreateNewRoom createNewRoomPanel;
+    private Interfaz.Paneles.DeletePatientOld deletePatientOld1;
     private javax.swing.JPanel editDoctor;
     private Interfaz.Paneles.EditDoctor editDoctor1;
     private javax.swing.JPanel editHospital;
@@ -859,6 +900,8 @@ public class MainWindow extends javax.swing.JFrame {
     private Interfaz.Paneles.ReportOffices reportOfficesPanel;
     private javax.swing.JPanel reportPatient;
     private Interfaz.Paneles.ReportPatient reportPatientPanel;
+    private javax.swing.JPanel reportRoom;
+    private Interfaz.Paneles.ReportRoom reportRoomPanel;
     private javax.swing.JMenu save;
     // End of variables declaration//GEN-END:variables
 
@@ -960,6 +1003,8 @@ public class MainWindow extends javax.swing.JFrame {
                 saveAssignRoom(evt);
             }
         });
+        
+        
     }
 
     public void modifyDoctor(String ID) {
