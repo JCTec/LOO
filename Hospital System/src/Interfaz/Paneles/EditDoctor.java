@@ -7,11 +7,8 @@ package Interfaz.Paneles;
 
 import Data.Infrastructure.Hospital;
 import Data.People.Doctor;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
-import javax.swing.JOptionPane;
 
 /**
  *
