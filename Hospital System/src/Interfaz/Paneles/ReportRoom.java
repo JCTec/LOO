@@ -24,6 +24,7 @@ import javax.swing.table.TableRowSorter;
  */
 public class ReportRoom extends javax.swing.JPanel {
 
+    private boolean set;
     /**
      * Creates new form RemoveRoom
      */
@@ -132,7 +133,7 @@ private String[] columnNames = {"ID Habitacion","Paciente"};
     // End of variables declaration//GEN-END:variables
 
 public void setData(Hospital H){
-        
+        this.set = true;
         this.model = (DefaultTableModel) this.informationTable.getModel();
         
         for (int x = 0; x < H.getRooms().size(); x++) {
@@ -186,5 +187,17 @@ public void setData(Hospital H){
 
         this.informationTable.setRowSorter(this.rowSorter);
 
+    }
+
+ public void delete(){
+        if(set){
+            if(informationTable != null && this.model != null){
+                this.informationTable.setRowSorter(null);
+            
+                for (int i = this.model.getRowCount() - 1; i >= 0; i--) {
+                    this.model.removeRow(i);
+                }
+            }
+        }
     }
 }

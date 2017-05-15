@@ -293,7 +293,7 @@ public class Patient extends Person {
      * @throws NotValidNumber
      */
     public void setRoomID(int roomID) throws NotValidNumber{
-        if(roomID>0)
+        if(roomID>=0)
             this.roomID = roomID;
         else
             throw new NotValidNumber();
