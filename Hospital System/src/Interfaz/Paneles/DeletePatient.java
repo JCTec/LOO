@@ -5,13 +5,17 @@
  */
 
 package Interfaz.Paneles;
-
+import Data.Infrastructure.Hospital;
+import Data.People.Patient;
+import javax.swing.JButton;
 /**
  *
  * @author alanp
  */
 public class DeletePatient extends javax.swing.JPanel {
 
+    private Hospital H;
+    private Patient deletedPatient;
     /** Creates new form DeletePatient */
     public DeletePatient() {
         initComponents();
@@ -113,6 +117,20 @@ public class DeletePatient extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+     public JButton getDeleteButton() {
+		return this.deleteButton;
+	}
+     
+     public void setHospital(Hospital hospital){	
+                this.H = hospital;
+		int patientNumber = hospital.getPatients().size();
+		String[] items = new String[patientNumber];
+		for(int i = 0 ; i < patientNumber ; i++){
+			Patient patient = hospital.getPatients().get(i);
+			items[i] = patient.getSecurityNumber() + " " + patient.getFirstName() + " " + patient.getLastName();
+		}
+		
+	}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton deleteButton;

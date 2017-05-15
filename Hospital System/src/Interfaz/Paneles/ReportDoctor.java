@@ -87,11 +87,24 @@ public class ReportDoctor extends javax.swing.JPanel {
 
         });
         
-        this.doctorsTable.setRowSorter(this.rowSorter);
+
     }
     
     public JTable getTable(){
-        return this.doctorsTable;
+        
+    
+    
+        this.doctorsTable.getModel().addTableModelListener(new TableModelListener() {
+            
+            @Override
+            public void tableChanged(TableModelEvent e) {
+                    doctorsTable.getModel();
+            }
+            
+        });
+       return this.doctorsTable;
+        
+
     }
 
     /**

@@ -10,6 +10,7 @@
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="saveMouseClicked"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="saveActionPerformed"/>
           </Events>
         </Menu>
         <Menu class="javax.swing.JMenu" name="menuHospital">
@@ -19,7 +20,7 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="menuEditHospital">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Edit"/>
+                <Property name="text" type="java.lang.String" value="Editar"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuEditHospitalActionPerformed"/>
@@ -27,7 +28,7 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="menuAboutHospital">
               <Properties>
-                <Property name="text" type="java.lang.String" value="About"/>
+                <Property name="text" type="java.lang.String" value="Acerca De"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuAboutHospitalActionPerformed"/>
@@ -37,12 +38,12 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="menuOffice">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Office"/>
+            <Property name="text" type="java.lang.String" value="Consultorio"/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="menuNewOffice">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Add"/>
+                <Property name="text" type="java.lang.String" value="Agregar"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuNewOfficeActionPerformed"/>
@@ -50,7 +51,7 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="menuEditOffice">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Edit"/>
+                <Property name="text" type="java.lang.String" value="Editar"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuEditOfficeActionPerformed"/>
@@ -58,7 +59,7 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="menuRemoveOffice">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Remove"/>
+                <Property name="text" type="java.lang.String" value="Eliminar"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuRemoveOfficeActionPerformed"/>
@@ -73,7 +74,7 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="menuNewDoctor">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Add"/>
+                <Property name="text" type="java.lang.String" value="Agregar"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuNewDoctorActionPerformed"/>
@@ -81,7 +82,7 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="menuEditDoctor">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Edit"/>
+                <Property name="text" type="java.lang.String" value="Editar"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuEditDoctorActionPerformed"/>
@@ -89,7 +90,7 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="menuRemoveDoctor">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Remove"/>
+                <Property name="text" type="java.lang.String" value="Eliminar"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuRemoveDoctorActionPerformed"/>
@@ -99,12 +100,12 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="menuPatient">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Patient"/>
+            <Property name="text" type="java.lang.String" value="Paciente"/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="menuNewPatient">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Add"/>
+                <Property name="text" type="java.lang.String" value="Agregar"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuNewPatientActionPerformed"/>
@@ -112,7 +113,7 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="menuEditPatient">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Edit"/>
+                <Property name="text" type="java.lang.String" value="Editar"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuEditPatientActionPerformed"/>
@@ -120,7 +121,7 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="menuRemovePatient">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Remove"/>
+                <Property name="text" type="java.lang.String" value="Eliminar"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuRemovePatientActionPerformed"/>
@@ -130,7 +131,7 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="menuReport">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Report"/>
+            <Property name="text" type="java.lang.String" value="Reporte"/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="menuReportDoctor">
@@ -143,7 +144,7 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="menuReportPerson">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Person"/>
+                <Property name="text" type="java.lang.String" value="Paciente"/>
               </Properties>
             </MenuItem>
           </SubComponents>
@@ -189,6 +190,11 @@
       <Layout class="org.netbeans.modules.form.compat2.layouts.DesignCardLayout"/>
       <SubComponents>
         <Container class="javax.swing.JPanel" name="inicioPanel">
+          <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="cc" green="ff" red="cc" type="rgb"/>
+            </Property>
+          </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
               <CardConstraints cardName="inicioPanel"/>
@@ -198,19 +204,19 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
-                      <Component id="inicioPanel1" max="32767" attributes="0"/>
-                      <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace pref="72" max="32767" attributes="0"/>
+                      <Component id="inicioPanel1" min="-2" pref="774" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" max="-2" attributes="0"/>
-                      <Component id="inicioPanel1" max="32767" attributes="0"/>
-                      <EmptySpace min="-2" pref="132" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="inicioPanel1" pref="698" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -241,7 +247,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="createNewHospitalForm" pref="700" max="32767" attributes="0"/>
+                      <Component id="createNewHospitalForm" pref="698" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -273,7 +279,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="createNewDoctorsOffice1" pref="700" max="32767" attributes="0"/>
+                      <Component id="createNewDoctorsOffice1" pref="698" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -337,7 +343,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="createNewDoctor2" pref="700" max="32767" attributes="0"/>
+                      <Component id="createNewDoctor2" pref="698" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -369,7 +375,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="editPatient1" pref="700" max="32767" attributes="0"/>
+                      <Component id="editPatient1" pref="698" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -401,7 +407,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="editDoctorsOffice1" pref="700" max="32767" attributes="0"/>
+                      <Component id="editDoctorsOffice1" pref="698" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -433,7 +439,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="editDoctor1" pref="700" max="32767" attributes="0"/>
+                      <Component id="editDoctor1" pref="698" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -459,7 +465,7 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="712" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="724" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -479,7 +485,7 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="712" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="724" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -506,7 +512,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                       <Component id="removeDoctorPanel" min="-2" pref="533" max="-2" attributes="0"/>
-                      <EmptySpace pref="167" max="32767" attributes="0"/>
+                      <EmptySpace pref="165" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -537,7 +543,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="aboutHospital1" pref="700" max="32767" attributes="0"/>
+                      <Component id="aboutHospital1" pref="698" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -569,7 +575,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="editHospital1" pref="700" max="32767" attributes="0"/>
+                      <Component id="editHospital1" pref="698" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -602,7 +608,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="reportDoctor1" min="-2" pref="567" max="-2" attributes="0"/>
-                      <EmptySpace pref="146" max="32767" attributes="0"/>
+                      <EmptySpace pref="144" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>

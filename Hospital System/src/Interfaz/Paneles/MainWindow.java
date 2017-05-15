@@ -140,21 +140,23 @@ public class MainWindow extends javax.swing.JFrame {
 
         mainPanel.setLayout(new java.awt.CardLayout());
 
+        inicioPanel.setForeground(new java.awt.Color(204, 255, 204));
+
         javax.swing.GroupLayout inicioPanelLayout = new javax.swing.GroupLayout(inicioPanel);
         inicioPanel.setLayout(inicioPanelLayout);
         inicioPanelLayout.setHorizontalGroup(
             inicioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(inicioPanelLayout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addComponent(inicioPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(54, 54, 54))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, inicioPanelLayout.createSequentialGroup()
+                .addContainerGap(72, Short.MAX_VALUE)
+                .addComponent(inicioPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 774, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(69, 69, 69))
         );
         inicioPanelLayout.setVerticalGroup(
             inicioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(inicioPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(inicioPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(132, 132, 132))
+                .addComponent(inicioPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 698, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         mainPanel.add(inicioPanel, "inicioPanel");
@@ -172,7 +174,7 @@ public class MainWindow extends javax.swing.JFrame {
             newHospitalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(newHospitalLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(createNewHospitalForm, javax.swing.GroupLayout.DEFAULT_SIZE, 700, Short.MAX_VALUE)
+                .addComponent(createNewHospitalForm, javax.swing.GroupLayout.DEFAULT_SIZE, 698, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -191,7 +193,7 @@ public class MainWindow extends javax.swing.JFrame {
             newOfficeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(newOfficeLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(createNewDoctorsOffice1, javax.swing.GroupLayout.DEFAULT_SIZE, 700, Short.MAX_VALUE)
+                .addComponent(createNewDoctorsOffice1, javax.swing.GroupLayout.DEFAULT_SIZE, 698, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -229,7 +231,7 @@ public class MainWindow extends javax.swing.JFrame {
             newDoctorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(newDoctorLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(createNewDoctor2, javax.swing.GroupLayout.DEFAULT_SIZE, 700, Short.MAX_VALUE)
+                .addComponent(createNewDoctor2, javax.swing.GroupLayout.DEFAULT_SIZE, 698, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -248,7 +250,7 @@ public class MainWindow extends javax.swing.JFrame {
             editPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(editPatientLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(editPatient1, javax.swing.GroupLayout.DEFAULT_SIZE, 700, Short.MAX_VALUE)
+                .addComponent(editPatient1, javax.swing.GroupLayout.DEFAULT_SIZE, 698, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -267,7 +269,7 @@ public class MainWindow extends javax.swing.JFrame {
             editOfficeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(editOfficeLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(editDoctorsOffice1, javax.swing.GroupLayout.DEFAULT_SIZE, 700, Short.MAX_VALUE)
+                .addComponent(editDoctorsOffice1, javax.swing.GroupLayout.DEFAULT_SIZE, 698, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -286,7 +288,7 @@ public class MainWindow extends javax.swing.JFrame {
             editDoctorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(editDoctorLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(editDoctor1, javax.swing.GroupLayout.DEFAULT_SIZE, 700, Short.MAX_VALUE)
+                .addComponent(editDoctor1, javax.swing.GroupLayout.DEFAULT_SIZE, 698, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -300,7 +302,7 @@ public class MainWindow extends javax.swing.JFrame {
         );
         removePatientLayout.setVerticalGroup(
             removePatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 712, Short.MAX_VALUE)
+            .addGap(0, 724, Short.MAX_VALUE)
         );
 
         mainPanel.add(removePatient, "removePatient");
@@ -313,7 +315,7 @@ public class MainWindow extends javax.swing.JFrame {
         );
         removeOfficeLayout.setVerticalGroup(
             removeOfficeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 712, Short.MAX_VALUE)
+            .addGap(0, 724, Short.MAX_VALUE)
         );
 
         mainPanel.add(removeOffice, "removeOffice");
@@ -332,7 +334,7 @@ public class MainWindow extends javax.swing.JFrame {
             .addGroup(removeDoctorLayout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addComponent(removeDoctorPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 533, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(167, Short.MAX_VALUE))
+                .addContainerGap(165, Short.MAX_VALUE))
         );
 
         mainPanel.add(removeDoctor, "removeDoctor");
@@ -350,7 +352,7 @@ public class MainWindow extends javax.swing.JFrame {
             aboutHospitalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(aboutHospitalLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(aboutHospital1, javax.swing.GroupLayout.DEFAULT_SIZE, 700, Short.MAX_VALUE)
+                .addComponent(aboutHospital1, javax.swing.GroupLayout.DEFAULT_SIZE, 698, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -369,7 +371,7 @@ public class MainWindow extends javax.swing.JFrame {
             editHospitalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(editHospitalLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(editHospital1, javax.swing.GroupLayout.DEFAULT_SIZE, 700, Short.MAX_VALUE)
+                .addComponent(editHospital1, javax.swing.GroupLayout.DEFAULT_SIZE, 698, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -389,7 +391,7 @@ public class MainWindow extends javax.swing.JFrame {
             .addGroup(reportDoctorLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(reportDoctor1, javax.swing.GroupLayout.PREFERRED_SIZE, 567, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(146, Short.MAX_VALUE))
+                .addContainerGap(144, Short.MAX_VALUE))
         );
 
         mainPanel.add(reportDoctor, "reportDoctor");
@@ -400,11 +402,16 @@ public class MainWindow extends javax.swing.JFrame {
                 saveMouseClicked(evt);
             }
         });
+        save.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveActionPerformed(evt);
+            }
+        });
         menuBar.add(save);
 
         menuHospital.setText("Hospital");
 
-        menuEditHospital.setText("Edit");
+        menuEditHospital.setText("Editar");
         menuEditHospital.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuEditHospitalActionPerformed(evt);
@@ -412,7 +419,7 @@ public class MainWindow extends javax.swing.JFrame {
         });
         menuHospital.add(menuEditHospital);
 
-        menuAboutHospital.setText("About");
+        menuAboutHospital.setText("Acerca De");
         menuAboutHospital.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuAboutHospitalActionPerformed(evt);
@@ -422,9 +429,9 @@ public class MainWindow extends javax.swing.JFrame {
 
         menuBar.add(menuHospital);
 
-        menuOffice.setText("Office");
+        menuOffice.setText("Consultorio");
 
-        menuNewOffice.setText("Add");
+        menuNewOffice.setText("Agregar");
         menuNewOffice.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuNewOfficeActionPerformed(evt);
@@ -432,7 +439,7 @@ public class MainWindow extends javax.swing.JFrame {
         });
         menuOffice.add(menuNewOffice);
 
-        menuEditOffice.setText("Edit");
+        menuEditOffice.setText("Editar");
         menuEditOffice.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuEditOfficeActionPerformed(evt);
@@ -440,7 +447,7 @@ public class MainWindow extends javax.swing.JFrame {
         });
         menuOffice.add(menuEditOffice);
 
-        menuRemoveOffice.setText("Remove");
+        menuRemoveOffice.setText("Eliminar");
         menuRemoveOffice.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuRemoveOfficeActionPerformed(evt);
@@ -452,7 +459,7 @@ public class MainWindow extends javax.swing.JFrame {
 
         menuDoctor.setText("Doctor");
 
-        menuNewDoctor.setText("Add");
+        menuNewDoctor.setText("Agregar");
         menuNewDoctor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuNewDoctorActionPerformed(evt);
@@ -460,7 +467,7 @@ public class MainWindow extends javax.swing.JFrame {
         });
         menuDoctor.add(menuNewDoctor);
 
-        menuEditDoctor.setText("Edit");
+        menuEditDoctor.setText("Editar");
         menuEditDoctor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuEditDoctorActionPerformed(evt);
@@ -468,7 +475,7 @@ public class MainWindow extends javax.swing.JFrame {
         });
         menuDoctor.add(menuEditDoctor);
 
-        menuRemoveDoctor.setText("Remove");
+        menuRemoveDoctor.setText("Eliminar");
         menuRemoveDoctor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuRemoveDoctorActionPerformed(evt);
@@ -478,9 +485,9 @@ public class MainWindow extends javax.swing.JFrame {
 
         menuBar.add(menuDoctor);
 
-        menuPatient.setText("Patient");
+        menuPatient.setText("Paciente");
 
-        menuNewPatient.setText("Add");
+        menuNewPatient.setText("Agregar");
         menuNewPatient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuNewPatientActionPerformed(evt);
@@ -488,7 +495,7 @@ public class MainWindow extends javax.swing.JFrame {
         });
         menuPatient.add(menuNewPatient);
 
-        menuEditPatient.setText("Edit");
+        menuEditPatient.setText("Editar");
         menuEditPatient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuEditPatientActionPerformed(evt);
@@ -496,7 +503,7 @@ public class MainWindow extends javax.swing.JFrame {
         });
         menuPatient.add(menuEditPatient);
 
-        menuRemovePatient.setText("Remove");
+        menuRemovePatient.setText("Eliminar");
         menuRemovePatient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuRemovePatientActionPerformed(evt);
@@ -506,7 +513,7 @@ public class MainWindow extends javax.swing.JFrame {
 
         menuBar.add(menuPatient);
 
-        menuReport.setText("Report");
+        menuReport.setText("Reporte");
 
         menuReportDoctor.setText("Doctor");
         menuReportDoctor.addActionListener(new java.awt.event.ActionListener() {
@@ -516,7 +523,7 @@ public class MainWindow extends javax.swing.JFrame {
         });
         menuReport.add(menuReportDoctor);
 
-        menuReportPerson.setText("Person");
+        menuReportPerson.setText("Paciente");
         menuReport.add(menuReportPerson);
 
         menuBar.add(menuReport);
@@ -542,7 +549,7 @@ public class MainWindow extends javax.swing.JFrame {
         CardLayout card = (CardLayout)mainPanel.getLayout();
 		card.show(mainPanel, "removeOffice");
         }else{
-            JOptionPane.showMessageDialog(null, "Ningun Hospital seleccionado", "ERROR", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Por favor, cree un doctor primero.", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_menuRemoveOfficeActionPerformed
 
@@ -552,7 +559,7 @@ public class MainWindow extends javax.swing.JFrame {
 			card.show(mainPanel, "newOffice");
 		}
 		else{
-			JOptionPane.showMessageDialog(null, "Ningun Hospital seleccionado", "ERROR", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null, "Por favor, cree un doctor primero.", "ERROR", JOptionPane.ERROR_MESSAGE);
 		}
     }//GEN-LAST:event_menuNewOfficeActionPerformed
 
@@ -561,7 +568,7 @@ public class MainWindow extends javax.swing.JFrame {
                     CardLayout card = (CardLayout)mainPanel.getLayout();
                         card.show(mainPanel, "editOffice");
                 }else{
-            JOptionPane.showMessageDialog(null, "Ningun Hospital seleccionado", "ERROR", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Por favor, cree un doctor primero.", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_menuEditOfficeActionPerformed
 
@@ -570,7 +577,7 @@ public class MainWindow extends javax.swing.JFrame {
         CardLayout card = (CardLayout)mainPanel.getLayout();
 		card.show(mainPanel, "newDoctor");
         }else{
-            JOptionPane.showMessageDialog(null, "Ningun Hospital seleccionado", "ERROR", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Por favor, cree un doctor primero.", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_menuNewDoctorActionPerformed
 
@@ -611,7 +618,7 @@ public class MainWindow extends javax.swing.JFrame {
             CardLayout card = (CardLayout)mainPanel.getLayout();
 		card.show(mainPanel, "newPatient");
                 }else{
-            JOptionPane.showMessageDialog(null, "Ningun Hospital seleccionado", "ERROR", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Por favor, cree un hospital primero.", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_menuNewPatientActionPerformed
 
@@ -620,7 +627,7 @@ public class MainWindow extends javax.swing.JFrame {
         CardLayout card = (CardLayout)mainPanel.getLayout();
 		card.show(mainPanel, "editPatient");
                 }else{
-            JOptionPane.showMessageDialog(null, "Ningun Hospital seleccionado", "ERROR", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Por favor, cree un hospital primero.", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_menuEditPatientActionPerformed
 
@@ -629,7 +636,7 @@ public class MainWindow extends javax.swing.JFrame {
         CardLayout card = (CardLayout)mainPanel.getLayout();
 		card.show(mainPanel, "removePatient");
                 }else{
-            JOptionPane.showMessageDialog(null, "Ningun Hospital seleccionado", "ERROR", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Por favor, cree un hospital primero.", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_menuRemovePatientActionPerformed
 
@@ -641,7 +648,7 @@ public class MainWindow extends javax.swing.JFrame {
             this.reportDoctor1.setData(this.hospital.getDoctors());
             
         }else{
-            JOptionPane.showMessageDialog(null, "Ningun Hospital seleccionado", "ERROR", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Por favor, cree un hospital primero.", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_menuReportDoctorActionPerformed
 
@@ -653,7 +660,7 @@ public class MainWindow extends javax.swing.JFrame {
 		CardLayout card = (CardLayout)mainPanel.getLayout();
 		card.show(mainPanel, "aboutHospital");
                 }else{
-            JOptionPane.showMessageDialog(null, "Ningun Hospital seleccionado", "ERROR", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Por favor, cree un hosítal primero.", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_menuAboutHospitalActionPerformed
 
@@ -664,7 +671,7 @@ public class MainWindow extends javax.swing.JFrame {
 			this.editHospital1.setFields(this.hospital);
 		}
 		else{
-			JOptionPane.showMessageDialog(null, "Ningun Hospital seleccionado", "ERROR", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null, "Por favor, cree un hospital primero.", "ERROR", JOptionPane.ERROR_MESSAGE);
 		}
         
     }//GEN-LAST:event_menuEditHospitalActionPerformed
@@ -673,8 +680,15 @@ public class MainWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         GuardarHospital GDB = new GuardarHospital(this.hospital);
+        JOptionPane.showMessageDialog(null, "Los datos se han guardado exitosamente", "DATOS GUARDADOS", JOptionPane.INFORMATION_MESSAGE);
         
     }//GEN-LAST:event_saveMouseClicked
+
+    private void saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveActionPerformed
+        // TODO add your handling code here:
+        GuardarHospital GDB = new GuardarHospital(this.hospital);
+        JOptionPane.showMessageDialog(null, "Los datos se han guardado exitosamente", "DATOS GUARDADOS", JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_saveActionPerformed
 
 	/**
 	 * @param args the command line arguments

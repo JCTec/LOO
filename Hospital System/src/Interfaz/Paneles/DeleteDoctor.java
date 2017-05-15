@@ -17,7 +17,7 @@ import javax.swing.JButton;
 public class DeleteDoctor extends javax.swing.JPanel {
 
     private Hospital hospital;
-	private Doctor doctor;
+    private Doctor doctor;
     /**
      * Creates new form DeleteDoctor
      */
