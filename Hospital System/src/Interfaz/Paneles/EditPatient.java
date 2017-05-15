@@ -32,6 +32,8 @@ public class EditPatient extends javax.swing.JPanel {
 	public EditPatient() {
 		initComponents();
 		this.patient = null;
+		this.patientDoctorList.setModel(doctorForPatient);
+		this.otherDoctorList.setModel(otherDoctors);
 	}
 
 	/**
@@ -465,10 +467,12 @@ public class EditPatient extends javax.swing.JPanel {
 	}
 
 	private void putDoctorsInLists() {
+		//First we should empty the list for refreshing
+		this.otherDoctors.clear();
+		this.doctorForPatient.clear();
+		
 		int patientDoctorAmount = this.patient.getDoctorID().size();
-		int m = 0, n = 0;
-		this.patientDoctorList.setModel(doctorForPatient);
-		this.otherDoctorList.setModel(otherDoctors);
+		
 		//All these fors are for adding the patient's doctor to the list
 		for(int i = 0 ; i < this.hospital.getDoctors().size() ; i++){
 			Doctor doc = this.hospital.getDoctors().get(i);
