@@ -1219,47 +1219,6 @@ public class MainWindow extends javax.swing.JFrame {
 		this.switchToRemovePatientPanel();
 	}
 
-    public void saveEditPatientAction(java.awt.event.ActionEvent evt) {
-        Patient oldPatient = this.editPatient1.getOldPatient();
-        Patient newPatient = this.editPatient1.getPatient();
-        oldPatient.setFirstName(newPatient.getFirstName());
-        oldPatient.setLastName(newPatient.getLastName());
-        oldPatient.setAge(newPatient.getAge());
-        oldPatient.setAddress(newPatient.getAddress());
-        oldPatient.setTelephone(newPatient.getTelephone());
-        oldPatient.setEmail(newPatient.getEmail());
-        try {
-            oldPatient.setSecurityNumber(newPatient.getSecurityNumber());
-        } catch (NotValidNumber ex) {
-            Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        try {
-            oldPatient.setWeigth(newPatient.getWeigth());
-        } catch (NotValidNumber ex) {
-            Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        try {
-            oldPatient.setSize(newPatient.getSize());
-        } catch (NotValidNumber ex) {
-            Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        oldPatient.setDisease(newPatient.getDisease());
-        try {
-            oldPatient.setRoomID(newPatient.getRoomID());
-        } catch (NotValidNumber ex) {
-            Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        for (int i = 0; i < newPatient.getDoctorID().size(); i++) {
-            try {
-                oldPatient.setDoctorID(newPatient.getDoctorID().get(i));
-            } catch (NotValidNumber ex) {
-                Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-        oldPatient.setStatus(newPatient.getStatus());
-
-    }
-
     public void saveNewOfficeAction(java.awt.event.ActionEvent evt) {
         DoctorsOffice dof = this.createNewDoctorsOffice1.getOffice();
         this.hospital.addDoctorOffice(dof);
