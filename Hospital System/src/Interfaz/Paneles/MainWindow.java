@@ -723,8 +723,6 @@ public class MainWindow extends javax.swing.JFrame {
     //Botón menú Reportar Doctor
     private void menuReportDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuReportDoctorActionPerformed
         if (this.hospital != null) {
-            System.out.println("HOLAAAAAa");
-
             this.reportDoctor1.delete();
             this.reportDoctor1.setData(this.hospital.getDoctors());
             CardLayout card = (CardLayout) mainPanel.getLayout();
@@ -918,7 +916,6 @@ public class MainWindow extends javax.swing.JFrame {
                 if (!event.getValueIsAdjusting()) {
                     
                     int selectedrow = reportDoctor1.getTable().getSelectedRow();
-                    System.out.println(selectedrow);
                     if(selectedrow  != -1){
                     String i = reportDoctor1.getTable().getValueAt(selectedrow, 8).toString();
                     modifyDoctor(i);
