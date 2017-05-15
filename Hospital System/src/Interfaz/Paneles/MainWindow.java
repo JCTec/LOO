@@ -834,7 +834,7 @@ public class MainWindow extends javax.swing.JFrame {
         this.reportPatientPanel.getTable().getSelectionModel().addListSelectionListener(new ListSelectionListener() {
             public void valueChanged(ListSelectionEvent event) {
                 if (!event.getValueIsAdjusting()) {
-                    modifyPatient(reportPatientPanel.getTable().getValueAt(reportPatientPanel.getTable().getSelectedRow(), 8).toString());
+                    modifyPatient(reportPatientPanel.getTable().getValueAt(reportPatientPanel.getTable().getSelectedRow(), 3).toString());
                 }
 
             }
