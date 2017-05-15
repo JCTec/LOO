@@ -115,6 +115,8 @@ public class MainWindow extends javax.swing.JFrame {
         editHospital1 = new Interfaz.Paneles.EditHospital();
         reportDoctor = new javax.swing.JPanel();
         reportDoctor1 = new Interfaz.Paneles.ReportDoctor();
+        reportPatient = new javax.swing.JPanel();
+        reportPatientPanel = new Interfaz.Paneles.ReportPatient();
         menuBar = new javax.swing.JMenuBar();
         save = new javax.swing.JMenu();
         menuHospital = new javax.swing.JMenu();
@@ -134,7 +136,7 @@ public class MainWindow extends javax.swing.JFrame {
         menuRemovePatient = new javax.swing.JMenuItem();
         menuReport = new javax.swing.JMenu();
         menuReportDoctor = new javax.swing.JMenuItem();
-        menuReportPerson = new javax.swing.JMenuItem();
+        menuReportPatient = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -396,6 +398,25 @@ public class MainWindow extends javax.swing.JFrame {
 
         mainPanel.add(reportDoctor, "reportDoctor");
 
+        javax.swing.GroupLayout reportPatientLayout = new javax.swing.GroupLayout(reportPatient);
+        reportPatient.setLayout(reportPatientLayout);
+        reportPatientLayout.setHorizontalGroup(
+            reportPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(reportPatientLayout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(reportPatientPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 881, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        reportPatientLayout.setVerticalGroup(
+            reportPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(reportPatientLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(reportPatientPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 552, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(159, Short.MAX_VALUE))
+        );
+
+        mainPanel.add(reportPatient, "card16");
+
         save.setText("Guardar");
         save.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -523,8 +544,13 @@ public class MainWindow extends javax.swing.JFrame {
         });
         menuReport.add(menuReportDoctor);
 
-        menuReportPerson.setText("Paciente");
-        menuReport.add(menuReportPerson);
+        menuReportPatient.setText("Paciente");
+        menuReportPatient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuReportPatientActionPerformed(evt);
+            }
+        });
+        menuReport.add(menuReportPatient);
 
         menuBar.add(menuReport);
 
@@ -690,6 +716,22 @@ public class MainWindow extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, "Los datos se han guardado exitosamente", "DATOS GUARDADOS", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_saveActionPerformed
 
+    private void menuReportPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuReportPatientActionPerformed
+        // TODO add your handling code here:
+        if(this.hospital != null){
+            if(!this.hospital.getPatients().isEmpty()){
+                CardLayout card = (CardLayout)mainPanel.getLayout();
+                card.show(mainPanel, "reportPatient");
+                this.reportPatientPanel.setData(this.hospital.getPatients());
+            }
+            else{
+                 JOptionPane.showMessageDialog(null, "Por favor, cree un paciente primero.", "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "Por favor, cree un hospital primero.", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_menuReportPatientActionPerformed
+
 	/**
 	 * @param args the command line arguments
 	 */
@@ -764,7 +806,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JMenuItem menuRemovePatient;
     private javax.swing.JMenu menuReport;
     private javax.swing.JMenuItem menuReportDoctor;
-    private javax.swing.JMenuItem menuReportPerson;
+    private javax.swing.JMenuItem menuReportPatient;
     private javax.swing.JPanel newDoctor;
     private javax.swing.JPanel newHospital;
     private javax.swing.JPanel newOffice;
@@ -775,6 +817,8 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JPanel removePatient;
     private javax.swing.JPanel reportDoctor;
     private Interfaz.Paneles.ReportDoctor reportDoctor1;
+    private javax.swing.JPanel reportPatient;
+    private Interfaz.Paneles.ReportPatient reportPatientPanel;
     private javax.swing.JMenu save;
     // End of variables declaration//GEN-END:variables
 
