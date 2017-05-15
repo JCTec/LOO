@@ -33,6 +33,38 @@ public class ReportPatient extends javax.swing.JPanel {
      */
     public ReportPatient() {
         initComponents();
+        
+        
+        this.search.getDocument().addDocumentListener(new DocumentListener(){
+
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                String text = search.getText();
+
+                if (text.trim().length() == 0) {
+                    rowSorter.setRowFilter(null);
+                } else {
+                    rowSorter.setRowFilter(RowFilter.regexFilter("(?i)" + text));
+                }
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                String text = search.getText();
+
+                if (text.trim().length() == 0) {
+                    rowSorter.setRowFilter(null);
+                } else {
+                    rowSorter.setRowFilter(RowFilter.regexFilter("(?i)" + text));
+                }
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+        });
     }
 
     /**
@@ -47,7 +79,7 @@ public class ReportPatient extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         patientsTable = new javax.swing.JTable();
-        searchField = new javax.swing.JTextField();
+        search = new javax.swing.JTextField();
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Buscar"));
 
@@ -70,9 +102,9 @@ public class ReportPatient extends javax.swing.JPanel {
         patientsTable.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(patientsTable);
 
-        searchField.addActionListener(new java.awt.event.ActionListener() {
+        search.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchFieldActionPerformed(evt);
+                searchActionPerformed(evt);
             }
         });
 
@@ -84,14 +116,14 @@ public class ReportPatient extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 714, Short.MAX_VALUE)
-                    .addComponent(searchField))
+                    .addComponent(search))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(31, 31, 31)
-                .addComponent(searchField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(search, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 405, Short.MAX_VALUE)
                 .addContainerGap())
@@ -115,26 +147,48 @@ public class ReportPatient extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void searchFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchFieldActionPerformed
+    private void searchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_searchFieldActionPerformed
+    }//GEN-LAST:event_searchActionPerformed
 
     private String[] columnNames = {"Nombre", "Apellido", "Edad", "ID", "Enfermedad", "Estatus", "ID Habitacion"};
     private String[] data = new String[7];
     private DefaultTableModel model;
     private TableRowSorter<TableModel> rowSorter;
 
+    private boolean set;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable patientsTable;
-    private javax.swing.JTextField searchField;
+    private javax.swing.JTextField search;
     // End of variables declaration//GEN-END:variables
 
+    public void delete(){
+        if(set){
+            if(this.patientsTable != null && this.model != null){
+                this.patientsTable.setRowSorter(null);
+            
+                for (int i = this.model.getRowCount() - 1; i >= 0; i--) {
+                    this.model.removeRow(i);
+                }
+            }
+        }
+    }
+    
+    
     public void setData(ArrayList<Patient> patients){
         
-        this.model = (DefaultTableModel) this.patientsTable.getModel();
+        this.set = true;
 
+        this.model = new DefaultTableModel();
+
+        
+        this.model = (DefaultTableModel) this.patientsTable.getModel();
+        this.rowSorter = new TableRowSorter<>(this.patientsTable.getModel());
+        
+        this.patientsTable.setRowSorter(null);
+        
         for (int x = 0; x < patients.size(); x++) {
             this.data[0] = patients.get(x).getFirstName();
             this.data[1] = patients.get(x).getLastName();
@@ -146,45 +200,11 @@ public class ReportPatient extends javax.swing.JPanel {
 
             this.model.insertRow(this.model.getRowCount(), this.data);
         }
-
-        this.rowSorter = new TableRowSorter<>(this.patientsTable.getModel());
-
-        this.searchField.getDocument().addDocumentListener(new DocumentListener() {
-
-            @Override
-            public void insertUpdate(DocumentEvent e) {
-                String text = searchField.getText();
-
-                if (text.trim().length() == 0) {
-                    rowSorter.setRowFilter(null);
-                } else {
-                    rowSorter.setRowFilter(RowFilter.regexFilter("(?i)" + text));
-                }
-            }
-
-            @Override
-            public void removeUpdate(DocumentEvent e) {
-                String text = searchField.getText();
-
-                if (text.trim().length() == 0) {
-                    rowSorter.setRowFilter(null);
-                } else {
-                    rowSorter.setRowFilter(RowFilter.regexFilter("(?i)" + text));
-                }
-            }
-
-            @Override
-            public void changedUpdate(DocumentEvent e) {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-            }
-
-        });
         
-        
-        this.patientsTable.setRowSorter(this.rowSorter); 
 
         this.patientsTable.setRowSorter(this.rowSorter);
-
+   
+      
     }
 
     public JTable getTable() {

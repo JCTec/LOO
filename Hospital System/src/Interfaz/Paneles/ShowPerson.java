@@ -5,7 +5,12 @@
  */
 package Interfaz.Paneles;
 
+import Data.People.Patient;
+import Exceptions.NotValidNumber;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
+import javax.swing.JButton;
 
 /**
  *
@@ -18,6 +23,52 @@ public class ShowPerson extends javax.swing.JPanel {
      */
     public ShowPerson() {
         initComponents();
+    }
+    
+    public JButton getSaveButton(){
+        return this.save;
+    }
+   
+    public Patient getPatient(){
+        Patient p = new Patient();
+        
+        p.setFirstName(this.nameField.getText());
+        p.setLastName(this.lastNameField.getText());
+        p.setAddress(this.direccionField.getText());
+        p.setAge(Integer.valueOf(this.edadField.getText()));
+        p.setTelephone(this.telefonoField.getText());
+        p.setEmail(this.e_mailField.getText());
+        
+        try {
+            p.setSecurityNumber(this.nSSField.getText());
+        } catch (NotValidNumber ex) {
+            Logger.getLogger(ShowPerson.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        try {
+            p.setWeigth(Float.valueOf(this.pesoField.getText()));
+        } catch (NotValidNumber ex) {
+            Logger.getLogger(ShowPerson.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        try {
+            p.setSize(Float.valueOf(this.alturaField.getText()));
+        } catch (NotValidNumber ex) {
+            Logger.getLogger(ShowPerson.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        p.setDisease(this.enfermedadField.getText());
+        p.setStatus(this.estatusField.getText());
+        try {
+            p.setRoomID(this.iDHabitacionField.getText());
+           
+        } catch (NotValidNumber ex) {
+            Logger.getLogger(ShowPerson.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        //IDDoctores Falta
+
+        return p;    
     }
 
     /**
@@ -57,6 +108,8 @@ public class ShowPerson extends javax.swing.JPanel {
         iDHabitacionField = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         iDDoctoresList = new javax.swing.JList<>();
+        save = new javax.swing.JButton();
+        delete = new javax.swing.JButton();
 
         TypePerson.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Patient", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Helvetica", 0, 13))); // NOI18N
 
@@ -86,36 +139,17 @@ public class ShowPerson extends javax.swing.JPanel {
 
         jLabel13.setText("Estatus");
 
-        nameField.setEditable(false);
         nameField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nameFieldActionPerformed(evt);
             }
         });
 
-        lastNameField.setEditable(false);
-
-        edadField.setEditable(false);
-
-        direccionField.setEditable(false);
-
-        telefonoField.setEditable(false);
-
-        e_mailField.setEditable(false);
-
-        nSSField.setEditable(false);
-
-        pesoField.setEditable(false);
-
-        alturaField.setEditable(false);
-
-        enfermedadField.setEditable(false);
-
-        estatusField.setEditable(false);
-
-        iDHabitacionField.setEditable(false);
-
         jScrollPane1.setViewportView(iDDoctoresList);
+
+        save.setText("Guardar");
+
+        delete.setText("Eliminar");
 
         javax.swing.GroupLayout TypePersonLayout = new javax.swing.GroupLayout(TypePerson);
         TypePerson.setLayout(TypePersonLayout);
@@ -124,34 +158,40 @@ public class ShowPerson extends javax.swing.JPanel {
             .addGroup(TypePersonLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(TypePersonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel9)
-                    .addComponent(jLabel10)
-                    .addComponent(jLabel13)
-                    .addComponent(IDHabitacion)
-                    .addComponent(IDDoctores))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(TypePersonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(iDHabitacionField)
-                    .addComponent(estatusField)
-                    .addComponent(enfermedadField)
-                    .addComponent(alturaField)
-                    .addComponent(pesoField)
-                    .addComponent(nSSField)
-                    .addComponent(e_mailField)
-                    .addComponent(telefonoField)
-                    .addComponent(direccionField)
-                    .addComponent(edadField)
-                    .addComponent(lastNameField)
-                    .addComponent(nameField)
-                    .addComponent(jScrollPane1))
+                    .addGroup(TypePersonLayout.createSequentialGroup()
+                        .addGroup(TypePersonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel10)
+                            .addComponent(jLabel13)
+                            .addComponent(IDHabitacion)
+                            .addComponent(IDDoctores))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(TypePersonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(iDHabitacionField)
+                            .addComponent(estatusField)
+                            .addComponent(enfermedadField)
+                            .addComponent(alturaField)
+                            .addComponent(pesoField)
+                            .addComponent(nSSField)
+                            .addComponent(e_mailField)
+                            .addComponent(telefonoField)
+                            .addComponent(direccionField)
+                            .addComponent(edadField)
+                            .addComponent(lastNameField)
+                            .addComponent(nameField)
+                            .addComponent(jScrollPane1)))
+                    .addGroup(TypePersonLayout.createSequentialGroup()
+                        .addComponent(save)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(delete)))
                 .addContainerGap())
         );
         TypePersonLayout.setVerticalGroup(
@@ -190,10 +230,10 @@ public class ShowPerson extends javax.swing.JPanel {
                     .addComponent(pesoField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(TypePersonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(TypePersonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel9)
-                    .addComponent(alturaField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(6, 6, 6)
+                    .addComponent(alturaField, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(TypePersonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
                     .addComponent(enfermedadField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -209,7 +249,11 @@ public class ShowPerson extends javax.swing.JPanel {
                 .addGroup(TypePersonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(IDDoctores)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(160, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addGroup(TypePersonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(save)
+                    .addComponent(delete))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -258,6 +302,7 @@ public class ShowPerson extends javax.swing.JPanel {
     private javax.swing.JLabel IDHabitacion;
     private javax.swing.JPanel TypePerson;
     private javax.swing.JTextField alturaField;
+    private javax.swing.JButton delete;
     private javax.swing.JTextField direccionField;
     private javax.swing.JTextField e_mailField;
     private javax.swing.JTextField edadField;
@@ -281,6 +326,7 @@ public class ShowPerson extends javax.swing.JPanel {
     private javax.swing.JTextField nSSField;
     private javax.swing.JTextField nameField;
     private javax.swing.JTextField pesoField;
+    private javax.swing.JButton save;
     private javax.swing.JTextField telefonoField;
     // End of variables declaration//GEN-END:variables
 }

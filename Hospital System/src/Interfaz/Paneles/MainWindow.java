@@ -696,7 +696,6 @@ public class MainWindow extends javax.swing.JFrame {
     //Botón menú Reportar Doctor
     private void menuReportDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuReportDoctorActionPerformed
         if (this.hospital != null) {
-            System.out.println("HOLAAAAAa");
 
             this.reportDoctor1.delete();
             this.reportDoctor1.setData(this.hospital.getDoctors());
@@ -749,9 +748,11 @@ public class MainWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (this.hospital != null) {
             if (!this.hospital.getPatients().isEmpty()) {
+                this.reportPatientPanel.delete();
+                this.reportPatientPanel.setData(this.hospital.getPatients());
                 CardLayout card = (CardLayout) mainPanel.getLayout();
                 card.show(mainPanel, "reportPatient");
-                this.reportPatientPanel.setData(this.hospital.getPatients());
+                
             } else {
                 JOptionPane.showMessageDialog(null, "Por favor, cree un paciente primero.", "ERROR", JOptionPane.ERROR_MESSAGE);
             }
@@ -894,8 +895,15 @@ public class MainWindow extends javax.swing.JFrame {
         //Reportar Paciente
         this.reportPatientPanel.getTable().getSelectionModel().addListSelectionListener(new ListSelectionListener() {
             public void valueChanged(ListSelectionEvent event) {
-                if (!event.getValueIsAdjusting()) {
-                    modifyPatient(reportPatientPanel.getTable().getValueAt(reportPatientPanel.getTable().getSelectedRow(), 3).toString());
+               if (!event.getValueIsAdjusting()) {
+                    
+                    int selectedrow = reportPatientPanel.getTable().getSelectedRow();
+                    System.out.println(selectedrow);
+                    if(selectedrow  != -1){
+                    String i = reportPatientPanel.getTable().getValueAt(selectedrow, 3).toString();
+                    modifyPatient(i);
+                    }
+                    
                 }
 
             }
@@ -958,82 +966,19 @@ public class MainWindow extends javax.swing.JFrame {
     }
 
     public void modifyDoctor(String ID) {
-        int idFounded = -1;
-        
-        ArrayList<Doctor> doctors = this.hospital.getDoctors();
-        
-        for(int i=0; i< doctors.size();i++){
-            if(ID.equals(doctors.get(i).getId())){
-                idFounded = i;
-                i = doctors.size(); 
-            }
-        }
-        
-        if (idFounded >= 0){
-  
-            
-            ShowDoctor doctor = new ShowDoctor();
-            
-            doctor.setFields(doctors.get(idFounded).getFirstName() , doctors.get(idFounded).getLastName(), doctors.get(idFounded).getLicence(), doctors.get(idFounded).getTelephone(), doctors.get(idFounded).getAddress(), doctors.get(idFounded).getEmail(), Integer.toString(doctors.get(idFounded).getAge()), doctors.get(idFounded).getDepartment(), doctors.get(idFounded).getId());
-            
-            doctor.setVisible(true);
-            
-            FrameWithCloseButton f = new FrameWithCloseButton();
-                    
-            f.setSize(500, 600);
-            f.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-            f.setVisible(true);
- 
-            f.setContent(doctor);
-            
-            doctor.getSaveButton().addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    Doctor p = doctor.getDoctor();
-                
-                    changeed(p);
-                }
-            });
-        }
+        this.hospital.showDoctorInfo(ID);
         
         CardLayout card = (CardLayout) mainPanel.getLayout();
         card.show(mainPanel, "inicioPanel");
         
     }
     
-    private void changeed(Doctor newInfo){
-        int index = -1;
-        
-        for(int x = 0; x < this.hospital.getDoctors().size(); x++ ){
-            if(this.hospital.getDoctors().get(x).getId().equals(newInfo.getId())){
-                index = x;
-            }
-        }
-        if(index != -1){
-            
-        
-        Doctor old = this.hospital.getDoctors().get(index);
-        
-        old.setAddress(newInfo.getAddress());
-                
-        old.setFirstName(newInfo.getFirstName());
-                
-        old.setLastName(newInfo.getLastName());
-                
-        old.setAge(newInfo.getAge());
-                
-        old.setDepartment(newInfo.getDepartment());
-                
-        old.setEmail(newInfo.getEmail());
-                
-        old.setLicence(newInfo.getLicence());
-                
-        old.setTelephone(newInfo.getTelephone());
-        
-        }
-    }
 
     public void modifyPatient(String nSS) {
         this.hospital.showPatientInfo(nSS);
+        
+        CardLayout card = (CardLayout) mainPanel.getLayout();
+        card.show(mainPanel, "inicioPanel");
     }
     
     public void modifyOffice(String ID){

@@ -72,13 +72,6 @@ public class ReportDoctor extends javax.swing.JPanel {
        return this.doctorsTable;
     }
     
-    public void DeleAll(){
-        this.data = null;
-        //this.doctorsTable = null;
-        this.rowSorter = null;
-        this.model = null;
-        //this.delete();
-    }
     
     public void delete(){
         if(set){
