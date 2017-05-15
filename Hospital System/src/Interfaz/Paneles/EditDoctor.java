@@ -217,7 +217,7 @@ public class EditDoctor extends javax.swing.JPanel {
 	}
 
 	public void setHospital(Hospital hospital){	
-                this.hospital = hospital;
+		this.hospital = hospital;
 		int doctorNumber = hospital.getDoctors().size();
 		String[] items = new String[doctorNumber];
 		for(int i = 0 ; i < doctorNumber ; i++){
