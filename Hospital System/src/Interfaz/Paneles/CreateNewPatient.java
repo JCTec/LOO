@@ -5,11 +5,18 @@
  */
 package Interfaz.Paneles;
 
+import Data.Infrastructure.Hospital;
+import Data.People.Patient;
+import Data.People.Person;
+import javax.swing.JButton;
+
 /**
  *
  * @author alanp
  */
 public class CreateNewPatient extends javax.swing.JPanel {
+
+    private Patient patient;
 
     /**
      * Creates new form CreateNewPatient
@@ -124,7 +131,7 @@ public class CreateNewPatient extends javax.swing.JPanel {
                                     .addComponent(statusField, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(idRoomField, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(168, 168, 168)
+                        .addGap(167, 167, 167)
                         .addComponent(saveButton)))
                 .addContainerGap(308, Short.MAX_VALUE))
         );
@@ -181,9 +188,9 @@ public class CreateNewPatient extends javax.swing.JPanel {
                     .addComponent(idRoomField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21)
                 .addComponent(doctorsIdLabel)
-                .addGap(52, 52, 52)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
                 .addComponent(saveButton)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addGap(39, 39, 39))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -234,4 +241,60 @@ public class CreateNewPatient extends javax.swing.JPanel {
     private javax.swing.JTextField weightField;
     private javax.swing.JLabel weightLabel;
     // End of variables declaration//GEN-END:variables
+    public JButton getSaveButton() {
+        return saveButton;
+    }
+
+    public Patient getPatient() {
+        Patient p;
+        //Se crea la parte de Persona
+        Person person = new Person(
+                this.nameField.getText(),
+                this.addressField.getText(),
+                this.emailField.getText(),
+                this.surnameField.getText(),
+                this.telphoneField.getText(),
+                Integer.parseInt(this.ageField.getText())
+        );
+        //Pudiendo darse el caso de que el paciente no este hospitalizado
+        //existiran dos opciones para terminar de crearse el paciente
+        if(this.idRoomField.getText().isEmpty()){
+            p = new Patient(
+                person,
+                this.nssField.getText(),
+                Float.parseFloat(this.weightField.getText()),
+                Float.parseFloat(this.highField.getText()),
+                this.deseaseField.getText(),
+                this.statusField.getText()
+        );
+        }else{
+            p = new Patient(
+                person,
+                this.nssField.getText(),
+                Float.parseFloat(this.weightField.getText()),
+                Float.parseFloat(this.highField.getText()),
+                this.deseaseField.getText(),
+                Integer.parseInt(this.idRoomField.getText()),
+                this.statusField.getText()
+        );
+        }
+        
+        this.patient = p;
+        return this.patient;
+    }
+
+    public void clearFields() {
+        this.nameField.setText("");
+        this.addressField.setText("");
+        this.emailField.setText("");
+        this.surnameField.setText("");
+        this.telphoneField.setText("");
+        this.nssField.setText("");
+        this.weightField.setText("");
+        this.highField.setText("");
+        this.deseaseField.setText("");
+        this.idRoomField.setText("");
+        this.statusField.setText("");
+        this.ageField.setText("");
+    }
 }

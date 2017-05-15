@@ -548,6 +548,14 @@ public class Hospital {
         
     }
     
+    /**
+     *Método de copia utilizado para la creación de un nuevo paciente
+     * @param p
+     */
+    public void addPatient(Patient p){
+        this.patients.add(p);
+    }
+    
     public void addDoctor(String name, String lastName, String licence, int age, String e_mail, String address, String telephone, String Department){
         Doctor newDoc = new Doctor();
         newDoc.setFirstName(name);
@@ -703,11 +711,19 @@ public class Hospital {
         return validacion;
     }
 
-	public String getTelephone() {
+    /**
+     * Método get para el Teléfono
+     * @return telephone
+     */
+    public String getTelephone() {
 		return this.telephone;
 	}
 
-	public void addDoctor(Doctor d) {
+    /**
+     *Método de copia para la creación de un nuevo doctor
+     * @param d
+     */
+    public void addDoctor(Doctor d) {
 		d.setId(Integer.toString(this.doctorsIds));
 		this.doctorsIds++;
 		this.doctors.add(d);

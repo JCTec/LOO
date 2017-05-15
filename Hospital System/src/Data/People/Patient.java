@@ -168,6 +168,81 @@ public class Patient extends Person {
     }
     
     /**
+     * Constructor que solamente no recibe el ID de los doctores
+     * @param persona
+     * @param securityNumber
+     * @param weigth
+     * @param size
+     * @param disease
+     * @param roomID
+     * @param status
+     */
+    public Patient(Person persona, String securityNumber, float weigth, float size, String disease, int roomID, String status){
+        super(persona);
+        try{
+            this.setSecurityNumber(securityNumber);
+        }catch(NotValidNumber error){
+            JOptionPane.showMessageDialog(null, error.toString(), "ERROR.", JOptionPane.ERROR_MESSAGE);
+        }
+        
+        try{
+           this.setWeigth(weigth);
+        }catch(NotValidNumber error){
+            JOptionPane.showMessageDialog(null, error.toString(), "ERROR.", JOptionPane.ERROR_MESSAGE);
+        }
+        
+        try{
+           this.setSize(size);
+        }catch(NotValidNumber error){
+            JOptionPane.showMessageDialog(null, error.toString(), "ERROR.", JOptionPane.ERROR_MESSAGE);
+        }
+        
+        this.setDisease(disease);
+        
+        try{
+           this.setRoomID(roomID);
+        }catch(NotValidNumber error){
+            JOptionPane.showMessageDialog(null, error.toString(), "ERROR.", JOptionPane.ERROR_MESSAGE);
+        }
+        
+        this.setStatus(status);
+    }
+    
+    /**
+     * Constructor que no recibe los ID de los doctores ni un numero de habitación
+     * @param persona
+     * @param securityNumber
+     * @param weigth
+     * @param size
+     * @param disease
+     * @param status
+     */
+    public Patient(Person persona, String securityNumber, float weigth, float size, String disease, String status){
+        super(persona);
+        try{
+            this.setSecurityNumber(securityNumber);
+        }catch(NotValidNumber error){
+            JOptionPane.showMessageDialog(null, error.toString(), "ERROR.", JOptionPane.ERROR_MESSAGE);
+        }
+        
+        try{
+           this.setWeigth(weigth);
+        }catch(NotValidNumber error){
+            JOptionPane.showMessageDialog(null, error.toString(), "ERROR.", JOptionPane.ERROR_MESSAGE);
+        }
+        
+        try{
+           this.setSize(size);
+        }catch(NotValidNumber error){
+            JOptionPane.showMessageDialog(null, error.toString(), "ERROR.", JOptionPane.ERROR_MESSAGE);
+        }
+        
+        this.setDisease(disease);
+        
+        this.setStatus(status);
+    }
+    
+    /**
      * Método set para asignar un número de seguridad a un Paciente
      * @param securityNumber
      * @throws Exceptions.NotValidNumber
