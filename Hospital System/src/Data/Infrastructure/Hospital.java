@@ -332,6 +332,13 @@ public class Hospital {
     }
     
     public void addDoctorOffice(DoctorsOffice dof){
+        this.numOfDoctorsOffices++;
+        int id = this.numOfDoctorsOffices;
+        try {
+            dof.setId(id);
+        }catch(NotValidNumber error){
+            JOptionPane.showMessageDialog(null, error.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
         this.offices.add(dof);
     }
 
