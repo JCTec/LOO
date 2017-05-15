@@ -5,9 +5,8 @@
  */
 package Interfaz.Paneles;
 
-import Data.Infrastructure.Hospital;
+import Data.Infrastructure.DoctorsOffice;
 import Data.People.Doctor;
-import Data.People.Patient;
 import java.util.ArrayList;
 import javax.swing.JTable;
 import javax.swing.RowFilter;
@@ -20,18 +19,16 @@ import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
-
 /**
  *
  * @author alanp
  */
-public class ReportPatient extends javax.swing.JPanel {
-
+public class ReportOffices extends javax.swing.JPanel {
 
     /**
-     * Creates new form ReportPatient
+     * Creates new form ReportOffices
      */
-    public ReportPatient() {
+    public ReportOffices() {
         initComponents();
     }
 
@@ -46,29 +43,28 @@ public class ReportPatient extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        patientsTable = new javax.swing.JTable();
+        officesTable = new javax.swing.JTable();
         searchField = new javax.swing.JTextField();
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Buscar"));
 
-        patientsTable.setModel(new javax.swing.table.DefaultTableModel(
+        officesTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Nombre", "Apellido", "Edad", "ID", "Enfermedad", "Estatus", "Habitación"
+                "ID", "Mensualidad", "Doctor", "Último Pago"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        patientsTable.getTableHeader().setReorderingAllowed(false);
-        jScrollPane1.setViewportView(patientsTable);
+        jScrollPane1.setViewportView(officesTable);
 
         searchField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -83,7 +79,7 @@ public class ReportPatient extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 714, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 622, Short.MAX_VALUE)
                     .addComponent(searchField))
                 .addContainerGap())
         );
@@ -93,7 +89,7 @@ public class ReportPatient extends javax.swing.JPanel {
                 .addGap(31, 31, 31)
                 .addComponent(searchField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 405, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 406, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -119,34 +115,31 @@ public class ReportPatient extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_searchFieldActionPerformed
 
-    private String[] columnNames = {"Nombre", "Apellido", "Edad", "ID", "Enfermedad", "Estatus", "ID Habitacion"};
-    private String[] data = new String[7];
+    private String[] columnNames = {"ID", "Mensualidad", "Doctor", "ID", "Último Pago"};
+    private String[] data = new String[5];
     private DefaultTableModel model;
     private TableRowSorter<TableModel> rowSorter;
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable patientsTable;
+    private javax.swing.JTable officesTable;
     private javax.swing.JTextField searchField;
     // End of variables declaration//GEN-END:variables
-public void setData(ArrayList<Patient> patients) {
 
-        this.model = (DefaultTableModel) this.patientsTable.getModel();
+    public void setData(ArrayList<DoctorsOffice> offices) {
 
-        for (int x = 0; x < patients.size(); x++) {
-            this.data[0] = patients.get(x).getFirstName();
-            this.data[1] = patients.get(x).getLastName();
-            this.data[2] = Integer.toString(patients.get(x).getAge());
-            this.data[3] = patients.get(x).getSecurityNumber();
-            this.data[4] = patients.get(x).getDisease();
-            this.data[5] = patients.get(x).getStatus();
-            this.data[6] = Integer.toString(patients.get(x).getRoomID());
+        this.model = (DefaultTableModel) this.officesTable.getModel();
+
+        for (int x = 0; x < offices.size(); x++) {
+            this.data[0] = Integer.toString(offices.get(x).getId());
+            this.data[1] = Float.toString(offices.get(x).getMonthlyRent());
+            this.data[2] = offices.get(x).getDoctorID();
+            this.data[3] = Float.toString(offices.get(x).getLastPayment());
 
             this.model.insertRow(this.model.getRowCount(), this.data);
         }
 
-        this.rowSorter = new TableRowSorter<>(this.patientsTable.getModel());
+        this.rowSorter = new TableRowSorter<>(this.officesTable.getModel());
 
         this.searchField.getDocument().addDocumentListener(new DocumentListener() {
 
@@ -179,22 +172,22 @@ public void setData(ArrayList<Patient> patients) {
 
         });
 
-        this.patientsTable.getModel().addTableModelListener(new TableModelListener() {
+        this.officesTable.getModel().addTableModelListener(new TableModelListener() {
 
             @Override
             public void tableChanged(TableModelEvent e) {
-                patientsTable.getModel();
+                officesTable.getModel();
             }
 
         });
 
-        this.patientsTable.setRowSorter(this.rowSorter);
+        this.officesTable.setRowSorter(this.rowSorter);
 
     }
 
     public JTable getTable() {
 
-        return this.patientsTable;
+        return this.officesTable;
     }
 
 }

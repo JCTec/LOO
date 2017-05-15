@@ -101,7 +101,7 @@ public class MainWindow extends javax.swing.JFrame {
         editPatient = new javax.swing.JPanel();
         editPatient1 = new Interfaz.Paneles.EditPatient();
         editOffice = new javax.swing.JPanel();
-        editDoctorsOffice1 = new Interfaz.Paneles.EditDoctorsOffice();
+        reportOfficesPanel = new Interfaz.Paneles.ReportOffices();
         editDoctor = new javax.swing.JPanel();
         editDoctor1 = new Interfaz.Paneles.EditDoctor();
         removePatient = new javax.swing.JPanel();
@@ -123,8 +123,7 @@ public class MainWindow extends javax.swing.JFrame {
         menuAboutHospital = new javax.swing.JMenuItem();
         menuOffice = new javax.swing.JMenu();
         menuNewOffice = new javax.swing.JMenuItem();
-        menuEditOffice = new javax.swing.JMenuItem();
-        menuRemoveOffice = new javax.swing.JMenuItem();
+        menuSearchOffice = new javax.swing.JMenuItem();
         menuDoctor = new javax.swing.JMenu();
         menuNewDoctor = new javax.swing.JMenuItem();
         menuEditDoctor = new javax.swing.JMenuItem();
@@ -263,15 +262,15 @@ public class MainWindow extends javax.swing.JFrame {
             editOfficeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(editOfficeLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(editDoctorsOffice1, javax.swing.GroupLayout.DEFAULT_SIZE, 889, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(reportOfficesPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 859, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(44, Short.MAX_VALUE))
         );
         editOfficeLayout.setVerticalGroup(
             editOfficeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(editOfficeLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(editDoctorsOffice1, javax.swing.GroupLayout.DEFAULT_SIZE, 698, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(reportOfficesPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 641, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(90, Short.MAX_VALUE))
         );
 
         mainPanel.add(editOffice, "editOffice");
@@ -459,21 +458,13 @@ public class MainWindow extends javax.swing.JFrame {
         });
         menuOffice.add(menuNewOffice);
 
-        menuEditOffice.setText("Editar");
-        menuEditOffice.addActionListener(new java.awt.event.ActionListener() {
+        menuSearchOffice.setText("Buscar");
+        menuSearchOffice.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuEditOfficeActionPerformed(evt);
+                menuSearchOfficeActionPerformed(evt);
             }
         });
-        menuOffice.add(menuEditOffice);
-
-        menuRemoveOffice.setText("Eliminar");
-        menuRemoveOffice.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuRemoveOfficeActionPerformed(evt);
-            }
-        });
-        menuOffice.add(menuRemoveOffice);
+        menuOffice.add(menuSearchOffice);
 
         menuBar.add(menuOffice);
 
@@ -568,16 +559,8 @@ public class MainWindow extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    //Botón de menú "Eliminar Consultorio"
-    private void menuRemoveOfficeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuRemoveOfficeActionPerformed
-        if (this.hospital != null) {
-            CardLayout card = (CardLayout) mainPanel.getLayout();
-            card.show(mainPanel, "removeOffice");
-        } else {
-            JOptionPane.showMessageDialog(null, "Por favor, cree un doctor primero.", "ERROR", JOptionPane.ERROR_MESSAGE);
-        }
-    }//GEN-LAST:event_menuRemoveOfficeActionPerformed
-    //Botón de menú Agregar Consultorio
+
+   //Botón de menú Agregar Consultorio
     private void menuNewOfficeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuNewOfficeActionPerformed
         if (this.hospital != null) {
             CardLayout card = (CardLayout) mainPanel.getLayout();
@@ -587,14 +570,15 @@ public class MainWindow extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_menuNewOfficeActionPerformed
     //Botón menú Editar Consultorio
-    private void menuEditOfficeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuEditOfficeActionPerformed
+    private void menuSearchOfficeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuSearchOfficeActionPerformed
         if (this.hospital != null) {
             CardLayout card = (CardLayout) mainPanel.getLayout();
             card.show(mainPanel, "editOffice");
-        } else {
-            JOptionPane.showMessageDialog(null, "Por favor, cree un doctor primero.", "ERROR", JOptionPane.ERROR_MESSAGE);
-        }
-    }//GEN-LAST:event_menuEditOfficeActionPerformed
+        } 
+        else 
+            JOptionPane.showMessageDialog(null, "Por favor, cree un hospital primero.", "ERROR", JOptionPane.ERROR_MESSAGE);
+        
+    }//GEN-LAST:event_menuSearchOfficeActionPerformed
     //Botón menú Agregar Doctor
     private void menuNewDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuNewDoctorActionPerformed
         if (this.hospital != null) {
@@ -777,7 +761,6 @@ public class MainWindow extends javax.swing.JFrame {
     private Interfaz.Paneles.CreateNewPatient createNewPatient1;
     private javax.swing.JPanel editDoctor;
     private Interfaz.Paneles.EditDoctor editDoctor1;
-    private Interfaz.Paneles.EditDoctorsOffice editDoctorsOffice1;
     private javax.swing.JPanel editHospital;
     private Interfaz.Paneles.EditHospital editHospital1;
     private javax.swing.JPanel editOffice;
@@ -791,7 +774,6 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JMenu menuDoctor;
     private javax.swing.JMenuItem menuEditDoctor;
     private javax.swing.JMenuItem menuEditHospital;
-    private javax.swing.JMenuItem menuEditOffice;
     private javax.swing.JMenuItem menuEditPatient;
     private javax.swing.JMenu menuHospital;
     private javax.swing.JMenuItem menuNewDoctor;
@@ -800,11 +782,11 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JMenu menuOffice;
     private javax.swing.JMenu menuPatient;
     private javax.swing.JMenuItem menuRemoveDoctor;
-    private javax.swing.JMenuItem menuRemoveOffice;
     private javax.swing.JMenuItem menuRemovePatient;
     private javax.swing.JMenu menuReport;
     private javax.swing.JMenuItem menuReportDoctor;
     private javax.swing.JMenuItem menuReportPatient;
+    private javax.swing.JMenuItem menuSearchOffice;
     private javax.swing.JPanel newDoctor;
     private javax.swing.JPanel newHospital;
     private javax.swing.JPanel newOffice;
@@ -815,6 +797,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JPanel removePatient;
     private javax.swing.JPanel reportDoctor;
     private Interfaz.Paneles.ReportDoctor reportDoctor1;
+    private Interfaz.Paneles.ReportOffices reportOfficesPanel;
     private javax.swing.JPanel reportPatient;
     private Interfaz.Paneles.ReportPatient reportPatientPanel;
     private javax.swing.JMenu save;
@@ -841,6 +824,15 @@ public class MainWindow extends javax.swing.JFrame {
             public void valueChanged(ListSelectionEvent event) {
                 if (!event.getValueIsAdjusting()) {
                     modifyPatient(reportPatientPanel.getTable().getValueAt(reportPatientPanel.getTable().getSelectedRow(), 3).toString());
+                }
+
+            }
+        });
+         //Reportar Consultorio
+        this.reportOfficesPanel.getTable().getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+            public void valueChanged(ListSelectionEvent event) {
+                if (!event.getValueIsAdjusting()) {
+                    modifyOffice(reportOfficesPanel.getTable().getValueAt(reportOfficesPanel.getTable().getSelectedRow(), 3).toString());
                 }
 
             }
@@ -890,12 +882,7 @@ public class MainWindow extends javax.swing.JFrame {
                 saveNewOfficeAction(evt);
             }
         });
-        //Editar Consultorio
-        this.editDoctorsOffice1.getSaveButton().addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                saveEditOfficeAction(evt);
-            }
-        });
+       
     }
 
     public void modifyDoctor(String ID) {
@@ -904,6 +891,10 @@ public class MainWindow extends javax.swing.JFrame {
 
     public void modifyPatient(String nSS) {
         this.hospital.showPatientInfo(nSS);
+    }
+    
+    public void modifyOffice(String ID){
+        this.hospital.showDoctorsOfficeInfo(ID);
     }
 
     public void saveNewHospitalAction(java.awt.event.ActionEvent evt) {
@@ -1072,6 +1063,10 @@ public class MainWindow extends javax.swing.JFrame {
 	}
 
     public void saveNewOfficeAction(java.awt.event.ActionEvent evt) {
+        DoctorsOffice dof = this.createNewDoctorsOffice1.getOffice();
+        this.hospital.addDoctorOffice(dof.getFloor(), dof.getMonthlyRent());
+        JOptionPane.showMessageDialog(null, "Consultorio creado satisfactoriamente", "INFORMATION", JOptionPane.INFORMATION_MESSAGE);
+        this.createNewDoctorsOffice1.clearFields();
     }
 
     public void saveEditOfficeAction(java.awt.event.ActionEvent evt) {

@@ -10,6 +10,7 @@ import Exceptions.NotValidNumber;
 import Exceptions.OverSize;
 import Interfaz.Paneles.FrameWithCloseButton;
 import Interfaz.Paneles.ShowDoctor;
+import Interfaz.Paneles.ShowOffice;
 import Interfaz.Paneles.ShowPerson;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
@@ -440,9 +441,27 @@ public class Hospital {
      */
     public void showDoctorsOfficeInfo(String doctorsOfficeId) {
 
-        DoctorsOffice officeFound = this.offices.get(Integer.valueOf(doctorsOfficeId) - 1);
+        int idFounded = -1;
+        
+        for (int i=0; i < this.getNumOfDoctorsOffices(); i++){
+            if(doctorsOfficeId.equals(this.offices.get(i).getId())){
+                idFounded = i;
+                i = this.getNumOfDoctorsOffices();
+            }
+        }
+        
+        if(idFounded>=0){
+            ShowOffice office = new ShowOffice();
+            office.setFields(Integer.toString(this.offices.get(idFounded).getId()), Float.toString(this.offices.get(idFounded).getMonthlyRent()), this.offices.get(idFounded).getDoctorID(), Float.toString(this.offices.get(idFounded).getLastPayment()));//Falta codigo aquí
+            office.setVisible(true);
+            FrameWithCloseButton f = new FrameWithCloseButton();
 
-        //officeFound.
+            f.setSize(500, 600);
+            f.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            f.setVisible(true);
+
+            f.setContent(office);
+        }
     }
 
     /**
