@@ -109,6 +109,7 @@ public class DoctorsOffice {
         this.doctorID = "NOT DEFINED";
         this.lastPayment = 0.0f;
     }
+   
     /**
      * Constructor de copia
      * @param office

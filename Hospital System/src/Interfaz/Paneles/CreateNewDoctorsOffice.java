@@ -44,24 +44,24 @@ public class CreateNewDoctorsOffice extends javax.swing.JPanel {
         idDoctorField = new javax.swing.JTextField();
         saveButton = new javax.swing.JButton();
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Crear Consultorio", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 24))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Crear Consultorio", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Verdana", 0, 13))); // NOI18N
 
-        flloorLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        flloorLabel.setFont(new java.awt.Font("Verdana", 0, 13)); // NOI18N
         flloorLabel.setText("Piso:");
 
-        monthlyRentLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        monthlyRentLabel.setFont(new java.awt.Font("Verdana", 0, 13)); // NOI18N
         monthlyRentLabel.setText("Renta mensual:");
 
-        idDoctorLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        idDoctorLabel.setFont(new java.awt.Font("Verdana", 0, 13)); // NOI18N
         idDoctorLabel.setText("ID Doctor:");
 
-        floorField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        floorField.setFont(new java.awt.Font("Verdana", 0, 13)); // NOI18N
 
-        monthlyRentField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        monthlyRentField.setFont(new java.awt.Font("Verdana", 0, 13)); // NOI18N
 
-        idDoctorField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        idDoctorField.setFont(new java.awt.Font("Verdana", 0, 13)); // NOI18N
 
-        saveButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        saveButton.setFont(new java.awt.Font("Verdana", 0, 13)); // NOI18N
         saveButton.setText("Guardar");
         saveButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,9 +87,9 @@ public class CreateNewDoctorsOffice extends javax.swing.JPanel {
                             .addComponent(idDoctorField)
                             .addComponent(floorField, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(129, 129, 129)
+                        .addGap(126, 126, 126)
                         .addComponent(saveButton)))
-                .addContainerGap(53, Short.MAX_VALUE))
+                .addContainerGap(73, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -106,9 +106,9 @@ public class CreateNewDoctorsOffice extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(idDoctorLabel)
                     .addComponent(idDoctorField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
                 .addComponent(saveButton)
-                .addGap(55, 55, 55))
+                .addGap(43, 43, 43))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -176,13 +176,19 @@ public class CreateNewDoctorsOffice extends javax.swing.JPanel {
     private javax.swing.JButton saveButton;
     // End of variables declaration//GEN-END:variables
 
-	DoctorsOffice getOffice() {
+	public DoctorsOffice getOffice() {
 		
 		DoctorsOffice o = new DoctorsOffice(5, floor, monthlyRent);
 		return o;
 	}
 
-	javax.swing.JButton getSaveButton() {
+	public javax.swing.JButton getSaveButton() {
 		return this.saveButton;
 	}
+        
+        public void clearFields(){
+            this.floorField.setText("");
+            this.idDoctorField.setText("");
+            this.monthlyRentField.setText("");
+        }
 }
