@@ -117,10 +117,7 @@ public class Room {
      */
     public void setPatientID(String patientID) throws NotValidNumber {
         if (patientID.length() == 11) {
-            if(this.patientID.isEmpty())
-                this.patientID = patientID;
-            else
-                JOptionPane.showMessageDialog(null, "Ya hay un paciente asignado (" + this.patientID+")", "ERROR", JOptionPane.ERROR_MESSAGE);
+            this.patientID = patientID;
         } else {
             throw new NotValidNumber("El ID del paciente es incorrecto.\nSe ha asginado 'NOT DEFINED' por omisión.\nSi desea configurar esto acceda al menú 'Editar'");
         }
