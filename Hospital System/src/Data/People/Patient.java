@@ -39,7 +39,6 @@ public class Patient extends Person {
         this.disease="UNKNOWN";
         this.roomID=0;
         this.doctorID = new ArrayList<>();
-        this.doctorID.add("NOT DEFINED");
         this.status = "UNKNOWN";
                 
     }
@@ -103,8 +102,8 @@ public class Patient extends Person {
             JOptionPane.showMessageDialog(null, error.toString(), "ERROR.", JOptionPane.ERROR_MESSAGE);
         }
         
+        this.doctorID = new ArrayList<>();
         try{
-            this.doctorID = new ArrayList<>();
             for(int i=0;i<doctorID.size();i++){
                 this.setDoctorID(doctorID.get(i));
             }
@@ -155,8 +154,8 @@ public class Patient extends Person {
             JOptionPane.showMessageDialog(null, error.toString(), "ERROR.", JOptionPane.ERROR_MESSAGE);
         }
         
+        this.doctorID = new ArrayList<>();
         try{
-            this.doctorID = new ArrayList<>();
             for(int i=0;i<doctorID.size();i++){
                 this.setDoctorID(doctorID.get(i));
             }
@@ -206,6 +205,7 @@ public class Patient extends Person {
         }
         
         this.setStatus(status);
+        this.doctorID = new ArrayList<>();
     }
     
     /**
@@ -240,6 +240,7 @@ public class Patient extends Person {
         this.setDisease(disease);
         
         this.setStatus(status);
+        this.doctorID = new ArrayList<>();
     }
     
     /**
