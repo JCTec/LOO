@@ -501,7 +501,7 @@ public class EditPatient extends javax.swing.JPanel {
 		return doctorIDs;
 	}
 
-	Patient getOldPatient() {
+	public Patient getOldPatient() {
 		return this.patient;
 	}
 
