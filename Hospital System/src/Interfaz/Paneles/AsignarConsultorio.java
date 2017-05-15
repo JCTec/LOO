@@ -14,16 +14,16 @@ import javax.swing.JButton;
 
 /**
  *
- * @author alanp
+ * @author Juan
  */
-public class CreateNewRoom extends javax.swing.JPanel {
+public class AsignarConsultorio extends javax.swing.JPanel {
 
     private Hospital hospital;
-
+    
     /**
-     * Creates new form CreateNewRoom
+     * Creates new form AsignarConsultorio
      */
-    public CreateNewRoom() {
+    public AsignarConsultorio() {
         initComponents();
     }
 
@@ -36,7 +36,6 @@ public class CreateNewRoom extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
         jPanel1 = new javax.swing.JPanel();
         idLabel = new javax.swing.JLabel();
         patientLabel = new javax.swing.JLabel();
@@ -44,13 +43,13 @@ public class CreateNewRoom extends javax.swing.JPanel {
         idComboBox = new javax.swing.JComboBox<>();
         patientComboBox = new javax.swing.JComboBox<>();
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Crear Habitación", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Verdana", 0, 13))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Asignar Consultorio", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Verdana", 0, 13))); // NOI18N
 
         idLabel.setFont(new java.awt.Font("Verdana", 0, 13)); // NOI18N
         idLabel.setText("ID");
 
         patientLabel.setFont(new java.awt.Font("Verdana", 0, 13)); // NOI18N
-        patientLabel.setText("Paciente");
+        patientLabel.setText("Doctor");
 
         assignButton.setText("Asignar");
 
@@ -103,14 +102,14 @@ public class CreateNewRoom extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -120,7 +119,6 @@ public class CreateNewRoom extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> idComboBox;
     private javax.swing.JLabel idLabel;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JComboBox<String> patientComboBox;
     private javax.swing.JLabel patientLabel;
     // End of variables declaration//GEN-END:variables
@@ -128,27 +126,27 @@ public class CreateNewRoom extends javax.swing.JPanel {
     public JButton getAssignButton() {
         return this.assignButton;
     }
-    
+
     public void setHospital(Hospital hospital) {
         this.hospital = hospital;
-        int roomNumber = hospital.getRooms().size();
-        int patientNumber = hospital.getPatients().size();
+        int roomNumber = hospital.getOffices().size();
+        int doctorNumber = hospital.getDoctors().size();
         String[] itemsRoom = new String[roomNumber];
-        String[] itemsPatient = new String[patientNumber];
+        String[] itemsDoctors = new String[doctorNumber];
+        
         for (int i = 0; i < roomNumber; i++) {
             Room room = hospital.getRooms().get(i);
             itemsRoom[i] = Integer.toString(room.getRoomID());
         }
 
-        for (int i = 0; i < patientNumber; i++) {
-            Patient patient = hospital.getPatients().get(i);
-            itemsPatient[i] = i + " " + patient.getSecurityNumber()+" "+ patient.getFirstName() + " " + patient.getLastName();
+        for (int i = 0; i < doctorNumber; i++) {
+            Doctor doc = hospital.getDoctors().get(i);
+            itemsDoctors[i] = i + " " + doc.getId()+" "+ doc.getFirstName() + " " + doc.getLastName();
         }
 
         this.idComboBox.setModel(new DefaultComboBoxModel<>(itemsRoom));
-        this.patientComboBox.setModel(new DefaultComboBoxModel<>(itemsPatient));
+        this.patientComboBox.setModel(new DefaultComboBoxModel<>(itemsDoctors));
     }
-    
 
     public String getSelectedRoom() {
         return this.idComboBox.getSelectedItem().toString().split(" ")[0];
@@ -157,4 +155,6 @@ public class CreateNewRoom extends javax.swing.JPanel {
     public String getSelectedPatient() {
         return this.patientComboBox.getSelectedItem().toString().split(" ")[1];
     }
+    
+
 }

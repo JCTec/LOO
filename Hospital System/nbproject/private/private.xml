@@ -6,11 +6,14 @@
             <file>file:/Users/Juan/Desktop/LOO/Hospital%20System/src/Interfaz/Paneles/ShowDoctor.java</file>
             <file>file:/Users/Juan/Desktop/LOO/Hospital%20System/src/Data/Infrastructure/Hospital.java</file>
             <file>file:/Users/Juan/Desktop/LOO/Hospital%20System/src/Interfaz/Paneles/ReportDoctor.java</file>
+            <file>file:/Users/Juan/Desktop/LOO/Hospital%20System/src/Interfaz/Paneles/CreateNewRoom.java</file>
             <file>file:/Users/Juan/Desktop/LOO/Hospital%20System/src/Data/Infrastructure/DoctorsOffice.java</file>
             <file>file:/Users/Juan/Desktop/LOO/Hospital%20System/src/Interfaz/Paneles/ShowPerson.java</file>
             <file>file:/Users/Juan/Desktop/LOO/Hospital%20System/src/Data/People/Person.java</file>
             <file>file:/Users/Juan/Desktop/LOO/Hospital%20System/src/Interfaz/Paneles/ReportPatient.java</file>
             <file>file:/Users/Juan/Desktop/LOO/Hospital%20System/src/Exceptions/NotValidNumber.java</file>
+            <file>file:/Users/Juan/Desktop/LOO/Hospital%20System/src/Interfaz/Paneles/ReportOffices.java</file>
+            <file>file:/Users/Juan/Desktop/LOO/Hospital%20System/src/Interfaz/Paneles/Consultorio.java</file>
             <file>file:/Users/Juan/Desktop/LOO/Hospital%20System/src/DataBase/LoadDataBase.java</file>
             <file>file:/Users/Juan/Desktop/LOO/Hospital%20System/src/Interfaz/Paneles/EditDoctor.java</file>
             <file>file:/Users/Juan/Desktop/LOO/Hospital%20System/src/Interfaz/Paneles/MainWindow.java</file>
@@ -21,6 +24,7 @@
             <file>file:/Users/Juan/Desktop/LOO/Hospital%20System/src/Interfaz/Paneles/CreateNewDoctorsOffice.java</file>
             <file>file:/Users/Juan/Desktop/LOO/Hospital%20System/src/Interfaz/Paneles/EditHospital.java</file>
             <file>file:/Users/Juan/Desktop/LOO/Hospital%20System/src/Data/Infrastructure/Room.java</file>
+            <file>file:/Users/Juan/Desktop/LOO/Hospital%20System/src/Interfaz/Paneles/AsignarConsultorio.java</file>
         </group>
     </open-files>
 </project-private>

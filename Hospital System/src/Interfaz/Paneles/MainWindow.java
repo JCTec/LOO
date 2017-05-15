@@ -122,6 +122,8 @@ public class MainWindow extends javax.swing.JFrame {
         createNewRoomPanel = new Interfaz.Paneles.CreateNewRoom();
         reportRoom = new javax.swing.JPanel();
         reportRoomPanel = new Interfaz.Paneles.ReportRoom();
+        assignDoctorOffice = new javax.swing.JPanel();
+        asignarConsultorio1 = new Interfaz.Paneles.AsignarConsultorio();
         menuBar = new javax.swing.JMenuBar();
         save = new javax.swing.JMenu();
         menuHospital = new javax.swing.JMenu();
@@ -470,6 +472,25 @@ public class MainWindow extends javax.swing.JFrame {
 
         mainPanel.add(reportRoom, "reportRoom");
 
+        javax.swing.GroupLayout assignDoctorOfficeLayout = new javax.swing.GroupLayout(assignDoctorOffice);
+        assignDoctorOffice.setLayout(assignDoctorOfficeLayout);
+        assignDoctorOfficeLayout.setHorizontalGroup(
+            assignDoctorOfficeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(assignDoctorOfficeLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(asignarConsultorio1, javax.swing.GroupLayout.DEFAULT_SIZE, 915, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        assignDoctorOfficeLayout.setVerticalGroup(
+            assignDoctorOfficeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(assignDoctorOfficeLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(asignarConsultorio1, javax.swing.GroupLayout.DEFAULT_SIZE, 739, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        mainPanel.add(assignDoctorOffice, "assignDoctorOffice");
+
         save.setText("Guardar");
         save.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -514,6 +535,11 @@ public class MainWindow extends javax.swing.JFrame {
         menuOffice.add(menuNewOffice);
 
         menuAssignOffice.setText("Asignar");
+        menuAssignOffice.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuAssignOfficeActionPerformed(evt);
+            }
+        });
         menuOffice.add(menuAssignOffice);
 
         menuSearchOffice.setText("Buscar");
@@ -656,6 +682,8 @@ public class MainWindow extends javax.swing.JFrame {
         if (this.hospital != null) {
             CardLayout card = (CardLayout) mainPanel.getLayout();
             card.show(mainPanel, "editOffice");
+            this.reportOfficesPanel.delete();
+            this.reportOfficesPanel.setData(this.hospital);
         } else {
             JOptionPane.showMessageDialog(null, "Por favor, cree un hospital primero.", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
@@ -815,6 +843,21 @@ public class MainWindow extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_menuSearchRoomActionPerformed
 
+    private void menuAssignOfficeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuAssignOfficeActionPerformed
+        // TODO add your handling code here:
+        if (this.hospital != null) {
+            if (!this.hospital.getOffices().isEmpty()) {
+                CardLayout card = (CardLayout) mainPanel.getLayout();
+                card.show(mainPanel, "assignDoctorOffice");
+                this.asignarConsultorio1.setHospital(this.hospital);
+            } else {
+                JOptionPane.showMessageDialog(null, "Por favor, cree una habitación primero.", "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Por favor, cree un hospital primero.", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_menuAssignOfficeActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -855,6 +898,8 @@ public class MainWindow extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel aboutHospital;
     private Interfaz.Paneles.aboutHospital aboutHospital1;
+    private Interfaz.Paneles.AsignarConsultorio asignarConsultorio1;
+    private javax.swing.JPanel assignDoctorOffice;
     private javax.swing.JPanel assignRoom;
     private Interfaz.Paneles.CreateNewDoctor createNewDoctor2;
     private Interfaz.Paneles.CreateNewDoctorsOffice createNewDoctorsOffice1;
@@ -915,6 +960,21 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void initSaveButtonsListeners() {
         //Crear Nuevo Hospital
+        
+        this.reportOfficesPanel.getTable().getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+            public void valueChanged(ListSelectionEvent event) {
+                if (!event.getValueIsAdjusting()) {
+                    
+                    int selectedrow = reportDoctor1.getTable().getSelectedRow();
+                    if(selectedrow  != -1){
+                    String i = reportDoctor1.getTable().getValueAt(selectedrow, 0).toString();
+                    changeDoctorsOffice(i);
+                    }
+                    
+                }
+
+            }
+        });
         this.createNewHospitalForm.getSaveButton().addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 saveNewHospitalAction(evt);
@@ -1012,6 +1072,50 @@ public class MainWindow extends javax.swing.JFrame {
         });
         
         
+    }
+    
+    public void changeDoctorsOffice(String ID){
+        /*
+        int idFounded = -1;
+        
+        ArrayList<DoctorsOffice> offices = this.hospital.getOffices();
+        
+        for(int i=0; i< offices.size();i++){
+            if(ID.equals(offices.get(i).getId())){
+                idFounded = i;
+                i = offices.size(); 
+            }
+        }
+        
+        if (idFounded >= 0){
+  
+            
+            Consultorio doctor = new Consultorio();
+            
+            doctor.setFields(doctors.get(idFounded).getFirstName() , doctors.get(idFounded).getLastName(), doctors.get(idFounded).getLicence(), doctors.get(idFounded).getTelephone(), doctors.get(idFounded).getAddress(), doctors.get(idFounded).getEmail(), Integer.toString(doctors.get(idFounded).getAge()), doctors.get(idFounded).getDepartment(), doctors.get(idFounded).getId());
+            
+            doctor.setVisible(true);
+            
+            FrameWithCloseButton f = new FrameWithCloseButton();
+                    
+            f.setSize(500, 600);
+            f.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            f.setVisible(true);
+ 
+            f.setContent(doctor);
+            
+            doctor.getSaveButton().addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    Doctor p = doctor.getDoctor();
+                
+                    changeed(p);
+                }
+            });
+        }
+        
+        CardLayout card = (CardLayout) mainPanel.getLayout();
+        card.show(mainPanel, "inicioPanel");
+        */
     }
 
     public void modifyDoctor(String ID) {

@@ -6,6 +6,7 @@
 package Interfaz.Paneles;
 
 import Data.Infrastructure.DoctorsOffice;
+import Data.Infrastructure.Hospital;
 import Data.People.Doctor;
 import java.util.ArrayList;
 import javax.swing.JTable;
@@ -115,6 +116,7 @@ public class ReportOffices extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_searchFieldActionPerformed
 
+    private boolean set;
     private String[] columnNames = {"ID", "Mensualidad", "Doctor", "ID", "Último Pago"};
     private String[] data = new String[5];
     private DefaultTableModel model;
@@ -126,17 +128,21 @@ public class ReportOffices extends javax.swing.JPanel {
     private javax.swing.JTextField searchField;
     // End of variables declaration//GEN-END:variables
 
-    public void setData(ArrayList<DoctorsOffice> offices) {
+    public void setData(Hospital h) {
 
+        this.set = true;
+        
         this.model = (DefaultTableModel) this.officesTable.getModel();
 
-        for (int x = 0; x < offices.size(); x++) {
-            this.data[0] = Integer.toString(offices.get(x).getId());
-            this.data[1] = Float.toString(offices.get(x).getMonthlyRent());
-            this.data[2] = offices.get(x).getDoctorID();
-            this.data[3] = Float.toString(offices.get(x).getLastPayment());
+        for (int x = 0; x < h.getNumOfDoctorsOffices(); x++) {
+            
+            this.data[0] = Integer.toString(h.getOffices().get(x).getId());
+            this.data[1] = Float.toString(h.getOffices().get(x).getMonthlyRent());
+            this.data[2] = h.getOffices().get(x).getDoctorID();
+            this.data[3] = Float.toString(h.getOffices().get(x).getLastPayment());
 
             this.model.insertRow(this.model.getRowCount(), this.data);
+
         }
 
         this.rowSorter = new TableRowSorter<>(this.officesTable.getModel());
@@ -183,6 +189,18 @@ public class ReportOffices extends javax.swing.JPanel {
 
         this.officesTable.setRowSorter(this.rowSorter);
 
+    }
+    
+    public void delete(){
+        if(set){
+            if(this.officesTable != null && this.model != null){
+                this.officesTable.setRowSorter(null);
+            
+                for (int i = this.model.getRowCount() - 1; i >= 0; i--) {
+                    this.model.removeRow(i);
+                }
+            }
+        }
     }
 
     public JTable getTable() {
