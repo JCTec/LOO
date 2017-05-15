@@ -601,12 +601,12 @@ public class MainWindow extends javax.swing.JFrame {
             CardLayout card = (CardLayout) mainPanel.getLayout();
             card.show(mainPanel, "newDoctor");
         } else {
-            JOptionPane.showMessageDialog(null, "Por favor, cree un doctor primero.", "ERROR", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Por favor, cree un hospital primero.", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_menuNewDoctorActionPerformed
     //Botón menú Editar Doctor
     private void menuEditDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuEditDoctorActionPerformed
-        if (this.hospital != null) {
+		if (this.hospital != null) {
             if (this.hospital.getDoctors().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Por favor, cree un doctor primero.", "ERROR", JOptionPane.ERROR_MESSAGE);
                 this.menuNewDoctor.doClick();
