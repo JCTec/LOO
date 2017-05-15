@@ -130,8 +130,9 @@ public class ReportPatient extends javax.swing.JPanel {
     private javax.swing.JTable patientsTable;
     private javax.swing.JTextField searchField;
     // End of variables declaration//GEN-END:variables
-public void setData(ArrayList<Patient> patients) {
 
+    public void setData(ArrayList<Patient> patients){
+        
         this.model = (DefaultTableModel) this.patientsTable.getModel();
 
         for (int x = 0; x < patients.size(); x++) {
@@ -178,15 +179,9 @@ public void setData(ArrayList<Patient> patients) {
             }
 
         });
-
-        this.patientsTable.getModel().addTableModelListener(new TableModelListener() {
-
-            @Override
-            public void tableChanged(TableModelEvent e) {
-                patientsTable.getModel();
-            }
-
-        });
+        
+        
+        this.patientsTable.setRowSorter(this.rowSorter); 
 
         this.patientsTable.setRowSorter(this.rowSorter);
 
