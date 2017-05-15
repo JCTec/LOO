@@ -13,8 +13,6 @@ import Interfaz.Paneles.ShowDoctor;
 import Interfaz.Paneles.ShowOffice;
 import Interfaz.Paneles.ShowPerson;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -56,6 +54,7 @@ public class Hospital {
         this.rooms = new ArrayList<>();
         this.doctors = new ArrayList<>();
         this.patients = new ArrayList<>();
+        this.fillRoomsAndOffice();
     }
 
     /**
@@ -129,7 +128,7 @@ public class Hospital {
     }
 
     //Método que automáticamente crea el numero de habitaciones y oficinas que se señalaron en el constructor
-    private void fillRoomsAndOffice() {
+    public void fillRoomsAndOffice() {
 
         for (int x = 0; x < this.numOfRooms; x++) {
             Room newRoom = new Room(x + 1);
@@ -558,14 +557,6 @@ public class Hospital {
             f.getContentPane().add(Patient);
             f.pack();
             f.setVisible(true);
-            
-            Patient.getSaveButton().addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    Patient p = Patient.getPatient();
-                
-                    modifyPatient(p);
-                }
-            });
 
         } else {
             JOptionPane.showMessageDialog(null, "No se encontró al paciente.", "NOT FOUNDED.", JOptionPane.ERROR_MESSAGE);
@@ -618,39 +609,6 @@ public class Hospital {
 
         this.patients.add(newPatient);
 
-    }
-    
-    private void modifyPatient(Patient newInfo){
-        for(int x = 0; x < this.patients.size(); x++ ){
-            if(this.patients.get(x).getSecurityNumber().equals(newInfo.getSecurityNumber())){
-                
-                this.patients.get(x).setAddress(newInfo.getAddress());
-                this.patients.get(x).setFirstName(newInfo.getFirstName());
-                this.patients.get(x).setLastName(newInfo.getLastName());
-                this.patients.get(x).setAge(newInfo.getAge());
-                
-                try {
-                    this.patients.get(x).setRoomID(newInfo.getRoomID());
-                } catch (NotValidNumber ex) {
-                    Logger.getLogger(Hospital.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                
-                this.patients.get(x).setEmail(newInfo.getEmail());
-                this.patients.get(x).setDisease(newInfo.getDisease());
-                this.patients.get(x).setTelephone(newInfo.getTelephone());
-                try {
-                    this.patients.get(x).setSize(Float.valueOf(newInfo.getSize()));
-                } catch (NotValidNumber ex) {
-                    Logger.getLogger(Hospital.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                try {
-                    this.patients.get(x).setWeigth(Float.valueOf(newInfo.getWeigth()));
-                } catch (NotValidNumber ex) {
-                    Logger.getLogger(Hospital.class.getName()).log(Level.SEVERE, null, ex);
-                }
-               
-            }
-        }
     }
 
     /**

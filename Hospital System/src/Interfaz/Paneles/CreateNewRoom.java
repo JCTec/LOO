@@ -141,18 +141,18 @@ public class CreateNewRoom extends javax.swing.JPanel {
 
         for (int i = 0; i < patientNumber; i++) {
             Patient patient = hospital.getPatients().get(i);
-            itemsPatient[i] = i + patient.getFirstName() + " " + patient.getLastName() + " " + patient.getSecurityNumber();
+            itemsPatient[i] = i +" "+ patient.getFirstName() + " " + patient.getLastName() + " " + patient.getSecurityNumber();
         }
 
         this.idComboBox.setModel(new DefaultComboBoxModel<>(itemsRoom));
         this.patientComboBox.setModel(new DefaultComboBoxModel<>(itemsPatient));
     }
 
-    private String getSelectedRoom() {
+    public String getSelectedRoom() {
         return this.idComboBox.getSelectedItem().toString().split(" ")[0];
     }
 
-    private String getSelectedPatient() {
-        return this.patientComboBox.getSelectedItem().toString().split(" ")[2];
+    public String getSelectedPatient() {
+        return this.patientComboBox.getSelectedItem().toString().split(" ")[3];
     }
 }
