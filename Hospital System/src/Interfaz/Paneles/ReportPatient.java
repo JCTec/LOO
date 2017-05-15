@@ -175,11 +175,7 @@ public void setData(ArrayList<Patient> patients){
 
         });
         
-
-    }
-
-    public JTable getTable(){
-            this.patientsTable.getModel().addTableModelListener(new TableModelListener() {
+        this.patientsTable.getModel().addTableModelListener(new TableModelListener() {
             
             @Override
             public void tableChanged(TableModelEvent e) {
@@ -187,6 +183,13 @@ public void setData(ArrayList<Patient> patients){
             }
             
         });
+        
+        this.patientsTable.setRowSorter(this.rowSorter); 
+
+    }
+
+    public JTable getTable(){
+            
        return this.patientsTable;
     }
 }
