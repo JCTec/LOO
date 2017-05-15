@@ -44,7 +44,6 @@ public class MainWindow extends javax.swing.JFrame {
 
         initComponents();
         initSaveButtonsListeners();
-        //intiFakeData();
 
         LoadDataBase DB = new LoadDataBase();
         this.hospital = DB.LoadHospital();
