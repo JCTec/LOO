@@ -54,7 +54,6 @@ public class Room {
      */
     public Room() {
         this.patientID = "NOT DEFINED";
-        //TODO make roomID incremental (how ? ask team)
         this.roomID = 0;
     }
 
@@ -77,6 +76,7 @@ public class Room {
         }
         
     }
+    
 
     /**
      * Método get que obtiene el ID de la habitación

@@ -251,6 +251,7 @@ public class Patient extends Person {
     public void setSecurityNumber(String securityNumber) throws NotValidNumber{
         if(securityNumber.length() == 11)
             this.securityNumber = securityNumber;
+        
         else
             throw new NotValidNumber("El número de seguridad es incorrecto.\nSe ha asignado 'Not Defined' por omisión.\nPara modificar esto acceda al menú 'Editar'");
     }

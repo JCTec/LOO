@@ -5,20 +5,14 @@
  */
 package Interfaz.Paneles;
 
-import Data.Infrastructure.Hospital;
-import Data.Infrastructure.Room;
-import Data.People.Doctor;
-import Data.People.Patient;
-import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
+import Data.Infrastructure.Room;
 
 /**
  *
  * @author alanp
  */
 public class CreateNewRoom extends javax.swing.JPanel {
-
-    private Hospital hospital;
 
     /**
      * Creates new form CreateNewRoom
@@ -36,125 +30,119 @@ public class CreateNewRoom extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
         jPanel1 = new javax.swing.JPanel();
-        idLabel = new javax.swing.JLabel();
-        patientLabel = new javax.swing.JLabel();
-        assignButton = new javax.swing.JButton();
-        idComboBox = new javax.swing.JComboBox<>();
-        patientComboBox = new javax.swing.JComboBox<>();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        roomIdShow = new javax.swing.JTextField();
+        idPatientField = new javax.swing.JTextField();
+        createButton = new javax.swing.JButton();
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Crear Habitación", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Verdana", 0, 13))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Agregar Habitación", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Verdana", 0, 13))); // NOI18N
 
-        idLabel.setFont(new java.awt.Font("Verdana", 0, 13)); // NOI18N
-        idLabel.setText("ID");
+        jLabel1.setFont(new java.awt.Font("Verdana", 0, 13)); // NOI18N
+        jLabel1.setText("Habitación ID");
 
-        patientLabel.setFont(new java.awt.Font("Verdana", 0, 13)); // NOI18N
-        patientLabel.setText("Paciente");
+        jLabel2.setFont(new java.awt.Font("Verdana", 0, 13)); // NOI18N
+        jLabel2.setText("Paciente ID");
+        jLabel2.setToolTipText("");
 
-        assignButton.setText("Asignar");
+        roomIdShow.setEditable(false);
+        roomIdShow.setFont(new java.awt.Font("Verdana", 0, 13)); // NOI18N
 
-        idComboBox.setFont(new java.awt.Font("Verdana", 0, 13)); // NOI18N
-        idComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        idPatientField.setFont(new java.awt.Font("Verdana", 0, 13)); // NOI18N
 
-        patientComboBox.setFont(new java.awt.Font("Verdana", 0, 13)); // NOI18N
-        patientComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        createButton.setFont(new java.awt.Font("Verdana", 0, 13)); // NOI18N
+        createButton.setText("Crear");
+        createButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                createButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(27, 27, 27)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(idLabel)
-                            .addComponent(patientLabel))
-                        .addGap(66, 66, 66)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(idComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(patientComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 447, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(239, 239, 239)
-                        .addComponent(assignButton)))
-                .addContainerGap(29, Short.MAX_VALUE))
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2))
+                .addGap(38, 38, 38)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(roomIdShow, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
+                    .addComponent(idPatientField))
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(createButton)
+                .addGap(76, 76, 76))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(46, 46, 46)
+                .addGap(49, 49, 49)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(idLabel)
-                    .addComponent(idComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(patientLabel)
-                    .addComponent(patientComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
-                .addComponent(assignButton)
-                .addGap(38, 38, 38))
+                    .addComponent(jLabel1)
+                    .addComponent(roomIdShow, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(57, 57, 57)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(idPatientField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
+                .addComponent(createButton)
+                .addGap(76, 76, 76))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void createButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_createButtonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton assignButton;
-    private javax.swing.JComboBox<String> idComboBox;
-    private javax.swing.JLabel idLabel;
+    private javax.swing.JButton createButton;
+    private javax.swing.JTextField idPatientField;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JComboBox<String> patientComboBox;
-    private javax.swing.JLabel patientLabel;
+    private javax.swing.JTextField roomIdShow;
     // End of variables declaration//GEN-END:variables
+    public JButton getCreateButton(){
+        return this.createButton;
+    }
 
-    public JButton getAssignButton() {
-        return this.assignButton;
+    public String getPatientID(){
+        return this.idPatientField.getText();
     }
     
-    public void setHospital(Hospital hospital) {
-        this.hospital = hospital;
-        int roomNumber = hospital.getRooms().size();
-        int patientNumber = hospital.getPatients().size();
-        String[] itemsRoom = new String[roomNumber];
-        String[] itemsPatient = new String[patientNumber];
-        for (int i = 0; i < roomNumber; i++) {
-            Room room = hospital.getRooms().get(i);
-            itemsRoom[i] = Integer.toString(room.getRoomID());
-        }
-
-        for (int i = 0; i < patientNumber; i++) {
-            Patient patient = hospital.getPatients().get(i);
-            itemsPatient[i] = i + " " + patient.getSecurityNumber()+" "+ patient.getFirstName() + " " + patient.getLastName();
-        }
-
-        this.idComboBox.setModel(new DefaultComboBoxModel<>(itemsRoom));
-        this.patientComboBox.setModel(new DefaultComboBoxModel<>(itemsPatient));
+    public String getRoomID(){
+        return this.roomIdShow.getText();
     }
     
-
-    public String getSelectedRoom() {
-        return this.idComboBox.getSelectedItem().toString().split(" ")[0];
+    public void clearFields(){
+        this.idPatientField.setText("");
+        //asdas
     }
-
-    public String getSelectedPatient() {
-        return this.patientComboBox.getSelectedItem().toString().split(" ")[1];
+    
+    public void setFields(int Id){
+        this.roomIdShow.setText(Integer.toString(Id));
     }
 }

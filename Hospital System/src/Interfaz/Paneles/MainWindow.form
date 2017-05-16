@@ -724,7 +724,7 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="Interfaz.Paneles.CreateNewRoom" name="createNewRoomPanel">
+            <Component class="Interfaz.Paneles.AsignarHabitacion" name="createNewRoomPanel">
             </Component>
           </SubComponents>
         </Container>
@@ -789,6 +789,38 @@
           </Layout>
           <SubComponents>
             <Component class="Interfaz.Paneles.AsignarConsultorio" name="asignarConsultorio1">
+            </Component>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JPanel" name="newRoom">
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
+              <CardConstraints cardName="newRoom"/>
+            </Constraint>
+          </Constraints>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                      <Component id="createNewRoom1" min="-2" pref="816" max="-2" attributes="0"/>
+                      <EmptySpace pref="99" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                      <Component id="createNewRoom1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="338" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="Interfaz.Paneles.CreateNewRoom" name="createNewRoom1">
             </Component>
           </SubComponents>
         </Container>

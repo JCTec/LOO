@@ -8,6 +8,7 @@ package Data.People;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -143,7 +144,7 @@ public class Doctor extends Person {
 			this.licence = licence;
 		}
 		else{
-			System.out.println("error using setLicence : licence should be 11 alphanumerical characters long");
+			JOptionPane.showMessageDialog(null,"Error a la hora de asignar la licencia. Una licencia debe constar de 11 dígitos. Se ha asignado 'UNDEFINED LICENCE' por omisión. Modifique esto en la sección de 'Editar'","ERROR",JOptionPane.ERROR_MESSAGE);
 			this.licence = "UNDEFINED LICENCE";
 		}
 	}
@@ -156,12 +157,16 @@ public class Doctor extends Person {
 	 */
 	public void addPatientID(String patientID){
 		if(this.patientSet.contains(patientID)){
-			System.out.println("error using addPatientID : patientID already in list");
+			JOptionPane.showMessageDialog(null,"El paciente ya está siendo atendido por el doctor.","DATO EXISTENTE",JOptionPane.ERROR_MESSAGE);
 		}
 		else{
 			this.patientSet.add(patientID);
 		}
 	}
+        
+        public ArrayList<String> getPatientID(){
+            return this.patientSet;
+        }
 	
 	/**
 	 * elimina un paciente del conjunto de pacientes que el médico atiende
@@ -174,7 +179,7 @@ public class Doctor extends Person {
 			this.patientSet.remove(patientID);
 		}
 		else{
-			System.out.println("error using removePatientID : patientID not in list");			
+			JOptionPane.showMessageDialog(null, "El paciente no se encontraba en la lista de pacientes atendidos por el doctor.","ERROR", JOptionPane.ERROR_MESSAGE);
 		}
 	}
 	
