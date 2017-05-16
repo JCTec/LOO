@@ -55,10 +55,10 @@
                               <Component id="labelSurname" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="labelAge" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="fieldSurname" max="32767" attributes="0"/>
-                              <Component id="fieldAge" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="fieldAge" alignment="1" pref="328" max="32767" attributes="0"/>
+                              <Component id="fieldSurname" alignment="1" max="32767" attributes="0"/>
                               <Component id="fieldName" max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -86,9 +86,9 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="fieldLicence" alignment="1" max="32767" attributes="0"/>
                                       <Component id="fieldEmail" alignment="1" max="32767" attributes="0"/>
                                       <Component id="fieldDepartment" max="32767" attributes="0"/>
+                                      <Component id="fieldLicence" alignment="1" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -156,27 +156,27 @@
         </Component>
         <Component class="javax.swing.JLabel" name="labelName">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Name:"/>
+            <Property name="text" type="java.lang.String" value="Nombre(s):"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="labelSurname">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Surname:"/>
+            <Property name="text" type="java.lang.String" value="Apellido(s):"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="labelAge">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Age:"/>
+            <Property name="text" type="java.lang.String" value="Edad:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="labelAddress">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Address:"/>
+            <Property name="text" type="java.lang.String" value="Direcci&#xf3;n:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="labelTelephone">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Telephone:"/>
+            <Property name="text" type="java.lang.String" value="Tel&#xe9;fono:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="labelEmail">

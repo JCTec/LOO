@@ -528,6 +528,7 @@ public class MainWindow extends javax.swing.JFrame {
 
         menuHospital.setText("Hospital");
 
+        menuEditHospital.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_MASK));
         menuEditHospital.setText("Editar");
         menuEditHospital.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -536,6 +537,7 @@ public class MainWindow extends javax.swing.JFrame {
         });
         menuHospital.add(menuEditHospital);
 
+        menuAboutHospital.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_MASK));
         menuAboutHospital.setText("Acerca De");
         menuAboutHospital.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -548,6 +550,7 @@ public class MainWindow extends javax.swing.JFrame {
 
         menuOffice.setText("Consultorio");
 
+        menuNewOffice.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Q, java.awt.event.InputEvent.CTRL_MASK));
         menuNewOffice.setText("Agregar");
         menuNewOffice.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -556,6 +559,7 @@ public class MainWindow extends javax.swing.JFrame {
         });
         menuOffice.add(menuNewOffice);
 
+        menuAssignOffice.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_W, java.awt.event.InputEvent.CTRL_MASK));
         menuAssignOffice.setText("Asignar");
         menuAssignOffice.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -564,6 +568,7 @@ public class MainWindow extends javax.swing.JFrame {
         });
         menuOffice.add(menuAssignOffice);
 
+        menuSearchOffice.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.CTRL_MASK));
         menuSearchOffice.setText("Buscar");
         menuSearchOffice.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -576,6 +581,7 @@ public class MainWindow extends javax.swing.JFrame {
 
         menuRoom.setText("Habitación");
 
+        menuAddRoom.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_T, java.awt.event.InputEvent.CTRL_MASK));
         menuAddRoom.setText("Agregar");
         menuAddRoom.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -584,6 +590,7 @@ public class MainWindow extends javax.swing.JFrame {
         });
         menuRoom.add(menuAddRoom);
 
+        menuAssignRoom.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Y, java.awt.event.InputEvent.CTRL_MASK));
         menuAssignRoom.setText("Asignar");
         menuAssignRoom.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -592,6 +599,7 @@ public class MainWindow extends javax.swing.JFrame {
         });
         menuRoom.add(menuAssignRoom);
 
+        menuSearchRoom.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.CTRL_MASK));
         menuSearchRoom.setText("Buscar");
         menuSearchRoom.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -604,6 +612,7 @@ public class MainWindow extends javax.swing.JFrame {
 
         menuDoctor.setText("Doctor");
 
+        menuNewDoctor.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Q, java.awt.event.InputEvent.ALT_MASK));
         menuNewDoctor.setText("Agregar");
         menuNewDoctor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -612,6 +621,7 @@ public class MainWindow extends javax.swing.JFrame {
         });
         menuDoctor.add(menuNewDoctor);
 
+        menuEditDoctor.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_W, java.awt.event.InputEvent.ALT_MASK));
         menuEditDoctor.setText("Editar");
         menuEditDoctor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -620,6 +630,7 @@ public class MainWindow extends javax.swing.JFrame {
         });
         menuDoctor.add(menuEditDoctor);
 
+        menuRemoveDoctor.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.ALT_MASK));
         menuRemoveDoctor.setText("Eliminar");
         menuRemoveDoctor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -632,6 +643,7 @@ public class MainWindow extends javax.swing.JFrame {
 
         menuPatient.setText("Paciente");
 
+        menuNewPatient.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Z, java.awt.event.InputEvent.ALT_MASK));
         menuNewPatient.setText("Agregar");
         menuNewPatient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -640,6 +652,7 @@ public class MainWindow extends javax.swing.JFrame {
         });
         menuPatient.add(menuNewPatient);
 
+        menuEditPatient.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_X, java.awt.event.InputEvent.ALT_MASK));
         menuEditPatient.setText("Editar");
         menuEditPatient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -648,6 +661,7 @@ public class MainWindow extends javax.swing.JFrame {
         });
         menuPatient.add(menuEditPatient);
 
+        menuRemovePatient.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.ALT_MASK));
         menuRemovePatient.setText("Eliminar");
         menuRemovePatient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -660,6 +674,7 @@ public class MainWindow extends javax.swing.JFrame {
 
         menuReport.setText("Reporte");
 
+        menuReportDoctor.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.CTRL_MASK));
         menuReportDoctor.setText("Doctor");
         menuReportDoctor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -668,6 +683,7 @@ public class MainWindow extends javax.swing.JFrame {
         });
         menuReport.add(menuReportDoctor);
 
+        menuReportPatient.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.CTRL_MASK));
         menuReportPatient.setText("Paciente");
         menuReportPatient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1580,8 +1596,15 @@ public class MainWindow extends javax.swing.JFrame {
     public void saveAssignRoom(java.awt.event.ActionEvent evt) {
         String rom = this.createNewRoomPanel.getSelectedRoom();
         String pat = this.createNewRoomPanel.getSelectedPatient();
-        this.hospital.assignRoomToPatient(pat, rom);
-        JOptionPane.showMessageDialog(null, "Asignación Satisfactoria", "INFORMATION", JOptionPane.INFORMATION_MESSAGE);
+        String idFounded = this.hospital.findPatientBySecurityNumber(pat);
+        if(this.hospital.getPatients().get(Integer.valueOf(idFounded)).getRoomID()!=0)
+            JOptionPane.showMessageDialog(null, "El paciente ya tiene una habitación", "ERROR", JOptionPane.ERROR_MESSAGE);
+        else
+        {
+            this.hospital.assignRoomToPatient(pat, rom);
+            JOptionPane.showMessageDialog(null, "Asignación Satisfactoria", "INFORMATION", JOptionPane.INFORMATION_MESSAGE);
+        }
+        
     }
 
     public void saveNewRoom(java.awt.event.ActionEvent evt) throws NotValidNumber {

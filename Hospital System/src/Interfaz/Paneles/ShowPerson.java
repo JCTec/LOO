@@ -13,6 +13,7 @@ import javax.swing.DefaultListModel;
  */
 public class ShowPerson extends javax.swing.JPanel {
 
+   
     /**
      * Creates new form ShowPerson
      */
@@ -235,7 +236,7 @@ public class ShowPerson extends javax.swing.JPanel {
     }//GEN-LAST:event_nameFieldActionPerformed
 
     public void setFields(String name, String lastName, String nss, String peso, String telefono, String altura, String direccion, String e_mail, String edad, String enfermedad, String estatus,String iDHabitacion, DefaultListModel<String> model){
-        
+        this.set = true;
         this.nameField.setText(name);
         this.lastNameField.setText(lastName);
         this.nSSField.setText(nss);
@@ -251,8 +252,18 @@ public class ShowPerson extends javax.swing.JPanel {
         this.iDHabitacionField.setText(iDHabitacion);
         this.iDDoctoresList.setModel(model);
     }
+    
+    public void delete(){
+        if(set){
+            if(this.iDDoctoresList != null && this.model != null){
+                this.iDDoctoresList = null;
+            System.out.println("Lo hizo");
+            }
+        }
+    }
 
-    //DefaultListModel<String> model = new DefaultListModel<String>();
+     private boolean set=false;
+    DefaultListModel<String> model = new DefaultListModel<String>();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel IDDoctores;
     private javax.swing.JLabel IDHabitacion;

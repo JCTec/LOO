@@ -580,10 +580,11 @@ public class Hospital {
             }
 
             ShowPerson Patient = new ShowPerson();
-
+            Patient.delete();
             Patient.setFields(this.patients.get(indice).getFirstName(), this.patients.get(indice).getLastName(), this.patients.get(indice).getSecurityNumber(), Float.toString(this.patients.get(indice).getWeigth()), this.patients.get(indice).getTelephone(), Float.toString(this.patients.get(indice).getSize()), this.patients.get(indice).getAddress(), this.patients.get(indice).getEmail(), Integer.toString(this.patients.get(indice).getAge()), this.patients.get(indice).getDisease(), this.patients.get(indice).getStatus(), Integer.toString(this.patients.get(indice).getRoomID()), model);
 
             Patient.setVisible(true);
+            
 
             JFrame f = new JFrame();
 
@@ -700,7 +701,7 @@ public class Hospital {
         if (!securityNumberFounded.isEmpty()) {
             try {
                 this.patients.get(Integer.valueOf(securityNumberFounded)).setRoomID(roomId);
-                this.rooms.get(Integer.valueOf(securityNumberFounded)).setPatientID(securityNumber);
+                this.rooms.get(Integer.valueOf(roomId)-1).setPatientID(securityNumber);
             } catch (NotValidNumber error) {
                 JOptionPane.showMessageDialog(null, error.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
             }
