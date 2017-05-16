@@ -163,6 +163,10 @@ public class Doctor extends Person {
 			this.patientSet.add(patientID);
 		}
 	}
+        
+        public ArrayList<String> getPatientID(){
+            return this.patientSet;
+        }
 	
 	/**
 	 * elimina un paciente del conjunto de pacientes que el médico atiende

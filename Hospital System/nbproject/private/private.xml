@@ -13,7 +13,7 @@
             <url>src/Interfaz/Paneles/MainWindow.java</url>
             <bookmark id="2">
                 <name/>
-                <line>810</line>
+                <line>811</line>
                 <key/>
             </bookmark>
         </file>
@@ -21,17 +21,21 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/alanp/Desktop/Mayab/Segundo%20Semestre/Programación%20Orientada%20a%20Objetos/LOO/Hospital%20System/src/Data/Infrastructure/Hospital.java</file>
+            <file>file:/C:/Users/alanp/Desktop/Mayab/Segundo%20Semestre/Programación%20Orientada%20a%20Objetos/LOO/Hospital%20System/src/Data/People/Person.java</file>
             <file>file:/C:/Users/alanp/Desktop/Mayab/Segundo%20Semestre/Programación%20Orientada%20a%20Objetos/LOO/Hospital%20System/src/Interfaz/Paneles/MainWindow.java</file>
-            <file>file:/C:/Users/alanp/Desktop/Mayab/Segundo%20Semestre/Programación%20Orientada%20a%20Objetos/LOO/Hospital%20System/src/Interfaz/Paneles/ReportRoom.java</file>
-            <file>file:/C:/Users/alanp/Desktop/Mayab/Segundo%20Semestre/Programación%20Orientada%20a%20Objetos/LOO/Hospital%20System/src/Interfaz/Paneles/CreateNewPatient.java</file>
-            <file>file:/C:/Users/alanp/Desktop/Mayab/Segundo%20Semestre/Programación%20Orientada%20a%20Objetos/LOO/Hospital%20System/src/Interfaz/Paneles/CreateNewDoctor.java</file>
+            <file>file:/C:/Users/alanp/Desktop/Mayab/Segundo%20Semestre/Programación%20Orientada%20a%20Objetos/LOO/Hospital%20System/src/Data/People/Doctor.java</file>
             <file>file:/C:/Users/alanp/Desktop/Mayab/Segundo%20Semestre/Programación%20Orientada%20a%20Objetos/LOO/Hospital%20System/src/Interfaz/Paneles/ReportDoctor.java</file>
             <file>file:/C:/Users/alanp/Desktop/Mayab/Segundo%20Semestre/Programación%20Orientada%20a%20Objetos/LOO/Hospital%20System/src/Interfaz/Paneles/EditPatient.java</file>
             <file>file:/C:/Users/alanp/Desktop/Mayab/Segundo%20Semestre/Programación%20Orientada%20a%20Objetos/LOO/Hospital%20System/src/Interfaz/Paneles/CreateNewRoom.java</file>
-            <file>file:/C:/Users/alanp/Desktop/Mayab/Segundo%20Semestre/Programación%20Orientada%20a%20Objetos/LOO/Hospital%20System/src/Interfaz/Paneles/ReportPatient.java</file>
-            <file>file:/C:/Users/alanp/Desktop/Mayab/Segundo%20Semestre/Programación%20Orientada%20a%20Objetos/LOO/Hospital%20System/src/Data/Infrastructure/DoctorsOffice.java</file>
             <file>file:/C:/Users/alanp/Desktop/Mayab/Segundo%20Semestre/Programación%20Orientada%20a%20Objetos/LOO/Hospital%20System/src/Data/People/Patient.java</file>
             <file>file:/C:/Users/alanp/Desktop/Mayab/Segundo%20Semestre/Programación%20Orientada%20a%20Objetos/LOO/Hospital%20System/src/Data/Infrastructure/Room.java</file>
+            <file>file:/C:/Users/alanp/Desktop/Mayab/Segundo%20Semestre/Programación%20Orientada%20a%20Objetos/LOO/Hospital%20System/src/Interfaz/Paneles/ShowDoctor.java</file>
+            <file>file:/C:/Users/alanp/Desktop/Mayab/Segundo%20Semestre/Programación%20Orientada%20a%20Objetos/LOO/Hospital%20System/src/Interfaz/Paneles/ReportRoom.java</file>
+            <file>file:/C:/Users/alanp/Desktop/Mayab/Segundo%20Semestre/Programación%20Orientada%20a%20Objetos/LOO/Hospital%20System/src/Interfaz/Paneles/ShowPerson.java</file>
+            <file>file:/C:/Users/alanp/Desktop/Mayab/Segundo%20Semestre/Programación%20Orientada%20a%20Objetos/LOO/Hospital%20System/src/Interfaz/Paneles/CreateNewPatient.java</file>
+            <file>file:/C:/Users/alanp/Desktop/Mayab/Segundo%20Semestre/Programación%20Orientada%20a%20Objetos/LOO/Hospital%20System/src/Interfaz/Paneles/CreateNewDoctor.java</file>
+            <file>file:/C:/Users/alanp/Desktop/Mayab/Segundo%20Semestre/Programación%20Orientada%20a%20Objetos/LOO/Hospital%20System/src/Interfaz/Paneles/ReportPatient.java</file>
+            <file>file:/C:/Users/alanp/Desktop/Mayab/Segundo%20Semestre/Programación%20Orientada%20a%20Objetos/LOO/Hospital%20System/src/Data/Infrastructure/DoctorsOffice.java</file>
         </group>
     </open-files>
 </project-private>

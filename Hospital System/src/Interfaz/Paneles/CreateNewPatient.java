@@ -383,6 +383,11 @@ public class CreateNewPatient extends javax.swing.JPanel {
         this.patient = p;
         return this.patient;
     }
+    
+    public String getNSS(){
+        return this.nssField.getText();
+    }
+    
 
     public void clearFields() {
         this.nameField.setText("");
@@ -415,7 +420,7 @@ public class CreateNewPatient extends javax.swing.JPanel {
 		}
 	}
 
-	private ArrayList<String> getDoctorIDs() {
+	public ArrayList<String> getDoctorIDs() {
 		ArrayList<String> doctorIDs = new ArrayList<>();
 		for(int i = 0 ; i < this.doctorForPatient.getSize() ; i++){
 			//the following line extracts the doctor ID from the line of text in the list

@@ -313,6 +313,26 @@ public class Hospital {
         }
         return securityNumberFounded;
     }
+    
+    /**
+     * Método para buscar un doctor a través de su ID. Si lo encuentra regresa
+     * su posición en el arreglo de doctores, en caso de no encontrarlo regresa
+     * un string vacío
+     * @param doctorID
+     * @return idFounded
+     */
+    public String findDoctorById(String doctorID){
+        String idFounded = "";
+        for(int i=0;i<this.doctors.size();i++){
+            if(doctorID.equals(this.doctors.get(i).getId())){
+                idFounded = String.valueOf(i);
+                i = this.doctors.size();
+            }
+        }
+        if(idFounded.isEmpty())
+            JOptionPane.showMessageDialog(null, "Doctor no encontrado revise el ID", "ERROR", JOptionPane.ERROR_MESSAGE);
+        return idFounded;
+    }
 
     /**
      * Método para agregar un consultorio a un Hospital con un doctor
@@ -330,13 +350,13 @@ public class Hospital {
             this.offices.add(newOffice);
         }
     }
-    
-    public void addDoctorOffice(DoctorsOffice dof){
+
+    public void addDoctorOffice(DoctorsOffice dof) {
         this.numOfDoctorsOffices++;
         int id = this.numOfDoctorsOffices;
         try {
             dof.setId(id);
-        }catch(NotValidNumber error){
+        } catch (NotValidNumber error) {
             JOptionPane.showMessageDialog(null, error.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
         }
         this.offices.add(dof);
@@ -453,15 +473,15 @@ public class Hospital {
     public void showDoctorsOfficeInfo(String doctorsOfficeId) {
 
         int idFounded = -1;
-        
-        for (int i=0; i < this.getNumOfDoctorsOffices(); i++){
-            if(doctorsOfficeId.equals(this.offices.get(i).getId())){
+
+        for (int i = 0; i < this.getNumOfDoctorsOffices(); i++) {
+            if (doctorsOfficeId.equals(this.offices.get(i).getId())) {
                 idFounded = i;
                 i = this.getNumOfDoctorsOffices();
             }
         }
-        
-        if(idFounded>=0){
+
+        if (idFounded >= 0) {
             ShowOffice office = new ShowOffice();
             office.setFields(Integer.toString(this.offices.get(idFounded).getId()), Float.toString(this.offices.get(idFounded).getMonthlyRent()), this.offices.get(idFounded).getDoctorID(), Float.toString(this.offices.get(idFounded).getLastPayment()));//Falta codigo aquí
             office.setVisible(true);
@@ -490,31 +510,47 @@ public class Hospital {
             }
         }
 
-        if (idFounded >= 0) {
+        if (idFounded != -1) {
+            ArrayList<String> IDPatients = this.doctors.get(idFounded).getPatientID();
+            DefaultListModel<String> model = new DefaultListModel<>();
 
-            ShowDoctor doctor = new ShowDoctor();
-            
-            doctor.setFields(this.doctors.get(idFounded).getFirstName() , this.doctors.get(idFounded).getLastName(), this.doctors.get(idFounded).getLicence(), this.doctors.get(idFounded).getTelephone(), this.doctors.get(idFounded).getAddress(), this.doctors.get(idFounded).getEmail(), Integer.toString(this.doctors.get(idFounded).getAge()), this.doctors.get(idFounded).getDepartment(), this.doctors.get(idFounded).getId());
-            
-            doctor.setVisible(true);
-
-            FrameWithCloseButton f = new FrameWithCloseButton();
-
-            f.setSize(500, 600);
-            f.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-            f.setVisible(true);
-
-            f.setContent(doctor);
-            
-            doctor.getSaveButton().addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    Doctor p = doctor.getDoctor();
-                
-                    modifyDoctor(p);
+            if (IDPatients != null) {
+                if (!IDPatients.isEmpty()) {
+                    for (int x = 0; x < IDPatients.size(); x++) {
+                        model.addElement(IDPatients.get(x));
+                    }
                 }
-            });
-        }
 
+            } else {
+                model.addElement("Ningún paciente es atendido por este doctor.");
+            }
+
+            if (idFounded >= 0) {
+
+                ShowDoctor doctor = new ShowDoctor();
+
+                doctor.setFields(this.doctors.get(idFounded).getFirstName(), this.doctors.get(idFounded).getLastName(), this.doctors.get(idFounded).getLicence(), this.doctors.get(idFounded).getTelephone(), this.doctors.get(idFounded).getAddress(), this.doctors.get(idFounded).getEmail(), Integer.toString(this.doctors.get(idFounded).getAge()), this.doctors.get(idFounded).getDepartment(), this.doctors.get(idFounded).getId(), model);
+
+                doctor.setVisible(true);
+
+                FrameWithCloseButton f = new FrameWithCloseButton();
+
+                f.setSize(500, 600);
+                f.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                f.setVisible(true);
+
+                f.setContent(doctor);
+
+                doctor.getSaveButton().addActionListener(new java.awt.event.ActionListener() {
+                    public void actionPerformed(java.awt.event.ActionEvent evt) {
+                        Doctor p = doctor.getDoctor();
+
+                        modifyDoctor(p);
+                    }
+                });
+            }
+
+        }
     }
 
     /**
@@ -531,20 +567,18 @@ public class Hospital {
         if (!securityNumberFounded.isEmpty()) {
             ArrayList<String> IDDoctors = this.patients.get(indice).getDoctorID();
             DefaultListModel<String> model = new DefaultListModel<>();
-            
-            if(IDDoctors!=null){
-                if(!IDDoctors.isEmpty()){
+
+            if (IDDoctors != null) {
+                if (!IDDoctors.isEmpty()) {
                     for (int x = 0; x < IDDoctors.size(); x++) {
-                    model.addElement(IDDoctors.get(x));
+                        model.addElement(IDDoctors.get(x));
+                    }
                 }
-                }
-                
-            } 
-            else {
+
+            } else {
                 model.addElement("Ningún doctor atiende a este paciente.");
             }
-            
-            
+
             ShowPerson Patient = new ShowPerson();
 
             Patient.setFields(this.patients.get(indice).getFirstName(), this.patients.get(indice).getLastName(), this.patients.get(indice).getSecurityNumber(), Float.toString(this.patients.get(indice).getWeigth()), this.patients.get(indice).getTelephone(), Float.toString(this.patients.get(indice).getSize()), this.patients.get(indice).getAddress(), this.patients.get(indice).getEmail(), Integer.toString(this.patients.get(indice).getAge()), this.patients.get(indice).getDisease(), this.patients.get(indice).getStatus(), Integer.toString(this.patients.get(indice).getRoomID()), model);
@@ -642,10 +676,11 @@ public class Hospital {
      */
     public void assignDoctorToPatient(String doctorId, String securityNumber) {
         String securityNumberFounded = this.findPatientBySecurityNumber(securityNumber);
-
-        if (!securityNumberFounded.isEmpty()) {
+        String idFounded = this.findDoctorById(doctorId);
+        if (!securityNumberFounded.isEmpty() && !idFounded.isEmpty()) {
             try {
                 this.patients.get(Integer.valueOf(securityNumberFounded)).setNewDoc(doctorId);
+                this.doctors.get(Integer.valueOf(idFounded)).addPatientID(securityNumber);
             } catch (OverSize error) {
                 JOptionPane.showMessageDialog(null, error.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
             } catch (NotValidNumber ex) {
@@ -781,28 +816,27 @@ public class Hospital {
         }
         return validacion;
     }
-    
-    private void modifyDoctor(Doctor newInfo){
-        for(int x = 0; x < this.doctors.size(); x++ ){
-            if(this.doctors.get(x).getId().equals(newInfo.getId())){
-                
+
+    private void modifyDoctor(Doctor newInfo) {
+        for (int x = 0; x < this.doctors.size(); x++) {
+            if (this.doctors.get(x).getId().equals(newInfo.getId())) {
+
                 this.doctors.get(x).setAddress(newInfo.getAddress());
-                
+
                 this.doctors.get(x).setFirstName(newInfo.getFirstName());
-                
+
                 this.doctors.get(x).setLastName(newInfo.getLastName());
-                
+
                 this.doctors.get(x).setAge(newInfo.getAge());
-                
+
                 this.doctors.get(x).setDepartment(newInfo.getDepartment());
-                
+
                 this.doctors.get(x).setEmail(newInfo.getEmail());
-                
+
                 this.doctors.get(x).setLicence(newInfo.getLicence());
-                
+
                 this.doctors.get(x).setTelephone(newInfo.getTelephone());
-                
-                
+
             }
         }
     }
