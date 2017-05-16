@@ -1,10 +1,10 @@
-# LOO
-Trabajo final para la materia de Lenguaje Orientado a Objetos de la universidad Anahuac Mayab
+Integrantes del Equipo
 
 
-Creado por: 
-
-# Juan Carlos Estevez
 # Oscar Hemelaar
-# Alan Paredes
+# Juan Carlos Estévez Rodríguez
+# Alan Gabriel Paredes Cetina
 
+
+Notas:
+http://x-stream.github.io/ Librería necesaria para el funcionamiento de este programa.
