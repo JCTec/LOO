@@ -1150,7 +1150,7 @@ public class MainWindow extends javax.swing.JFrame {
     }
     
     public void changeDoctorsOffice(String ID){
-        /*
+        
         int idFounded = -1;
         
         ArrayList<DoctorsOffice> offices = this.hospital.getOffices();
@@ -1196,7 +1196,7 @@ public class MainWindow extends javax.swing.JFrame {
         
         CardLayout card = (CardLayout) mainPanel.getLayout();
         card.show(mainPanel, "inicioPanel");
-        */
+        
     }
     private void changeeed(DoctorsOffice newInfo){
         int index = -1;
