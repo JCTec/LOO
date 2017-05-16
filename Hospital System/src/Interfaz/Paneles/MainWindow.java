@@ -1522,6 +1522,7 @@ public class MainWindow extends javax.swing.JFrame {
             this.hospital.addRoom(this.createNewRoom1.getPatientID());
             this.hospital.assignRoomToPatient(this.createNewRoom1.getPatientID(), this.createNewRoom1.getRoomID());
         }
+        JOptionPane.showMessageDialog(null,"Habitación creada","OPERACION EXITOSA", JOptionPane.INFORMATION_MESSAGE);
     }
 
 }
