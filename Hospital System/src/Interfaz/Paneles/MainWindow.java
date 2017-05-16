@@ -1581,8 +1581,15 @@ public class MainWindow extends javax.swing.JFrame {
     public void saveAssignRoom(java.awt.event.ActionEvent evt) {
         String rom = this.createNewRoomPanel.getSelectedRoom();
         String pat = this.createNewRoomPanel.getSelectedPatient();
-        this.hospital.assignRoomToPatient(pat, rom);
-        JOptionPane.showMessageDialog(null, "Asignación Satisfactoria", "INFORMATION", JOptionPane.INFORMATION_MESSAGE);
+        String idFounded = this.hospital.findPatientBySecurityNumber(pat);
+        if(this.hospital.getPatients().get(Integer.valueOf(idFounded)).getRoomID()!=0)
+            JOptionPane.showMessageDialog(null, "El paciente ya tiene una habitación", "ERROR", JOptionPane.ERROR_MESSAGE);
+        else
+        {
+            this.hospital.assignRoomToPatient(pat, rom);
+            JOptionPane.showMessageDialog(null, "Asignación Satisfactoria", "INFORMATION", JOptionPane.INFORMATION_MESSAGE);
+        }
+        
     }
 
     public void saveNewRoom(java.awt.event.ActionEvent evt) throws NotValidNumber {

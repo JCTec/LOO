@@ -1,66 +1,16 @@
-<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/Juan/Desktop/LOO/Hospital%20System/src/Interfaz/Paneles/ShowDoctor.java</file>
-            <file>file:/Users/Juan/Desktop/LOO/Hospital%20System/src/Data/Infrastructure/Hospital.java</file>
-            <file>file:/Users/Juan/Desktop/LOO/Hospital%20System/src/Interfaz/Paneles/CreateNewDoctor.java</file>
-            <file>file:/Users/Juan/Desktop/LOO/Hospital%20System/src/Interfaz/Paneles/ReportDoctor.java</file>
-            <file>file:/Users/Juan/Desktop/LOO/Hospital%20System/src/Interfaz/Paneles/CreateNewRoom.java</file>
-            <file>file:/Users/Juan/Desktop/LOO/Hospital%20System/src/Data/Infrastructure/DoctorsOffice.java</file>
-            <file>file:/Users/Juan/Desktop/LOO/Hospital%20System/src/Interfaz/Paneles/ShowPerson.java</file>
-            <file>file:/Users/Juan/Desktop/LOO/Hospital%20System/src/Data/People/Person.java</file>
-            <file>file:/Users/Juan/Desktop/LOO/Hospital%20System/src/Interfaz/Paneles/ReportPatient.java</file>
-            <file>file:/Users/Juan/Desktop/LOO/Hospital%20System/src/Exceptions/NotValidNumber.java</file>
-            <file>file:/Users/Juan/Desktop/LOO/Hospital%20System/src/Interfaz/Paneles/ReportOffices.java</file>
-            <file>file:/Users/Juan/Desktop/LOO/Hospital%20System/src/Interfaz/Paneles/Consultorio.java</file>
-            <file>file:/Users/Juan/Desktop/LOO/Hospital%20System/src/DataBase/LoadDataBase.java</file>
-            <file>file:/Users/Juan/Desktop/LOO/Hospital%20System/src/Interfaz/Paneles/EditDoctor.java</file>
-            <file>file:/Users/Juan/Desktop/LOO/Hospital%20System/src/Interfaz/Paneles/MainWindow.java</file>
-            <file>file:/Users/Juan/Desktop/LOO/Hospital%20System/src/Data/People/Doctor.java</file>
-            <file>file:/Users/Juan/Desktop/LOO/Hospital%20System/src/Test/main.java</file>
-            <file>file:/Users/Juan/Desktop/LOO/Hospital%20System/src/DataBase/GuardarHospital.java</file>
-            <file>file:/Users/Juan/Desktop/LOO/Hospital%20System/src/Exceptions/OverSize.java</file>
-            <file>file:/Users/Juan/Desktop/LOO/Hospital%20System/src/Interfaz/Paneles/CreateNewDoctorsOffice.java</file>
-            <file>file:/Users/Juan/Desktop/LOO/Hospital%20System/src/Interfaz/Paneles/EditHospital.java</file>
-            <file>file:/Users/Juan/Desktop/LOO/Hospital%20System/src/Data/People/Patient.java</file>
-            <file>file:/Users/Juan/Desktop/LOO/Hospital%20System/src/Data/Infrastructure/Room.java</file>
-            <file>file:/Users/Juan/Desktop/LOO/Hospital%20System/src/Interfaz/Paneles/AsignarConsultorio.java</file>
-        </group>
-    </open-files>
-</project-private>
-=======
-<?xml version="1.0" encoding="UTF-8"?>
-<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="2">
-        <file>
-            <url>src/Data/Infrastructure/Hospital.java</url>
-            <bookmark id="1">
-                <name/>
-                <line>56</line>
-                <key/>
-            </bookmark>
-        </file>
-        <file>
-            <url>src/Interfaz/Paneles/MainWindow.java</url>
-            <bookmark id="2">
-                <name/>
-                <line>832</line>
-                <key/>
-            </bookmark>
-        </file>
-    </editor-bookmarks>
-    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
             <file>file:/C:/Users/alanp/Desktop/Mayab/Segundo%20Semestre/Programación%20Orientada%20a%20Objetos/LOO/Hospital%20System/src/Data/Infrastructure/Hospital.java</file>
+            <file>file:/C:/Users/alanp/Desktop/Mayab/Segundo%20Semestre/Programación%20Orientada%20a%20Objetos/LOO/Hospital%20System/src/Interfaz/Paneles/aboutHospital.java</file>
             <file>file:/C:/Users/alanp/Desktop/Mayab/Segundo%20Semestre/Programación%20Orientada%20a%20Objetos/LOO/Hospital%20System/src/Interfaz/Paneles/MainWindow.java</file>
+            <file>file:/C:/Users/alanp/Desktop/Mayab/Segundo%20Semestre/Programación%20Orientada%20a%20Objetos/LOO/Hospital%20System/src/Interfaz/Paneles/ShowPerson.java</file>
+            <file>file:/C:/Users/alanp/Desktop/Mayab/Segundo%20Semestre/Programación%20Orientada%20a%20Objetos/LOO/Hospital%20System/src/Interfaz/Paneles/ReportRoom.java</file>
             <file>file:/C:/Users/alanp/Desktop/Mayab/Segundo%20Semestre/Programación%20Orientada%20a%20Objetos/LOO/Hospital%20System/src/Interfaz/Paneles/AsignarHabitacion.java</file>
             <file>file:/C:/Users/alanp/Desktop/Mayab/Segundo%20Semestre/Programación%20Orientada%20a%20Objetos/LOO/Hospital%20System/src/Interfaz/Paneles/CreateNewRoom.java</file>
-            <file>file:/C:/Users/alanp/Desktop/Mayab/Segundo%20Semestre/Programación%20Orientada%20a%20Objetos/LOO/Hospital%20System/src/Interfaz/Paneles/CreateNewDoctorsOffice.java</file>
-            <file>file:/C:/Users/alanp/Desktop/Mayab/Segundo%20Semestre/Programación%20Orientada%20a%20Objetos/LOO/Hospital%20System/src/Data/Infrastructure/Room.java</file>
+            <file>file:/C:/Users/alanp/Desktop/Mayab/Segundo%20Semestre/Programación%20Orientada%20a%20Objetos/LOO/Hospital%20System/src/Interfaz/Paneles/ReportPatient.java</file>
         </group>
     </open-files>
 </project-private>
->>>>>>> master

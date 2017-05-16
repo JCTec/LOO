@@ -701,7 +701,7 @@ public class Hospital {
         if (!securityNumberFounded.isEmpty()) {
             try {
                 this.patients.get(Integer.valueOf(securityNumberFounded)).setRoomID(roomId);
-                this.rooms.get(Integer.valueOf(securityNumberFounded)).setPatientID(securityNumber);
+                this.rooms.get(Integer.valueOf(roomId)-1).setPatientID(securityNumber);
             } catch (NotValidNumber error) {
                 JOptionPane.showMessageDialog(null, error.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
             }
