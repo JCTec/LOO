@@ -53,15 +53,15 @@ public class CreateNewDoctor extends javax.swing.JPanel {
 
         departmentLabel.setText("Departamento:");
 
-        labelName.setText("Name:");
+        labelName.setText("Nombre(s):");
 
-        labelSurname.setText("Surname:");
+        labelSurname.setText("Apellido(s):");
 
-        labelAge.setText("Age:");
+        labelAge.setText("Edad:");
 
-        labelAddress.setText("Address:");
+        labelAddress.setText("Dirección:");
 
-        labelTelephone.setText("Telephone:");
+        labelTelephone.setText("Teléfono:");
 
         labelEmail.setText("E-mail:");
 
@@ -86,10 +86,10 @@ public class CreateNewDoctor extends javax.swing.JPanel {
                             .addComponent(labelName)
                             .addComponent(labelSurname)
                             .addComponent(labelAge))
-                        .addGap(95, 95, 95)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(fieldSurname)
-                            .addComponent(fieldAge)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(fieldAge, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 328, Short.MAX_VALUE)
+                            .addComponent(fieldSurname, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(fieldName)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(154, 154, 154)
@@ -111,9 +111,9 @@ public class CreateNewDoctor extends javax.swing.JPanel {
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                 .addGap(68, 68, 68)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(fieldLicence, javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(fieldEmail, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(fieldDepartment))))))
+                                    .addComponent(fieldDepartment)
+                                    .addComponent(fieldLicence, javax.swing.GroupLayout.Alignment.TRAILING))))))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
