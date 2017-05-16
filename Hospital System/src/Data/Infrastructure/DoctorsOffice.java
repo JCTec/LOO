@@ -256,6 +256,14 @@ public class DoctorsOffice {
     }
     
     /**
+     * Set NOT DEFINED a una oficina.
+     * @param doctorID
+     * @throws NotValidNumber
+     */
+    public void setDoctorIDND(){
+        this.doctorID = "NOT DEFINED";
+    }
+    /**
      * Método set para asignar el ultimo pago de un médico de un consultorio
      * @param lastPayment
      */

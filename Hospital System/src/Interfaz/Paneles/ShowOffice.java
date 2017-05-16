@@ -16,6 +16,7 @@ public class ShowOffice extends javax.swing.JPanel {
      */
     public ShowOffice() {
         initComponents();
+        
     }
 
     /**
@@ -36,6 +37,7 @@ public class ShowOffice extends javax.swing.JPanel {
         monthlyRentField = new javax.swing.JTextField();
         doctorIdField = new javax.swing.JTextField();
         lastPaymentField = new javax.swing.JTextField();
+        Error = new javax.swing.JLabel();
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Consultorio"));
 
@@ -55,9 +57,21 @@ public class ShowOffice extends javax.swing.JPanel {
 
         monthlyRentField.setFont(new java.awt.Font("Verdana", 0, 13)); // NOI18N
 
+        doctorIdField.setEditable(false);
         doctorIdField.setFont(new java.awt.Font("Verdana", 0, 13)); // NOI18N
+        doctorIdField.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                doctorIdFieldMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                doctorIdFieldMouseEntered(evt);
+            }
+        });
 
         lastPaymentField.setFont(new java.awt.Font("Verdana", 0, 13)); // NOI18N
+
+        Error.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        Error.setText("                                       ");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -65,17 +79,20 @@ public class ShowOffice extends javax.swing.JPanel {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(29, 29, 29)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(idLabel)
-                    .addComponent(monthlyRentLabel)
-                    .addComponent(doctorIdLabel)
-                    .addComponent(lastPaymentLabel))
-                .addGap(47, 47, 47)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(idField)
-                    .addComponent(monthlyRentField)
-                    .addComponent(doctorIdField)
-                    .addComponent(lastPaymentField, javax.swing.GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE))
+                    .addComponent(Error, javax.swing.GroupLayout.DEFAULT_SIZE, 367, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(idLabel)
+                            .addComponent(monthlyRentLabel)
+                            .addComponent(doctorIdLabel)
+                            .addComponent(lastPaymentLabel))
+                        .addGap(47, 47, 47)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(idField)
+                            .addComponent(monthlyRentField)
+                            .addComponent(doctorIdField)
+                            .addComponent(lastPaymentField, javax.swing.GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE))))
                 .addContainerGap(54, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -97,7 +114,9 @@ public class ShowOffice extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lastPaymentLabel)
                     .addComponent(lastPaymentField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(125, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(Error, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(61, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -118,8 +137,19 @@ public class ShowOffice extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void doctorIdFieldMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_doctorIdFieldMouseEntered
+        // TODO add your handling code here:
+        this.Error.setText("Para modificar ID Doctor vete a Consutorio / Asignar");
+    }//GEN-LAST:event_doctorIdFieldMouseEntered
+
+    private void doctorIdFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_doctorIdFieldMouseClicked
+        // TODO add your handling code here:
+        this.Error.setText("Para modificar ID Doctor vete a Consutorio / Asignar");
+    }//GEN-LAST:event_doctorIdFieldMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Error;
     private javax.swing.JTextField doctorIdField;
     private javax.swing.JLabel doctorIdLabel;
     private javax.swing.JTextField idField;
