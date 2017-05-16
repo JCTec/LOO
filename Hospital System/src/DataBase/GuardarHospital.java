@@ -18,9 +18,9 @@ import javax.swing.JOptionPane;
  * @author Juan
  */
 public class GuardarHospital {
-    private Hospital hospitalAGuardar;
-    private XStream xstream = new XStream();
-    
+    protected Hospital hospitalAGuardar;
+    protected XStream xstream = new XStream();
+   
     
     public GuardarHospital(Hospital H){
         
@@ -34,7 +34,7 @@ public class GuardarHospital {
         this.xstream.alias("Hospital", Hospital.class);
     }
     
-    private void toXMl(){
+    protected void toXMl(){
         String xml = this.xstream.toXML(this.hospitalAGuardar);
         this.Save(xml);
     }
@@ -43,7 +43,7 @@ public class GuardarHospital {
         return this.xstream.toXML(H);
     }
     
-    private void Save(String Xml){
+    protected void Save(String Xml){
         
         String name = System.getProperty("user.home") +  "/Documents/Hospitals/Hospital.txt";
         String path = System.getProperty("user.home") +  "/Documents/Hospitals";
@@ -107,6 +107,8 @@ public class GuardarHospital {
             JOptionPane.showMessageDialog(null, "Archivo no encontrado...", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
     }
+    
+    
     
     
     

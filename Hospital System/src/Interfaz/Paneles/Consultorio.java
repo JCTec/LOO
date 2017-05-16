@@ -186,4 +186,17 @@ public class Consultorio extends javax.swing.JPanel {
         return newDO;
     }
     
+    public void setData(String Id, String Renta, String Ultimo_Pago, String IDDoctor){
+       
+       this.Id.setText(Id);
+       this.rent.setText(Renta);
+       this.lasPay.setText(Ultimo_Pago);
+       this.doc.setText(IDDoctor);
+       
+    }
+    
+    public Consultorio getThis(){
+        return this;
+    }
+    
 }

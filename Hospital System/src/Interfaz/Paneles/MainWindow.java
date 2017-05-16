@@ -10,6 +10,7 @@ import Data.Infrastructure.Hospital;
 import Data.People.Doctor;
 import Data.People.Patient;
 import DataBase.GuardarHospital;
+import DataBase.GuardarYSalir;
 import DataBase.LoadDataBase;
 import Exceptions.NotValidNumber;
 import java.awt.CardLayout;
@@ -971,14 +972,27 @@ public class MainWindow extends javax.swing.JFrame {
     private void initSaveButtonsListeners() {
         //Crear Nuevo Hospital
         
+        this.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
+            this.addWindowListener(new WindowAdapter() {
+
+                public void windowClosing(WindowEvent ev) {
+                    int reply = JOptionPane.showConfirmDialog(null, "¿Desea guardar antes de salir?", "Salir", JOptionPane.OK_CANCEL_OPTION);
+                    if (reply == JOptionPane.OK_OPTION) {
+                        GuardarYSalir GDB = new GuardarYSalir(hospital);
+                    }
+                }
+            });
+        
         this.reportOfficesPanel.getTable().getSelectionModel().addListSelectionListener(new ListSelectionListener() {
             public void valueChanged(ListSelectionEvent event) {
                 if (!event.getValueIsAdjusting()) {
-                    
-                    int selectedrow = reportDoctor1.getTable().getSelectedRow();
+                    System.out.println("1");
+                    int selectedrow = reportOfficesPanel.getTable().getSelectedRow();
+                    System.out.println(selectedrow);
                     if(selectedrow  != -1){
-                    String i = reportDoctor1.getTable().getValueAt(selectedrow, 0).toString();
-                    changeDoctorsOffice(i);
+                        String i = reportOfficesPanel.getTable().getValueAt(selectedrow, 0).toString();
+                        System.out.println(i);
+                        changeDoctorsOffice(i);
                     }
                     
                 }
@@ -1085,13 +1099,13 @@ public class MainWindow extends javax.swing.JFrame {
     }
     
     public void changeDoctorsOffice(String ID){
-        /*
+       
         int idFounded = -1;
         
         ArrayList<DoctorsOffice> offices = this.hospital.getOffices();
         
         for(int i=0; i< offices.size();i++){
-            if(ID.equals(offices.get(i).getId())){
+            if(ID.equals(Integer.toString(offices.get(i).getId()))){
                 idFounded = i;
                 i = offices.size(); 
             }
@@ -1102,7 +1116,7 @@ public class MainWindow extends javax.swing.JFrame {
             
             Consultorio doctor = new Consultorio();
             
-            doctor.setFields(doctors.get(idFounded).getFirstName() , doctors.get(idFounded).getLastName(), doctors.get(idFounded).getLicence(), doctors.get(idFounded).getTelephone(), doctors.get(idFounded).getAddress(), doctors.get(idFounded).getEmail(), Integer.toString(doctors.get(idFounded).getAge()), doctors.get(idFounded).getDepartment(), doctors.get(idFounded).getId());
+            doctor.setData(Integer.toString(offices.get(idFounded).getId()), Float.toString(offices.get(idFounded).getMonthlyRent()), Float.toString(offices.get(idFounded).getLastPayment()), offices.get(idFounded).getDoctorID());
             
             doctor.setVisible(true);
             
@@ -1114,18 +1128,60 @@ public class MainWindow extends javax.swing.JFrame {
  
             f.setContent(doctor);
             
-            doctor.getSaveButton().addActionListener(new java.awt.event.ActionListener() {
+            doctor.getButton().addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    Doctor p = doctor.getDoctor();
+                    JOptionPane.showMessageDialog(null, "Oficina editada satisfactoriamente", "INFORMATION", JOptionPane.INFORMATION_MESSAGE);
+                    DoctorsOffice p = doctor.getInfo();
                 
-                    changeed(p);
+                    changeeed(p);
+                    
+                    f.setVisible(false);
+                    f.dispose();
+                    
+                    
                 }
             });
         }
         
         CardLayout card = (CardLayout) mainPanel.getLayout();
         card.show(mainPanel, "inicioPanel");
-        */
+        
+    }
+    private void changeeed(DoctorsOffice newInfo){
+        int index = -1;
+        
+        for(int x = 0; x < this.hospital.getOffices().size(); x++ ){
+            if(Integer.toString(this.hospital.getOffices().get(x).getId()).equals(Integer.toString(newInfo.getId()))){
+                index = x;
+            }
+        }
+        if(index != -1){
+            
+        
+        DoctorsOffice old = this.hospital.getOffices().get(index);
+        
+            try {
+                old.setDoctorID(newInfo.getDoctorID());
+            } catch (NotValidNumber ex) {
+                Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            try {
+                old.setId(newInfo.getId());
+            } catch (NotValidNumber ex) {
+                Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            try {
+                old.setMonthlyRent(newInfo.getMonthlyRent());
+            } catch (NotValidNumber ex) {
+                Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            try {
+                old.setLastPayment(newInfo.getLastPayment());
+            } catch (NotValidNumber ex) {
+                Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        
+        }
     }
 
     public void modifyDoctor(String ID) {
@@ -1162,6 +1218,8 @@ public class MainWindow extends javax.swing.JFrame {
                     Doctor p = doctor.getDoctor();
                 
                     changeed(p);
+                    f.setVisible(false);
+                    f.dispose();
                 }
             });
         }
