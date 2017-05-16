@@ -52,6 +52,11 @@ public class AsignarConsultorio extends javax.swing.JPanel {
         patientLabel.setText("Doctor");
 
         assignButton.setText("Asignar");
+        assignButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                assignButtonActionPerformed(evt);
+            }
+        });
 
         idComboBox.setFont(new java.awt.Font("Verdana", 0, 13)); // NOI18N
         idComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -113,6 +118,10 @@ public class AsignarConsultorio extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void assignButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_assignButtonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton assignButton;
@@ -132,28 +141,33 @@ public class AsignarConsultorio extends javax.swing.JPanel {
         int roomNumber = hospital.getOffices().size();
         int doctorNumber = hospital.getDoctors().size();
         String[] itemsRoom = new String[roomNumber];
-        String[] itemsDoctors = new String[doctorNumber];
+        String[] itemsDoctors = new String[doctorNumber + 1];
         
         for (int i = 0; i < roomNumber; i++) {
             Room room = hospital.getRooms().get(i);
             itemsRoom[i] = Integer.toString(room.getRoomID());
         }
 
+        itemsDoctors[0] = "Ningúno";
         for (int i = 0; i < doctorNumber; i++) {
             Doctor doc = hospital.getDoctors().get(i);
-            itemsDoctors[i] = i + " " + doc.getId()+" "+ doc.getFirstName() + " " + doc.getLastName();
+            itemsDoctors[i + 1] = i + " " + doc.getId()+" "+ doc.getFirstName() + " " + doc.getLastName();
         }
 
         this.idComboBox.setModel(new DefaultComboBoxModel<>(itemsRoom));
         this.patientComboBox.setModel(new DefaultComboBoxModel<>(itemsDoctors));
     }
 
-    public String getSelectedRoom() {
+    public String getSelectedOffie() {
         return this.idComboBox.getSelectedItem().toString().split(" ")[0];
     }
 
-    public String getSelectedPatient() {
+    public String getSelectedDoctor() {
+        if(this.patientComboBox.getSelectedItem().toString().equals("Ningúno")){
+            return "Ningúno";
+        }else{
         return this.patientComboBox.getSelectedItem().toString().split(" ")[1];
+        }
     }
     
 

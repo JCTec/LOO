@@ -716,11 +716,15 @@ public class Hospital {
     public void assignOfficeToDoctor(String idDoctor, String doctorsOfficeId) {
 
         try {
-            this.offices.get(doctorsIds - 1).setDoctorID(idDoctor);
+            this.offices.get(Integer.valueOf(doctorsOfficeId) - 1).setDoctorID(idDoctor);
         } catch (NotValidNumber error) {
             JOptionPane.showMessageDialog(null, error.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
         }
 
+    }
+    
+    public void assignOfficeToDoctorNOTDEFINED(String doctorsOfficeId) {
+        this.offices.get(Integer.valueOf(doctorsOfficeId) - 1).setDoctorIDND();
     }
 
     /**

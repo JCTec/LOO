@@ -43,6 +43,7 @@ public class Consultorio extends javax.swing.JPanel {
         doc = new javax.swing.JTextField();
         lasPay = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        error = new javax.swing.JLabel();
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Consultorio"));
 
@@ -59,7 +60,19 @@ public class Consultorio extends javax.swing.JPanel {
 
         rent.setText("jTextField2");
 
+        doc.setEditable(false);
         doc.setText("jTextField3");
+        doc.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                docMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                docMouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                docMouseEntered(evt);
+            }
+        });
 
         lasPay.setText("jTextField4");
         lasPay.addActionListener(new java.awt.event.ActionListener() {
@@ -69,6 +82,14 @@ public class Consultorio extends javax.swing.JPanel {
         });
 
         jButton1.setText("Save");
+
+        error.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        error.setText("                 ");
+        error.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                errorMouseEntered(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -83,7 +104,7 @@ public class Consultorio extends javax.swing.JPanel {
                             .addComponent(jLabel3)
                             .addComponent(jLabel2)
                             .addComponent(jLabel4))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 160, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(Id, javax.swing.GroupLayout.DEFAULT_SIZE, 212, Short.MAX_VALUE)
                             .addComponent(rent)
@@ -91,7 +112,8 @@ public class Consultorio extends javax.swing.JPanel {
                             .addComponent(lasPay)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jButton1)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(error, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -115,7 +137,9 @@ public class Consultorio extends javax.swing.JPanel {
                     .addComponent(lasPay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
-                .addContainerGap(74, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(error, javax.swing.GroupLayout.DEFAULT_SIZE, 56, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -140,10 +164,31 @@ public class Consultorio extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_lasPayActionPerformed
 
+    private void errorMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_errorMouseEntered
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_errorMouseEntered
+
+    private void docMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_docMouseEntered
+        // TODO add your handling code here:
+        this.error.setText("Para asignar un doctor a una oficina vete a Consultorio / Asignar");
+    }//GEN-LAST:event_docMouseEntered
+
+    private void docMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_docMouseClicked
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_docMouseClicked
+
+    private void docMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_docMouseExited
+        // TODO add your handling code here:
+        this.error.setText("  ");
+    }//GEN-LAST:event_docMouseExited
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Id;
     private javax.swing.JTextField doc;
+    private javax.swing.JLabel error;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -165,22 +210,22 @@ public class Consultorio extends javax.swing.JPanel {
         try {
             newDO.setDoctorID(this.doc.getText());
         } catch (NotValidNumber ex) {
-            Logger.getLogger(Consultorio.class.getName()).log(Level.SEVERE, null, ex);
+            
         }
         try {
             newDO.setMonthlyRent(Float.valueOf(this.rent.getText()));
         } catch (NotValidNumber ex) {
-            Logger.getLogger(Consultorio.class.getName()).log(Level.SEVERE, null, ex);
+            
         }
         try {
             newDO.setId(Integer.valueOf(this.Id.getText()));
         } catch (NotValidNumber ex) {
-            Logger.getLogger(Consultorio.class.getName()).log(Level.SEVERE, null, ex);
+            
         }
         try {
             newDO.setLastPayment(Float.valueOf(this.lasPay.getText()));
         } catch (NotValidNumber ex) {
-            Logger.getLogger(Consultorio.class.getName()).log(Level.SEVERE, null, ex);
+            
         }
         
         return newDO;

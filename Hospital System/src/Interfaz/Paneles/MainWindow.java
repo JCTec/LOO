@@ -1011,6 +1011,12 @@ public class MainWindow extends javax.swing.JFrame {
     private void initSaveButtonsListeners() {
         //Crear Nuevo Hospital
         
+        this.asignarConsultorio1.getAssignButton().addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                asignarConsul();
+            }
+        });
+        
         this.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
             this.addWindowListener(new WindowAdapter() {
 
@@ -1037,6 +1043,7 @@ public class MainWindow extends javax.swing.JFrame {
                 }
 
             }
+            
         });
         this.createNewHospitalForm.getSaveButton().addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1062,7 +1069,10 @@ public class MainWindow extends javax.swing.JFrame {
         this.reportPatientPanel.getTable().getSelectionModel().addListSelectionListener(new ListSelectionListener() {
             public void valueChanged(ListSelectionEvent event) {
                 if (!event.getValueIsAdjusting()) {
+                    int selected = reportPatientPanel.getTable().getSelectedRow();
+                    if (selected != -1) {
                     modifyPatient(reportPatientPanel.getTable().getValueAt(reportPatientPanel.getTable().getSelectedRow(), 3).toString());
+                    }
                 }
 
             }
@@ -1071,7 +1081,10 @@ public class MainWindow extends javax.swing.JFrame {
         this.reportOfficesPanel.getTable().getSelectionModel().addListSelectionListener(new ListSelectionListener() {
             public void valueChanged(ListSelectionEvent event) {
                 if (!event.getValueIsAdjusting()) {
-                    modifyOffice(reportOfficesPanel.getTable().getValueAt(reportOfficesPanel.getTable().getSelectedRow(), 3).toString());
+                    int selected = reportOfficesPanel.getTable().getSelectedRow();
+                    if (selected != -1) {
+                    modifyOffice(reportOfficesPanel.getTable().getValueAt(reportOfficesPanel.getTable().getSelectedRow(), 0).toString());
+                    }
                 }
 
             }
@@ -1182,14 +1195,14 @@ public class MainWindow extends javax.swing.JFrame {
             doctor.getButton().addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
                     JOptionPane.showMessageDialog(null, "Oficina editada satisfactoriamente", "INFORMATION", JOptionPane.INFORMATION_MESSAGE);
+                    
                     DoctorsOffice p = doctor.getInfo();
                 
                     changeeed(p);
                     
                     f.setVisible(false);
                     f.dispose();
-                    
-                    
+    
                 }
             });
         }
@@ -1214,25 +1227,27 @@ public class MainWindow extends javax.swing.JFrame {
             try {
                 old.setDoctorID(newInfo.getDoctorID());
             } catch (NotValidNumber ex) {
-                Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+                
             }
             try {
                 old.setId(newInfo.getId());
             } catch (NotValidNumber ex) {
-                Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+                
             }
             try {
                 old.setMonthlyRent(newInfo.getMonthlyRent());
             } catch (NotValidNumber ex) {
-                Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+                
             }
             try {
                 old.setLastPayment(newInfo.getLastPayment());
             } catch (NotValidNumber ex) {
-                Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+                
             }
         
         }
+        
+
     }
 
     public void modifyDoctor(String ID) {
@@ -1578,6 +1593,17 @@ public class MainWindow extends javax.swing.JFrame {
             this.hospital.assignRoomToPatient(this.createNewRoom1.getPatientID(), this.createNewRoom1.getRoomID());
         }
         JOptionPane.showMessageDialog(null,"Habitación creada","OPERACION EXITOSA", JOptionPane.INFORMATION_MESSAGE);
+    }
+    
+    public void asignarConsul(){
+        
+        if(!this.asignarConsultorio1.getSelectedDoctor().equals("Ningúno")){
+            this.hospital.assignOfficeToDoctor(this.asignarConsultorio1.getSelectedDoctor(), this.asignarConsultorio1.getSelectedOffie());
+        }else{
+            this.hospital.assignOfficeToDoctorNOTDEFINED(this.asignarConsultorio1.getSelectedOffie());
+        }
+               
+        JOptionPane.showMessageDialog(null,"Officina Asignada","OPERACION EXITOSA", JOptionPane.INFORMATION_MESSAGE);
     }
 
 }
