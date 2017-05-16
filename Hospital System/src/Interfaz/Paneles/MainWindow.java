@@ -119,11 +119,13 @@ public class MainWindow extends javax.swing.JFrame {
         reportPatient = new javax.swing.JPanel();
         reportPatientPanel = new Interfaz.Paneles.ReportPatient();
         assignRoom = new javax.swing.JPanel();
-        createNewRoomPanel = new Interfaz.Paneles.CreateNewRoom();
+        createNewRoomPanel = new Interfaz.Paneles.AsignarHabitacion();
         reportRoom = new javax.swing.JPanel();
         reportRoomPanel = new Interfaz.Paneles.ReportRoom();
         assignDoctorOffice = new javax.swing.JPanel();
         asignarConsultorio1 = new Interfaz.Paneles.AsignarConsultorio();
+        newRoom = new javax.swing.JPanel();
+        createNewRoom1 = new Interfaz.Paneles.CreateNewRoom();
         menuBar = new javax.swing.JMenuBar();
         save = new javax.swing.JMenu();
         menuHospital = new javax.swing.JMenu();
@@ -490,6 +492,25 @@ public class MainWindow extends javax.swing.JFrame {
         );
 
         mainPanel.add(assignDoctorOffice, "assignDoctorOffice");
+
+        javax.swing.GroupLayout newRoomLayout = new javax.swing.GroupLayout(newRoom);
+        newRoom.setLayout(newRoomLayout);
+        newRoomLayout.setHorizontalGroup(
+            newRoomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(newRoomLayout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(createNewRoom1, javax.swing.GroupLayout.PREFERRED_SIZE, 816, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(99, Short.MAX_VALUE))
+        );
+        newRoomLayout.setVerticalGroup(
+            newRoomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(newRoomLayout.createSequentialGroup()
+                .addGap(45, 45, 45)
+                .addComponent(createNewRoom1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(338, Short.MAX_VALUE))
+        );
+
+        mainPanel.add(newRoom, "newRoom");
 
         save.setText("Guardar");
         save.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -867,6 +888,14 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void menuAddRoomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuAddRoomActionPerformed
         // TODO add your handling code here:
+        if (this.hospital != null) {
+            CardLayout card = (CardLayout) mainPanel.getLayout();
+            card.show(mainPanel, "newRoom");
+            this.createNewRoom1.setFields(this.hospital.getRooms().size()+1);
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Por favor, cree un hospital primero.", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_menuAddRoomActionPerformed
 
     /**
@@ -883,16 +912,24 @@ public class MainWindow extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MainWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainWindow.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MainWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainWindow.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MainWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainWindow.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MainWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainWindow.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -915,7 +952,8 @@ public class MainWindow extends javax.swing.JFrame {
     private Interfaz.Paneles.CreateNewDoctorsOffice createNewDoctorsOffice1;
     private Interfaz.Paneles.CreateNewHospital createNewHospitalForm;
     private Interfaz.Paneles.CreateNewPatient createNewPatient1;
-    private Interfaz.Paneles.CreateNewRoom createNewRoomPanel;
+    private Interfaz.Paneles.CreateNewRoom createNewRoom1;
+    private Interfaz.Paneles.AsignarHabitacion createNewRoomPanel;
     private Interfaz.Paneles.DeletePatientOld deletePatientOld1;
     private javax.swing.JPanel editDoctor;
     private Interfaz.Paneles.EditDoctor editDoctor1;
@@ -954,6 +992,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JPanel newHospital;
     private javax.swing.JPanel newOffice;
     private javax.swing.JPanel newPatient;
+    private javax.swing.JPanel newRoom;
     private javax.swing.JPanel removeDoctor;
     private Interfaz.Paneles.DeleteDoctor removeDoctorPanel;
     private javax.swing.JPanel removeOffice;
@@ -1078,6 +1117,19 @@ public class MainWindow extends javax.swing.JFrame {
         this.createNewRoomPanel.getAssignButton().addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 saveAssignRoom(evt);
+            }
+        });
+
+        //Crear nueva habitación
+        this.createNewRoom1.getCreateButton().addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                try {
+                    saveNewRoom(evt);
+
+                } catch (NotValidNumber ex) {
+                    Logger.getLogger(MainWindow.class
+                            .getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
 
@@ -1344,10 +1396,10 @@ public class MainWindow extends javax.swing.JFrame {
     public void saveNewPatientAction(java.awt.event.ActionEvent evt) {
         Patient p = this.createNewPatient1.getPatient();
         this.hospital.addPatient(p);
-        for(int i=0;i < this.createNewPatient1.getDoctorIDs().size();i++){
+        for (int i = 0; i < this.createNewPatient1.getDoctorIDs().size(); i++) {
             this.hospital.assignDoctorToPatient(this.createNewPatient1.getDoctorIDs().get(i), this.createNewPatient1.getNSS());
         }
-        
+
         JOptionPane.showMessageDialog(null, "Paciente creado satisfactoriamente", "INFORMATION", JOptionPane.INFORMATION_MESSAGE);
         this.createNewPatient1.clearFields();
     }
@@ -1363,37 +1415,49 @@ public class MainWindow extends javax.swing.JFrame {
         oldPatient.setEmail(newPatient.getEmail());
         try {
             oldPatient.setSecurityNumber(newPatient.getSecurityNumber());
+
         } catch (NotValidNumber ex) {
-            Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MainWindow.class
+                    .getName()).log(Level.SEVERE, null, ex);
         }
         try {
             oldPatient.setWeigth(newPatient.getWeigth());
+
         } catch (NotValidNumber ex) {
-            Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MainWindow.class
+                    .getName()).log(Level.SEVERE, null, ex);
         }
         try {
             oldPatient.setSize(newPatient.getSize());
+
         } catch (NotValidNumber ex) {
-            Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MainWindow.class
+                    .getName()).log(Level.SEVERE, null, ex);
         }
         oldPatient.setDisease(newPatient.getDisease());
         try {
             oldPatient.setRoomID(newPatient.getRoomID());
+
         } catch (NotValidNumber ex) {
-            Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MainWindow.class
+                    .getName()).log(Level.SEVERE, null, ex);
         }
         for (int i = 0; i < newPatient.getDoctorID().size(); i++) {
             try {
                 oldPatient.setDoctorID(newPatient.getDoctorID().get(i));
+
             } catch (NotValidNumber ex) {
-                Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(MainWindow.class
+                        .getName()).log(Level.SEVERE, null, ex);
             }
         }
         oldPatient.setStatus(newPatient.getStatus());
         try {
             this.hospital.getRooms().get(Integer.valueOf(this.hospital.findPatientBySecurityNumber(newPatient.getSecurityNumber()))).setPatientID(newPatient.getSecurityNumber());
+
         } catch (NotValidNumber ex) {
-            Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MainWindow.class
+                    .getName()).log(Level.SEVERE, null, ex);
         }
 
     }
@@ -1448,6 +1512,16 @@ public class MainWindow extends javax.swing.JFrame {
         String pat = this.createNewRoomPanel.getSelectedPatient();
         this.hospital.assignRoomToPatient(pat, rom);
         JOptionPane.showMessageDialog(null, "Asignación Satisfactoria", "INFORMATION", JOptionPane.INFORMATION_MESSAGE);
+    }
+
+    public void saveNewRoom(java.awt.event.ActionEvent evt) throws NotValidNumber {
+
+        if (this.createNewRoom1.getPatientID().isEmpty()) {
+            this.hospital.addRoom();
+        } else {
+            this.hospital.addRoom(this.createNewRoom1.getPatientID());
+            this.hospital.assignRoomToPatient(this.createNewRoom1.getPatientID(), this.createNewRoom1.getRoomID());
+        }
     }
 
 }
