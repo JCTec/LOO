@@ -1,6 +1,6 @@
 Software para el manejo de un Hospital.
 
-Proyecto fina materia Lenguaje Orientado a Objetos
+Proyecto final para la materia de Lenguaje Orientado a Objetos
 # Oscar Hemelaar
 # Juan Carlos Estévez Rodríguez
 # Alan Gabriel Paredes Cetina
