@@ -41,6 +41,8 @@ public class Person {
      */
     protected String email;
     
+    //String para guardar el email.
+    
     /**
      * Constructor Vacío define todos los atributos a NOT DEFINED o 0 en el caso de age.
      */
